@@ -7,6 +7,7 @@ import { TestProgressBar } from "@/components/TestProgressBar";
 import { Question, QuestionCard } from "@/components/QuestionCard";
 import { CEFRScore, CEFRLevel, ScoreSection } from "@/components/CEFRScore";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "@/components/ui/use-toast";
 
 // Professional IELTS-style questions aligned with CEFR levels
