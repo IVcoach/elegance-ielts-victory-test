@@ -24,7 +24,7 @@ export function WelcomeDialog() {
   }, []);
 
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/+447874135742", "_blank", "noopener,noreferrer");
+    window.open("https://wa.me/+31631267353", "_blank", "noopener,noreferrer");
     setOpen(false);
   };
 

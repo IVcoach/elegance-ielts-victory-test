@@ -1,13 +1,16 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { TelegramDialog } from "@/components/TelegramDialog";
+import { WelcomeDialog } from "@/components/WelcomeDialog";
 
 const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
+      <WelcomeDialog />
       
       {/* Hero Section */}
       <section className="hero-gradient pt-24 pb-16 px-4 md:pt-32 md:pb-24">
