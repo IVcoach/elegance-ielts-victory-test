@@ -9,7 +9,7 @@ import {
   DialogFooter
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { WhatsappIcon } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 
 export function WelcomeDialog() {
   const [open, setOpen] = useState(false);
@@ -53,7 +53,7 @@ export function WelcomeDialog() {
             className="w-full bg-green-500 hover:bg-green-600 gap-2"
           >
             <span>ارسال به واتساپ</span>
-            <WhatsappIcon className="h-5 w-5" />
+            <MessageSquare className="h-5 w-5" />
           </Button>
         </DialogFooter>
       </DialogContent>
