@@ -44,7 +44,7 @@ const Index = () => {
                   </div>
                   <div>
                     <p className="text-sm font-medium">Fast Results</p>
-                    <p className="text-xs text-gray-500">Receive your CEFR score instantly</p>
+                    <p className="text-xs text-gray-500">Receive your CEFR & IELTS score instantly</p>
                   </div>
                 </div>
               </div>
