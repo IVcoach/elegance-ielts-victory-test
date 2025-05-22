@@ -1,9 +1,6 @@
-
 import { Link } from "react-router-dom";
-
 export function Footer() {
-  return (
-    <footer className="bg-brand-navy text-white py-8">
+  return <footer className="bg-brand-navy text-white py-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
@@ -23,19 +20,13 @@ export function Footer() {
               <li>
                 <Link to="/" className="text-sm text-gray-300 hover:text-white transition-colors">Home</Link>
               </li>
-              <li>
-                <Link to="/about" className="text-sm text-gray-300 hover:text-white transition-colors">About</Link>
-              </li>
-              <li>
-                <Link to="/dashboard" className="text-sm text-gray-300 hover:text-white transition-colors">Dashboard</Link>
-              </li>
-              <li>
-                <Link to="/test" className="text-sm text-gray-300 hover:text-white transition-colors">Take Test</Link>
-              </li>
+              
+              
+              
               <li>
                 <a href="https://t.me/ieltsvc" className="text-sm text-gray-300 hover:text-white transition-colors flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10zm-2.47-11.5l5.27 2.63c.35.18.27.85-.12.94l-5.1 1.2c-.38.09-.78-.28-.6-.64l.55-4.13zm.86-2.95l6.69 2.7c.37.15.22.71-.19.65l-5.95-.58c-.32-.03-.4-.5-.09-.58l-.46-2.19z"/>
+                    <path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10zm-2.47-11.5l5.27 2.63c.35.18.27.85-.12.94l-5.1 1.2c-.38.09-.78-.28-.6-.64l.55-4.13zm.86-2.95l6.69 2.7c.37.15.22.71-.19.65l-5.95-.58c-.32-.03-.4-.5-.09-.58l-.46-2.19z" />
                   </svg>
                   Telegram Channel
                 </a>
@@ -69,19 +60,18 @@ export function Footer() {
               <a href="#" className="text-gray-300 hover:text-white transition-colors">
                 <span className="sr-only">LinkedIn</span>
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                 </svg>
               </a>
               <a href="https://t.me/ieltsvc" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">
                 <span className="sr-only">Telegram</span>
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10zm-2.47-11.5l5.27 2.63c.35.18.27.85-.12.94l-5.1 1.2c-.38.09-.78-.28-.6-.64l.55-4.13zm.86-2.95l6.69 2.7c.37.15.22.71-.19.65l-5.95-.58c-.32-.03-.4-.5-.09-.58l-.46-2.19z"/>
+                  <path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10zm-2.47-11.5l5.27 2.63c.35.18.27.85-.12.94l-5.1 1.2c-.38.09-.78-.28-.6-.64l.55-4.13zm.86-2.95l6.69 2.7c.37.15.22.71-.19.65l-5.95-.58c-.32-.03-.4-.5-.09-.58l-.46-2.19z" />
                 </svg>
               </a>
             </div>
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 }
