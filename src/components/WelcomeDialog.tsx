@@ -35,7 +35,7 @@ Evans & Sammy IELTS Victory Chief Mentors
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="mt-4">
-          <Button onClick={handleWhatsAppClick} className="w-full bg-green-500 hover:bg-green-600 gap-2">
+          <Button onClick={handleWhatsAppClick} className="w-full bg-green-500 hover:bg-green-600 gap-2 font-normal text-base">
             <span>ارسال به واتساپ</span>
             <MessageSquare className="h-5 w-5" />
           </Button>

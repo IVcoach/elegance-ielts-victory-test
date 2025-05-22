@@ -14,438 +14,419 @@ import { StudyQuestions } from "@/components/StudyQuestions";
 
 // Professional IELTS-style questions aligned with CEFR levels
 const sampleQuestions: Question[] = [
-  // Grammar & Vocabulary Questions
-  {
-    id: "q1",
-    type: "multiple-choice",
-    text: "Choose the correct form to complete this sentence: If the government _____ taxes, public services would improve.",
-    options: [{
-      id: "a",
-      text: "raises"
-    }, {
-      id: "b",
-      text: "would raise"
-    }, {
-      id: "c",
-      text: "raised"
-    }, {
-      id: "d",
-      text: "had raised"
-    }],
-    difficulty: "B2" // CEFR Level - IELTS 6.0-6.5
-  }, 
-  {
-    id: "q2",
-    type: "multiple-choice",
-    text: "Select the most appropriate academic synonym for 'significant':",
-    options: [{
-      id: "a",
-      text: "big"
-    }, {
-      id: "b",
-      text: "considerable"
-    }, {
-      id: "c",
-      text: "nice"
-    }, {
-      id: "d",
-      text: "certain"
-    }],
-    difficulty: "C1" // CEFR Level - IELTS 7.0-8.0
-  },
-  {
-    id: "q3",
-    type: "multiple-choice",
-    text: "The recent studies indicate a _____ in air pollution levels in urban areas.",
-    options: [{
-      id: "a",
-      text: "decrease"
-    }, {
-      id: "b",
-      text: "rise"
-    }, {
-      id: "c",
-      text: "decline"
-    }, {
-      id: "d",
-      text: "reduction"
-    }],
-    difficulty: "B1" // CEFR Level - IELTS 5.0-6.0
-  },
-  // Vocabulary Questions
-  {
-    id: "q4",
-    type: "multiple-choice",
-    text: "Which word collocates most naturally with 'conduct' in academic writing?",
-    options: [{
-      id: "a",
-      text: "a test"
-    }, {
-      id: "b",
-      text: "research"
-    }, {
-      id: "c",
-      text: "money"
-    }, {
-      id: "d",
-      text: "a car"
-    }],
-    difficulty: "B2" // CEFR Level - IELTS 6.0-6.5
-  },
-  {
-    id: "q5",
-    type: "multiple-choice",
-    text: "Choose the synonym for the word 'significant':",
-    options: [{
-      id: "a",
-      text: "Unimportant"
-    }, {
-      id: "b",
-      text: "Minor"
-    }, {
-      id: "c",
-      text: "Major"
-    }, {
-      id: "d",
-      text: "Insignificant"
-    }],
-    difficulty: "B1" // CEFR Level - IELTS 5.0-6.0
-  },
-  // Reading Comprehension Questions
-  {
-    id: "q6",
-    type: "reading",
-    text: "According to the passage, what is the main reason for the decline in bee populations?",
-    readingPassage: "The precipitous decline in global bee populations has alarmed scientists and policymakers alike, given the crucial ecological and economic roles these pollinators play. Research indicates that a combination of factors is responsible, including widespread pesticide use, habitat loss due to urban development and industrialized agriculture, climate change causing shifts in flowering seasons, and the spread of parasites and diseases. Among these various contributors, systematic studies have consistently identified neonicotinoid pesticides as having the most substantial deleterious impact on bee colonies. These chemicals, even at sub-lethal doses, disrupt bees' navigational abilities, impair learning and memory, reduce fertility, and compromise immune systems, making colonies more vulnerable to other stressors.",
-    options: [{
-      id: "a",
-      text: "Climate change"
-    }, {
-      id: "b",
-      text: "Neonicotinoid pesticides"
-    }, {
-      id: "c",
-      text: "Urban development"
-    }, {
-      id: "d",
-      text: "Parasites and diseases"
-    }],
-    difficulty: "C1" // CEFR Level - IELTS 7.0-8.0
-  },
-  {
-    id: "q7",
-    type: "reading",
-    text: "What can be inferred from the passage about renewable energy investment?",
-    readingPassage: "Global investment in renewable energy has experienced substantial growth over the past decade, reaching $282.2 billion in 2019. This figure, while impressive, still falls short of the estimated $500 billion annual investment needed by 2030 to achieve international climate targets. Interestingly, developing economies have begun to outpace developed nations in renewable energy spending, with China alone accounting for nearly a third of global investments. Financial analysts note that the declining costs of solar and wind technologies have improved return-on-investment prospects, attracting private capital that previously viewed the sector with skepticism. However, policy uncertainty in several major economies continues to impede the acceleration of investment to required levels.",
-    options: [{
-      id: "a",
-      text: "Current investment levels are sufficient to meet climate goals"
-    }, {
-      id: "b",
-      text: "Developed nations lead in renewable energy investment"
-    }, {
-      id: "c",
-      text: "Investment has increased but remains inadequate for climate targets"
-    }, {
-      id: "d",
-      text: "Financial returns on renewable energy are poor"
-    }],
-    difficulty: "C2" // CEFR Level - IELTS 8.5-9.0
-  },
-  // More varied questions
-  {
-    id: "q8",
-    type: "multiple-choice",
-    text: "Which of these expressions would be most appropriate in the introduction of a formal academic essay?",
-    options: [{
-      id: "a",
-      text: "This essay is gonna talk about globalization."
-    }, {
-      id: "b",
-      text: "I think globalization is interesting."
-    }, {
-      id: "c",
-      text: "This paper examines the multifaceted impacts of globalization."
-    }, {
-      id: "d",
-      text: "Globalization is really important nowadays."
-    }],
-    difficulty: "B2" // CEFR Level - IELTS 6.0-6.5
-  },
-  {
-    id: "q9",
-    type: "multiple-choice",
-    text: "Which sentence contains correct punctuation?",
-    options: [{
-      id: "a",
-      text: "The results which were unexpected, contradicted our hypothesis."
-    }, {
-      id: "b",
-      text: "The results, which were unexpected contradicted our hypothesis."
-    }, {
-      id: "c",
-      text: "The results, which were unexpected, contradicted our hypothesis."
-    }, {
-      id: "d",
-      text: "The results which were unexpected contradicted our hypothesis."
-    }],
-    difficulty: "B1" // CEFR Level - IELTS 5.0-6.0
-  },
-  {
-    id: "q10",
-    type: "multiple-choice",
-    text: "Which of these best exemplifies a coherent paragraph structure?",
-    options: [{
-      id: "a",
-      text: "Main idea, supporting detail, supporting detail, conclusion"
-    }, {
-      id: "b",
-      text: "Supporting detail, main idea, conclusion, supporting detail"
-    }, {
-      id: "c",
-      text: "Conclusion, supporting detail, supporting detail, main idea"
-    }, {
-      id: "d",
-      text: "Supporting detail, supporting detail, conclusion, main idea"
-    }],
-    difficulty: "B2" // CEFR Level - IELTS 6.0-6.5
-  },
-  {
-    id: "q11",
-    type: "reading",
-    text: "What is the author's primary argument regarding urban planning?",
-    readingPassage: "Contemporary approaches to urban planning must transcend mere aesthetic considerations and infrastructural functionality. The most successful urban environments integrate social equity, environmental sustainability, and economic vibrancy into their foundational design principles. Cities that have prioritized single-factor optimization—whether for traffic flow, commercial development, or architectural prominence—have frequently encountered unforeseen challenges in social cohesion and ecological resilience. Recent studies demonstrate that multi-dimensional planning methodologies, while initially more complex to implement, yield substantially more robust urban ecosystems capable of adapting to demographic shifts, climate pressures, and economic fluctuations. This holistic paradigm represents not merely a theoretical ideal but a practical necessity in an era of unprecedented urbanization and environmental uncertainty.",
-    options: [{
-      id: "a",
-      text: "Aesthetic considerations should be the primary factor in urban design"
-    }, {
-      id: "b",
-      text: "Single-factor optimization leads to more efficient urban development"
-    }, {
-      id: "c",
-      text: "Urban planning should integrate multiple dimensions including social, environmental, and economic factors"
-    }, {
-      id: "d",
-      text: "Traditional approaches to urban planning are sufficient for modern challenges"
-    }],
-    difficulty: "C2" // CEFR Level - IELTS 8.5-9.0
-  },
-  {
-    id: "q12",
-    type: "multiple-choice",
-    text: "Which of these transitional phrases would be most appropriate to introduce a contradictory point in an academic essay?",
-    options: [{
-      id: "a",
-      text: "Moreover"
-    }, {
-      id: "b",
-      text: "Nevertheless"
-    }, {
-      id: "c",
-      text: "For example"
-    }, {
-      id: "d",
-      text: "In conclusion"
-    }],
-    difficulty: "B1" // CEFR Level - IELTS 5.0-6.0
-  },
-  {
-    id: "q13",
-    type: "multiple-choice",
-    text: "Choose the best word to describe a person who always tells the truth:",
-    options: [{
-      id: "a",
-      text: "Deceptive"
-    }, {
-      id: "b",
-      text: "Honest"
-    }, {
-      id: "c",
-      text: "Dishonest"
-    }, {
-      id: "d",
-      text: "Secretive"
-    }],
-    difficulty: "A2" // CEFR Level - IELTS 4.0-4.5
-  },
-  {
-    id: "q14",
-    type: "multiple-choice",
-    text: "Which sentence demonstrates the correct use of subject-verb agreement?",
-    options: [{
-      id: "a",
-      text: "The collection of artifacts from the excavation site were displayed in the museum."
-    }, {
-      id: "b",
-      text: "The collection of artifacts from the excavation site was displayed in the museum."
-    }, {
-      id: "c",
-      text: "The collection of artifacts from the excavation site have been displayed in the museum."
-    }, {
-      id: "d",
-      text: "The collection of artifacts from the excavation site is being displayed in the museum since last year."
-    }],
-    difficulty: "B1" // CEFR Level - IELTS 5.0-6.0
-  },
-  {
-    id: "q15",
-    type: "reading",
-    text: "Based on the passage, what can be inferred about the relationship between diet and cognitive function?",
-    readingPassage: "Recent neurological research has illuminated complex connections between dietary patterns and cognitive function across the lifespan. Longitudinal studies tracking subjects over decades suggest that diets rich in omega-3 fatty acids, antioxidants, and anti-inflammatory compounds correlate with preserved cognitive abilities in later life. Particularly notable is the emergence of evidence indicating that dietary interventions may prove most effective when implemented during critical developmental periods or before the onset of cognitive decline, rather than as remedial measures. While the precise mechanisms remain under investigation, researchers have identified several pathways through which nutritional components influence neural processes, including modulation of neurotransmitter systems, regulation of inflammatory responses, and maintenance of vascular health in cerebral tissues.",
-    options: [{
-      id: "a",
-      text: "Dietary interventions are only effective as treatments after cognitive decline begins"
-    }, {
-      id: "b",
-      text: "The mechanisms connecting diet and brain function are completely understood"
-    }, {
-      id: "c",
-      text: "Preventive dietary measures may be more effective than remedial approaches"
-    }, {
-      id: "d",
-      text: "Only omega-3 fatty acids have been shown to affect cognitive function"
-    }],
-    difficulty: "C1" // CEFR Level - IELTS 7.0-8.0
-  },
-  {
-    id: "q16",
-    type: "multiple-choice",
-    text: "Which of these would be the most appropriate reporting verb to use when presenting controversial research findings in an academic paper?",
-    options: [{
-      id: "a",
-      text: "The researchers proved that..."
-    }, {
-      id: "b",
-      text: "The researchers suggest that..."
-    }, {
-      id: "c",
-      text: "The researchers think that..."
-    }, {
-      id: "d",
-      text: "The researchers feel that..."
-    }],
-    difficulty: "B2" // CEFR Level - IELTS 6.0-6.5
-  },
-  {
-    id: "q17",
-    type: "multiple-choice",
-    text: "In academic writing, which of these would be the most effective way to avoid plagiarism?",
-    options: [{
-      id: "a",
-      text: "Changing a few words in the original text"
-    }, {
-      id: "b",
-      text: "Using quotation marks but not citing the source"
-    }, {
-      id: "c",
-      text: "Properly paraphrasing and citing the original source"
-    }, {
-      id: "d",
-      text: "Only using sources that are not well-known"
-    }],
-    difficulty: "B2" // CEFR Level - IELTS 6.0-6.5
-  },
-  {
-    id: "q18",
-    type: "multiple-choice",
-    text: "Which of these is a common IELTS writing task 2 topic?",
-    options: [{
-      id: "a",
-      text: "Describe your daily routine"
-    }, {
-      id: "b",
-      text: "The effect of social media on communication"
-    }, {
-      id: "c",
-      text: "What is your favorite food"
-    }, {
-      id: "d",
-      text: "Travel experiences"
-    }],
-    difficulty: "B1" // CEFR Level - IELTS 5.0-6.0
-  },
-  {
-    id: "q19",
-    type: "multiple-choice",
-    text: "Which of the following represents the most balanced approach to presenting opposing viewpoints in an argumentative essay?",
-    options: [{
-      id: "a",
-      text: "Presenting only evidence that supports your position"
-    }, {
-      id: "b",
-      text: "Briefly mentioning opposing views but dismissing them as incorrect"
-    }, {
-      id: "c",
-      text: "Presenting opposing arguments fairly before explaining why your position is more compelling"
-    }, {
-      id: "d",
-      text: "Giving equal space to all viewpoints without taking a position"
-    }],
-    difficulty: "C1" // CEFR Level - IELTS 7.0-8.0
-  },
-  {
-    id: "q20",
-    type: "multiple-choice",
-    text: "Environmental issues are a common topic in IELTS. Which of the following questions best relates to this theme?",
-    options: [{
-      id: "a",
-      text: "What are the benefits of international travel?"
-    }, {
-      id: "b",
-      text: "How can governments reduce pollution?"
-    }, {
-      id: "c",
-      text: "Describe your favorite holiday destination"
-    }, {
-      id: "d",
-      text: "What kind of music do you like?"
-    }],
-    difficulty: "B1" // CEFR Level - IELTS 5.0-6.0
-  }
-];
-  
+// Grammar & Vocabulary Questions
+{
+  id: "q1",
+  type: "multiple-choice",
+  text: "Choose the correct form to complete this sentence: If the government _____ taxes, public services would improve.",
+  options: [{
+    id: "a",
+    text: "raises"
+  }, {
+    id: "b",
+    text: "would raise"
+  }, {
+    id: "c",
+    text: "raised"
+  }, {
+    id: "d",
+    text: "had raised"
+  }],
+  difficulty: "B2" // CEFR Level - IELTS 6.0-6.5
+}, {
+  id: "q2",
+  type: "multiple-choice",
+  text: "Select the most appropriate academic synonym for 'significant':",
+  options: [{
+    id: "a",
+    text: "big"
+  }, {
+    id: "b",
+    text: "considerable"
+  }, {
+    id: "c",
+    text: "nice"
+  }, {
+    id: "d",
+    text: "certain"
+  }],
+  difficulty: "C1" // CEFR Level - IELTS 7.0-8.0
+}, {
+  id: "q3",
+  type: "multiple-choice",
+  text: "The recent studies indicate a _____ in air pollution levels in urban areas.",
+  options: [{
+    id: "a",
+    text: "decrease"
+  }, {
+    id: "b",
+    text: "rise"
+  }, {
+    id: "c",
+    text: "decline"
+  }, {
+    id: "d",
+    text: "reduction"
+  }],
+  difficulty: "B1" // CEFR Level - IELTS 5.0-6.0
+},
+// Vocabulary Questions
+{
+  id: "q4",
+  type: "multiple-choice",
+  text: "Which word collocates most naturally with 'conduct' in academic writing?",
+  options: [{
+    id: "a",
+    text: "a test"
+  }, {
+    id: "b",
+    text: "research"
+  }, {
+    id: "c",
+    text: "money"
+  }, {
+    id: "d",
+    text: "a car"
+  }],
+  difficulty: "B2" // CEFR Level - IELTS 6.0-6.5
+}, {
+  id: "q5",
+  type: "multiple-choice",
+  text: "Choose the synonym for the word 'significant':",
+  options: [{
+    id: "a",
+    text: "Unimportant"
+  }, {
+    id: "b",
+    text: "Minor"
+  }, {
+    id: "c",
+    text: "Major"
+  }, {
+    id: "d",
+    text: "Insignificant"
+  }],
+  difficulty: "B1" // CEFR Level - IELTS 5.0-6.0
+},
+// Reading Comprehension Questions
+{
+  id: "q6",
+  type: "reading",
+  text: "According to the passage, what is the main reason for the decline in bee populations?",
+  readingPassage: "The precipitous decline in global bee populations has alarmed scientists and policymakers alike, given the crucial ecological and economic roles these pollinators play. Research indicates that a combination of factors is responsible, including widespread pesticide use, habitat loss due to urban development and industrialized agriculture, climate change causing shifts in flowering seasons, and the spread of parasites and diseases. Among these various contributors, systematic studies have consistently identified neonicotinoid pesticides as having the most substantial deleterious impact on bee colonies. These chemicals, even at sub-lethal doses, disrupt bees' navigational abilities, impair learning and memory, reduce fertility, and compromise immune systems, making colonies more vulnerable to other stressors.",
+  options: [{
+    id: "a",
+    text: "Climate change"
+  }, {
+    id: "b",
+    text: "Neonicotinoid pesticides"
+  }, {
+    id: "c",
+    text: "Urban development"
+  }, {
+    id: "d",
+    text: "Parasites and diseases"
+  }],
+  difficulty: "C1" // CEFR Level - IELTS 7.0-8.0
+}, {
+  id: "q7",
+  type: "reading",
+  text: "What can be inferred from the passage about renewable energy investment?",
+  readingPassage: "Global investment in renewable energy has experienced substantial growth over the past decade, reaching $282.2 billion in 2019. This figure, while impressive, still falls short of the estimated $500 billion annual investment needed by 2030 to achieve international climate targets. Interestingly, developing economies have begun to outpace developed nations in renewable energy spending, with China alone accounting for nearly a third of global investments. Financial analysts note that the declining costs of solar and wind technologies have improved return-on-investment prospects, attracting private capital that previously viewed the sector with skepticism. However, policy uncertainty in several major economies continues to impede the acceleration of investment to required levels.",
+  options: [{
+    id: "a",
+    text: "Current investment levels are sufficient to meet climate goals"
+  }, {
+    id: "b",
+    text: "Developed nations lead in renewable energy investment"
+  }, {
+    id: "c",
+    text: "Investment has increased but remains inadequate for climate targets"
+  }, {
+    id: "d",
+    text: "Financial returns on renewable energy are poor"
+  }],
+  difficulty: "C2" // CEFR Level - IELTS 8.5-9.0
+},
+// More varied questions
+{
+  id: "q8",
+  type: "multiple-choice",
+  text: "Which of these expressions would be most appropriate in the introduction of a formal academic essay?",
+  options: [{
+    id: "a",
+    text: "This essay is gonna talk about globalization."
+  }, {
+    id: "b",
+    text: "I think globalization is interesting."
+  }, {
+    id: "c",
+    text: "This paper examines the multifaceted impacts of globalization."
+  }, {
+    id: "d",
+    text: "Globalization is really important nowadays."
+  }],
+  difficulty: "B2" // CEFR Level - IELTS 6.0-6.5
+}, {
+  id: "q9",
+  type: "multiple-choice",
+  text: "Which sentence contains correct punctuation?",
+  options: [{
+    id: "a",
+    text: "The results which were unexpected, contradicted our hypothesis."
+  }, {
+    id: "b",
+    text: "The results, which were unexpected contradicted our hypothesis."
+  }, {
+    id: "c",
+    text: "The results, which were unexpected, contradicted our hypothesis."
+  }, {
+    id: "d",
+    text: "The results which were unexpected contradicted our hypothesis."
+  }],
+  difficulty: "B1" // CEFR Level - IELTS 5.0-6.0
+}, {
+  id: "q10",
+  type: "multiple-choice",
+  text: "Which of these best exemplifies a coherent paragraph structure?",
+  options: [{
+    id: "a",
+    text: "Main idea, supporting detail, supporting detail, conclusion"
+  }, {
+    id: "b",
+    text: "Supporting detail, main idea, conclusion, supporting detail"
+  }, {
+    id: "c",
+    text: "Conclusion, supporting detail, supporting detail, main idea"
+  }, {
+    id: "d",
+    text: "Supporting detail, supporting detail, conclusion, main idea"
+  }],
+  difficulty: "B2" // CEFR Level - IELTS 6.0-6.5
+}, {
+  id: "q11",
+  type: "reading",
+  text: "What is the author's primary argument regarding urban planning?",
+  readingPassage: "Contemporary approaches to urban planning must transcend mere aesthetic considerations and infrastructural functionality. The most successful urban environments integrate social equity, environmental sustainability, and economic vibrancy into their foundational design principles. Cities that have prioritized single-factor optimization—whether for traffic flow, commercial development, or architectural prominence—have frequently encountered unforeseen challenges in social cohesion and ecological resilience. Recent studies demonstrate that multi-dimensional planning methodologies, while initially more complex to implement, yield substantially more robust urban ecosystems capable of adapting to demographic shifts, climate pressures, and economic fluctuations. This holistic paradigm represents not merely a theoretical ideal but a practical necessity in an era of unprecedented urbanization and environmental uncertainty.",
+  options: [{
+    id: "a",
+    text: "Aesthetic considerations should be the primary factor in urban design"
+  }, {
+    id: "b",
+    text: "Single-factor optimization leads to more efficient urban development"
+  }, {
+    id: "c",
+    text: "Urban planning should integrate multiple dimensions including social, environmental, and economic factors"
+  }, {
+    id: "d",
+    text: "Traditional approaches to urban planning are sufficient for modern challenges"
+  }],
+  difficulty: "C2" // CEFR Level - IELTS 8.5-9.0
+}, {
+  id: "q12",
+  type: "multiple-choice",
+  text: "Which of these transitional phrases would be most appropriate to introduce a contradictory point in an academic essay?",
+  options: [{
+    id: "a",
+    text: "Moreover"
+  }, {
+    id: "b",
+    text: "Nevertheless"
+  }, {
+    id: "c",
+    text: "For example"
+  }, {
+    id: "d",
+    text: "In conclusion"
+  }],
+  difficulty: "B1" // CEFR Level - IELTS 5.0-6.0
+}, {
+  id: "q13",
+  type: "multiple-choice",
+  text: "Choose the best word to describe a person who always tells the truth:",
+  options: [{
+    id: "a",
+    text: "Deceptive"
+  }, {
+    id: "b",
+    text: "Honest"
+  }, {
+    id: "c",
+    text: "Dishonest"
+  }, {
+    id: "d",
+    text: "Secretive"
+  }],
+  difficulty: "A2" // CEFR Level - IELTS 4.0-4.5
+}, {
+  id: "q14",
+  type: "multiple-choice",
+  text: "Which sentence demonstrates the correct use of subject-verb agreement?",
+  options: [{
+    id: "a",
+    text: "The collection of artifacts from the excavation site were displayed in the museum."
+  }, {
+    id: "b",
+    text: "The collection of artifacts from the excavation site was displayed in the museum."
+  }, {
+    id: "c",
+    text: "The collection of artifacts from the excavation site have been displayed in the museum."
+  }, {
+    id: "d",
+    text: "The collection of artifacts from the excavation site is being displayed in the museum since last year."
+  }],
+  difficulty: "B1" // CEFR Level - IELTS 5.0-6.0
+}, {
+  id: "q15",
+  type: "reading",
+  text: "Based on the passage, what can be inferred about the relationship between diet and cognitive function?",
+  readingPassage: "Recent neurological research has illuminated complex connections between dietary patterns and cognitive function across the lifespan. Longitudinal studies tracking subjects over decades suggest that diets rich in omega-3 fatty acids, antioxidants, and anti-inflammatory compounds correlate with preserved cognitive abilities in later life. Particularly notable is the emergence of evidence indicating that dietary interventions may prove most effective when implemented during critical developmental periods or before the onset of cognitive decline, rather than as remedial measures. While the precise mechanisms remain under investigation, researchers have identified several pathways through which nutritional components influence neural processes, including modulation of neurotransmitter systems, regulation of inflammatory responses, and maintenance of vascular health in cerebral tissues.",
+  options: [{
+    id: "a",
+    text: "Dietary interventions are only effective as treatments after cognitive decline begins"
+  }, {
+    id: "b",
+    text: "The mechanisms connecting diet and brain function are completely understood"
+  }, {
+    id: "c",
+    text: "Preventive dietary measures may be more effective than remedial approaches"
+  }, {
+    id: "d",
+    text: "Only omega-3 fatty acids have been shown to affect cognitive function"
+  }],
+  difficulty: "C1" // CEFR Level - IELTS 7.0-8.0
+}, {
+  id: "q16",
+  type: "multiple-choice",
+  text: "Which of these would be the most appropriate reporting verb to use when presenting controversial research findings in an academic paper?",
+  options: [{
+    id: "a",
+    text: "The researchers proved that..."
+  }, {
+    id: "b",
+    text: "The researchers suggest that..."
+  }, {
+    id: "c",
+    text: "The researchers think that..."
+  }, {
+    id: "d",
+    text: "The researchers feel that..."
+  }],
+  difficulty: "B2" // CEFR Level - IELTS 6.0-6.5
+}, {
+  id: "q17",
+  type: "multiple-choice",
+  text: "In academic writing, which of these would be the most effective way to avoid plagiarism?",
+  options: [{
+    id: "a",
+    text: "Changing a few words in the original text"
+  }, {
+    id: "b",
+    text: "Using quotation marks but not citing the source"
+  }, {
+    id: "c",
+    text: "Properly paraphrasing and citing the original source"
+  }, {
+    id: "d",
+    text: "Only using sources that are not well-known"
+  }],
+  difficulty: "B2" // CEFR Level - IELTS 6.0-6.5
+}, {
+  id: "q18",
+  type: "multiple-choice",
+  text: "Which of these is a common IELTS writing task 2 topic?",
+  options: [{
+    id: "a",
+    text: "Describe your daily routine"
+  }, {
+    id: "b",
+    text: "The effect of social media on communication"
+  }, {
+    id: "c",
+    text: "What is your favorite food"
+  }, {
+    id: "d",
+    text: "Travel experiences"
+  }],
+  difficulty: "B1" // CEFR Level - IELTS 5.0-6.0
+}, {
+  id: "q19",
+  type: "multiple-choice",
+  text: "Which of the following represents the most balanced approach to presenting opposing viewpoints in an argumentative essay?",
+  options: [{
+    id: "a",
+    text: "Presenting only evidence that supports your position"
+  }, {
+    id: "b",
+    text: "Briefly mentioning opposing views but dismissing them as incorrect"
+  }, {
+    id: "c",
+    text: "Presenting opposing arguments fairly before explaining why your position is more compelling"
+  }, {
+    id: "d",
+    text: "Giving equal space to all viewpoints without taking a position"
+  }],
+  difficulty: "C1" // CEFR Level - IELTS 7.0-8.0
+}, {
+  id: "q20",
+  type: "multiple-choice",
+  text: "Environmental issues are a common topic in IELTS. Which of the following questions best relates to this theme?",
+  options: [{
+    id: "a",
+    text: "What are the benefits of international travel?"
+  }, {
+    id: "b",
+    text: "How can governments reduce pollution?"
+  }, {
+    id: "c",
+    text: "Describe your favorite holiday destination"
+  }, {
+    id: "d",
+    text: "What kind of music do you like?"
+  }],
+  difficulty: "B1" // CEFR Level - IELTS 5.0-6.0
+}];
+
 // IELTS band descriptions aligned with CEFR levels
 interface IELTSBandDescription {
   band: string;
   description: string;
   cefrLevel: CEFRLevel;
 }
-const ieltsDescriptions: IELTSBandDescription[] = [
-  {
-    band: "9",
-    description: "Expert User: complete operational command of English with perfect accuracy, appropriateness, fluency and complete understanding",
-    cefrLevel: "C2"
-  }, {
-    band: "8-8.5",
-    description: "Very Good to Expert User: fully operational command with only occasional inaccuracies; handles complex detailed argumentation well",
-    cefrLevel: "C2"
-  }, {
-    band: "7-7.5",
-    description: "Good User: operational command of English, though with occasional inaccuracies and misunderstandings in some situations",
-    cefrLevel: "C1"
-  }, {
-    band: "6-6.5",
-    description: "Competent User: generally effective command of English despite some inaccuracies and misunderstandings",
-    cefrLevel: "B2"
-  }, {
-    band: "5-5.5",
-    description: "Modest User: partial command of English, coping with overall meaning in most situations, though likely to make many mistakes",
-    cefrLevel: "B1"
-  }, {
-    band: "4-4.5",
-    description: "Limited User: basic competence limited to familiar situations with frequent problems in understanding and expression",
-    cefrLevel: "A2"
-  }, {
-    band: "3-3.5",
-    description: "Extremely Limited User: conveys and understands only general meaning in very familiar situations",
-    cefrLevel: "A1"
-  }, {
-    band: "1-2.5",
-    description: "Non to Intermittent User: essentially has no ability to use the language beyond possibly a few isolated words",
-    cefrLevel: "A0"
-  }
-];
-  
+const ieltsDescriptions: IELTSBandDescription[] = [{
+  band: "9",
+  description: "Expert User: complete operational command of English with perfect accuracy, appropriateness, fluency and complete understanding",
+  cefrLevel: "C2"
+}, {
+  band: "8-8.5",
+  description: "Very Good to Expert User: fully operational command with only occasional inaccuracies; handles complex detailed argumentation well",
+  cefrLevel: "C2"
+}, {
+  band: "7-7.5",
+  description: "Good User: operational command of English, though with occasional inaccuracies and misunderstandings in some situations",
+  cefrLevel: "C1"
+}, {
+  band: "6-6.5",
+  description: "Competent User: generally effective command of English despite some inaccuracies and misunderstandings",
+  cefrLevel: "B2"
+}, {
+  band: "5-5.5",
+  description: "Modest User: partial command of English, coping with overall meaning in most situations, though likely to make many mistakes",
+  cefrLevel: "B1"
+}, {
+  band: "4-4.5",
+  description: "Limited User: basic competence limited to familiar situations with frequent problems in understanding and expression",
+  cefrLevel: "A2"
+}, {
+  band: "3-3.5",
+  description: "Extremely Limited User: conveys and understands only general meaning in very familiar situations",
+  cefrLevel: "A1"
+}, {
+  band: "1-2.5",
+  description: "Non to Intermittent User: essentially has no ability to use the language beyond possibly a few isolated words",
+  cefrLevel: "A0"
+}];
+
 // Calculate CEFR level and IELTS band based on test score
 const calculateResults = (correctAnswers: number, totalQuestions: number) => {
   const score = correctAnswers / totalQuestions * 100;
@@ -482,44 +463,29 @@ const calculateResults = (correctAnswers: number, totalQuestions: number) => {
     overallScore: Math.round(score)
   };
 };
-  
+
 // IELTS imagery with enhanced visual design
 const IeltsImagery = () => {
   return <div className="flex items-center justify-center -mb-6 relative z-20">
       <div className="grid grid-cols-3 gap-5 max-w-xl">
         {/* IELTS Certificate Image */}
         <div className="relative overflow-hidden rounded-lg shadow-lg border-2 border-purple-500/80 transform -rotate-6 hover:scale-105 transition-all">
-          <div className="bg-gradient-to-r from-purple-700 to-purple-400 h-24 w-full flex items-center justify-center p-2">
-            <div className="bg-white/90 rounded p-2 w-full text-center">
-              <h4 className="text-purple-800 font-bold text-sm">IELTS</h4>
-              <p className="text-purple-600 text-xs">Band 8.0</p>
-            </div>
-          </div>
+          
         </div>
         
         {/* IELTS Test Book */}
         <div className="relative overflow-hidden rounded-lg shadow-lg border-2 border-purple-500/80 transform rotate-3 scale-110 z-10 hover:scale-125 transition-all">
-          <div className="bg-gradient-to-r from-blue-100 to-indigo-100 h-28 w-full flex flex-col items-center justify-center p-2">
-            <div className="text-center">
-              <p className="text-purple-600 text-xs">Assessment</p>
-            </div>
-          </div>
+          
         </div>
         
         {/* IELTS Score Report */}
         <div className="relative overflow-hidden rounded-lg shadow-lg border-2 border-purple-500/80 transform rotate-6 hover:scale-105 transition-all">
-          <div className="bg-gradient-to-r from-indigo-100 to-purple-200 h-24 w-full flex items-center justify-center p-2">
-            <div className="flex flex-col items-center">
-              <div className="text-center mt-1">
-                <p className="text-purple-600 text-xs">Score Report</p>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>;
 };
-  
+
 // Service Icons Component
 const ServiceIcons = () => {
   const services = [{
@@ -536,18 +502,16 @@ const ServiceIcons = () => {
     description: "One-on-one mentoring sessions"
   }];
   return <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
-      {services.map((service, index) => (
-        <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+      {services.map((service, index) => <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100">
           <div className="flex items-center justify-center mb-4 text-purple-600">
             {service.icon}
           </div>
           <h3 className="text-lg font-semibold text-brand-navy text-center mb-2">{service.title}</h3>
           <p className="text-center text-gray-600">{service.description}</p>
-        </div>
-      ))}
+        </div>)}
     </div>;
 };
-  
+
 // Quiz Intro Component
 const QuizIntro = ({
   onStartTest
@@ -583,10 +547,7 @@ const QuizIntro = ({
         </div>
         
         <div className="mt-6">
-          <Button 
-            className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-6 h-auto text-lg" 
-            onClick={onStartTest}
-          >
+          <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-6 h-auto text-lg" onClick={onStartTest}>
             Start Your Assessment Now
           </Button>
         </div>
@@ -607,7 +568,7 @@ const QuizIntro = ({
       </div>
     </div>;
 };
-  
+
 // Facts Box Component
 const IeltsFactsBox = () => {
   return <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100 my-8">
@@ -632,7 +593,6 @@ const IeltsFactsBox = () => {
       </div>
     </div>;
 };
-  
 const Test = () => {
   const navigate = useNavigate();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -644,12 +604,12 @@ const Test = () => {
   const [overallScore, setOverallScore] = useState(0);
   const [sectionScores, setSectionScores] = useState<ScoreSection[]>([]);
   const [showQuestions, setShowQuestions] = useState(false);
-  
+
   // Handle user starting the test
   const startTest = () => {
     setTestStarted(true);
   };
-  
+
   // Handle user's answer
   const handleAnswer = (answerId: string) => {
     const newAnswers = [...answers, answerId];
@@ -669,7 +629,7 @@ const Test = () => {
       ieltsBand: band,
       overallScore: score
     } = calculateResults(correctAnswersCount, sampleQuestions.length);
-  
+
     // Calculate mock section scores
     const mockSectionScores: ScoreSection[] = [{
       name: "Grammar",
@@ -719,14 +679,13 @@ const Test = () => {
     setOverallScore(0);
     setSectionScores([]);
   };
-  
   const toggleQuestions = () => {
     setShowQuestions(!showQuestions);
   };
-  
+
   // Find the description for the current IELTS band
   const bandDescription = ieltsBand ? ieltsDescriptions.find(desc => desc.band === ieltsBand)?.description : "";
-  
+
   // Determine which content to show based on test state
   let content;
   if (showQuestions) {
@@ -744,18 +703,9 @@ const Test = () => {
           </p>
         </div>
         
-        <TestProgressBar 
-          currentQuestion={currentQuestionIndex + 1} 
-          totalQuestions={sampleQuestions.length} 
-          className="mb-8"
-          variant="fancy" 
-        />
+        <TestProgressBar currentQuestion={currentQuestionIndex + 1} totalQuestions={sampleQuestions.length} className="mb-8" variant="fancy" />
         
-        <QuestionCard 
-          question={sampleQuestions[currentQuestionIndex]} 
-          onAnswer={handleAnswer} 
-          isLast={currentQuestionIndex === sampleQuestions.length - 1} 
-        />
+        <QuestionCard question={sampleQuestions[currentQuestionIndex]} onAnswer={handleAnswer} isLast={currentQuestionIndex === sampleQuestions.length - 1} />
       </div>;
   } else {
     content = <div className="space-y-8">
@@ -852,11 +802,7 @@ const Test = () => {
       <main className="flex-grow py-24 px-4 bg-gradient-to-br from-white via-gray-50 to-purple-50">
         <div className="container mx-auto max-w-4xl">
           <div className="flex justify-end mb-4">
-            <Button 
-              onClick={toggleQuestions}
-              variant="outline" 
-              className="border-purple-500 text-purple-700 hover:bg-purple-50"
-            >
+            <Button onClick={toggleQuestions} variant="outline" className="border-purple-500 text-purple-700 hover:bg-purple-50">
               {showQuestions ? "Take Placement Test" : "Practice Speaking & Writing"}
             </Button>
           </div>
@@ -867,5 +813,4 @@ const Test = () => {
       <Footer />
     </div>;
 };
-  
 export default Test;
