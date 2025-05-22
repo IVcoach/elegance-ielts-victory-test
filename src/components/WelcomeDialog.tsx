@@ -1,0 +1,62 @@
+
+import { useState, useEffect } from "react";
+import { 
+  Dialog, 
+  DialogContent, 
+  DialogHeader, 
+  DialogTitle, 
+  DialogDescription,
+  DialogFooter
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { WhatsappIcon } from "lucide-react";
+
+export function WelcomeDialog() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    // Show dialog after a short delay when component mounts
+    const timer = setTimeout(() => {
+      setOpen(true);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleWhatsAppClick = () => {
+    window.open("https://wa.me/+447874135742", "_blank", "noopener,noreferrer");
+    setOpen(false);
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogContent className="max-w-md">
+        <DialogHeader>
+          <DialogTitle className="text-center text-brand-navy font-bold text-xl">
+            ایوانس و سامی، بهترین ارزیابی‌ها و مشاوره رایگان در آزمون IELTS!
+          </DialogTitle>
+          <DialogDescription className="text-right mt-4 space-y-3 text-base">
+            <p>
+              می‌خوای نمره IELTS رو سریع و رایگان بسنجی؟
+            </p>
+            <p>
+              فقط چند ثانیه، چند کلمه یا جمله کوتاه بفرست، و در کمتر از ۲۴ ساعت جواب بگیر!
+            </p>
+            <p>
+              روی دکمه واتساپ کلیک کن، سوالاتت رو بپرس، صحبت و نوشتار خودت رو بفرست، و راهکارهای تخصصی‌مون رو دریافت کن.
+            </p>
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter className="mt-4">
+          <Button 
+            onClick={handleWhatsAppClick} 
+            className="w-full bg-green-500 hover:bg-green-600 gap-2"
+          >
+            <span>ارسال به واتساپ</span>
+            <WhatsappIcon className="h-5 w-5" />
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}
