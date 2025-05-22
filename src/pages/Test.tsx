@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
@@ -9,6 +8,7 @@ import { CEFRScore, CEFRLevel, ScoreSection } from "@/components/CEFRScore";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "@/components/ui/use-toast";
+import { Book, Award, Star } from "lucide-react";
 
 // Professional IELTS-style questions aligned with CEFR levels
 const sampleQuestions: Question[] = [
@@ -325,15 +325,170 @@ const calculateResults = (correctAnswers: number, totalQuestions: number) => {
   return { cefrLevel, ieltsBand, overallScore: Math.round(score) };
 };
 
+// IELTS imagery with enhanced visual design
+const IeltsImagery = () => {
+  return (
+    <div className="flex items-center justify-center -mb-6 relative z-20">
+      <div className="grid grid-cols-3 gap-5 max-w-xl">
+        {/* IELTS Certificate Image */}
+        <div className="relative overflow-hidden rounded-lg shadow-lg border-2 border-brand-blue/80 transform -rotate-6 hover:scale-105 transition-all">
+          <div className="bg-gradient-to-r from-brand-navy to-brand-blue h-24 w-full flex items-center justify-center p-2">
+            <div className="bg-white/90 rounded p-2 w-full text-center">
+              <h4 className="text-brand-navy font-bold text-sm">IELTS</h4>
+              <p className="text-brand-blue text-xs">Band 8.0</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* IELTS Test Book */}
+        <div className="relative overflow-hidden rounded-lg shadow-lg border-2 border-brand-blue/80 transform rotate-3 scale-110 z-10 hover:scale-125 transition-all">
+          <div className="bg-gradient-to-r from-blue-100 to-indigo-100 h-28 w-full flex flex-col items-center justify-center p-2">
+            <div className="text-center">
+              <p className="text-brand-navy text-xs">Assessment</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* IELTS Score Report */}
+        <div className="relative overflow-hidden rounded-lg shadow-lg border-2 border-brand-blue/80 transform rotate-6 hover:scale-105 transition-all">
+          <div className="bg-gradient-to-r from-indigo-100 to-blue-200 h-24 w-full flex items-center justify-center p-2">
+            <div className="flex flex-col items-center">
+              <div className="text-center mt-1">
+                <p className="text-brand-navy text-xs">Score Report</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Service Icons Component
+const ServiceIcons = () => {
+  const services = [
+    { icon: <Book className="h-8 w-8" />, title: "IELTS Materials", description: "Access top-quality study resources" },
+    { icon: <Award className="h-8 w-8" />, title: "Professional Assessment", description: "Get evaluated by certified examiners" },
+    { icon: <Star className="h-8 w-8" />, title: "Personalized Guidance", description: "One-on-one mentoring sessions" }
+  ];
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
+      {services.map((service, index) => (
+        <div key={index} className="p-6 bg-white rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+          <div className="flex flex-col items-center text-center space-y-2">
+            <div className="p-3 bg-brand-navy/10 rounded-full text-brand-navy">
+              {service.icon}
+            </div>
+            <h3 className="font-medium text-lg">{service.title}</h3>
+            <p className="text-sm text-gray-600">{service.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+// Quiz Intro Component
+const QuizIntro = ({ onStartTest }: { onStartTest: () => void }) => {
+  return (
+    <div className="max-w-4xl mx-auto text-center">
+      <IeltsImagery />
+      
+      <h1 className="text-3xl font-playfair font-bold text-brand-navy mb-6">
+        Discover Your English Proficiency Level
+      </h1>
+      
+      <div className="mb-8 p-6 bg-white rounded-lg shadow-md">
+        <p className="text-lg mb-4">
+          Take our professional IELTS placement test to find out your current English level according to
+          the Common European Framework of Reference (CEFR) and get an estimated IELTS band score.
+        </p>
+        
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          <div className="p-3 bg-brand-cream rounded-lg">
+            <p className="text-sm font-medium">20 Questions</p>
+          </div>
+          <div className="p-3 bg-brand-cream rounded-lg">
+            <p className="text-sm font-medium">15-20 Minutes</p>
+          </div>
+          <div className="p-3 bg-brand-cream rounded-lg">
+            <p className="text-sm font-medium">Instant Results</p>
+          </div>
+          <div className="p-3 bg-brand-cream rounded-lg">
+            <p className="text-sm font-medium">CEFR Aligned</p>
+          </div>
+        </div>
+        
+        <div className="mt-6">
+          <Button 
+            className="bg-brand-gold hover:bg-opacity-90 text-white px-6 py-6 h-auto text-lg"
+            onClick={onStartTest}
+          >
+            Start Your Assessment Now
+          </Button>
+        </div>
+      </div>
+      
+      <ServiceIcons />
+      
+      <div className="p-5 bg-gradient-to-r from-blue-500/20 via-brand-blue/40 to-indigo-400/30 rounded-lg mt-8 shadow-lg border border-white/40">
+        <p className="font-bold text-brand-navy text-xl">
+          <span className="bg-gradient-to-r from-brand-navy to-brand-blue text-transparent bg-clip-text">
+            Free assessment, consultation, and materials 
+          </span>
+          <br />
+          <span className="text-lg mt-1 inline-block">
+            for learners taking online classes
+          </span>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+// Facts Box Component
+const IeltsFactsBox = () => {
+  return (
+    <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100 my-8">
+      <h3 className="text-xl font-medium text-brand-navy mb-4">IELTS Quick Facts</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex items-start">
+          <div className="mr-3 text-brand-blue">•</div>
+          <p className="text-sm">IELTS is accepted by over 11,000 organizations in 140 countries</p>
+        </div>
+        <div className="flex items-start">
+          <div className="mr-3 text-brand-blue">•</div>
+          <p className="text-sm">More than 3.5 million tests are taken each year</p>
+        </div>
+        <div className="flex items-start">
+          <div className="mr-3 text-brand-blue">•</div>
+          <p className="text-sm">Tests all four language skills: listening, reading, writing and speaking</p>
+        </div>
+        <div className="flex items-start">
+          <div className="mr-3 text-brand-blue">•</div>
+          <p className="text-sm">Available in Academic and General Training formats</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Test = () => {
   const navigate = useNavigate();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [testCompleted, setTestCompleted] = useState(false);
+  const [testStarted, setTestStarted] = useState(false);
   const [cefrLevel, setCefrLevel] = useState<CEFRLevel | null>(null);
   const [ieltsBand, setIeltsBand] = useState<string | null>(null);
   const [overallScore, setOverallScore] = useState(0);
   const [sectionScores, setSectionScores] = useState<ScoreSection[]>([]);
+  
+  // Handle user starting the test
+  const startTest = () => {
+    setTestStarted(true);
+  };
   
   // Handle user's answer
   const handleAnswer = (answerId: string) => {
@@ -395,6 +550,7 @@ const Test = () => {
     setCurrentQuestionIndex(0);
     setAnswers([]);
     setTestCompleted(false);
+    setTestStarted(false);
     setCefrLevel(null);
     setIeltsBand(null);
     setOverallScore(0);
@@ -404,152 +560,165 @@ const Test = () => {
   // Find the description for the current IELTS band
   const bandDescription = ieltsBand ? ieltsDescriptions.find(desc => desc.band === ieltsBand)?.description : "";
   
+  // Determine which content to show based on test state
+  let content;
+  
+  if (!testStarted) {
+    content = <QuizIntro onStartTest={startTest} />;
+  } else if (!testCompleted) {
+    content = (
+      <div className="space-y-8">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-playfair font-bold text-brand-navy mb-2">
+            IELTS Placement Test
+          </h1>
+          <p className="text-gray-600">
+            Answer the questions below to determine your current English level and IELTS band score.
+          </p>
+        </div>
+        
+        <TestProgressBar 
+          currentQuestion={currentQuestionIndex + 1}
+          totalQuestions={sampleQuestions.length}
+          className="mb-8"
+        />
+        
+        <QuestionCard
+          question={sampleQuestions[currentQuestionIndex]}
+          onAnswer={handleAnswer}
+          isLast={currentQuestionIndex === sampleQuestions.length - 1}
+        />
+      </div>
+    );
+  } else {
+    content = (
+      <div className="space-y-8">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-playfair font-bold text-brand-navy mb-2">
+            Your IELTS Results
+          </h1>
+          <p className="text-gray-600">
+            Based on your test performance, we've assessed your English proficiency.
+          </p>
+        </div>
+        
+        {cefrLevel && (
+          <div className="space-y-6">
+            <Card className="w-full max-w-2xl mx-auto animate-fade-in">
+              <CardContent className="pt-6 space-y-6">
+                <div className="text-center">
+                  <div className="inline-block px-5 py-3 bg-brand-blue text-white rounded-full font-bold text-2xl mb-3">
+                    IELTS Band {ieltsBand}
+                  </div>
+                  <p className="text-lg text-muted-foreground">{bandDescription}</p>
+                </div>
+                
+                <div className="flex justify-center items-center mb-6">
+                  <div className="relative w-36 h-36">
+                    <svg className="w-full h-full" viewBox="0 0 36 36">
+                      <path
+                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                        fill="none"
+                        stroke="#E5E7EB"
+                        strokeWidth="3"
+                      />
+                      <path
+                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                        fill="none"
+                        stroke="#0A3D62"
+                        strokeWidth="3"
+                        strokeDasharray={`${overallScore}, 100`}
+                        className="transition-all duration-1000 ease-in-out"
+                      />
+                    </svg>
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+                      <div className="text-2xl font-bold">{overallScore}%</div>
+                      <div className="text-xs text-muted-foreground">Overall Score</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="text-center pb-4">
+                  <div className="inline-block px-4 py-2 bg-brand-navy/10 rounded-md font-medium mb-2">
+                    CEFR Level: <span className="font-bold">{cefrLevel}</span>
+                  </div>
+                </div>
+                
+                {sectionScores && (
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-center">Section Breakdown</h4>
+                    <div className="grid grid-cols-2 gap-3">
+                      {sectionScores.map((section) => (
+                        <div key={section.name} className="p-3 border rounded-md">
+                          <div className="text-sm text-muted-foreground">{section.name}</div>
+                          <div className="font-semibold">{section.score}%</div>
+                          <div className="w-full h-1.5 bg-gray-200 rounded-full mt-1">
+                            <div 
+                              className="h-full bg-brand-blue rounded-full"
+                              style={{ width: `${section.score}%` }}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                  <Button 
+                    variant="outline" 
+                    className="flex-1 border-brand-blue text-brand-blue hover:bg-brand-blue/10"
+                    onClick={handleShare}
+                  >
+                    Share Results & Join @ieltsvc
+                  </Button>
+                  
+                  <Button 
+                    className="flex-1 bg-brand-gold hover:bg-opacity-90"
+                    onClick={handleDownloadCertificate}
+                  >
+                    Download Certificate
+                  </Button>
+                </div>
+                
+                <div className="text-center pt-2">
+                  <a 
+                    href="https://t.me/ieltsvc" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-brand-blue hover:underline text-sm"
+                  >
+                    Join our Telegram IELTS community @ieltsvc
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <IeltsFactsBox />
+          </div>
+        )}
+        
+        <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <Button variant="outline" onClick={restartTest}>
+            Take Test Again
+          </Button>
+          <Button asChild>
+            <a href="https://t.me/ieltsvc" target="_blank" rel="noopener noreferrer">
+              Join Telegram @ieltsvc
+            </a>
+          </Button>
+        </div>
+      </div>
+    );
+  }
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
       
-      <main className="flex-grow py-24 px-4">
+      <main className="flex-grow py-24 px-4 bg-gradient-to-br from-white via-gray-50 to-blue-50">
         <div className="container mx-auto max-w-4xl">
-          {!testCompleted ? (
-            <div className="space-y-8">
-              <div className="text-center mb-8">
-                <h1 className="text-3xl font-playfair font-bold text-brand-navy mb-2">
-                  IELTS Placement Test
-                </h1>
-                <p className="text-gray-600">
-                  Answer the questions below to determine your current English level and IELTS band score.
-                </p>
-              </div>
-              
-              <TestProgressBar 
-                currentQuestion={currentQuestionIndex + 1}
-                totalQuestions={sampleQuestions.length}
-                className="mb-8"
-              />
-              
-              <QuestionCard
-                question={sampleQuestions[currentQuestionIndex]}
-                onAnswer={handleAnswer}
-                isLast={currentQuestionIndex === sampleQuestions.length - 1}
-              />
-            </div>
-          ) : (
-            <div className="space-y-8">
-              <div className="text-center mb-8">
-                <h1 className="text-3xl font-playfair font-bold text-brand-navy mb-2">
-                  Your IELTS Results
-                </h1>
-                <p className="text-gray-600">
-                  Based on your test performance, we've assessed your English proficiency.
-                </p>
-              </div>
-              
-              {cefrLevel && (
-                <div className="space-y-6">
-                  <Card className="w-full max-w-2xl mx-auto animate-fade-in">
-                    <CardContent className="pt-6 space-y-6">
-                      <div className="text-center">
-                        <div className="inline-block px-5 py-3 bg-brand-blue text-white rounded-full font-bold text-2xl mb-3">
-                          IELTS Band {ieltsBand}
-                        </div>
-                        <p className="text-lg text-muted-foreground">{bandDescription}</p>
-                      </div>
-                      
-                      <div className="flex justify-center items-center mb-6">
-                        <div className="relative w-36 h-36">
-                          <svg className="w-full h-full" viewBox="0 0 36 36">
-                            <path
-                              d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                              fill="none"
-                              stroke="#E5E7EB"
-                              strokeWidth="3"
-                            />
-                            <path
-                              d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                              fill="none"
-                              stroke="#0A3D62"
-                              strokeWidth="3"
-                              strokeDasharray={`${overallScore}, 100`}
-                              className="transition-all duration-1000 ease-in-out"
-                            />
-                          </svg>
-                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-                            <div className="text-2xl font-bold">{overallScore}%</div>
-                            <div className="text-xs text-muted-foreground">Overall Score</div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="text-center pb-4">
-                        <div className="inline-block px-4 py-2 bg-brand-navy/10 rounded-md font-medium mb-2">
-                          CEFR Level: <span className="font-bold">{cefrLevel}</span>
-                        </div>
-                      </div>
-                      
-                      {sectionScores && (
-                        <div className="space-y-3">
-                          <h4 className="font-semibold text-center">Section Breakdown</h4>
-                          <div className="grid grid-cols-2 gap-3">
-                            {sectionScores.map((section) => (
-                              <div key={section.name} className="p-3 border rounded-md">
-                                <div className="text-sm text-muted-foreground">{section.name}</div>
-                                <div className="font-semibold">{section.score}%</div>
-                                <div className="w-full h-1.5 bg-gray-200 rounded-full mt-1">
-                                  <div 
-                                    className="h-full bg-brand-blue rounded-full"
-                                    style={{ width: `${section.score}%` }}
-                                  />
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                      
-                      <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                        <Button 
-                          variant="outline" 
-                          className="flex-1 border-brand-blue text-brand-blue hover:bg-brand-blue/10"
-                          onClick={handleShare}
-                        >
-                          Share Results & Join @ieltsvc
-                        </Button>
-                        
-                        <Button 
-                          className="flex-1 bg-brand-gold hover:bg-opacity-90"
-                          onClick={handleDownloadCertificate}
-                        >
-                          Download Certificate
-                        </Button>
-                      </div>
-                      
-                      <div className="text-center pt-2">
-                        <a 
-                          href="https://t.me/ieltsvc" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-brand-blue hover:underline text-sm"
-                        >
-                          Join our Telegram IELTS community @ieltsvc
-                        </a>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              )}
-              
-              <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
-                <Button variant="outline" onClick={restartTest}>
-                  Take Test Again
-                </Button>
-                <Button asChild>
-                  <a href="https://t.me/ieltsvc" target="_blank" rel="noopener noreferrer">
-                    Join Telegram @ieltsvc
-                  </a>
-                </Button>
-              </div>
-            </div>
-          )}
+          {content}
         </div>
       </main>
       
