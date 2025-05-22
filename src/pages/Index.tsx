@@ -31,7 +31,7 @@ const Index = () => {
             
             <div className="relative animate-fade-in">
               <div className="aspect-video rounded-lg overflow-hidden shadow-xl">
-                <img alt="Student studying" src="/lovable-uploads/c0284c3a-3538-43f9-9953-e7b578b5d9de.jpg" className="w-full h-full object-scale-down" />
+                <img alt="Student studying" src="/lovable-uploads/c0284c3a-3538-43f9-9953-e7b578b5d9de.jpg" className="w-full h-full object-cover" />
               </div>
               
               <div className="absolute -bottom-6 -right-6 bg-white rounded-lg p-4 shadow-lg">
