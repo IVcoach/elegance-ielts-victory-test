@@ -1,14 +1,11 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
-
 export function StudyQuestions() {
   const [speakingAnswer, setSpeakingAnswer] = useState("");
   const [writingAnswer, setWritingAnswer] = useState("");
-
   const handleWhatsAppShare = () => {
     if (!speakingAnswer && !writingAnswer) {
       toast({
@@ -18,7 +15,6 @@ export function StudyQuestions() {
       });
       return;
     }
-
     const text = `
 Speaking Answer:
 ${speakingAnswer}
@@ -26,13 +22,10 @@ ${speakingAnswer}
 Writing Answer:
 ${writingAnswer}
     `;
-    
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
-
-  return (
-    <div className="max-w-3xl mx-auto my-12">
+  return <div className="max-w-3xl mx-auto my-12">
       <div className="text-center mb-8 p-6 bg-gradient-to-r from-purple-500/10 via-brand-blue/20 to-purple-400/10 rounded-lg">
         <h2 className="text-2xl font-bold text-brand-navy mb-4">
           آیلتس ویکتوری، همراه همیشگی شما در سفر موفقیت!
@@ -57,15 +50,15 @@ ${writingAnswer}
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="mb-4 font-medium">
-              Describe the best way to study IELTS in 1:30 to 2 minutes.
-            </p>
-            <Textarea 
-              placeholder="Your answer here..."
-              className="min-h-[150px]"
-              value={speakingAnswer}
-              onChange={(e) => setSpeakingAnswer(e.target.value)}
-            />
+            <p className="mb-4 font-medium">Describe the best way to study for IELTS.
+ You should say:
+
+
+What materials to use
+How to organize your study time
+What strategies to follow during preparation
+and explain why this way is effective.</p>
+            <Textarea placeholder="Your answer here..." className="min-h-[150px]" value={speakingAnswer} onChange={e => setSpeakingAnswer(e.target.value)} />
           </CardContent>
         </Card>
 
@@ -82,20 +75,12 @@ ${writingAnswer}
             <p className="mb-4 text-sm text-muted-foreground">
               (اگر کمتر هم باشد، مشکلی نیست!)
             </p>
-            <Textarea 
-              placeholder="Your answer here..."
-              className="min-h-[200px]"
-              value={writingAnswer}
-              onChange={(e) => setWritingAnswer(e.target.value)}
-            />
+            <Textarea placeholder="Your answer here..." className="min-h-[200px]" value={writingAnswer} onChange={e => setWritingAnswer(e.target.value)} />
           </CardContent>
         </Card>
 
         <div className="flex justify-center">
-          <Button 
-            onClick={handleWhatsAppShare}
-            className="bg-green-500 hover:bg-green-600 px-6 py-2.5 text-lg gap-2"
-          >
+          <Button onClick={handleWhatsAppShare} className="bg-green-500 hover:bg-green-600 px-6 py-2.5 text-lg gap-2">
             <span>Send to WhatsApp</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-message-square">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
@@ -103,6 +88,5 @@ ${writingAnswer}
           </Button>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 }
