@@ -1,14 +1,14 @@
+
 import { Link } from "react-router-dom";
 export function Footer() {
   return <footer className="bg-brand-navy text-white py-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-playfair font-bold mb-4 text-brand-gold">V&amp;C Elegance 
-Registered No. 96663650 </h3>
+            <h3 className="text-xl font-playfair font-bold mb-2 text-brand-gold">V&amp;C Elegance</h3>
+            <p className="text-sm text-gray-300 mb-2">Registered No. 96663650</p>
             <p className="text-sm text-gray-300 mb-4">
-              Discover your potential, refined by elegance. Our adaptive IELTS placement test
-              helps you accurately assess your English level and prepare for success.
+              Your Journey to IELTS Excellence
             </p>
             <p className="text-sm text-gray-300">
               © {new Date().getFullYear()} V&C Elegance. All rights reserved.
@@ -22,8 +22,6 @@ Registered No. 96663650 </h3>
                 <Link to="/" className="text-sm text-gray-300 hover:text-white transition-colors">Home</Link>
               </li>
               
-              
-              
               <li>
                 <a href="https://t.me/ieltsvc" className="text-sm text-gray-300 hover:text-white transition-colors flex items-center gap-1.5" target="_blank" rel="noopener noreferrer">
                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
@@ -36,14 +34,8 @@ Registered No. 96663650 </h3>
           </div>
           
           <div>
-            <h4 className="text-lg font-playfair font-semibold mb-4 text-brand-gold">Contact Email: vcelegance@teachers.org</h4>
-            <ul className="space-y-2">
-              
-              <li className="text-sm text-gray-300">
-                <span className="font-semibold">Address:</span> Amsterdam, The Netherlands
-              </li>
-            </ul>
-            
+            <h4 className="text-lg font-playfair font-semibold mb-4 text-brand-gold">Contact Email: vcelegance@teachers.org</h4>
+            <p className="text-sm text-gray-300 mb-2">Amsterdam, The Netherlands</p>
           </div>
         </div>
       </div>

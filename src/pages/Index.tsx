@@ -4,6 +4,10 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { TelegramDialog } from "@/components/TelegramDialog";
 import { WelcomeDialog } from "@/components/WelcomeDialog";
+import { TestimonialCarousel } from "@/components/TestimonialCarousel";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+
 const Index = () => {
   return <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -34,7 +38,7 @@ const Index = () => {
                 <img alt="Student studying" src="/lovable-uploads/f19ff2af-e98c-4e14-bc69-81a0c141a280.jpg" className="w-full h-full object-cover" />
               </div>
               
-              <div className="absolute -bottom-6 -right-6 bg-white rounded-lg p-4 shadow-lg">
+              <div className="absolute -bottom-8 -right-8 bg-white rounded-lg p-6 shadow-lg">
                 <div className="flex gap-3 items-center">
                   <div className="bg-brand-blue rounded-full p-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
@@ -68,6 +72,33 @@ const Index = () => {
             
             
           </div>
+        </div>
+      </section>
+      
+      {/* Student Success Stories */}
+      <section className="py-12 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-playfair font-bold text-brand-navy">Success Stories</h2>
+            <p className="text-gray-600 mt-2">Our students from around the world have achieved their IELTS goals</p>
+            <Separator className="w-24 h-1 bg-brand-gold mx-auto mt-4" />
+          </div>
+          
+          <Card className="border-0 shadow-md overflow-hidden mb-8">
+            <CardContent className="p-6">
+              <p className="text-gray-700 italic mb-6">
+                "Our dedicated IELTS preparation program supports international students seeking academic opportunities and skilled workers pursuing immigration pathways. We offer comprehensive guidance not only for the IELTS exam but also for job interviews and university applications."
+              </p>
+              
+              <div className="mb-4">
+                <TestimonialCarousel />
+              </div>
+              
+              <p className="text-center text-sm text-gray-500 mt-4">
+                ...and many more success stories from students across the globe
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </section>
       
