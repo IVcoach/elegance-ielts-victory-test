@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
@@ -8,7 +7,6 @@ import { WelcomeDialog } from "@/components/WelcomeDialog";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-
 const Index = () => {
   return <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -39,7 +37,7 @@ const Index = () => {
             
             <div className="relative animate-fade-in">
               <div className="aspect-video rounded-lg overflow-hidden shadow-xl">
-                <img alt="Student studying" src="/lovable-uploads/f19ff2af-e98c-4e14-bc69-81a0c141a280.jpg" className="w-full h-full object-cover" />
+                <img alt="Student studying" src="/lovable-uploads/c6b531de-294a-479a-b6ce-4deccf10116f.jpg" className="w-full h-full object-contain" />
               </div>
               
               <div className="absolute -bottom-8 -right-8 bg-white rounded-lg p-6 shadow-lg">
