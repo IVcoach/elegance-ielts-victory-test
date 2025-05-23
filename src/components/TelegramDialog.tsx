@@ -1,25 +1,35 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Share } from "lucide-react";
+
 export function TelegramDialog() {
   const [isOpen, setIsOpen] = useState(false);
+  
   const handleJoinChannel = () => {
     window.open("https://t.me/ieltsvc", "_blank", "noopener,noreferrer");
     setIsOpen(false);
   };
-  return <Dialog open={isOpen} onOpenChange={setIsOpen}>
+  
+  const handleWhatsAppClick = () => {
+    window.open("https://wa.me/+31631267353", "_blank", "noopener,noreferrer");
+    setIsOpen(false);
+  };
+
+  return (
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button variant="outline" className="border-brand-gold text-brand-navy hover:bg-brand-cream flex items-center gap-2">
           <Share size={18} />
-          <span>Free IELTS </span>
+          <span>Free IELTS </span>
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="font-playfair text-2xl">Join V&C Elegance IELTS Community</DialogTitle>
           <DialogDescription className="text-center">Connect with fellow IELTS test-takers and access exclusive study materials, tips, and support.
-        با عضویت در تلگرام از منابع منحصر به فرد و رایگان آیلتس بهره مند شوید</DialogDescription>
+        با عضویت در تلگرام از منابع منحصر به فرد و رایگان آیلتس بهره مند شوید</DialogDescription>
         </DialogHeader>
         
         <div className="p-4 border rounded-lg bg-gray-50 my-4">
@@ -60,14 +70,20 @@ export function TelegramDialog() {
           </div>
         </div>
         
-        <DialogFooter className="flex sm:justify-between">
+        <DialogFooter className="flex flex-col sm:flex-row sm:justify-between gap-3">
           <Button variant="ghost" onClick={() => setIsOpen(false)} className="hidden sm:inline-flex">
             Maybe Later
           </Button>
-          <Button onClick={handleJoinChannel} className="bg-[#0088cc] hover:bg-[#0088cc]/90 w-full sm:w-auto">
-            Join @ieltsvc on Telegram
-          </Button>
+          <div className="flex gap-3 w-full sm:w-auto">
+            <Button onClick={handleJoinChannel} className="bg-[#0088cc] hover:bg-[#0088cc]/90 flex-1 sm:flex-none">
+              Join @ieltsvc on Telegram
+            </Button>
+            <Button onClick={handleWhatsAppClick} className="bg-green-500 hover:bg-green-600 flex-1 sm:flex-none">
+              WhatsApp +31631267353
+            </Button>
+          </div>
         </DialogFooter>
       </DialogContent>
-    </Dialog>;
+    </Dialog>
+  );
 }

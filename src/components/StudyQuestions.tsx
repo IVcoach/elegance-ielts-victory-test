@@ -9,7 +9,7 @@ export function StudyQuestions() {
   const [speakingAnswer, setSpeakingAnswer] = useState("");
   const [writingAnswer, setWritingAnswer] = useState("");
 
-  const handleSubmit = () => {
+  const handleWhatsAppShare = () => {
     if (!speakingAnswer && !writingAnswer) {
       toast({
         title: "لطفا به حداقل یک سوال پاسخ دهید",
@@ -19,18 +19,6 @@ export function StudyQuestions() {
       return;
     }
 
-    // In a real app, this would send the answers to a backend
-    toast({
-      title: "پاسخ شما ثبت شد!",
-      description: "نتایج ارزیابی در کمتر از 24 ساعت برای شما ارسال خواهد شد."
-    });
-
-    // Clear the form
-    setSpeakingAnswer("");
-    setWritingAnswer("");
-  };
-
-  const handleWhatsAppShare = () => {
     const text = `
 Speaking Answer:
 ${speakingAnswer}
@@ -40,7 +28,7 @@ ${writingAnswer}
     `;
     
     const encodedText = encodeURIComponent(text);
-    window.open(`https://wa.me/+447874135742?text=${encodedText}`, "_blank", "noopener,noreferrer");
+    window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -103,18 +91,15 @@ ${writingAnswer}
           </CardContent>
         </Card>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            onClick={handleSubmit}
-            className="bg-brand-blue hover:bg-brand-blue/90"
-          >
-            Submit Answers
-          </Button>
+        <div className="flex justify-center">
           <Button 
             onClick={handleWhatsAppShare}
-            className="bg-green-500 hover:bg-green-600"
+            className="bg-green-500 hover:bg-green-600 px-6 py-2.5 text-lg gap-2"
           >
-            Share via WhatsApp
+            <span>Send to WhatsApp</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-message-square">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
           </Button>
         </div>
       </div>

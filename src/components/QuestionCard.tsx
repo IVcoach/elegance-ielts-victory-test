@@ -38,8 +38,10 @@ export function QuestionCard({
   const handleSubmit = () => {
     if (question.type === "multiple-choice" && selectedOption) {
       onAnswer(selectedOption);
+      setSelectedOption(null); // Reset for next question
     } else if (question.type === "fill-in-blank" && inputValue) {
       onAnswer(inputValue);
+      setInputValue(""); // Reset for next question
     }
   };
   
@@ -101,7 +103,7 @@ export function QuestionCard({
         <Button 
           onClick={handleSubmit}
           disabled={(question.type === "multiple-choice" && !selectedOption) || 
-                   (question.type === "fill-in-blank" && !inputValue)}
+                  (question.type === "fill-in-blank" && !inputValue)}
           className="ml-auto bg-brand-blue hover:bg-brand-navy"
         >
           {isLast ? "Finish Test" : "Next Question"}

@@ -1,9 +1,12 @@
+
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { MessageSquare } from "lucide-react";
+
 export function WelcomeDialog() {
   const [open, setOpen] = useState(false);
+  
   useEffect(() => {
     // Show dialog after a short delay when component mounts
     const timer = setTimeout(() => {
@@ -11,17 +14,19 @@ export function WelcomeDialog() {
     }, 1500);
     return () => clearTimeout(timer);
   }, []);
+  
   const handleWhatsAppClick = () => {
     window.open("https://wa.me/+31631267353", "_blank", "noopener,noreferrer");
     setOpen(false);
   };
+  
   return <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="max-w-md">
         <DialogHeader>
           <DialogTitle className="text-center text-brand-navy font-bold text-xl">
-
-Evans & Sammy IELTS Victory Chief Mentors
-بهترین ارزیابی‌ها و مشاوره رایگان در آزمون آیلتس</DialogTitle>
+            Evans & Sammy IELTS Victory Chief Mentors
+            بهترین ارزیابی‌ها و مشاوره رایگان در آزمون آیلتس
+          </DialogTitle>
           <DialogDescription className="text-right mt-4 space-y-3 text-base">
             <p>می‌خوای نمره آیلتس رو سریع و رایگان بسنجی؟
 
