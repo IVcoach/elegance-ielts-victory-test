@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
@@ -7,6 +8,7 @@ import { WelcomeDialog } from "@/components/WelcomeDialog";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+
 const Index = () => {
   return <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -40,9 +42,9 @@ const Index = () => {
                 <img alt="Student studying" src="/lovable-uploads/c6b531de-294a-479a-b6ce-4deccf10116f.jpg" className="w-full h-full object-contain" />
               </div>
               
-              <div className="absolute -bottom-8 -right-8 bg-white rounded-lg p-6 shadow-lg">
+              <div className="absolute -bottom-10 -right-10 bg-white rounded-lg p-6 shadow-lg">
                 <div className="flex gap-3 items-center">
-                  <div className="bg-brand-blue rounded-full p-2">
+                  <div className="bg-brand-blue rounded-full p-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
                       <circle cx="12" cy="12" r="10"></circle>
                       <polyline points="12 6 12 12 16 14"></polyline>
@@ -138,4 +140,5 @@ const Index = () => {
       <Footer />
     </div>;
 };
+
 export default Index;

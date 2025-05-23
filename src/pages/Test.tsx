@@ -5,12 +5,13 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { CEFRScore, CEFRLevel, ScoreSection } from "@/components/CEFRScore";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "@/components/ui/use-toast";
-import { Book, Award, Star, MessageSquare } from "lucide-react";
+import { Book, Award, Star } from "lucide-react";
 import { WelcomeDialog } from "@/components/WelcomeDialog";
 import { StudyQuestions } from "@/components/StudyQuestions";
 import { TestQuestions } from "@/components/TestQuestions";
+import { AssessmentResults } from "@/components/AssessmentResults";
 
 // IELTS band descriptions aligned with CEFR levels
 interface IELTSBandDescription {
@@ -222,188 +223,6 @@ const QuizIntro = ({
   );
 };
 
-// Results Component
-const TestResults = ({
-  correctAnswers,
-  totalQuestions,
-  onRestart,
-  onPractice
-}: {
-  correctAnswers: number;
-  totalQuestions: number;
-  onRestart: () => void;
-  onPractice: () => void;
-}) => {
-  const { cefrLevel, ieltsBand, overallScore, toeflScore, pteScore } = calculateResults(correctAnswers, totalQuestions);
-  
-  // Calculate mock section scores
-  const mockSectionScores: ScoreSection[] = [
-    { name: "Grammar", score: Math.round(65 + Math.random() * 20) },
-    { name: "Vocabulary", score: Math.round(70 + Math.random() * 15) },
-    { name: "Reading", score: Math.round(60 + Math.random() * 25) },
-    { name: "Academic Writing", score: Math.round(65 + Math.random() * 20) }
-  ];
-
-  // Find the description for the current IELTS band
-  const bandDescription = ieltsBand ? ieltsDescriptions.find(desc => desc.band === ieltsBand)?.description : "";
-
-  const handleWhatsAppShare = () => {
-    const text = `
-I've just completed the IELTS placement test!
-My results:
-- IELTS Band: ${ieltsBand}
-- CEFR Level: ${cefrLevel}
-- TOEFL Score: ${toeflScore}
-- PTE Score: ${pteScore}
-- Overall Score: ${overallScore}%
-
-I'm interested in improving my score. Can you help with personalized guidance?
-    `;
-    
-    const encodedText = encodeURIComponent(text);
-    window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
-  };
-
-  useEffect(() => {
-    // Show a completed test dialog after results are shown
-    const timer = setTimeout(() => {
-      const dialog = document.getElementById('completion-dialog');
-      if (dialog) {
-        dialog.classList.remove('hidden');
-      }
-    }, 3000);
-    
-    return () => clearTimeout(timer);
-  }, []);
-
-  return (
-    <div className="space-y-8">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-playfair font-bold text-brand-navy mb-2">
-          Your IELTS Results
-        </h1>
-        <p className="text-gray-600">
-          Based on your test performance, we've assessed your English proficiency.
-        </p>
-      </div>
-      
-      <Card className="w-full max-w-2xl mx-auto animate-fade-in">
-        <CardContent className="pt-6 space-y-6">
-          <div className="text-center">
-            <div className="inline-block px-5 py-3 bg-purple-600 text-white rounded-full font-bold text-2xl mb-3">
-              IELTS Band {ieltsBand}
-            </div>
-            <p className="text-lg text-muted-foreground">{bandDescription}</p>
-          </div>
-          
-          <div className="flex justify-center items-center mb-6">
-            <div className="relative w-36 h-36">
-              <svg className="w-full h-full" viewBox="0 0 36 36">
-                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#E5E7EB" strokeWidth="3" />
-                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#7C3AED" strokeWidth="3" strokeDasharray={`${overallScore}, 100`} className="transition-all duration-1000 ease-in-out" />
-              </svg>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-                <div className="text-2xl font-bold">{overallScore}%</div>
-                <div className="text-xs text-muted-foreground">Overall Score</div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-3 gap-4 text-center">
-            <div className="p-3 border rounded-md">
-              <div className="text-sm text-muted-foreground">CEFR Level</div>
-              <div className="font-semibold text-xl">{cefrLevel}</div>
-            </div>
-            <div className="p-3 border rounded-md">
-              <div className="text-sm text-muted-foreground">TOEFL</div>
-              <div className="font-semibold text-xl">{toeflScore}</div>
-            </div>
-            <div className="p-3 border rounded-md">
-              <div className="text-sm text-muted-foreground">PTE</div>
-              <div className="font-semibold text-xl">{pteScore}</div>
-            </div>
-          </div>
-          
-          <div className="space-y-3">
-            <h4 className="font-semibold text-center">Section Breakdown</h4>
-            <div className="grid grid-cols-2 gap-3">
-              {mockSectionScores.map(section => (
-                <div key={section.name} className="p-3 border rounded-md">
-                  <div className="text-sm text-muted-foreground">{section.name}</div>
-                  <div className="font-semibold">{section.score}%</div>
-                  <div className="w-full h-1.5 bg-gray-200 rounded-full mt-1">
-                    <div 
-                      className="h-full bg-purple-600 rounded-full" 
-                      style={{ width: `${section.score}%` }} 
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row gap-3 pt-4">
-            <Button 
-              variant="outline" 
-              className="flex-1 border-purple-600 text-purple-600 hover:bg-purple-600/10" 
-              onClick={onPractice}
-            >
-              Practice Speaking & Writing
-            </Button>
-            
-            <Button 
-              className="flex-1 bg-green-500 hover:bg-green-600 gap-2" 
-              onClick={handleWhatsAppShare}
-            >
-              <span>Contact via WhatsApp</span>
-              <MessageSquare className="h-5 w-5" />
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-      
-      <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
-        <Button variant="outline" onClick={onRestart}>
-          Take Test Again
-        </Button>
-      </div>
-      
-      {/* Test completion dialog - appears after a few seconds */}
-      <div id="completion-dialog" className="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-        <div className="bg-white rounded-lg max-w-md w-full p-6 shadow-xl animate-scale-in">
-          <h3 className="text-xl font-bold text-brand-navy mb-2">Want to improve your score?</h3>
-          <p className="text-gray-600 mb-4">
-            Get personalized guidance from our IELTS experts to help you achieve your target score.
-          </p>
-          
-          <div className="space-y-3">
-            <Button 
-              className="w-full bg-green-500 hover:bg-green-600 gap-2" 
-              onClick={handleWhatsAppShare}
-            >
-              <span>Get Free Consultation</span>
-              <MessageSquare className="h-5 w-5" />
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              className="w-full" 
-              onClick={() => {
-                const dialog = document.getElementById('completion-dialog');
-                if (dialog) {
-                  dialog.classList.add('hidden');
-                }
-              }}
-            >
-              Close
-            </Button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 const Test = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -411,6 +230,7 @@ const Test = () => {
   const [testCompleted, setTestCompleted] = useState(false);
   const [showQuestions, setShowQuestions] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [totalQuestions, setTotalQuestions] = useState(20);
   
   // Check if we have returned from completing a test
   const locationState = location.state as { testCompleted?: boolean, answers?: string[] } | null;
@@ -429,6 +249,7 @@ const Test = () => {
       // Calculate correct answers - this would be more sophisticated in a real app
       const simulatedCorrectAnswers = Math.round((locationState.answers?.length || 0) * 0.7);
       setCorrectAnswers(simulatedCorrectAnswers);
+      setTotalQuestions(locationState.answers?.length || 20);
       setTestCompleted(true);
     }
   }, [locationState, shouldShowPractice]);
@@ -450,6 +271,23 @@ const Test = () => {
     setShowQuestions(true);
   };
 
+  // Calculate mock section scores for result display
+  const getMockSectionScores = (): ScoreSection[] => {
+    return [
+      { name: "Grammar", score: Math.round(65 + Math.random() * 20) },
+      { name: "Vocabulary", score: Math.round(70 + Math.random() * 15) }
+    ];
+  };
+
+  // Get results for display
+  const getResults = () => {
+    const results = calculateResults(correctAnswers, totalQuestions);
+    return {
+      ...results,
+      sectionScores: getMockSectionScores()
+    };
+  };
+
   // Determine which content to show based on test state
   let content;
   if (showQuestions) {
@@ -457,12 +295,20 @@ const Test = () => {
   } else if (!testStarted) {
     content = <QuizIntro onStartTest={startTest} onShowPractice={showPractice} />;
   } else if (testCompleted) {
-    content = <TestResults 
-      correctAnswers={correctAnswers} 
-      totalQuestions={20} 
-      onRestart={restartTest}
-      onPractice={showPractice}
-    />;
+    const results = getResults();
+    content = (
+      <AssessmentResults 
+        correctAnswers={correctAnswers}
+        totalQuestions={totalQuestions}
+        cefrLevel={results.cefrLevel}
+        ieltsBand={results.ieltsBand}
+        toeflScore={results.toeflScore}
+        pteScore={results.pteScore}
+        sectionScores={results.sectionScores}
+        onRestart={restartTest}
+        onPractice={showPractice}
+      />
+    );
   } else {
     content = <TestQuestions />;
   }
