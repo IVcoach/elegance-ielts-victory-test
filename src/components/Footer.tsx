@@ -36,8 +36,7 @@ Registered No. 96663650 </h3>
           </div>
           
           <div>
-            <h4 className="text-lg font-playfair font-semibold mb-4 text-brand-gold">Contact
-Email: vcelegance@consultant.com</h4>
+            <h4 className="text-lg font-playfair font-semibold mb-4 text-brand-gold">Contact Email: vcelegance@teachers.org</h4>
             <ul className="space-y-2">
               
               <li className="text-sm text-gray-300">
