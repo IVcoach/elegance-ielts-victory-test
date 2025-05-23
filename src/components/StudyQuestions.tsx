@@ -69,12 +69,15 @@ and explain why this way is effective.</p>
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="mb-4 font-medium">
-              Discuss the advantages and disadvantages of using a mentor to prepare for IELTS (about 250 words).
-            </p>
+            <p className="mb-4 font-medium">You should spend about 40 minutes on this task.
+
+Question:
+
+Many students preparing for the IELTS exam work with a teacher or mentor to help them improve. Other students prefer to study by themselves. Discuss the good points and bad points of using a mentor to prepare for IELTS. 
+
+Give reasons for your answer and include examples from your experience or knowledge. Write about 250 words.</p>
             <p className="mb-4 text-sm text-muted-foreground">
-              (اگر کمتر هم باشد، مشکلی نیست!)
-            </p>
+          </p>
             <Textarea placeholder="Your answer here..." className="min-h-[200px]" value={writingAnswer} onChange={e => setWritingAnswer(e.target.value)} />
           </CardContent>
         </Card>
