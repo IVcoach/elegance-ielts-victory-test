@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
@@ -7,7 +7,7 @@ import { CEFRScore, CEFRLevel, ScoreSection } from "@/components/CEFRScore";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { toast } from "@/components/ui/use-toast";
-import { Book, Award, Star } from "lucide-react";
+import { Book, Award, Star, MessageSquare } from "lucide-react";
 import { WelcomeDialog } from "@/components/WelcomeDialog";
 import { StudyQuestions } from "@/components/StudyQuestions";
 import { TestQuestions } from "@/components/TestQuestions";
@@ -67,37 +67,57 @@ const calculateResults = (correctAnswers: number, totalQuestions: number) => {
   const score = correctAnswers / totalQuestions * 100;
   let cefrLevel: CEFRLevel;
   let ieltsBand: string;
+  let toeflScore: number;
+  let pteScore: number;
   
   if (score >= 95) {
     cefrLevel = "C2";
     ieltsBand = "9";
+    toeflScore = 118;
+    pteScore = 87;
   } else if (score >= 85) {
     cefrLevel = "C2";
     ieltsBand = "8-8.5";
+    toeflScore = 110;
+    pteScore = 82;
   } else if (score >= 75) {
     cefrLevel = "C1";
     ieltsBand = "7-7.5";
+    toeflScore = 100;
+    pteScore = 73;
   } else if (score >= 65) {
     cefrLevel = "B2";
     ieltsBand = "6-6.5";
+    toeflScore = 87;
+    pteScore = 59;
   } else if (score >= 50) {
     cefrLevel = "B1";
     ieltsBand = "5-5.5";
+    toeflScore = 72;
+    pteScore = 47;
   } else if (score >= 35) {
     cefrLevel = "A2";
     ieltsBand = "4-4.5";
+    toeflScore = 57;
+    pteScore = 35;
   } else if (score >= 20) {
     cefrLevel = "A1";
     ieltsBand = "3-3.5";
+    toeflScore = 42;
+    pteScore = 26;
   } else {
     cefrLevel = "A0";
     ieltsBand = "1-2.5";
+    toeflScore = 30;
+    pteScore = 20;
   }
   
   return {
     cefrLevel,
     ieltsBand,
-    overallScore: Math.round(score)
+    overallScore: Math.round(score),
+    toeflScore,
+    pteScore
   };
 };
 
@@ -106,7 +126,7 @@ const ServiceIcons = () => {
   const services = [
     {
       icon: <Book className="h-8 w-8" />,
-      title: "IELTS Materials",
+      title: "Free IELTS Resources",
       description: "Access top-quality study resources"
     },
     {
@@ -138,9 +158,11 @@ const ServiceIcons = () => {
 
 // Quiz Intro Component
 const QuizIntro = ({
-  onStartTest
+  onStartTest,
+  onShowPractice
 }: {
   onStartTest: () => void;
+  onShowPractice: () => void;
 }) => {
   return (
     <div className="max-w-4xl mx-auto text-center">
@@ -169,9 +191,16 @@ const QuizIntro = ({
           </div>
         </div>
         
-        <div className="mt-6">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
           <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-6 h-auto text-lg" onClick={onStartTest}>
             Start Your Assessment Now
+          </Button>
+          <Button 
+            variant="outline" 
+            className="border-purple-500 text-purple-700 hover:bg-purple-50 px-6 py-6 h-auto text-lg"
+            onClick={onShowPractice}
+          >
+            Practice Speaking & Writing
           </Button>
         </div>
       </div>
@@ -197,13 +226,15 @@ const QuizIntro = ({
 const TestResults = ({
   correctAnswers,
   totalQuestions,
-  onRestart
+  onRestart,
+  onPractice
 }: {
   correctAnswers: number;
   totalQuestions: number;
   onRestart: () => void;
+  onPractice: () => void;
 }) => {
-  const { cefrLevel, ieltsBand, overallScore } = calculateResults(correctAnswers, totalQuestions);
+  const { cefrLevel, ieltsBand, overallScore, toeflScore, pteScore } = calculateResults(correctAnswers, totalQuestions);
   
   // Calculate mock section scores
   const mockSectionScores: ScoreSection[] = [
@@ -222,6 +253,8 @@ I've just completed the IELTS placement test!
 My results:
 - IELTS Band: ${ieltsBand}
 - CEFR Level: ${cefrLevel}
+- TOEFL Score: ${toeflScore}
+- PTE Score: ${pteScore}
 - Overall Score: ${overallScore}%
 
 I'm interested in improving my score. Can you help with personalized guidance?
@@ -230,6 +263,18 @@ I'm interested in improving my score. Can you help with personalized guidance?
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
+
+  useEffect(() => {
+    // Show a completed test dialog after results are shown
+    const timer = setTimeout(() => {
+      const dialog = document.getElementById('completion-dialog');
+      if (dialog) {
+        dialog.classList.remove('hidden');
+      }
+    }, 3000);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="space-y-8">
@@ -264,9 +309,18 @@ I'm interested in improving my score. Can you help with personalized guidance?
             </div>
           </div>
           
-          <div className="text-center pb-4">
-            <div className="inline-block px-4 py-2 bg-brand-navy/10 rounded-md font-medium mb-2">
-              CEFR Level: <span className="font-bold">{cefrLevel}</span>
+          <div className="grid grid-cols-3 gap-4 text-center">
+            <div className="p-3 border rounded-md">
+              <div className="text-sm text-muted-foreground">CEFR Level</div>
+              <div className="font-semibold text-xl">{cefrLevel}</div>
+            </div>
+            <div className="p-3 border rounded-md">
+              <div className="text-sm text-muted-foreground">TOEFL</div>
+              <div className="font-semibold text-xl">{toeflScore}</div>
+            </div>
+            <div className="p-3 border rounded-md">
+              <div className="text-sm text-muted-foreground">PTE</div>
+              <div className="font-semibold text-xl">{pteScore}</div>
             </div>
           </div>
           
@@ -292,16 +346,17 @@ I'm interested in improving my score. Can you help with personalized guidance?
             <Button 
               variant="outline" 
               className="flex-1 border-purple-600 text-purple-600 hover:bg-purple-600/10" 
-              onClick={handleWhatsAppShare}
+              onClick={onPractice}
             >
-              Share Results & Get Help
+              Practice Speaking & Writing
             </Button>
             
             <Button 
-              className="flex-1 bg-green-500 hover:bg-green-600" 
+              className="flex-1 bg-green-500 hover:bg-green-600 gap-2" 
               onClick={handleWhatsAppShare}
             >
-              Contact via WhatsApp
+              <span>Contact via WhatsApp</span>
+              <MessageSquare className="h-5 w-5" />
             </Button>
           </div>
         </CardContent>
@@ -311,6 +366,39 @@ I'm interested in improving my score. Can you help with personalized guidance?
         <Button variant="outline" onClick={onRestart}>
           Take Test Again
         </Button>
+      </div>
+      
+      {/* Test completion dialog - appears after a few seconds */}
+      <div id="completion-dialog" className="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+        <div className="bg-white rounded-lg max-w-md w-full p-6 shadow-xl animate-scale-in">
+          <h3 className="text-xl font-bold text-brand-navy mb-2">Want to improve your score?</h3>
+          <p className="text-gray-600 mb-4">
+            Get personalized guidance from our IELTS experts to help you achieve your target score.
+          </p>
+          
+          <div className="space-y-3">
+            <Button 
+              className="w-full bg-green-500 hover:bg-green-600 gap-2" 
+              onClick={handleWhatsAppShare}
+            >
+              <span>Get Free Consultation</span>
+              <MessageSquare className="h-5 w-5" />
+            </Button>
+            
+            <Button 
+              variant="outline" 
+              className="w-full" 
+              onClick={() => {
+                const dialog = document.getElementById('completion-dialog');
+                if (dialog) {
+                  dialog.classList.add('hidden');
+                }
+              }}
+            >
+              Close
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -327,15 +415,23 @@ const Test = () => {
   // Check if we have returned from completing a test
   const locationState = location.state as { testCompleted?: boolean, answers?: string[] } | null;
   
-  // Effect to handle test completion from the TestQuestions component
-  useState(() => {
+  // Check for practice parameter in URL
+  const searchParams = new URLSearchParams(location.search);
+  const shouldShowPractice = searchParams.get('practice') === 'true';
+  
+  // Effect to handle practice parameter and test completion
+  useEffect(() => {
+    if (shouldShowPractice) {
+      setShowQuestions(true);
+    }
+    
     if (locationState?.testCompleted) {
       // Calculate correct answers - this would be more sophisticated in a real app
       const simulatedCorrectAnswers = Math.round((locationState.answers?.length || 0) * 0.7);
       setCorrectAnswers(simulatedCorrectAnswers);
       setTestCompleted(true);
     }
-  });
+  }, [locationState, shouldShowPractice]);
 
   // Handle user starting the test
   const startTest = () => {
@@ -350,8 +446,8 @@ const Test = () => {
     navigate('/test', { replace: true });
   };
 
-  const toggleQuestions = () => {
-    setShowQuestions(!showQuestions);
+  const showPractice = () => {
+    setShowQuestions(true);
   };
 
   // Determine which content to show based on test state
@@ -359,12 +455,13 @@ const Test = () => {
   if (showQuestions) {
     content = <StudyQuestions />;
   } else if (!testStarted) {
-    content = <QuizIntro onStartTest={startTest} />;
+    content = <QuizIntro onStartTest={startTest} onShowPractice={showPractice} />;
   } else if (testCompleted) {
     content = <TestResults 
       correctAnswers={correctAnswers} 
       totalQuestions={20} 
       onRestart={restartTest}
+      onPractice={showPractice}
     />;
   } else {
     content = <TestQuestions />;
@@ -373,13 +470,12 @@ const Test = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      <WelcomeDialog />
       
       <main className="flex-grow py-24 px-4 bg-gradient-to-br from-white via-gray-50 to-purple-50">
         <div className="container mx-auto max-w-4xl">
           <div className="flex justify-end mb-4">
             <Button 
-              onClick={toggleQuestions} 
+              onClick={() => setShowQuestions(!showQuestions)} 
               variant="outline" 
               className="border-purple-500 text-purple-700 hover:bg-purple-50"
             >

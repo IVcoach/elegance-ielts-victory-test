@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
@@ -19,7 +20,7 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-brand-navy leading-tight mb-6">
-                Discover Your <span className="text-brand-blue">English Level</span> with Elegance
+                Start Your IELTS Journey – <span className="text-brand-blue">Free Placement Test, Instant Results!</span>
               </h1>
               <p className="text-lg text-gray-700 mb-8">
                 Our CEFR-aligned adaptive placement test provides precise assessment and 
@@ -28,6 +29,9 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="bg-brand-blue hover:bg-brand-navy">
                   <Link to="/test">Take the Test</Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="border-purple-500 text-purple-700 hover:bg-purple-50">
+                  <Link to="/test?practice=true">Practice Speaking & Writing</Link>
                 </Button>
                 <TelegramDialog />
               </div>
@@ -79,8 +83,8 @@ const Index = () => {
       <section className="py-12 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-playfair font-bold text-brand-navy">Success Stories</h2>
-            <p className="text-gray-600 mt-2">Our students from around the world have achieved their IELTS goals</p>
+            <h2 className="text-3xl font-playfair font-bold text-brand-navy">Our Latest Learners</h2>
+            <p className="text-gray-600 mt-2">Success stories from our students around the world</p>
             <Separator className="w-24 h-1 bg-brand-gold mx-auto mt-4" />
           </div>
           
@@ -99,6 +103,15 @@ const Index = () => {
               </p>
             </CardContent>
           </Card>
+          
+          <div className="bg-purple-100 p-5 rounded-lg text-center font-bold text-brand-navy">
+            <p className="text-xl">
+              <span className="text-purple-800">10% achieved Band 8</span> | 
+              <span className="text-purple-700"> 40% achieved Bands 7-7.5</span> | 
+              <span className="text-purple-600"> 50% achieved Band 6.5</span>
+            </p>
+            <p className="mt-2 text-lg">80% of our students succeed on their first IELTS attempt</p>
+          </div>
         </div>
       </section>
       

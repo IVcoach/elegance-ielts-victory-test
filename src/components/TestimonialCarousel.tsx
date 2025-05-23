@@ -11,7 +11,7 @@ interface Testimonial {
 
 export function TestimonialCarousel() {
   const testimonials: Testimonial[] = [
-    { name: "Diana", country: "Iran", score: "Band 8", achievement: "Got scholarship" },
+    { name: "Diana", country: "Iran", score: "Band 8", achievement: "Got scholarship from U.K." },
     { name: "Mert", country: "Turkey", score: "Band 7", achievement: "International student" },
     { name: "Liam", country: "The Netherlands", score: "Band 8", achievement: "Academic success" },
     { name: "Mohammad", country: "Vancouver", score: "Band 7", achievement: "IELTS General" },

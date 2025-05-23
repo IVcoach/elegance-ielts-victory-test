@@ -1,15 +1,14 @@
 
 import { Link } from "react-router-dom";
+
 export function Footer() {
   return <footer className="bg-brand-navy text-white py-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-xl font-playfair font-bold mb-2 text-brand-gold">V&amp;C Elegance</h3>
-            <p className="text-sm text-gray-300 mb-2">Registered No. 96663650</p>
-            <p className="text-sm text-gray-300 mb-4">
-              Your Journey to IELTS Excellence
-            </p>
+            <p className="text-sm text-gray-300 mb-2">Your Journey to IELTS Excellence</p>
+            <p className="text-sm text-gray-300 mb-4">Registered No. 96663650</p>
             <p className="text-sm text-gray-300">
               © {new Date().getFullYear()} V&C Elegance. All rights reserved.
             </p>
