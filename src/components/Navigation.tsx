@@ -13,6 +13,11 @@ export function Navigation() {
     <nav className="w-full bg-white bg-opacity-90 backdrop-blur-sm fixed top-0 z-50 border-b">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
+          <img 
+            src="/lovable-uploads/89c6d611-21a6-47a1-aa09-5681723e077d.png" 
+            alt="IELTS Victory Logo" 
+            className="h-12 w-auto" 
+          />
           <span className="font-playfair font-bold text-xl text-brand-navy">V&C Elegance</span>
         </Link>
         
