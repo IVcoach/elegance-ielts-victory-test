@@ -1,8 +1,7 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
-import { WhatsApp } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 
 interface ScoreSection {
   name: string;
@@ -140,7 +139,7 @@ I'm interested in improving my score. Can you help with personalized guidance?
               onClick={handleWhatsAppShare}
             >
               <span>Contact via WhatsApp</span>
-              <WhatsApp className="h-5 w-5" />
+              <MessageCircle className="h-5 w-5" />
             </Button>
           </div>
         </CardContent>
@@ -165,7 +164,7 @@ I'm interested in improving my score. Can you help with personalized guidance?
             onClick={handleWhatsAppShare}
           >
             <span>Get Free Consultation</span>
-            <WhatsApp className="h-5 w-5" />
+            <MessageCircle className="h-5 w-5" />
           </Button>
         </div>
       </div>
