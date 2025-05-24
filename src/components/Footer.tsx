@@ -8,7 +8,8 @@ export function Footer() {
             <h2 className="text-xl font-playfair font-bold mb-4">V&C Elegance</h2>
             <p className="text-gray-300 mb-2">Your coach in your journey to IELTS excellence</p>
             <p className="mb-4 text-zinc-100">Establishment number: 000061974544</p>
-            <p className="text-sm text-gray-400">Amsterdam, The Netherlands</p>
+            <p className="text-sm text-gray-400">
+          </p>
           </div>
           
           <div>
