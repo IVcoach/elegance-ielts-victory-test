@@ -1,38 +1,32 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Share } from "lucide-react";
-
 export function TelegramDialog() {
   const [isOpen, setIsOpen] = useState(false);
-  
   const handleJoinChannel = () => {
     window.open("https://t.me/ieltsvc", "_blank", "noopener,noreferrer");
     setIsOpen(false);
   };
-  
   const handleWhatsAppClick = () => {
     window.open("https://wa.me/+31631267353", "_blank", "noopener,noreferrer");
     setIsOpen(false);
   };
-
-  return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+  return <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button variant="outline" className="border-brand-gold text-brand-navy hover:bg-brand-cream flex items-center gap-2">
           <Share size={18} />
           <span>Free IELTS </span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md px-[10px]">
         <DialogHeader>
           <DialogTitle className="font-playfair text-2xl">Join V&C Elegance IELTS Community</DialogTitle>
           <DialogDescription className="text-center">Connect with fellow IELTS test-takers and access exclusive study materials, tips, and support.
         با عضویت در تلگرام از منابع منحصر به فرد و رایگان آیلتس بهره مند شوید</DialogDescription>
         </DialogHeader>
         
-        <div className="p-4 border rounded-lg bg-gray-50 my-4">
+        <div className="p-4 border bg-gray-50 px-0 my-0 py-0 rounded-sm">
           <div className="flex items-center gap-3">
             <div className="h-12 w-12 bg-[#0088cc] rounded-full flex items-center justify-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
@@ -79,6 +73,5 @@ export function TelegramDialog() {
           </Button>
         </DialogFooter>
       </DialogContent>
-    </Dialog>
-  );
+    </Dialog>;
 }
