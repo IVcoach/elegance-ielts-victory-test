@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { toast } from "@/components/ui/use-toast";
 import { Book, Award, Star } from "lucide-react";
-import { WelcomeDialog } from "@/components/WelcomeDialog";
 import { StudyQuestions } from "@/components/StudyQuestions";
 import { TestQuestions } from "@/components/TestQuestions";
 import { AssessmentResults } from "@/components/AssessmentResults";
@@ -65,7 +64,7 @@ const ieltsDescriptions: IELTSBandDescription[] = [
 
 // Calculate CEFR level and IELTS band based on test score
 const calculateResults = (correctAnswers: number, totalQuestions: number) => {
-  const score = correctAnswers / totalQuestions * 100;
+  const score = (correctAnswers / totalQuestions) * 100;
   let cefrLevel: CEFRLevel;
   let ieltsBand: string;
   let toeflScore: number;
@@ -127,7 +126,7 @@ const ServiceIcons = () => {
   const services = [
     {
       icon: <Book className="h-8 w-8" />,
-      title: "Free IELTS Resources",
+      title: "**Free IELTS Resources**",
       description: "Access top-quality study resources"
     },
     {
@@ -149,7 +148,13 @@ const ServiceIcons = () => {
           <div className="flex items-center justify-center mb-4 text-purple-600">
             {service.icon}
           </div>
-          <h3 className="text-lg font-semibold text-brand-navy text-center mb-2">{service.title}</h3>
+          <h3 className="text-lg font-semibold text-brand-navy text-center mb-2">
+            {service.title.includes("**") ? (
+              <span className="font-bold">{service.title.replace(/\*\*/g, "")}</span>
+            ) : (
+              service.title
+            )}
+          </h3>
           <p className="text-center text-gray-600">{service.description}</p>
         </div>
       ))}
@@ -168,7 +173,7 @@ const QuizIntro = ({
   return (
     <div className="max-w-4xl mx-auto text-center">
       <h1 className="text-3xl font-playfair font-bold text-brand-navy mb-6">
-        Discover Your English Proficiency Level
+        Start Your IELTS Journey – Free Placement Test, Instant Results!
       </h1>
       
       <div className="mb-8 p-6 bg-white rounded-lg shadow-md">
@@ -233,7 +238,12 @@ const Test = () => {
   const [totalQuestions, setTotalQuestions] = useState(20);
   
   // Check if we have returned from completing a test
-  const locationState = location.state as { testCompleted?: boolean, answers?: string[] } | null;
+  const locationState = location.state as { 
+    testCompleted?: boolean, 
+    answers?: string[], 
+    correctAnswers?: number,
+    totalQuestions?: number 
+  } | null;
   
   // Check for practice parameter in URL
   const searchParams = new URLSearchParams(location.search);
@@ -246,10 +256,12 @@ const Test = () => {
     }
     
     if (locationState?.testCompleted) {
-      // Calculate correct answers - this would be more sophisticated in a real app
-      const simulatedCorrectAnswers = Math.round((locationState.answers?.length || 0) * 0.7);
-      setCorrectAnswers(simulatedCorrectAnswers);
-      setTotalQuestions(locationState.answers?.length || 20);
+      // Use actual correct answers from the test
+      const actualCorrectAnswers = locationState.correctAnswers || 0;
+      const actualTotalQuestions = locationState.totalQuestions || 20;
+      
+      setCorrectAnswers(actualCorrectAnswers);
+      setTotalQuestions(actualTotalQuestions);
       setTestCompleted(true);
     }
   }, [locationState, shouldShowPractice]);
@@ -273,9 +285,10 @@ const Test = () => {
 
   // Calculate mock section scores for result display
   const getMockSectionScores = (): ScoreSection[] => {
+    const baseScore = (correctAnswers / totalQuestions) * 100;
     return [
-      { name: "Grammar", score: Math.round(65 + Math.random() * 20) },
-      { name: "Vocabulary", score: Math.round(70 + Math.random() * 15) }
+      { name: "Grammar", score: Math.max(0, Math.min(100, baseScore + Math.random() * 10 - 5)) },
+      { name: "Vocabulary", score: Math.max(0, Math.min(100, baseScore + Math.random() * 10 - 5)) }
     ];
   };
 

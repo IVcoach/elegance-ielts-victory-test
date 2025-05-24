@@ -1,7 +1,7 @@
 
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Upload, Mic, WhatsApp } from "lucide-react";
+import { Upload, Mic, MessageCircle } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 import { Progress } from "@/components/ui/progress";
 
@@ -188,7 +188,7 @@ export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps
             onClick={handleWhatsAppShare} 
             className="flex-1 bg-green-500 hover:bg-green-600"
           >
-            <WhatsApp className="mr-2 h-4 w-4" />
+            <MessageCircle className="mr-2 h-4 w-4" />
             Send via WhatsApp
           </Button>
         </div>

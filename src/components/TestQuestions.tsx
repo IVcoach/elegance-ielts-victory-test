@@ -8,37 +8,39 @@ import { Question, QuestionCard } from "@/components/QuestionCard";
 import { ArrowLeft } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 
-// Enhanced IELTS-style questions with more grammar and vocabulary focus
+// Enhanced IELTS-style questions with more accurate scoring
 const testQuestions: Question[] = [
-  // Grammar Questions
+  // Basic Grammar (A1-A2 level)
   {
     id: "g1",
     type: "multiple-choice",
-    text: "Choose the correct form to complete this sentence: If the government _____ taxes, public services would improve.",
+    text: "Choose the correct form: I _____ English for three years.",
     options: [
-      { id: "a", text: "raises" },
-      { id: "b", text: "would raise" },
-      { id: "c", text: "raised" },
-      { id: "d", text: "had raised" }
+      { id: "a", text: "study" },
+      { id: "b", text: "am studying" },
+      { id: "c", text: "have been studying" },
+      { id: "d", text: "studied" }
     ],
-    difficulty: "B2"
+    difficulty: "A2"
   },
   {
     id: "g2",
     type: "multiple-choice",
-    text: "Which sentence demonstrates the correct use of subject-verb agreement?",
+    text: "Which sentence is grammatically correct?",
     options: [
-      { id: "a", text: "The collection of artifacts from the excavation site were displayed in the museum." },
-      { id: "b", text: "The collection of artifacts from the excavation site was displayed in the museum." },
-      { id: "c", text: "The collection of artifacts from the excavation site have been displayed in the museum." },
-      { id: "d", text: "The collection of artifacts from the excavation site is being displayed in the museum since last year." }
+      { id: "a", text: "She don't like coffee." },
+      { id: "b", text: "She doesn't likes coffee." },
+      { id: "c", text: "She doesn't like coffee." },
+      { id: "d", text: "She not like coffee." }
     ],
-    difficulty: "B1"
+    difficulty: "A1"
   },
+  
+  // Intermediate Grammar (B1-B2 level)
   {
     id: "g3",
     type: "multiple-choice",
-    text: "Identify the correct grammatical structure: If I __________ more time, I would travel around the world.",
+    text: "If I _____ more time, I would travel around the world.",
     options: [
       { id: "a", text: "had" },
       { id: "b", text: "have" },
@@ -50,245 +52,295 @@ const testQuestions: Question[] = [
   {
     id: "g4",
     type: "multiple-choice",
-    text: "Select the sentence with the correct use of articles:",
+    text: "The book _____ by millions of people worldwide.",
     options: [
-      { id: "a", text: "She is an university student who studies an history." },
-      { id: "b", text: "She is a university student who studies a history." },
-      { id: "c", text: "She is an university student who studies the history." },
-      { id: "d", text: "She is a university student who studies history." }
-    ],
-    difficulty: "B1"
-  },
-  {
-    id: "g5",
-    type: "multiple-choice",
-    text: "Which of these sentences uses the past perfect tense correctly?",
-    options: [
-      { id: "a", text: "I arrived at the station after the train has left." },
-      { id: "b", text: "I arrived at the station after the train had left." },
-      { id: "c", text: "I arrived at the station after the train was leaving." },
-      { id: "d", text: "I arrived at the station after the train leaves." }
+      { id: "a", text: "has read" },
+      { id: "b", text: "has been read" },
+      { id: "c", text: "was reading" },
+      { id: "d", text: "is reading" }
     ],
     difficulty: "B2"
   },
+  
+  // Advanced Grammar (C1-C2 level)
+  {
+    id: "g5",
+    type: "multiple-choice",
+    text: "_____ the weather, we decided to postpone the outdoor event.",
+    options: [
+      { id: "a", text: "Despite of" },
+      { id: "b", text: "In spite of" },
+      { id: "c", text: "Although" },
+      { id: "d", text: "However" }
+    ],
+    difficulty: "C1"
+  },
+  {
+    id: "g6",
+    type: "multiple-choice",
+    text: "The government's new policy is _____ criticism from various sectors.",
+    options: [
+      { id: "a", text: "coming under" },
+      { id: "b", text: "getting into" },
+      { id: "c", text: "going through" },
+      { id: "d", text: "falling behind" }
+    ],
+    difficulty: "C2"
+  },
 
-  // Vocabulary Questions
+  // Basic Vocabulary (A1-A2 level)
   {
     id: "v1",
     type: "multiple-choice",
-    text: "Select the most appropriate academic synonym for 'significant':",
+    text: "What do you call a person who teaches students?",
     options: [
-      { id: "a", text: "big" },
-      { id: "b", text: "considerable" },
-      { id: "c", text: "nice" },
-      { id: "d", text: "certain" }
+      { id: "a", text: "Doctor" },
+      { id: "b", text: "Teacher" },
+      { id: "c", text: "Engineer" },
+      { id: "d", text: "Lawyer" }
     ],
-    difficulty: "C1"
+    difficulty: "A1"
   },
   {
     id: "v2",
     type: "multiple-choice",
-    text: "The recent studies indicate a _____ in air pollution levels in urban areas.",
+    text: "The opposite of 'expensive' is:",
     options: [
-      { id: "a", text: "decrease" },
-      { id: "b", text: "rise" },
-      { id: "c", text: "decline" },
-      { id: "d", text: "reduction" }
+      { id: "a", text: "costly" },
+      { id: "b", text: "cheap" },
+      { id: "c", text: "valuable" },
+      { id: "d", text: "precious" }
     ],
-    difficulty: "B1"
+    difficulty: "A2"
   },
+
+  // Intermediate Vocabulary (B1-B2 level)
   {
     id: "v3",
     type: "multiple-choice",
-    text: "Which word collocates most naturally with 'conduct' in academic writing?",
+    text: "The company decided to _____ the project due to budget constraints.",
     options: [
-      { id: "a", text: "a test" },
-      { id: "b", text: "research" },
-      { id: "c", text: "money" },
-      { id: "d", text: "a car" }
+      { id: "a", text: "abandon" },
+      { id: "b", text: "continue" },
+      { id: "c", text: "expand" },
+      { id: "d", text: "celebrate" }
     ],
-    difficulty: "B2"
+    difficulty: "B1"
   },
   {
     id: "v4",
     type: "multiple-choice",
-    text: "Choose the best word to describe a person who always tells the truth:",
+    text: "Which word best describes someone who is very careful with money?",
     options: [
-      { id: "a", text: "Deceptive" },
-      { id: "b", text: "Honest" },
-      { id: "c", text: "Dishonest" },
-      { id: "d", text: "Secretive" }
+      { id: "a", text: "generous" },
+      { id: "b", text: "frugal" },
+      { id: "c", text: "wasteful" },
+      { id: "d", text: "careless" }
     ],
-    difficulty: "A2"
+    difficulty: "B2"
   },
+
+  // Advanced Vocabulary (C1-C2 level)
   {
     id: "v5",
     type: "multiple-choice",
-    text: "Choose the correct word to complete this academic sentence: The research findings _____ the initial hypothesis.",
+    text: "The research findings _____ the initial hypothesis.",
     options: [
       { id: "a", text: "confirmed" },
-      { id: "b", text: "verified" },
-      { id: "c", text: "corroborated" },
+      { id: "b", text: "corroborated" },
+      { id: "c", text: "substantiated" },
       { id: "d", text: "all of the above" }
     ],
     difficulty: "C1"
   },
+  {
+    id: "v6",
+    type: "multiple-choice",
+    text: "The politician's speech was criticized for being _____ and lacking substance.",
+    options: [
+      { id: "a", text: "verbose" },
+      { id: "b", text: "concise" },
+      { id: "c", text: "eloquent" },
+      { id: "d", text: "articulate" }
+    ],
+    difficulty: "C2"
+  },
 
-  // IELTS-specific context questions
+  // Reading Comprehension (B1-B2 level)
+  {
+    id: "r1",
+    type: "multiple-choice",
+    text: "According to recent studies, regular exercise can significantly improve mental health by reducing stress and anxiety levels. What is the main benefit mentioned?",
+    options: [
+      { id: "a", text: "Weight loss" },
+      { id: "b", text: "Improved mental health" },
+      { id: "c", text: "Better sleep" },
+      { id: "d", text: "Increased energy" }
+    ],
+    difficulty: "B1"
+  },
+  {
+    id: "r2",
+    type: "multiple-choice",
+    text: "The author's tone in the passage about climate change can best be described as:",
+    options: [
+      { id: "a", text: "optimistic" },
+      { id: "b", text: "neutral" },
+      { id: "c", text: "concerned" },
+      { id: "d", text: "indifferent" }
+    ],
+    difficulty: "B2"
+  },
+
+  // Critical Thinking (C1-C2 level)
   {
     id: "c1",
     type: "multiple-choice",
-    text: "Which of these expressions would be most appropriate in the introduction of a formal academic essay?",
+    text: "Which argument structure is most effective for an academic essay?",
     options: [
-      { id: "a", text: "This essay is gonna talk about globalization." },
-      { id: "b", text: "I think globalization is interesting." },
-      { id: "c", text: "This paper examines the multifaceted impacts of globalization." },
-      { id: "d", text: "Globalization is really important nowadays." }
+      { id: "a", text: "Opinion → Examples → Conclusion" },
+      { id: "b", text: "Introduction → Thesis → Evidence → Counter-argument → Conclusion" },
+      { id: "c", text: "Examples → Opinion → More examples" },
+      { id: "d", text: "Conclusion → Supporting details → Introduction" }
     ],
-    difficulty: "B2"
+    difficulty: "C1"
   },
   {
     id: "c2",
     type: "multiple-choice",
-    text: "Which sentence contains correct punctuation?",
+    text: "In academic discourse, the most appropriate way to present conflicting viewpoints is to:",
     options: [
-      { id: "a", text: "The results which were unexpected, contradicted our hypothesis." },
-      { id: "b", text: "The results, which were unexpected contradicted our hypothesis." },
-      { id: "c", text: "The results, which were unexpected, contradicted our hypothesis." },
-      { id: "d", text: "The results which were unexpected contradicted our hypothesis." }
+      { id: "a", text: "Dismiss opposing views as incorrect" },
+      { id: "b", text: "Present all views as equally valid" },
+      { id: "c", text: "Acknowledge opposing views while arguing for your position with evidence" },
+      { id: "d", text: "Avoid mentioning opposing views" }
     ],
-    difficulty: "B1"
+    difficulty: "C2"
   },
+
+  // IELTS-specific contexts
   {
-    id: "c3",
+    id: "i1",
     type: "multiple-choice",
-    text: "Which of these best exemplifies a coherent paragraph structure?",
+    text: "In IELTS Writing Task 2, which introduction is most appropriate?",
     options: [
-      { id: "a", text: "Main idea, supporting detail, supporting detail, conclusion" },
-      { id: "b", text: "Supporting detail, main idea, conclusion, supporting detail" },
-      { id: "c", text: "Conclusion, supporting detail, supporting detail, main idea" },
-      { id: "d", text: "Supporting detail, supporting detail, conclusion, main idea" }
+      { id: "a", text: "I think that technology is really good for education." },
+      { id: "b", text: "This essay will discuss the advantages and disadvantages of technology in education." },
+      { id: "c", text: "Technology in education is a topic that has both supporters and critics." },
+      { id: "d", text: "Everyone knows that technology is important nowadays." }
     ],
     difficulty: "B2"
   },
   {
-    id: "c4",
+    id: "i2",
     type: "multiple-choice",
-    text: "Which of the following represents the most balanced approach to presenting opposing viewpoints in an argumentative essay?",
+    text: "Which cohesive device best connects these ideas: 'Online learning offers flexibility. _____ it can lack personal interaction.'",
     options: [
-      { id: "a", text: "Presenting only evidence that supports your position" },
-      { id: "b", text: "Briefly mentioning opposing views but dismissing them as incorrect" },
-      { id: "c", text: "Presenting opposing arguments fairly before explaining why your position is more compelling" },
-      { id: "d", text: "Giving equal space to all viewpoints without taking a position" }
-    ],
-    difficulty: "C1"
-  },
-  {
-    id: "c5",
-    type: "multiple-choice",
-    text: "Environmental issues are a common topic in IELTS. Which of the following questions best relates to this theme?",
-    options: [
-      { id: "a", text: "What are the benefits of international travel?" },
-      { id: "b", text: "How can governments reduce pollution?" },
-      { id: "c", text: "Describe your favorite holiday destination" },
-      { id: "d", text: "What kind of music do you like?" }
+      { id: "a", text: "And" },
+      { id: "b", text: "However" },
+      { id: "c", text: "Because" },
+      { id: "d", text: "Therefore" }
     ],
     difficulty: "B1"
   },
   
-  // More specialized questions
+  // Complex sentence structures
   {
     id: "s1",
     type: "multiple-choice",
-    text: "In IELTS speaking and writing, discussing the advantages and disadvantages is frequent. Which of the following questions is suitable for this approach?",
+    text: "Which sentence demonstrates the most sophisticated language use?",
     options: [
-      { id: "a", text: "Describe your hometown." },
-      { id: "b", text: "Discuss the impact of technology on education." },
-      { id: "c", text: "What do you do in your free time?" },
-      { id: "d", text: "Where do you like to go shopping?" }
+      { id: "a", text: "Technology is good. It helps people." },
+      { id: "b", text: "Technology is good because it helps people." },
+      { id: "c", text: "While technology undoubtedly offers numerous benefits, it also presents significant challenges that society must address." },
+      { id: "d", text: "Technology helps people, which is good." }
     ],
-    difficulty: "B2"
+    difficulty: "C1"
   },
   {
     id: "s2",
     type: "multiple-choice",
-    text: "Which of these is a common IELTS writing task 2 topic?",
+    text: "Identify the sentence with correct parallel structure:",
     options: [
-      { id: "a", text: "Describe your daily routine" },
-      { id: "b", text: "The effect of social media on communication" },
-      { id: "c", text: "What is your favorite food" },
-      { id: "d", text: "Travel experiences" }
-    ],
-    difficulty: "B1"
-  },
-  {
-    id: "s3",
-    type: "multiple-choice",
-    text: "Which of these would be the most appropriate reporting verb to use when presenting controversial research findings in an academic paper?",
-    options: [
-      { id: "a", text: "The researchers proved that..." },
-      { id: "b", text: "The researchers suggest that..." },
-      { id: "c", text: "The researchers think that..." },
-      { id: "d", text: "The researchers feel that..." }
+      { id: "a", text: "She likes reading, writing, and to swim." },
+      { id: "b", text: "She likes reading, writing, and swimming." },
+      { id: "c", text: "She likes to read, writing, and swimming." },
+      { id: "d", text: "She likes reading, to write, and swimming." }
     ],
     difficulty: "B2"
-  },
-  {
-    id: "s4",
-    type: "multiple-choice",
-    text: "In academic writing, which of these would be the most effective way to avoid plagiarism?",
-    options: [
-      { id: "a", text: "Changing a few words in the original text" },
-      { id: "b", text: "Using quotation marks but not citing the source" },
-      { id: "c", text: "Properly paraphrasing and citing the original source" },
-      { id: "d", text: "Only using sources that are not well-known" }
-    ],
-    difficulty: "B2"
-  },
-  {
-    id: "s5",
-    type: "multiple-choice",
-    text: "Which of these sentence structures would be awarded the highest mark in IELTS Writing?",
-    options: [
-      { id: "a", text: "Technology is good. Life is easy. People like it." },
-      { id: "b", text: "Technology is good because life is easy and people like it." },
-      { id: "c", text: "While technology has undoubtedly simplified many aspects of daily life, its rapid advancement has raised significant concerns regarding privacy and digital addiction." },
-      { id: "d", text: "Technology, which is good, makes life easy, which people like." }
-    ],
-    difficulty: "C1"
   }
 ];
+
+// Correct answers for scoring
+const correctAnswers: { [key: string]: string } = {
+  "g1": "c", // have been studying (present perfect continuous)
+  "g2": "c", // doesn't like (correct negative form)
+  "g3": "a", // had (second conditional)
+  "g4": "b", // has been read (passive voice)
+  "g5": "b", // In spite of (correct preposition)
+  "g6": "a", // coming under (correct phrasal verb)
+  "v1": "b", // Teacher
+  "v2": "b", // cheap
+  "v3": "a", // abandon
+  "v4": "b", // frugal
+  "v5": "d", // all of the above (academic vocabulary)
+  "v6": "a", // verbose
+  "r1": "b", // Improved mental health
+  "r2": "c", // concerned
+  "c1": "b", // proper academic structure
+  "c2": "c", // acknowledge opposing views
+  "i1": "b", // appropriate IELTS introduction
+  "i2": "b", // However (contrast)
+  "s1": "c", // sophisticated language
+  "s2": "b", // correct parallel structure
+};
 
 export function TestQuestions() {
   const navigate = useNavigate();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
+  const [userAnswers, setUserAnswers] = useState<{ [key: string]: string }>({});
 
   // Handle user's answer
   const handleAnswer = (answerId: string) => {
+    const currentQuestion = testQuestions[currentQuestionIndex];
     const newAnswers = [...answers, answerId];
+    const newUserAnswers = { ...userAnswers, [currentQuestion.id]: answerId };
+    
     setAnswers(newAnswers);
+    setUserAnswers(newUserAnswers);
     
     if (currentQuestionIndex < testQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-      // Show a message confirming the answer was recorded
       toast({
         title: "Answer recorded",
         description: `Moving to question ${currentQuestionIndex + 2} of ${testQuestions.length}`,
         duration: 2000
       });
     } else {
-      // Last question - navigate to results
+      // Calculate accurate score
+      let correctCount = 0;
+      Object.keys(newUserAnswers).forEach(questionId => {
+        if (correctAnswers[questionId] === newUserAnswers[questionId]) {
+          correctCount++;
+        }
+      });
+      
       toast({
         title: "Test completed!",
         description: "Calculating your results...",
         duration: 2000
       });
       
-      // In a real implementation, you'd pass the answers to calculate results
-      // For now, we'll simulate completion by going back to the test page
       setTimeout(() => {
-        navigate('/test', { state: { testCompleted: true, answers: newAnswers } });
+        navigate('/test', { 
+          state: { 
+            testCompleted: true, 
+            answers: newAnswers,
+            correctAnswers: correctCount,
+            totalQuestions: testQuestions.length
+          } 
+        });
       }, 1000);
     }
   };
@@ -298,8 +350,12 @@ export function TestQuestions() {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
       // Remove the last answer
       setAnswers(answers.slice(0, -1));
+      // Remove the last user answer
+      const currentQuestion = testQuestions[currentQuestionIndex];
+      const newUserAnswers = { ...userAnswers };
+      delete newUserAnswers[currentQuestion.id];
+      setUserAnswers(newUserAnswers);
     } else {
-      // If at the first question, go back to test selection
       navigate('/test');
     }
   };

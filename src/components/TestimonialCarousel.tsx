@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
-// Student success stories
+// Student success stories with satisfaction quotes
 const studentTestimonials = [
   {
     name: "Diana",
@@ -10,6 +10,7 @@ const studentTestimonials = [
     score: "Band 8",
     achievement: "Got scholarship from U.K.",
     photo: "/placeholder.svg",
+    quote: "The AI-powered customized study plan was incredible! The personalized coaching helped me understand my weaknesses and improve systematically."
   },
   {
     name: "Mert",
@@ -17,6 +18,7 @@ const studentTestimonials = [
     score: "Band 7",
     achievement: "Successfully admitted to graduate program",
     photo: "/placeholder.svg",
+    quote: "The unique teaching method with AI analysis made all the difference. I could see my progress in real-time and focus on what mattered most."
   },
   {
     name: "Liam",
@@ -24,6 +26,7 @@ const studentTestimonials = [
     score: "Band 8",
     achievement: "Secured academic position abroad",
     photo: "/placeholder.svg",
+    quote: "The mentoring was exceptional! The customized approach and AI feedback helped me achieve my target score faster than I expected."
   },
   {
     name: "Mohammad",
@@ -31,6 +34,7 @@ const studentTestimonials = [
     score: "Band 7",
     achievement: "IELTS General for immigration",
     photo: "/placeholder.svg",
+    quote: "The coaching methodology is truly unique. The AI-driven personalized plan addressed my specific needs perfectly."
   },
   {
     name: "Shahin",
@@ -38,6 +42,7 @@ const studentTestimonials = [
     score: "Band 6.5",
     achievement: "Pursuing further education",
     photo: "/placeholder.svg",
+    quote: "I was amazed by how the AI customized my learning path. The mentoring sessions were focused and incredibly effective."
   },
   {
     name: "Bahar",
@@ -45,6 +50,7 @@ const studentTestimonials = [
     score: "Band 7",
     achievement: "Now residing in London",
     photo: "/placeholder.svg",
+    quote: "The unique AI-powered teaching method helped me identify and fix my mistakes quickly. Outstanding personalized guidance!"
   },
   {
     name: "Maral",
@@ -52,6 +58,7 @@ const studentTestimonials = [
     score: "Band 7",
     achievement: "Academic advancement",
     photo: "/placeholder.svg",
+    quote: "The customized study plan with AI analysis was a game-changer. I felt confident and well-prepared for the exam."
   },
   {
     name: "Parham",
@@ -59,6 +66,7 @@ const studentTestimonials = [
     score: "Band 6.5",
     achievement: "Now residing in Germany",
     photo: "/placeholder.svg",
+    quote: "The mentoring approach is exceptional. The AI-driven insights helped me understand exactly what I needed to improve."
   },
   {
     name: "Mohammad",
@@ -66,6 +74,7 @@ const studentTestimonials = [
     score: "Band 7",
     achievement: "Now residing in the US",
     photo: "/placeholder.svg",
+    quote: "The personalized coaching with AI technology made my preparation so much more efficient and targeted."
   },
   {
     name: "Artin",
@@ -73,6 +82,7 @@ const studentTestimonials = [
     score: "Band 7",
     achievement: "Now residing in Canada",
     photo: "/placeholder.svg",
+    quote: "I'm grateful for the unique teaching methodology. The AI-customized plan and expert mentoring exceeded my expectations."
   },
   {
     name: "Fatih",
@@ -80,6 +90,7 @@ const studentTestimonials = [
     score: "Band 7",
     achievement: "Now residing in Germany",
     photo: "/placeholder.svg",
+    quote: "The combination of AI analysis and personalized coaching is brilliant. I achieved my target score with confidence!"
   }
 ];
 
@@ -92,7 +103,7 @@ export function TestimonialCarousel() {
     if (!isPaused) {
       const interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % studentTestimonials.length);
-      }, 3000);
+      }, 4000);
       
       return () => clearInterval(interval);
     }
@@ -113,7 +124,7 @@ export function TestimonialCarousel() {
   
   return (
     <div 
-      className="relative h-64 overflow-hidden"
+      className="relative h-80 overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -122,13 +133,13 @@ export function TestimonialCarousel() {
           <div
             key={`${item.name}-${idx}`}
             className={cn(
-              "absolute w-full max-w-xs p-4 bg-white rounded-lg shadow-lg transition-all duration-500 transform",
-              item.position === -1 && "opacity-50 scale-90 -translate-x-32 z-10",
+              "absolute w-full max-w-sm p-4 bg-white rounded-lg shadow-lg transition-all duration-500 transform",
+              item.position === -1 && "opacity-50 scale-90 -translate-x-40 z-10",
               item.position === 0 && "opacity-100 scale-100 translate-x-0 z-20",
-              item.position === 1 && "opacity-50 scale-90 translate-x-32 z-10"
+              item.position === 1 && "opacity-50 scale-90 translate-x-40 z-10"
             )}
           >
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 mb-3">
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
                 <span className="text-xl font-bold text-purple-600">
                   {item.name.charAt(0)}
@@ -139,12 +150,15 @@ export function TestimonialCarousel() {
                 <p className="text-gray-600">from {item.country}</p>
               </div>
             </div>
-            <div className="mt-3 space-y-1">
+            <div className="space-y-2">
               <div className="flex justify-between items-center">
                 <span className="text-sm text-gray-600">IELTS Score:</span>
                 <span className="font-semibold text-purple-700">{item.score}</span>
               </div>
-              <p className="text-sm italic">{item.achievement}</p>
+              <p className="text-sm italic text-gray-700">{item.achievement}</p>
+              <p className="text-xs text-gray-600 leading-relaxed mt-2">
+                "{item.quote}"
+              </p>
             </div>
           </div>
         ))}

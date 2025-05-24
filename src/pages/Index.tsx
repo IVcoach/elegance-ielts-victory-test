@@ -4,15 +4,16 @@ import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { TelegramDialog } from "@/components/TelegramDialog";
-import { WelcomeDialog } from "@/components/WelcomeDialog";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Progress } from "@/components/ui/progress";
+import { Award, TrendingUp, Target } from "lucide-react";
 
 const Index = () => {
-  return <div className="min-h-screen flex flex-col">
+  return (
+    <div className="min-h-screen flex flex-col">
       <Navigation />
-      <WelcomeDialog />
       
       {/* Hero Section */}
       <section className="hero-gradient pt-24 pb-16 px-4 md:pt-32 md:pb-24">
@@ -61,24 +62,6 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Features Section */}
-      <section className="py-16 px-4 bg-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            
-            
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            
-            
-            
-            
-          </div>
-        </div>
-      </section>
-      
       {/* Student Success Stories */}
       <section className="py-12 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
@@ -104,13 +87,46 @@ const Index = () => {
             </CardContent>
           </Card>
           
-          <div className="bg-purple-100 p-5 rounded-lg text-center font-bold text-brand-navy">
-            <p className="text-xl">
-              <span className="text-purple-800">10% achieved Band 8</span> | 
-              <span className="text-purple-700"> 40% achieved Bands 7-7.5</span> | 
-              <span className="text-purple-600"> 50% achieved Band 6.5</span>
-            </p>
-            <p className="mt-2 text-lg">80% of our students succeed on their first IELTS attempt</p>
+          <div className="bg-gradient-to-r from-purple-100 to-blue-100 p-6 rounded-lg shadow-md">
+            <h3 className="text-center text-2xl font-bold text-brand-navy mb-6">Our Students' Success Rate</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-lg font-semibold text-purple-800">Band 8</span>
+                  <Award className="h-6 w-6 text-purple-600" />
+                </div>
+                <Progress value={10} className="h-3 mb-2" />
+                <p className="text-sm text-gray-600">10% achieved Band 8</p>
+              </div>
+              
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-lg font-semibold text-purple-700">Bands 7-7.5</span>
+                  <TrendingUp className="h-6 w-6 text-purple-600" />
+                </div>
+                <Progress value={40} className="h-3 mb-2" />
+                <p className="text-sm text-gray-600">40% achieved Bands 7-7.5</p>
+              </div>
+              
+              <div className="bg-white p-4 rounded-lg shadow-sm">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-lg font-semibold text-purple-600">Band 6.5</span>
+                  <Target className="h-6 w-6 text-purple-600" />
+                </div>
+                <Progress value={50} className="h-3 mb-2" />
+                <p className="text-sm text-gray-600">50% achieved Band 6.5</p>
+              </div>
+            </div>
+            
+            <div className="text-center bg-white p-4 rounded-lg shadow-sm">
+              <p className="text-xl font-bold text-brand-navy flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                80% of our students succeed on their first IELTS attempt
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -138,7 +154,8 @@ const Index = () => {
       </section>
       
       <Footer />
-    </div>;
+    </div>
+  );
 };
 
 export default Index;

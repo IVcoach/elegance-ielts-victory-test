@@ -14,7 +14,7 @@ export function Navigation() {
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <img 
-            src="/lovable-uploads/89c6d611-21a6-47a1-aa09-5681723e077d.png" 
+            src="/lovable-uploads/2b59e768-d5ce-4555-89d3-872a72db7377.png" 
             alt="IELTS Victory Logo" 
             className="h-12 w-auto" 
           />
@@ -25,15 +25,7 @@ export function Navigation() {
         <div className="hidden md:flex items-center gap-6">
           <Link to="/" className="font-medium text-gray-700 hover:text-brand-blue transition-colors">Home</Link>
           <Link to="/test" className="font-medium text-gray-700 hover:text-brand-blue transition-colors">Test</Link>
-          {/* Additional links to be enabled once pages are created
-          <Link to="/dashboard" className="font-medium text-gray-700 hover:text-brand-blue transition-colors">Dashboard</Link>
-          */}
           <TelegramDialog />
-          {/* Login button to be enabled once page is created
-          <Button variant="outline" className="border-brand-gold text-brand-navy hover:bg-brand-cream">
-            <Link to="/login">Sign In</Link>
-          </Button>
-          */}
         </div>
         
         {/* Mobile Menu Button */}
@@ -62,22 +54,6 @@ export function Navigation() {
           >
             Test
           </Link>
-          {/* Additional mobile links to be enabled once pages are created
-          <Link 
-            to="/dashboard" 
-            className="font-medium text-gray-700 hover:text-brand-blue transition-colors py-2"
-            onClick={() => setIsOpen(false)}
-          >
-            Dashboard
-          </Link>
-          <Button 
-            variant="outline" 
-            className="border-brand-gold text-brand-navy hover:bg-brand-cream w-full mb-2"
-            onClick={() => setIsOpen(false)}
-          >
-            <Link to="/login">Sign In</Link>
-          </Button>
-          */}
           <div onClick={() => setIsOpen(false)}>
             <TelegramDialog />
           </div>
