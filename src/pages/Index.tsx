@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
@@ -9,10 +8,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Progress } from "@/components/ui/progress";
 import { Award, TrendingUp, Target } from "lucide-react";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       <Navigation />
       
       {/* Hero Section */}
@@ -40,7 +37,7 @@ const Index = () => {
             
             <div className="relative animate-fade-in">
               <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white/50 backdrop-blur-sm">
-                <img alt="Student studying" src="/lovable-uploads/c6b531de-294a-479a-b6ce-4deccf10116f.jpg" className="w-full h-full object-cover" />
+                <img alt="Student studying" src="/lovable-uploads/fcf746aa-21a2-4f56-9789-094085fc0f6e.jpg" className="w-full h-full object-scale-down" />
               </div>
               
               <div className="absolute -bottom-10 -right-10 bg-white rounded-lg p-6 shadow-lg">
@@ -160,8 +157,6 @@ const Index = () => {
       </section>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
