@@ -1,16 +1,13 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-
 export function Footer() {
-  return (
-    <footer className="bg-brand-navy text-white py-12">
+  return <footer className="bg-brand-navy text-white py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
             <h2 className="text-xl font-playfair font-bold mb-4">V&C Elegance</h2>
             <p className="text-gray-300 mb-2">Your coach in your journey to IELTS excellence</p>
-            <p className="text-gray-300 mb-4">KVK: 123456789</p>
+            <p className="mb-4 text-zinc-100">Establishment number: 000061974544</p>
             <p className="text-sm text-gray-400">Amsterdam, The Netherlands</p>
           </div>
           
@@ -64,6 +61,5 @@ export function Footer() {
           <p className="mt-1">Amsterdam, The Netherlands</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 }
