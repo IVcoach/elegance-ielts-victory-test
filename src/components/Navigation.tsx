@@ -12,13 +12,13 @@ export function Navigation() {
   return (
     <nav className="w-full bg-white bg-opacity-90 backdrop-blur-sm fixed top-0 z-50 border-b">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-3">
           <img 
             src="/lovable-uploads/2b59e768-d5ce-4555-89d3-872a72db7377.png" 
             alt="IELTS Victory Logo" 
-            className="h-12 w-auto" 
+            className="h-16 w-auto" 
           />
-          <span className="font-playfair font-bold text-xl text-brand-navy">V&C Elegance</span>
+          <span className="font-playfair font-bold text-2xl text-brand-navy">V&C Elegance</span>
         </Link>
         
         {/* Desktop Navigation */}

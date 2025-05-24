@@ -39,8 +39,8 @@ const Index = () => {
             </div>
             
             <div className="relative animate-fade-in">
-              <div className="aspect-video rounded-lg overflow-hidden shadow-xl">
-                <img alt="Student studying" src="/lovable-uploads/c6b531de-294a-479a-b6ce-4deccf10116f.jpg" className="w-full h-full object-contain" />
+              <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white/50 backdrop-blur-sm">
+                <img alt="Student studying" src="/lovable-uploads/c6b531de-294a-479a-b6ce-4deccf10116f.jpg" className="w-full h-full object-cover" />
               </div>
               
               <div className="absolute -bottom-10 -right-10 bg-white rounded-lg p-6 shadow-lg">
@@ -63,7 +63,7 @@ const Index = () => {
       </section>
       
       {/* Student Success Stories */}
-      <section className="py-12 px-4 bg-gray-50">
+      <section className="py-12 px-4 bg-gradient-to-r from-gray-50 via-white to-gray-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-playfair font-bold text-brand-navy">Our Latest Learners</h2>
@@ -91,31 +91,37 @@ const Index = () => {
             <h3 className="text-center text-2xl font-bold text-brand-navy mb-6">Our Students' Success Rate</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-lg font-semibold text-purple-800">Band 8</span>
-                  <Award className="h-6 w-6 text-purple-600" />
+              <div className="bg-white p-4 rounded-lg shadow-sm flex items-center gap-4">
+                <Award className="h-8 w-8 text-purple-600 flex-shrink-0" />
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-lg font-semibold text-purple-800">Band 8</span>
+                    <span className="text-sm font-bold">10%</span>
+                  </div>
+                  <Progress value={10} className="h-3" />
                 </div>
-                <Progress value={10} className="h-3 mb-2" />
-                <p className="text-sm text-gray-600">10% achieved Band 8</p>
               </div>
               
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-lg font-semibold text-purple-700">Bands 7-7.5</span>
-                  <TrendingUp className="h-6 w-6 text-purple-600" />
+              <div className="bg-white p-4 rounded-lg shadow-sm flex items-center gap-4">
+                <TrendingUp className="h-8 w-8 text-purple-600 flex-shrink-0" />
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-lg font-semibold text-purple-700">Bands 7-7.5</span>
+                    <span className="text-sm font-bold">40%</span>
+                  </div>
+                  <Progress value={40} className="h-3" />
                 </div>
-                <Progress value={40} className="h-3 mb-2" />
-                <p className="text-sm text-gray-600">40% achieved Bands 7-7.5</p>
               </div>
               
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-lg font-semibold text-purple-600">Band 6.5</span>
-                  <Target className="h-6 w-6 text-purple-600" />
+              <div className="bg-white p-4 rounded-lg shadow-sm flex items-center gap-4">
+                <Target className="h-8 w-8 text-purple-600 flex-shrink-0" />
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-lg font-semibold text-purple-600">Band 6.5</span>
+                    <span className="text-sm font-bold">50%</span>
+                  </div>
+                  <Progress value={50} className="h-3" />
                 </div>
-                <Progress value={50} className="h-3 mb-2" />
-                <p className="text-sm text-gray-600">50% achieved Band 6.5</p>
               </div>
             </div>
             

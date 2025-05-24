@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
@@ -113,7 +114,7 @@ I'm interested in improving my score. Can you help with personalized guidance?
               {sectionScores.map(section => (
                 <div key={section.name} className="p-3 border rounded-md">
                   <div className="text-sm text-muted-foreground">{section.name}</div>
-                  <div className="font-semibold">{section.score}%</div>
+                  <div className="font-semibold">{Math.round(section.score)}%</div>
                   <div className="w-full h-1.5 bg-gray-200 rounded-full mt-1">
                     <div 
                       className="h-full bg-purple-600 rounded-full" 

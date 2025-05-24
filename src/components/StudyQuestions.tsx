@@ -133,20 +133,6 @@ What strategies to follow during preparation
 and explain why this way is effective.</p>
             
             <div className="space-y-4">
-              <Textarea 
-                placeholder="Your answer here..." 
-                className="min-h-[150px]" 
-                value={speakingAnswer} 
-                onChange={e => {
-                  setSpeakingAnswer(e.target.value);
-                  updateProgress("speaking");
-                }}
-              />
-              
-              <div className="mt-2 text-sm text-gray-500">
-                <p>- or -</p>
-              </div>
-              
               <AudioUploader onAudioUploaded={handleAudioUploaded} className="mt-4" />
               
               {(speakingProgress > 0 || speakingAudio) && (
@@ -172,6 +158,18 @@ and explain why this way is effective.</p>
                   )}
                 </div>
               )}
+              
+              <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                <p className="text-sm text-green-800 mb-2">
+                  <strong>Upload your speaking response via WhatsApp:</strong>
+                </p>
+                <Button 
+                  onClick={handleWhatsAppShare} 
+                  className="bg-green-500 hover:bg-green-600 text-white"
+                >
+                  Send Audio to WhatsApp
+                </Button>
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -193,7 +191,7 @@ Give reasons for your answer and include examples from your experience or knowle
             
             <div className="space-y-4">
               <Textarea 
-                placeholder="Your answer here..." 
+                placeholder="Write your answer here..." 
                 className="min-h-[200px]" 
                 value={writingAnswer} 
                 onChange={e => updateWritingProgress(e.target.value)}
