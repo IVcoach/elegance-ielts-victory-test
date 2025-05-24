@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
@@ -9,7 +9,6 @@ import { Progress } from "@/components/ui/progress";
 import { CheckCircle, AlertCircle } from "lucide-react";
 
 export function StudyQuestions() {
-  const [speakingAnswer, setSpeakingAnswer] = useState("");
   const [writingAnswer, setWritingAnswer] = useState("");
   const [speakingAudio, setSpeakingAudio] = useState<File | null>(null);
   const [speakingProgress, setSpeakingProgress] = useState(0);
@@ -23,7 +22,7 @@ export function StudyQuestions() {
   const [overallIELTSBand, setOverallIELTSBand] = useState<string | null>(null);
   
   const handleWhatsAppShare = () => {
-    if ((!speakingAnswer && !speakingAudio) && !writingAnswer) {
+    if (!speakingAudio && !writingAnswer) {
       toast({
         title: "لطفا به حداقل یک سوال پاسخ دهید",
         description: "برای ارزیابی، حداقل باید به یکی از سوالات پاسخ دهید.",
@@ -36,8 +35,6 @@ export function StudyQuestions() {
     
     if (speakingAudio) {
       text += "Speaking Answer: [Audio file attached]\n\n";
-    } else if (speakingAnswer) {
-      text += `Speaking Answer:\n${speakingAnswer}\n\n`;
     }
     
     if (writingAnswer) {
@@ -54,33 +51,27 @@ export function StudyQuestions() {
   };
 
   const updateProgress = (type: "speaking" | "writing") => {
-    // Simulate progress calculation based on content length or complexity
     if (type === "speaking") {
-      setSpeakingProgress(speakingAudio ? 100 : speakingAnswer.length > 50 ? 80 : speakingAnswer.length > 20 ? 40 : 0);
+      setSpeakingProgress(speakingAudio ? 100 : 0);
     } else {
       setWritingProgress(writingAnswer.length > 200 ? 100 : writingAnswer.length > 100 ? 60 : writingAnswer.length > 50 ? 30 : 0);
     }
     
-    // If both have some content, enable the assessment
-    if ((speakingAudio || speakingAnswer.length > 20) && writingAnswer.length > 100) {
+    if (speakingAudio && writingAnswer.length > 100) {
       simulateAssessment();
     }
   };
 
   const simulateAssessment = () => {
-    // In a real application, this would be a proper assessment algorithm
-    // Here we're just simulating scores based on answer length
     const spScore = Math.min(7 + Math.random() * 1.5, 9);
     const wrScore = Math.min(6.5 + Math.random() * 1.5, 9);
     
     setSpeakingScore(spScore);
     setWritingScore(wrScore);
     
-    // Overall score calculation
     const overall = (spScore + wrScore) / 2;
     setOverallIELTSBand(overall.toFixed(1));
     
-    // Map IELTS band to CEFR level
     if (overall >= 8) {
       setOverallLevel("C2");
     } else if (overall >= 7) {
@@ -98,7 +89,6 @@ export function StudyQuestions() {
 
   const updateWritingProgress = (text: string) => {
     setWritingAnswer(text);
-    // Update progress when content changes
     setWritingProgress(text.length > 200 ? 100 : text.length > 100 ? 60 : text.length > 50 ? 30 : 0);
     updateProgress("writing");
   };
@@ -111,7 +101,7 @@ export function StudyQuestions() {
         <p className="text-brand-navy mb-4">
           در این بخش، سوالاتی دارید که به شما کمک می‌کند توانایی‌های صحبت و نوشتن‌تان را با بهترین روش‌های ارزیابی کنیم.
         </p>
-        <p className="text-brand-navy mb-4">فایل صوتی جواب سوال اسپیکینگ را آپلود گنید یا پاسخ را در واتس اپ بصورت ضبط صدا ارسال کنید </p>
+        <p className="text-brand-navy mb-4">فایل صوتی جواب سوال اسپیکینگ را آپلود کنید یا پاسخ را در واتس اپ بصورت ضبط صدا ارسال کنید </p>
         <p className="text-brand-navy font-bold"> این ارزیابی‌ها برای هر فرد یکبار رایگان انجام می‌شوند</p>
       </div>
 
@@ -125,7 +115,6 @@ export function StudyQuestions() {
           <CardContent>
             <p className="mb-4 font-medium">Describe the best way to study for IELTS.
  You should say:
-
 
 What materials to use
 How to organize your study time
@@ -149,27 +138,8 @@ and explain why this way is effective.</p>
                       <span>Audio file ready for assessment</span>
                     </div>
                   )}
-                  
-                  {!speakingAudio && speakingProgress < 40 && speakingProgress > 0 && (
-                    <div className="mt-2 text-sm text-amber-600 flex items-center">
-                      <AlertCircle className="h-4 w-4 mr-1" />
-                      <span>Your response seems brief. Consider expanding your answer.</span>
-                    </div>
-                  )}
                 </div>
               )}
-              
-              <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                <p className="text-sm text-green-800 mb-2">
-                  <strong>Upload your speaking response via WhatsApp:</strong>
-                </p>
-                <Button 
-                  onClick={handleWhatsAppShare} 
-                  className="bg-green-500 hover:bg-green-600 text-white"
-                >
-                  Send Audio to WhatsApp
-                </Button>
-              </div>
             </div>
           </CardContent>
         </Card>
@@ -284,7 +254,7 @@ Give reasons for your answer and include examples from your experience or knowle
         <div className="flex justify-center">
           <Button onClick={handleWhatsAppShare} className="bg-green-500 hover:bg-green-600 px-6 py-2.5 text-lg gap-2">
             <span>Send to WhatsApp for Expert Assessment</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-whatsapp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
             </svg>
           </Button>

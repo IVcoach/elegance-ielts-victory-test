@@ -70,18 +70,13 @@ export function TelegramDialog() {
           </div>
         </div>
         
-        <DialogFooter className="flex flex-col sm:flex-row sm:justify-between gap-3">
-          <Button variant="ghost" onClick={() => setIsOpen(false)} className="hidden sm:inline-flex">
-            Maybe Later
+        <DialogFooter className="flex gap-3 w-full">
+          <Button onClick={handleJoinChannel} className="bg-[#0088cc] hover:bg-[#0088cc]/90 flex-1">
+            Join @ieltsvc on Telegram
           </Button>
-          <div className="flex gap-3 w-full sm:w-auto">
-            <Button onClick={handleJoinChannel} className="bg-[#0088cc] hover:bg-[#0088cc]/90 flex-1 sm:flex-none">
-              Join @ieltsvc on Telegram
-            </Button>
-            <Button onClick={handleWhatsAppClick} className="bg-green-500 hover:bg-green-600 flex-1 sm:flex-none">
-              WhatsApp +31631267353
-            </Button>
-          </div>
+          <Button onClick={handleWhatsAppClick} className="bg-green-500 hover:bg-green-600 flex-1">
+            WhatsApp +31631267353
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

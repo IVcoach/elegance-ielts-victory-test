@@ -1,8 +1,7 @@
-
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
-// Student success stories with satisfaction quotes
+// Student success stories with diverse coaching satisfaction quotes
 const studentTestimonials = [
   {
     name: "Diana",
@@ -10,7 +9,7 @@ const studentTestimonials = [
     score: "Band 8",
     achievement: "Got scholarship from U.K.",
     photo: "/placeholder.svg",
-    quote: "The AI-powered customized study plan was incredible! The personalized coaching helped me understand my weaknesses and improve systematically."
+    quote: "The personalized study plan and one-on-one mentoring sessions helped me identify my weak areas and improve systematically."
   },
   {
     name: "Mert",
@@ -18,7 +17,7 @@ const studentTestimonials = [
     score: "Band 7",
     achievement: "Successfully admitted to graduate program",
     photo: "/placeholder.svg",
-    quote: "The unique teaching method with AI analysis made all the difference. I could see my progress in real-time and focus on what mattered most."
+    quote: "The innovative teaching methods and regular feedback from IELTS Victory coaches made all the difference in my preparation."
   },
   {
     name: "Liam",
@@ -26,7 +25,7 @@ const studentTestimonials = [
     score: "Band 8",
     achievement: "Secured academic position abroad",
     photo: "/placeholder.svg",
-    quote: "The mentoring was exceptional! The customized approach and AI feedback helped me achieve my target score faster than I expected."
+    quote: "The comprehensive coaching approach and expert guidance helped me achieve my target score faster than expected."
   },
   {
     name: "Mohammad",
@@ -34,7 +33,7 @@ const studentTestimonials = [
     score: "Band 7",
     achievement: "IELTS General for immigration",
     photo: "/placeholder.svg",
-    quote: "The coaching methodology is truly unique. The AI-driven personalized plan addressed my specific needs perfectly."
+    quote: "The structured learning path and dedicated mentors at IELTS Victory addressed my specific needs perfectly."
   },
   {
     name: "Shahin",
@@ -42,7 +41,7 @@ const studentTestimonials = [
     score: "Band 6.5",
     achievement: "Pursuing further education",
     photo: "/placeholder.svg",
-    quote: "I was amazed by how the AI customized my learning path. The mentoring sessions were focused and incredibly effective."
+    quote: "I was amazed by the customized coaching methodology. The mentoring sessions were focused and incredibly effective."
   },
   {
     name: "Bahar",
@@ -50,7 +49,7 @@ const studentTestimonials = [
     score: "Band 7",
     achievement: "Now residing in London",
     photo: "/placeholder.svg",
-    quote: "The unique AI-powered teaching method helped me identify and fix my mistakes quickly. Outstanding personalized guidance!"
+    quote: "The unique teaching strategies and constant support from IELTS Victory coaches helped me fix my weaknesses quickly."
   },
   {
     name: "Maral",
@@ -58,7 +57,7 @@ const studentTestimonials = [
     score: "Band 7",
     achievement: "Academic advancement",
     photo: "/placeholder.svg",
-    quote: "The customized study plan with AI analysis was a game-changer. I felt confident and well-prepared for the exam."
+    quote: "The personalized attention and proven techniques were game-changers. I felt confident and well-prepared for the exam."
   },
   {
     name: "Parham",
@@ -66,7 +65,7 @@ const studentTestimonials = [
     score: "Band 6.5",
     achievement: "Now residing in Germany",
     photo: "/placeholder.svg",
-    quote: "The mentoring approach is exceptional. The AI-driven insights helped me understand exactly what I needed to improve."
+    quote: "The mentoring approach is exceptional. The coaches helped me understand exactly what I needed to improve."
   },
   {
     name: "Mohammad",
@@ -74,7 +73,7 @@ const studentTestimonials = [
     score: "Band 7",
     achievement: "Now residing in the US",
     photo: "/placeholder.svg",
-    quote: "The personalized coaching with AI technology made my preparation so much more efficient and targeted."
+    quote: "The specialized coaching techniques and regular practice sessions made my preparation so much more efficient and targeted."
   },
   {
     name: "Artin",
@@ -82,7 +81,7 @@ const studentTestimonials = [
     score: "Band 7",
     achievement: "Now residing in Canada",
     photo: "/placeholder.svg",
-    quote: "I'm grateful for the unique teaching methodology. The AI-customized plan and expert mentoring exceeded my expectations."
+    quote: "I'm grateful for the unique teaching methodology and expert guidance. The coaches exceeded my expectations."
   },
   {
     name: "Fatih",
@@ -90,7 +89,7 @@ const studentTestimonials = [
     score: "Band 7",
     achievement: "Now residing in Germany",
     photo: "/placeholder.svg",
-    quote: "The combination of AI analysis and personalized coaching is brilliant. I achieved my target score with confidence!"
+    quote: "The combination of proven strategies and personalized coaching is brilliant. I achieved my target score with confidence!"
   }
 ];
 

@@ -30,13 +30,6 @@ export function Footer() {
                 </svg>
                 <span>vcelegance@consultant.com</span>
               </li>
-              <li className="flex items-start gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-gold">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span>Amsterdam, The Netherlands</span>
-              </li>
             </ul>
           </div>
           
@@ -49,11 +42,9 @@ export function Footer() {
                   <path d="M22 2 11 13"></path>
                 </svg>
               </a>
-              <a href="#" className="bg-white bg-opacity-10 p-2 rounded-full hover:bg-opacity-20 transition-all">
+              <a href="https://wa.me/+31631267353" target="_blank" rel="noopener noreferrer" className="bg-white bg-opacity-10 p-2 rounded-full hover:bg-opacity-20 transition-all">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-                  <polygon points="2 3 6 3 10 13 18 13 21 6 7 6"></polygon>
-                  <path d="M17 18.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path>
-                  <path d="M9 18.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path>
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                 </svg>
               </a>
             </div>
@@ -69,7 +60,8 @@ export function Footer() {
         </div>
         
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
-          <p>© {new Date().getFullYear()} V&C Elegance IELTS Victory. All rights reserved.</p>
+          <p>© 2025 V&C Elegance IELTS Victory. All rights reserved.</p>
+          <p className="mt-1">Amsterdam, The Netherlands</p>
         </div>
       </div>
     </footer>
