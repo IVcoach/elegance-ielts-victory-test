@@ -17,8 +17,9 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-brand-navy leading-tight mb-6">
-                Start Your IELTS Journey – <span className="text-brand-blue">Free Placement Test, Instant Results!</span>
+              <h1 className="text-4xl md:text-5xl font-playfair font-bold text-brand-navy leading-tight mb-6 lg:text-6xl">
+                Start Your IELTS Journey – <span className="text-brand-blue text-2xl">
+Free Placement Test, Instant Results!</span>
               </h1>
               <p className="text-lg text-gray-700 mb-8">
                 Our CEFR-aligned adaptive placement test provides precise assessment and 
