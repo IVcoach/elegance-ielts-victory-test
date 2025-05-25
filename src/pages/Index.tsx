@@ -41,20 +41,7 @@ Free Placement Test, Instant Results!</span>
                 <img alt="Student studying" className="w-full h-full object-contain" src="/lovable-uploads/b24db644-a19a-40a1-9c77-4bc3883a82ac.jpg" />
               </div>
               
-              <div className="absolute -bottom-10 -right-10 bg-white rounded-lg p-6 shadow-lg">
-                <div className="flex gap-3 items-center">
-                  <div className="bg-brand-blue rounded-full p-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <polyline points="12 6 12 12 16 14"></polyline>
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium">Fast Results</p>
-                    <p className="text-xs text-gray-500">Receive your CEFR & IELTS score instantly</p>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>

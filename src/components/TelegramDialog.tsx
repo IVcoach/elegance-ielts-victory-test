@@ -14,10 +14,7 @@ export function TelegramDialog() {
   };
   return <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" className="border-brand-gold text-brand-navy hover:bg-brand-cream flex items-center gap-2">
-          <Share size={18} />
-          <span>Free IELTS </span>
-        </Button>
+        
       </DialogTrigger>
       <DialogContent className="sm:max-w-md px-[10px]">
         <DialogHeader>
