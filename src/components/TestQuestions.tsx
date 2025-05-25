@@ -295,13 +295,13 @@ const correctAnswers: { [key: string]: string } = {
   "q20": "c", // most advanced English
 };
 
-// IELTS assessment related images for the carousel - using placeholder images that can be manually edited
+// IELTS assessment related images for the carousel - more IELTS specific images
 const assessmentImages = [
   "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500&h=300&fit=crop", // Students studying
-  "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=500&h=300&fit=crop", // Library/books
-  "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=500&h=300&fit=crop", // Graduation cap
-  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop", // Students in classroom
-  "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&h=300&fit=crop"  // Language learning
+  "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=500&h=300&fit=crop", // Laptop with coding - academic setting
+  "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=300&fit=crop", // People with laptops - learning environment
+  "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=500&h=300&fit=crop", // Graduation cap - academic achievement
+  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop"  // Students in classroom
 ];
 
 export function TestQuestions() {
@@ -386,18 +386,22 @@ export function TestQuestions() {
           Complete this comprehensive IELTS practice test to assess your English proficiency level.
         </p>
         
-        {/* Image Carousel */}
+        {/* Image Carousel with Text Overlay */}
         <div className="mb-6">
           <Carousel className="w-full max-w-md mx-auto">
             <CarouselContent>
               {assessmentImages.map((image, index) => (
                 <CarouselItem key={index}>
-                  <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
+                  <div className="aspect-video rounded-lg overflow-hidden shadow-lg relative">
                     <img 
                       src={image} 
                       alt={`IELTS Assessment ${index + 1}`}
                       className="w-full h-full object-cover"
                     />
+                    <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center">
+                      <h3 className="text-white text-xl font-bold mb-1">IELTS Victory</h3>
+                      <p className="text-white text-sm italic">Your Success, Our Goal</p>
+                    </div>
                   </div>
                 </CarouselItem>
               ))}

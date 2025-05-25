@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
@@ -8,9 +7,13 @@ import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Progress } from "@/components/ui/progress";
-import { Award, TrendingUp, Target, Star, Trophy, Users } from "lucide-react";
+import { Award, TrendingUp, Target, Star, Trophy, Users, Send } from "lucide-react";
 
 const Index = () => {
+  const handleTelegramResources = () => {
+    window.open("https://t.me/ieltsvc", "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -33,6 +36,14 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row gap-6">
                 <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold shadow-lg transform hover:scale-105 transition-all">
                   <Link to="/test">Take the Test</Link>
+                </Button>
+                <Button 
+                  onClick={handleTelegramResources}
+                  size="lg" 
+                  className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-semibold shadow-lg transform hover:scale-105 transition-all flex items-center gap-2"
+                >
+                  <Send className="h-5 w-5" />
+                  Free IELTS Resources
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-2 border-purple-500 text-purple-700 hover:bg-purple-50 font-semibold shadow-lg transform hover:scale-105 transition-all">
                   <Link to="/test?practice=true">Speaking & Writing Assessment</Link>
