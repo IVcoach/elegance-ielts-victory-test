@@ -1,10 +1,7 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-
 export function Footer() {
-  return (
-    <footer className="bg-gradient-to-br from-brand-navy via-blue-900 to-purple-900 text-white py-16">
+  return <footer className="bg-gradient-to-br from-brand-navy via-blue-900 to-purple-900 text-white py-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
@@ -13,9 +10,7 @@ export function Footer() {
             </h2>
             <p className="text-gray-300 mb-4 text-lg font-medium">Your coach in your journey to IELTS excellence</p>
             <p className="mb-6 text-blue-200 font-medium">Establishment number: 000061974544</p>
-            <p className="text-sm text-yellow-200 font-medium italic">
-              Verified and according to Cambridge University CERF Standards and IDP Education.
-            </p>
+            <p className="text-sm text-yellow-200 font-medium italic">Verified in accordance with Cambridge University CERF Standards and IDP Education protocols.</p>
           </div>
           
           <div>
@@ -72,6 +67,5 @@ export function Footer() {
           <p className="mt-2 font-medium">Amsterdam, The Netherlands</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 }
