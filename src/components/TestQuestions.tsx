@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -296,13 +295,13 @@ const correctAnswers: { [key: string]: string } = {
   "q20": "c", // most advanced English
 };
 
-// IELTS assessment related images for the carousel
+// IELTS assessment related images for the carousel - using placeholder images that can be manually edited
 const assessmentImages = [
-  "/placeholder.svg", // Will be replaced with uploaded images
-  "/placeholder.svg",
-  "/placeholder.svg",
-  "/placeholder.svg",
-  "/placeholder.svg"
+  "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500&h=300&fit=crop", // Students studying
+  "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=500&h=300&fit=crop", // Library/books
+  "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=500&h=300&fit=crop", // Graduation cap
+  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop", // Students in classroom
+  "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&h=300&fit=crop"  // Language learning
 ];
 
 export function TestQuestions() {

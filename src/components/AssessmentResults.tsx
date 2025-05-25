@@ -125,6 +125,13 @@ I'm interested in improving my score. Can you help with personalized guidance?
               ))}
             </div>
           </div>
+
+          {/* Farsi Text Section */}
+          <div className="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg border border-green-200 text-center">
+            <p className="text-gray-700 text-lg font-medium mb-3" dir="rtl">
+              برای ارزیابی دقیق و بهتر با واتس اپ ما در تماس باشید و رایتینگ و اسپیکینگ خود را ارسال کنید تا بصورت رایگان ارزیابی شوید
+            </p>
+          </div>
           
           <div className="flex flex-col sm:flex-row gap-3 pt-4">
             <Button 
