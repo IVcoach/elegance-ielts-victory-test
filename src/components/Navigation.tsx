@@ -7,7 +7,7 @@ import { TelegramDialog } from "./TelegramDialog";
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   return <nav className="w-full bg-white bg-opacity-95 backdrop-blur-sm fixed top-0 z-50 border-b shadow-lg">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+      <div className="container mx-auto py-3 flex items-center justify-between px-[44px]">
         <Link to="/" className="flex items-center gap-4">
           <img alt="IELTS Victory Logo" src="/lovable-uploads/eb632091-07ea-4997-8b61-8349abf0b06d.png" className="h-24 w-auto transform hover:scale-105 transition-transform object-contain" />
           <div className="flex items-center gap-3">
