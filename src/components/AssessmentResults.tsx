@@ -52,9 +52,9 @@ I'm interested in improving my score. Can you help with personalized guidance?
   };
   
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="space-y-8 animate-fade-in bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 p-8 rounded-2xl">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-playfair font-bold text-brand-navy mb-2">
+        <h1 className="text-3xl font-playfair font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 text-transparent bg-clip-text mb-2">
           Your IELTS Results
         </h1>
         <p className="text-gray-600">
@@ -62,10 +62,10 @@ I'm interested in improving my score. Can you help with personalized guidance?
         </p>
       </div>
       
-      <Card className="w-full max-w-2xl mx-auto">
+      <Card className="w-full max-w-2xl mx-auto bg-white shadow-xl border border-purple-200">
         <CardContent className="pt-6 space-y-6">
           <div className="text-center">
-            <div className="inline-block px-5 py-3 bg-purple-600 text-white rounded-full font-bold text-2xl mb-3">
+            <div className="inline-block px-5 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-bold text-2xl mb-3 shadow-lg">
               IELTS Band {ieltsBand}
             </div>
             <p className="text-lg text-muted-foreground">
@@ -94,17 +94,17 @@ I'm interested in improving my score. Can you help with personalized guidance?
           </div>
           
           <div className="grid grid-cols-3 gap-4 text-center">
-            <div className="p-3 border rounded-md">
+            <div className="p-3 border rounded-md bg-gradient-to-br from-purple-50 to-blue-50">
               <div className="text-sm text-muted-foreground">CEFR Level</div>
-              <div className="font-semibold text-xl">{cefrLevel}</div>
+              <div className="font-semibold text-xl text-purple-700">{cefrLevel}</div>
             </div>
-            <div className="p-3 border rounded-md">
+            <div className="p-3 border rounded-md bg-gradient-to-br from-blue-50 to-indigo-50">
               <div className="text-sm text-muted-foreground">TOEFL</div>
-              <div className="font-semibold text-xl">{toeflScore}</div>
+              <div className="font-semibold text-xl text-blue-700">{toeflScore}</div>
             </div>
-            <div className="p-3 border rounded-md">
+            <div className="p-3 border rounded-md bg-gradient-to-br from-indigo-50 to-purple-50">
               <div className="text-sm text-muted-foreground">PTE</div>
-              <div className="font-semibold text-xl">{pteScore}</div>
+              <div className="font-semibold text-xl text-indigo-700">{pteScore}</div>
             </div>
           </div>
           
@@ -112,12 +112,12 @@ I'm interested in improving my score. Can you help with personalized guidance?
             <h4 className="font-semibold text-center">Section Breakdown</h4>
             <div className="grid grid-cols-2 gap-3">
               {sectionScores.map(section => (
-                <div key={section.name} className="p-3 border rounded-md">
+                <div key={section.name} className="p-3 border rounded-md bg-gradient-to-br from-gray-50 to-purple-50">
                   <div className="text-sm text-muted-foreground">{section.name}</div>
                   <div className="font-semibold">{Math.round(section.score)}%</div>
                   <div className="w-full h-1.5 bg-gray-200 rounded-full mt-1">
                     <div 
-                      className="h-full bg-purple-600 rounded-full" 
+                      className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" 
                       style={{ width: `${section.score}%` }} 
                     />
                   </div>
@@ -132,14 +132,14 @@ I'm interested in improving my score. Can you help with personalized guidance?
               className="flex-1 border-purple-600 text-purple-600 hover:bg-purple-600/10" 
               onClick={onPractice}
             >
-              Practice Speaking & Writing
+              Speaking & Writing Assessment
             </Button>
             
             <Button 
-              className="flex-1 bg-green-500 hover:bg-green-600 gap-2" 
+              className="flex-1 bg-green-500 hover:bg-green-600 gap-2 shadow-lg" 
               onClick={handleWhatsAppShare}
             >
-              <span>Contact via WhatsApp</span>
+              <span>Send your result via WhatsApp</span>
               <MessageCircle className="h-5 w-5" />
             </Button>
           </div>
@@ -147,21 +147,21 @@ I'm interested in improving my score. Can you help with personalized guidance?
       </Card>
       
       <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
-        <Button variant="outline" onClick={onRestart}>
+        <Button variant="outline" onClick={onRestart} className="border-purple-300 text-purple-700 hover:bg-purple-50">
           Take Test Again
         </Button>
       </div>
       
       {/* Completion dialog - appears on the page itself instead of as modal */}
-      <div className="bg-white rounded-lg p-6 shadow-md border-2 border-purple-100 max-w-md mx-auto animate-scale-in">
-        <h3 className="text-xl font-bold text-brand-navy mb-2">Want to improve your score?</h3>
+      <div className="bg-white rounded-lg p-6 shadow-xl border-2 border-purple-200 max-w-md mx-auto animate-scale-in">
+        <h3 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 text-transparent bg-clip-text mb-2">Want to improve your score?</h3>
         <p className="text-gray-600 mb-4">
           Get personalized guidance from our IELTS experts to help you achieve your target score.
         </p>
         
         <div className="space-y-3">
           <Button 
-            className="w-full bg-green-500 hover:bg-green-600 gap-2" 
+            className="w-full bg-green-500 hover:bg-green-600 gap-2 shadow-lg" 
             onClick={handleWhatsAppShare}
           >
             <span>Get Free Consultation</span>

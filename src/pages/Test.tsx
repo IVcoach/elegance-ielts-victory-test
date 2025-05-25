@@ -172,54 +172,54 @@ const QuizIntro = ({
 }) => {
   return (
     <div className="max-w-4xl mx-auto text-center">
-      <h1 className="text-3xl font-playfair font-bold text-brand-navy mb-6">
-        Start Your IELTS Journey – Free Placement Test, Instant Results!
+      <h1 className="text-4xl font-playfair font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 text-transparent bg-clip-text mb-6">
+        Start Your IELTS Journey — Free IELTS Resources, Instant Results!
       </h1>
       
-      <div className="mb-8 p-6 bg-white rounded-lg shadow-md">
-        <p className="text-lg mb-4">
+      <div className="mb-8 p-8 bg-white rounded-2xl shadow-xl border border-purple-200">
+        <p className="text-xl mb-6 text-gray-700 leading-relaxed">
           Take our professional IELTS placement test to find out your current English level according to
           the Common European Framework of Reference (CEFR) and get an estimated IELTS band score.
         </p>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-          <div className="p-3 bg-purple-100 rounded-lg">
-            <p className="text-sm font-medium text-purple-800">20 Questions</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div className="p-4 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl shadow-md">
+            <p className="text-sm font-bold text-purple-800">20 Questions</p>
           </div>
-          <div className="p-3 bg-purple-100 rounded-lg">
-            <p className="text-sm font-medium text-purple-800">15-20 Minutes</p>
+          <div className="p-4 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl shadow-md">
+            <p className="text-sm font-bold text-blue-800">20-25 Minutes</p>
           </div>
-          <div className="p-3 bg-purple-100 rounded-lg">
-            <p className="text-sm font-medium text-purple-800">Instant Results</p>
+          <div className="p-4 bg-gradient-to-br from-indigo-100 to-indigo-200 rounded-xl shadow-md">
+            <p className="text-sm font-bold text-indigo-800">Instant Results</p>
           </div>
-          <div className="p-3 bg-purple-100 rounded-lg">
-            <p className="text-sm font-medium text-purple-800">CEFR Aligned</p>
+          <div className="p-4 bg-gradient-to-br from-green-100 to-green-200 rounded-xl shadow-md">
+            <p className="text-sm font-bold text-green-800">CEFR Aligned</p>
           </div>
         </div>
         
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
-          <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-6 h-auto text-lg" onClick={onStartTest}>
+        <div className="flex flex-col sm:flex-row justify-center gap-6 mt-8">
+          <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-6 h-auto text-lg font-bold shadow-lg transform hover:scale-105 transition-all" onClick={onStartTest}>
             Start Your Assessment Now
           </Button>
           <Button 
             variant="outline" 
-            className="border-purple-500 text-purple-700 hover:bg-purple-50 px-6 py-6 h-auto text-lg"
+            className="border-2 border-purple-500 text-purple-700 hover:bg-purple-50 px-8 py-6 h-auto text-lg font-bold shadow-lg transform hover:scale-105 transition-all"
             onClick={onShowPractice}
           >
-            Practice Speaking & Writing
+            Speaking & Writing Assessment
           </Button>
         </div>
       </div>
       
       <ServiceIcons />
       
-      <div className="p-5 bg-gradient-to-r from-blue-500/20 via-purple-500/40 to-indigo-400/30 rounded-lg mt-8 shadow-lg border border-white/40">
-        <p className="font-bold text-brand-navy text-xl">
+      <div className="p-8 bg-gradient-to-r from-blue-500/20 via-purple-500/40 to-indigo-400/30 rounded-2xl mt-8 shadow-xl border border-white/40">
+        <p className="font-bold text-brand-navy text-2xl">
           <span className="bg-gradient-to-r from-purple-800 to-purple-500 text-transparent bg-clip-text">
-            Free assessment, consultation, and materials 
+            Free IELTS Resources, consultation, and materials 
           </span>
           <br />
-          <span className="text-lg mt-1 inline-block">
+          <span className="text-xl mt-2 inline-block">
             for learners taking online classes
           </span>
         </p>
@@ -330,15 +330,15 @@ const Test = () => {
     <div className="min-h-screen flex flex-col">
       <Navigation />
       
-      <main className="flex-grow py-24 px-4 bg-gradient-to-br from-white via-gray-50 to-purple-50">
-        <div className="container mx-auto max-w-4xl">
-          <div className="flex justify-end mb-4">
+      <main className="flex-grow py-32 px-4 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100 min-h-screen">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex justify-end mb-6">
             <Button 
               onClick={() => setShowQuestions(!showQuestions)} 
               variant="outline" 
-              className="border-purple-500 text-purple-700 hover:bg-purple-50"
+              className="border-2 border-purple-500 text-purple-700 hover:bg-purple-50 font-bold shadow-md transform hover:scale-105 transition-all"
             >
-              {showQuestions ? "Take Placement Test" : "Practice Speaking & Writing"}
+              {showQuestions ? "Take Placement Test" : "Speaking & Writing Assessment"}
             </Button>
           </div>
           {content}
