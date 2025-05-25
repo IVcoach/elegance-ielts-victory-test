@@ -11,13 +11,7 @@ export function Navigation() {
         <Link to="/" className="flex items-center gap-4">
           <img alt="IELTS Victory Logo" src="/lovable-uploads/eb632091-07ea-4997-8b61-8349abf0b06d.png" className="h-24 w-auto transform hover:scale-105 transition-transform object-contain" />
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">
-              <GraduationCap className="h-6 w-6" />
-              <div className="flex flex-col">
-                <span className="font-bold text-lg">IELTS Victory</span>
-                <span className="text-xs italic opacity-90">Your Success, Our Goal</span>
-              </div>
-            </div>
+            
           </div>
         </Link>
         
