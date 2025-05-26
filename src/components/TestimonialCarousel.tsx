@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
@@ -90,6 +91,14 @@ const studentTestimonials = [
     achievement: "Now residing in Germany",
     photo: "/placeholder.svg",
     quote: "The combination of proven strategies and personalized coaching is brilliant. I achieved my target score with confidence!"
+  },
+  {
+    name: "Nasrin",
+    country: "Iran",
+    score: "Band 8",
+    achievement: "Got scholarship and now living in Scotland",
+    photo: "/placeholder.svg",
+    quote: "The expert guidance and personalized coaching at IELTS Victory helped me achieve Band 8 and secure my scholarship to Scotland."
   }
 ];
 
