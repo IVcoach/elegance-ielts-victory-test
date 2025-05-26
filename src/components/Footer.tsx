@@ -15,7 +15,7 @@ export function Footer() {
           </div>
           
           <div>
-            <h2 className="text-2xl font-playfair font-bold mb-6 text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text">
+            <h2 className="text-2xl font-playfair font-bold mb-6 text-black">
               Contact
             </h2>
             <ul className="space-y-4 text-black">
@@ -36,7 +36,7 @@ export function Footer() {
           </div>
           
           <div>
-            <h2 className="text-2xl font-playfair font-bold mb-6 text-transparent bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text">
+            <h2 className="text-2xl font-playfair font-bold mb-6 text-black">
               Connect
             </h2>
             <div className="flex gap-6 mb-8">
