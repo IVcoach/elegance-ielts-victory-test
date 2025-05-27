@@ -149,9 +149,7 @@ const QuizIntro = ({
 Free IELTS Resources, Instant Results!</h1>
       
       <div className="mb-8 p-8 bg-white rounded-2xl shadow-xl border border-purple-200">
-        <p className="text-xl mb-6 leading-relaxed text-center font-bold text-fuchsia-700">The IELTS placement test is a 20-minute, online, CEFR-aligned assessment with 20 questions that provides instant results and estimates your IELTS band score. 
-
-آزمون تعیین سطح آیلتس یک ارزیابی آنلاین و هم‌راستا با استانداردهای مرجع زبان است که در مدت ۲۰ دقیقه و با ۲۰ سوال، نتیجه سریع و تخمینی نمره آیلتس شما را ارائه می‌دهد.</p>
+        <p className="text-xl mb-6 leading-relaxed text-center font-bold text-fuchsia-700">The IELTS placement test is a 20-minute, online, CEFR-aligned assessment with 20 questions that provides instant results and estimates your IELTS band score.           آزمون تعیین سطح آیلتس یک ارزیابی آنلاین و هم‌راستا با استانداردهای مرجع زبان است که در مدت ۲۰ دقیقه و با ۲۰ سوال، نتیجه سریع و تخمینی نمره آیلتس شما را ارائه می‌دهد و برای ارزیابی دقیق تر فایل اسپیکینگ و رایتینگ خود را به واتس آپ ما ارسال کنید</p>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           
