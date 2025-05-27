@@ -20,7 +20,7 @@ const Index = () => {
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="animate-fade-in order-2 lg:order-1">
-              <h1 className="text-4xl md:text-6xl font-playfair font-bold text-brand-navy leading-tight mb-6 lg:text-7xl">
+              <h1 className="text-4xl md:text-6xl font-playfair font-bold text-brand-navy leading-tight mb-6 lg:text-7xl mx-[10px] my-[10px] py-[10px]">
                 Start Your IELTS Journey <br />
                 <span className="text-brand-blue text-3xl md:text-4xl bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Free IELTS Resources
 Instant Results!</span>
