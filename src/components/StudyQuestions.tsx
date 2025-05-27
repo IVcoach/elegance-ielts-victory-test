@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -7,20 +6,18 @@ import { toast } from "@/components/ui/use-toast";
 import { AudioUploader } from "@/components/AudioUploader";
 import { Progress } from "@/components/ui/progress";
 import { CheckCircle, AlertCircle } from "lucide-react";
-
 export function StudyQuestions() {
   const [writingAnswer, setWritingAnswer] = useState("");
   const [speakingAudio, setSpeakingAudio] = useState<File | null>(null);
   const [speakingProgress, setSpeakingProgress] = useState(0);
   const [writingProgress, setWritingProgress] = useState(0);
   const [showResults, setShowResults] = useState(false);
-  
+
   // Simulated assessment scores
   const [speakingScore, setSpeakingScore] = useState<number | null>(null);
   const [writingScore, setWritingScore] = useState<number | null>(null);
   const [overallLevel, setOverallLevel] = useState<string | null>(null);
   const [overallIELTSBand, setOverallIELTSBand] = useState<string | null>(null);
-  
   const handleWhatsAppShare = () => {
     if (!speakingAudio && !writingAnswer) {
       toast({
@@ -30,48 +27,37 @@ export function StudyQuestions() {
       });
       return;
     }
-
     let text = "";
-    
     if (speakingAudio) {
       text += "Speaking Answer: [Audio file attached]\n\n";
     }
-    
     if (writingAnswer) {
       text += `Writing Answer:\n${writingAnswer}`;
     }
-    
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
-
   const handleAudioUploaded = (file: File) => {
     setSpeakingAudio(file);
     updateProgress("speaking");
   };
-
   const updateProgress = (type: "speaking" | "writing") => {
     if (type === "speaking") {
       setSpeakingProgress(speakingAudio ? 100 : 0);
     } else {
       setWritingProgress(writingAnswer.length > 200 ? 100 : writingAnswer.length > 100 ? 60 : writingAnswer.length > 50 ? 30 : 0);
     }
-    
     if (speakingAudio && writingAnswer.length > 100) {
       simulateAssessment();
     }
   };
-
   const simulateAssessment = () => {
     const spScore = Math.min(7 + Math.random() * 1.5, 9);
     const wrScore = Math.min(6.5 + Math.random() * 1.5, 9);
-    
     setSpeakingScore(spScore);
     setWritingScore(wrScore);
-    
     const overall = (spScore + wrScore) / 2;
     setOverallIELTSBand(overall.toFixed(1));
-    
     if (overall >= 8) {
       setOverallLevel("C2");
     } else if (overall >= 7) {
@@ -83,16 +69,13 @@ export function StudyQuestions() {
     } else {
       setOverallLevel("A2");
     }
-    
     setShowResults(true);
   };
-
   const updateWritingProgress = (text: string) => {
     setWritingAnswer(text);
     setWritingProgress(text.length > 200 ? 100 : text.length > 100 ? 60 : text.length > 50 ? 30 : 0);
     updateProgress("writing");
   };
-
   return <div className="max-w-3xl mx-auto my-12">
       <div className="text-center mb-8 p-6 bg-gradient-to-r from-purple-500/10 via-brand-blue/20 to-purple-400/10 rounded-lg">
         <h2 className="text-2xl font-bold text-brand-navy mb-4">
@@ -113,33 +96,28 @@ export function StudyQuestions() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="mb-4 font-medium">Describe the best way to study for IELTS.
- You should say:
-
+            <p className="mb-4 font-medium">Describe the best way to study for IELTS. 
+You should say: 
 What materials to use
-How to organize your study time
-What strategies to follow during preparation
-and explain why this way is effective.</p>
+ How to organize your study time
+ What strategies to follow during preparation
+ and explain why this way is effective.</p>
             
             <div className="space-y-4">
               <AudioUploader onAudioUploaded={handleAudioUploaded} className="mt-4" />
               
-              {(speakingProgress > 0 || speakingAudio) && (
-                <div className="mt-4">
+              {(speakingProgress > 0 || speakingAudio) && <div className="mt-4">
                   <div className="flex justify-between mb-1 text-sm">
                     <span>Completion</span>
                     <span>{speakingAudio ? '100%' : `${speakingProgress}%`}</span>
                   </div>
                   <Progress value={speakingAudio ? 100 : speakingProgress} className="h-2" />
                   
-                  {speakingAudio && (
-                    <div className="mt-2 text-sm text-green-600 flex items-center">
+                  {speakingAudio && <div className="mt-2 text-sm text-green-600 flex items-center">
                       <CheckCircle className="h-4 w-4 mr-1" />
                       <span>Audio file ready for assessment</span>
-                    </div>
-                  )}
-                </div>
-              )}
+                    </div>}
+                </div>}
             </div>
           </CardContent>
         </Card>
@@ -160,42 +138,30 @@ Many students preparing for the IELTS exam work with a teacher or mentor to help
 Give reasons for your answer and include examples from your experience or knowledge. Write about 250 words.</p>
             
             <div className="space-y-4">
-              <Textarea 
-                placeholder="Write your answer here..." 
-                className="min-h-[200px]" 
-                value={writingAnswer} 
-                onChange={e => updateWritingProgress(e.target.value)}
-              />
+              <Textarea placeholder="Write your answer here..." className="min-h-[200px]" value={writingAnswer} onChange={e => updateWritingProgress(e.target.value)} />
               
-              {writingProgress > 0 && (
-                <div>
+              {writingProgress > 0 && <div>
                   <div className="flex justify-between mb-1 text-sm">
                     <span>Completion</span>
                     <span>{writingProgress}%</span>
                   </div>
                   <Progress value={writingProgress} className="h-2" />
                   
-                  {writingProgress < 60 && (
-                    <div className="mt-2 text-sm text-amber-600 flex items-center">
+                  {writingProgress < 60 && <div className="mt-2 text-sm text-amber-600 flex items-center">
                       <AlertCircle className="h-4 w-4 mr-1" />
                       <span>IELTS essays typically require 250+ words. Consider expanding your response.</span>
-                    </div>
-                  )}
+                    </div>}
                   
-                  {writingProgress >= 100 && (
-                    <div className="mt-2 text-sm text-green-600 flex items-center">
+                  {writingProgress >= 100 && <div className="mt-2 text-sm text-green-600 flex items-center">
                       <CheckCircle className="h-4 w-4 mr-1" />
                       <span>Great job! Your response meets the word count requirement.</span>
-                    </div>
-                  )}
-                </div>
-              )}
+                    </div>}
+                </div>}
             </div>
           </CardContent>
         </Card>
 
-        {showResults && (
-          <Card className="border-2 border-purple-200 bg-purple-50">
+        {showResults && <Card className="border-2 border-purple-200 bg-purple-50">
             <CardHeader className="bg-gradient-to-r from-purple-100 to-blue-100">
               <CardTitle className="text-xl text-brand-navy">
                 Preliminary Assessment Results
@@ -248,14 +214,13 @@ Give reasons for your answer and include examples from your experience or knowle
                 </div>
               </div>
             </CardContent>
-          </Card>
-        )}
+          </Card>}
 
         <div className="flex justify-center">
           <Button onClick={handleWhatsAppShare} className="bg-green-500 hover:bg-green-600 px-6 py-2.5 text-lg gap-2">
             <span>Send to WhatsApp for Expert Assessment</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
             </svg>
           </Button>
         </div>
