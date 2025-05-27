@@ -149,7 +149,7 @@ const QuizIntro = ({
 20-minute online test with 20 CEFR-aligned questions Instant results with estimated IELTS band score Personalized feedback to guide preparation Submit speaking/writing samples for expert evaluation Results in 48 hours via email or WhatsApp Accurate (IELTS/CEFR standards), fast, personalized, secure</h1>
       
       <div className="mb-8 p-8 bg-white rounded-2xl shadow-xl border border-purple-200">
-        <p className="text-xl mb-6 leading-relaxed font-bold text-slate-950 text-right">آزمون تعیین سطح رایگان آیلتس
+        <p className="text-xl mb-6 leading-relaxed font-bold text-slate-950 text-center">آزمون تعیین سطح رایگان آیلتس
 آزمون آنلاین ۲۰ دقیقه‌ای با ۲۰ سؤال هم‌راستا با CEFR
 نتایج فوری با تخمین نمره آیلتس
 بازخورد شخصی‌سازی‌شده برای هدایت آماده‌سازی
