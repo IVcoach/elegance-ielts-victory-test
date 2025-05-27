@@ -128,7 +128,7 @@ const ServiceIcons = () => {
           <div className="flex items-center justify-center mb-4 text-purple-600">
             {service.icon}
           </div>
-          <h3 className="text-lg font-semibold text-brand-navy text-center mb-2">
+          <h3 className="text-lg text-brand-navy text-center mb-2 font-semibold">
             {service.title.includes("**") ? <span className="text-lg font-semibold text-brand-navy text-center mb-2">{service.title.replace(/\*\*/g, "")}</span> : service.title}
           </h3>
           <p className="text-center text-gray-600">{service.description}</p>
