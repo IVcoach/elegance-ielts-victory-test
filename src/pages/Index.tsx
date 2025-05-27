@@ -157,9 +157,7 @@ const Index = () => {
               <Link to="/test">Start Your Assessment</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-brand-navy font-bold shadow-xl transform hover:scale-105 transition-all">
-              <a href="https://t.me/ieltsvc" target="_blank" rel="noopener noreferrer">
-                Join Our Telegram Channel
-              </a>
+              
             </Button>
           </div>
         </div>
