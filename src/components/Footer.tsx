@@ -10,7 +10,10 @@ export function Footer() {
             </h2>
             <p className="mb-4 text-lg font-medium text-slate-50">Your coach in your journey to IELTS excellence</p>
             <p className="mb-6 font-medium text-slate-50">Establishment number: 000061974544</p>
-            <p className="text-sm font-medium italic text-slate-50">Verified in accordance with Cambridge University CERF Standards and IDP Education protocols.</p>
+            <p className="italic text-slate-50 font-normal text-base text-left">Verified in accordance with 
+Cambridge University CERF Standards
+ and
+ IDP Education protocols.</p>
           </div>
           
           <div>
