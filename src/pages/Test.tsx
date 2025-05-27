@@ -124,7 +124,15 @@ const ServiceIcons = () => {
     description: "One-on-one mentoring sessions"
   }];
   return <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-12">
-      {services.map((service, index) => {})}
+      {services.map((service, index) => <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100">
+          <div className="flex items-center justify-center mb-4 text-purple-600">
+            {service.icon}
+          </div>
+          <h3 className="text-lg text-brand-navy text-center mb-2 font-semibold">
+            {service.title.includes("**") ? <span className="text-lg font-semibold text-brand-navy text-center mb-2">{service.title.replace(/\*\*/g, "")}</span> : service.title}
+          </h3>
+          <p className="text-center text-gray-600">{service.description}</p>
+        </div>)}
     </div>;
 };
 
@@ -137,7 +145,7 @@ const QuizIntro = ({
   onShowPractice: () => void;
 }) => {
   return <div className="max-w-4xl mx-auto text-center">
-      <h1 className="font-playfair font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 bg-clip-text mb-6 text-purple-700 text-lg my-0 py-[108px]">Free IELTS Placement Test 
+      <h1 className="font-playfair font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 bg-clip-text mb-6 text-purple-700 text-lg">Free IELTS Placement Test 
 20-minute online test with 20 CEFR-aligned questions Instant results with estimated IELTS band score Personalized feedback to guide preparation Submit speaking/writing samples for expert evaluation Results in 48 hours via email or WhatsApp Accurate (IELTS/CEFR standards), fast, personalized, secure</h1>
       
       <div className="mb-8 p-8 bg-white rounded-2xl shadow-xl border border-purple-200">
