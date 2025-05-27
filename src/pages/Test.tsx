@@ -149,25 +149,9 @@ const QuizIntro = ({
 Free IELTS Resources, Instant Results!</h1>
       
       <div className="mb-8 p-8 bg-white rounded-2xl shadow-xl border border-purple-200">
-        <p className="text-xl mb-6 leading-relaxed text-center font-bold text-slate-950">Free IELTS Placement Test
-Take our 20-minute, CEFR-aligned online test with 20 questions to get instant results and an estimated IELTS band score. Receive personalized feedback and submit speaking/writing samples for expert evaluation by certified IELTS examiners, with results in 48 hours via email or WhatsApp.
+        <p className="text-xl mb-6 leading-relaxed text-center font-bold text-slate-950">Free IELTS Placement Test Take our 20-minute, CEFR-aligned online test with 20 questions to get instant results and an estimated IELTS band score. Receive personalized feedback and submit speaking/writing samples for expert evaluation by certified IELTS examiners, with results in 48 hours via email or WhatsApp. Why choose our test? Accurate: Meets IELTS and CEFR standards. Fast: Instant band score estimate. Personalized: Tailored study recommendations. Secure: Safe submission via website or WhatsApp. 
 
-Why choose our test?
-
-Accurate: Meets IELTS and CEFR standards.
-Fast: Instant band score estimate.
-Personalized: Tailored study recommendations.
-Secure: Safe submission via website or WhatsApp.
-
-آزمون تعیین سطح رایگان آیلتس
-آزمون آنلاین ۲۰ دقیقه‌ای ما با ۲۰ سؤال دقیق و هم‌راستا با CEFR، نتایج فوری و تخمین نمره آیلتس ارائه می‌دهد. بازخورد شخصی‌سازی‌شده دریافت کنید و نمونه‌های گفتار/نوشتن را برای ارزیابی توسط آزمون‌گران معتبر ارسال کنید. نتایج در ۴۸ ساعت از طریق ایمیل یا واتس‌اپ ارسال می‌شود.
-
-چرا آزمون ما؟
-
-دقیق: مطابق با استانداردهای آیلتس و CEFR
-سریع: تخمین فوری نمره
-شخصی‌سازی‌شده: توصیه‌های مطالعاتی متناسب
-امن: ارسال امن از طریق وب‌سایت یا واتس‌اپ</p>
+آزمون تعیین سطح رایگان آیلتس آزمون آنلاین ۲۰ دقیقه‌ای ما با ۲۰ سؤال دقیق و هم‌راستا با CEFR، نتایج فوری و تخمین نمره آیلتس ارائه می‌دهد. بازخورد شخصی‌سازی‌شده دریافت کنید و نمونه‌های گفتار/نوشتن را برای ارزیابی توسط آزمون‌گران معتبر ارسال کنید. نتایج در ۴۸ ساعت از طریق ایمیل یا واتس‌اپ ارسال می‌شود. چرا آزمون ما؟ دقیق: مطابق با استانداردهای آیلتس و CEFR سریع: تخمین فوری نمره شخصی‌سازی‌شده: توصیه‌های مطالعاتی متناسب امن: ارسال امن از طریق وب‌سایت یا واتس‌اپ</p>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           
