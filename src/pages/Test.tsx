@@ -129,7 +129,7 @@ const ServiceIcons = () => {
             {service.icon}
           </div>
           <h3 className="text-lg font-semibold text-brand-navy text-center mb-2">
-            {service.title.includes("**") ? <span className="font-bold">{service.title.replace(/\*\*/g, "")}</span> : service.title}
+            {service.title.includes("**") ? <span className="text-lg font-semibold text-brand-navy text-center mb-2">{service.title.replace(/\*\*/g, "")}</span> : service.title}
           </h3>
           <p className="text-center text-gray-600">{service.description}</p>
         </div>)}
