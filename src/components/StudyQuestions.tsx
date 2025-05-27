@@ -78,12 +78,8 @@ export function StudyQuestions() {
   };
   return <div className="max-w-3xl mx-auto my-12">
       <div className="text-center mb-8 p-6 bg-gradient-to-r from-purple-500/10 via-brand-blue/20 to-purple-400/10 rounded-lg">
-        <h2 className="text-2xl font-bold text-brand-navy mb-4">
-          آیلتس ویکتوری، همراه همیشگی شما در سفر موفقیت!
-        </h2>
-        <p className="text-brand-navy mb-4">
-          در این بخش، سوالاتی دارید که به شما کمک می‌کند توانایی‌های صحبت و نوشتن‌تان را با بهترین روش‌های ارزیابی کنیم.
-        </p>
+        <h2 className="text-2xl font-bold text-brand-navy mb-4">آیلتس ویکتوری، همراه همیشگی شما در سفر موفقیت</h2>
+        <p className="text-brand-navy mb-4">در این بخش، سوالاتی دارید که به شما کمک می‌کند توانایی‌های صحبت و نوشتن‌تان را با بهترین روش‌ ارزیابی کنیم.</p>
         <p className="text-brand-navy mb-4">فایل صوتی جواب سوال اسپیکینگ را آپلود کنید یا پاسخ را در واتس اپ بصورت ضبط صدا ارسال کنید </p>
         <p className="text-brand-navy font-bold"> این ارزیابی‌ها برای هر فرد یکبار رایگان انجام می‌شوند</p>
       </div>
