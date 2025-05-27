@@ -149,25 +149,15 @@ const QuizIntro = ({
 Free IELTS Resources, Instant Results!</h1>
       
       <div className="mb-8 p-8 bg-white rounded-2xl shadow-xl border border-purple-200">
-        <p className="text-xl mb-6 leading-relaxed text-center font-bold text-fuchsia-900">Take our professional IELTS placement test to find out your current English level according to the Common European Framework of Reference (CEFR) and get an estimated IELTS band score. it is CEFR Aligned has instant results and takes 20 to 25 minutes in 20 Questions.</p>
+        <p className="text-xl mb-6 leading-relaxed text-center font-bold text-fuchsia-900">
+
+Take our professional IELTS placement test to find out your current English level according to the Common European Framework of Reference (CEFR) and get an estimated IELTS band score. it is CEFR Aligned has instant results and takes 20 to 25 minutes in 20 Questions.</p>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          <div className="p-4 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl shadow-md bg-transparent">
-            <p className="text-sm font-bold text-purple-800">
-          </p>
-          </div>
-          <div className="p-4 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl shadow-md">
-            <p className="text-sm font-bold text-blue-800">
-          </p>
-          </div>
-          <div className="p-4 bg-gradient-to-br from-indigo-100 to-indigo-200 rounded-xl shadow-md">
-            <p className="text-sm font-bold text-indigo-800">
-          </p>
-          </div>
-          <div className="p-4 bg-gradient-to-br from-green-100 to-green-200 rounded-xl shadow-md">
-            <p className="text-sm font-bold text-green-800">
-          </p>
-          </div>
+          
+          
+          
+          
         </div>
         
         <div className="flex flex-col sm:flex-row justify-center gap-6 mt-8">
