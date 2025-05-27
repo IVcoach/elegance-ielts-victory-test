@@ -149,7 +149,16 @@ const QuizIntro = ({
 Free IELTS Resources, Instant Results!</h1>
       
       <div className="mb-8 p-8 bg-white rounded-2xl shadow-xl border border-purple-200">
-        <p className="text-xl mb-6 leading-relaxed text-center font-bold text-slate-950">The IELTS placement test is a 20-minute, online, CEFR-aligned assessment with 20 questions that provides instant results and estimates your IELTS band score.           آزمون تعیین سطح آیلتس یک ارزیابی آنلاین و هم‌راستا با استانداردهای مرجع زبان است که در مدت ۲۰ دقیقه و با ۲۰ سوال، نتیجه سریع و تخمینی نمره آیلتس شما را ارائه می‌دهد و برای ارزیابی دقیق تر فایل اسپیکینگ و رایتینگ خود را به واتس آپ ما ارسال کنید</p>
+        <p className="text-xl mb-6 leading-relaxed text-center font-bold text-slate-950">Start Your IELTS Journey with Our Free Placement Test
+
+Our 20-minute, online, CEFR-aligned IELTS placement test includes 20 carefully designed questions to assess your English skills and provide instant results with an estimated IELTS band score. Receive personalized feedback to guide your preparation, and submit your speaking and writing samples for expert evaluation by certified IELTS examiners. Results are delivered within 48 hours via email or WhatsApp.
+
+Why take our test?
+
+Accurate: Aligned with official IELTS and CEFR standards.
+Fast: Get your estimated band score instantly.
+Personalized: Receive tailored study recommendations.
+Secure: Submit speaking and writing samples safely via our website or WhatsApp.</p>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           
