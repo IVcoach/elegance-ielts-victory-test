@@ -149,9 +149,9 @@ const QuizIntro = ({
 Free IELTS Resources, Instant Results!</h1>
       
       <div className="mb-8 p-8 bg-white rounded-2xl shadow-xl border border-purple-200">
-        <p className="text-xl mb-6 leading-relaxed text-center font-bold text-fuchsia-900">
+        <p className="text-xl mb-6 leading-relaxed text-center font-bold text-fuchsia-700">The IELTS placement test is a 20-minute, online, CEFR-aligned assessment with 20 questions that provides instant results and estimates your IELTS band score.
 
-Take our professional IELTS placement test to find out your current English level according to the Common European Framework of Reference (CEFR) and get an estimated IELTS band score. it is CEFR Aligned has instant results and takes 20 to 25 minutes in 20 Questions.</p>
+آزمون تعیین سطح آیلتس یک ارزیابی آنلاین و هم‌راستا با معیار CEFR است که در مدت ۲۰ دقیقه و با ۲۰ سوال، نتیجه سریع و تخمینی نمره آیلتس شما را ارائه می‌دهد</p>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           
