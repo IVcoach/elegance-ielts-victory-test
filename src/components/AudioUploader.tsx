@@ -1,16 +1,16 @@
-
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Upload, Mic, MessageCircle } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 import { Progress } from "@/components/ui/progress";
-
 interface AudioUploaderProps {
   onAudioUploaded: (audioFile: File) => void;
   className?: string;
 }
-
-export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps) {
+export function AudioUploader({
+  onAudioUploaded,
+  className
+}: AudioUploaderProps) {
   const [isRecording, setIsRecording] = useState(false);
   const [recordingTime, setRecordingTime] = useState(0);
   const [audioFile, setAudioFile] = useState<File | null>(null);
@@ -19,32 +19,35 @@ export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<BlobPart[]>([]);
   const timerRef = useRef<number | null>(null);
-
   const startRecording = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: true
+      });
       const mediaRecorder = new MediaRecorder(stream);
       mediaRecorderRef.current = mediaRecorder;
       chunksRef.current = [];
-      
-      mediaRecorder.ondataavailable = (e) => {
+      mediaRecorder.ondataavailable = e => {
         chunksRef.current.push(e.data);
       };
-      
       mediaRecorder.onstop = () => {
-        const blob = new Blob(chunksRef.current, { type: 'audio/wav' });
-        const file = new File([blob], "recording.wav", { type: 'audio/wav' });
+        const blob = new Blob(chunksRef.current, {
+          type: 'audio/wav'
+        });
+        const file = new File([blob], "recording.wav", {
+          type: 'audio/wav'
+        });
         setAudioFile(file);
         onAudioUploaded(file);
-        
+
         // Clean up
         stream.getTracks().forEach(track => track.stop());
       };
-      
+
       // Start recording
       mediaRecorder.start();
       setIsRecording(true);
-      
+
       // Set up timer
       let seconds = 0;
       timerRef.current = window.setInterval(() => {
@@ -55,7 +58,6 @@ export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps
           stopRecording();
         }
       }, 1000);
-      
     } catch (error) {
       console.error("Error accessing microphone:", error);
       toast({
@@ -65,7 +67,6 @@ export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps
       });
     }
   };
-  
   const stopRecording = () => {
     if (mediaRecorderRef.current && isRecording) {
       mediaRecorderRef.current.stop();
@@ -74,12 +75,11 @@ export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps
         clearInterval(timerRef.current);
         timerRef.current = null;
       }
-      
       toast({
         title: "Recording saved",
-        description: "Your audio has been successfully recorded.",
+        description: "Your audio has been successfully recorded."
       });
-      
+
       // Simulate processing with a progress indicator
       let progress = 0;
       const interval = setInterval(() => {
@@ -89,13 +89,12 @@ export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps
           clearInterval(interval);
           toast({
             title: "Processing complete",
-            description: "Your recording is ready to be assessed.",
+            description: "Your recording is ready to be assessed."
           });
         }
       }, 200);
     }
   };
-  
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (files && files.length > 0) {
@@ -103,7 +102,7 @@ export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps
       if (file.type.startsWith('audio/')) {
         setAudioFile(file);
         onAudioUploaded(file);
-        
+
         // Simulate processing with a progress indicator
         let progress = 0;
         const interval = setInterval(() => {
@@ -113,7 +112,7 @@ export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps
             clearInterval(interval);
             toast({
               title: "File uploaded",
-              description: "Your audio file is ready to be assessed.",
+              description: "Your audio file is ready to be assessed."
             });
           }
         }, 200);
@@ -126,85 +125,52 @@ export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps
       }
     }
   };
-  
   const triggerFileUpload = () => {
     fileInputRef.current?.click();
   };
-  
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   };
-  
   const handleWhatsAppShare = () => {
     const text = "Hello! I'd like to submit my IELTS speaking practice recording.";
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
-
-  return (
-    <div className={className}>
+  return <div className={className}>
       <div className="space-y-4">
         <div className="flex flex-col sm:flex-row gap-3">
-          <input 
-            type="file" 
-            ref={fileInputRef} 
-            onChange={handleFileChange} 
-            accept="audio/*" 
-            className="hidden" 
-          />
+          <input type="file" ref={fileInputRef} onChange={handleFileChange} accept="audio/*" className="hidden" />
           
-          <Button 
-            onClick={triggerFileUpload} 
-            variant="outline" 
-            className="flex-1 border-purple-500 text-purple-700 hover:bg-purple-50"
-          >
+          <Button onClick={triggerFileUpload} variant="outline" className="flex-1 border-purple-500 text-purple-700 hover:bg-purple-50">
             <Upload className="mr-2 h-4 w-4" />
             Upload Audio
           </Button>
           
-          {!isRecording ? (
-            <Button 
-              onClick={startRecording} 
-              variant="outline" 
-              className="flex-1 border-purple-500 text-purple-700 hover:bg-purple-50"
-            >
+          {!isRecording ? <Button onClick={startRecording} variant="outline" className="flex-1 border-purple-500 hover:bg-purple-50 text-slate-50 font-normal rounded-sm">
               <Mic className="mr-2 h-4 w-4" />
               Record Answer
-            </Button>
-          ) : (
-            <Button 
-              onClick={stopRecording} 
-              variant="outline" 
-              className="flex-1 border-red-500 text-red-700 hover:bg-red-50 animate-pulse"
-            >
+            </Button> : <Button onClick={stopRecording} variant="outline" className="flex-1 border-red-500 text-red-700 hover:bg-red-50 animate-pulse">
               <span className="mr-2 h-2 w-2 bg-red-500 rounded-full"></span>
               Stop Recording ({formatTime(recordingTime)})
-            </Button>
-          )}
+            </Button>}
           
-          <Button 
-            onClick={handleWhatsAppShare} 
-            className="flex-1 bg-green-500 hover:bg-green-600"
-          >
+          <Button onClick={handleWhatsAppShare} className="flex-1 bg-green-500 hover:bg-green-600">
             <MessageCircle className="mr-2 h-4 w-4" />
             Send via WhatsApp
           </Button>
         </div>
         
-        {(isRecording || uploadProgress > 0) && (
-          <div className="space-y-2">
+        {(isRecording || uploadProgress > 0) && <div className="space-y-2">
             <div className="flex justify-between text-sm">
               <span>{isRecording ? "Recording in progress..." : "Processing audio..."}</span>
               <span>{uploadProgress}%</span>
             </div>
             <Progress value={uploadProgress} className="h-2" />
-          </div>
-        )}
+          </div>}
         
-        {audioFile && !isRecording && uploadProgress >= 100 && (
-          <div className="p-3 bg-green-50 border border-green-200 rounded-md">
+        {audioFile && !isRecording && uploadProgress >= 100 && <div className="p-3 bg-green-50 border border-green-200 rounded-md">
             <div className="flex items-center justify-between">
               <div>
                 <p className="font-medium text-green-700">Audio ready for assessment</p>
@@ -216,9 +182,7 @@ export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps
                 </svg>
               </div>
             </div>
-          </div>
-        )}
+          </div>}
       </div>
-    </div>
-  );
+    </div>;
 }
