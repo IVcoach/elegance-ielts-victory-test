@@ -8,13 +8,13 @@ export function Footer() {
             <h2 className="text-2xl font-playfair font-bold mb-6 text-transparent bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text">
               V&C Elegance
             </h2>
-            <p className="text-gray-300 mb-4 text-lg font-medium">Your coach in your journey to IELTS excellence</p>
-            <p className="mb-6 text-blue-200 font-medium">Establishment number: 000061974544</p>
-            <p className="text-sm text-yellow-200 font-medium italic">Verified in accordance with Cambridge University CERF Standards and IDP Education protocols.</p>
+            <p className="mb-4 text-lg font-medium text-slate-50">Your coach in your journey to IELTS excellence</p>
+            <p className="mb-6 font-medium text-slate-50">Establishment number: 000061974544</p>
+            <p className="text-sm font-medium italic text-slate-50">Verified in accordance with Cambridge University CERF Standards and IDP Education protocols.</p>
           </div>
           
           <div>
-            <h2 className="text-2xl font-playfair font-bold mb-6 text-black">
+            <h2 className="text-2xl font-playfair font-bold mb-6 text-slate-50">
               Contact
             </h2>
             <ul className="space-y-4 text-black">
@@ -22,20 +22,20 @@ export function Footer() {
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-gold">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                 </svg>
-                <span className="text-lg">+31631267353</span>
+                <span className="text-lg text-slate-50">+31631267353</span>
               </li>
               <li className="flex items-center gap-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-gold">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
-                <span className="text-lg">vcelegance@consultant.com</span>
+                <span className="text-lg text-slate-50">vcelegance@consultant.com</span>
               </li>
             </ul>
           </div>
           
           <div>
-            <h2 className="text-2xl font-playfair font-bold mb-6 text-black">
+            <h2 className="text-2xl font-playfair font-bold mb-6 text-slate-50">
               Connect
             </h2>
             <div className="flex gap-6 mb-8">
