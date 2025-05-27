@@ -145,13 +145,8 @@ const QuizIntro = ({
   onShowPractice: () => void;
 }) => {
   return <div className="max-w-4xl mx-auto text-center">
-      <h1 className="text-4xl font-playfair font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 bg-clip-text mb-6 text-purple-700">Free IELTS Placement Test
-20-minute online test with 20 CEFR-aligned questions
-Instant results with estimated IELTS band score
-Personalized feedback to guide preparation
-Submit speaking/writing samples for expert evaluation
-Results in 48 hours via email or WhatsApp
-Accurate (IELTS/CEFR standards), fast, personalized, secure</h1>
+      <h1 className="font-playfair font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 bg-clip-text mb-6 text-purple-700 text-lg">Free IELTS Placement Test 
+20-minute online test with 20 CEFR-aligned questions Instant results with estimated IELTS band score Personalized feedback to guide preparation Submit speaking/writing samples for expert evaluation Results in 48 hours via email or WhatsApp Accurate (IELTS/CEFR standards), fast, personalized, secure</h1>
       
       <div className="mb-8 p-8 bg-white rounded-2xl shadow-xl border border-purple-200">
         <p className="text-xl mb-6 leading-relaxed font-bold text-slate-950 text-right">آزمون تعیین سطح رایگان آیلتس
