@@ -145,9 +145,8 @@ const QuizIntro = ({
   onShowPractice: () => void;
 }) => {
   return <div className="max-w-4xl mx-auto text-center">
-      <h1 className="text-4xl font-playfair font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 text-transparent bg-clip-text mb-6">
-        Start Your IELTS Journey — Free IELTS Resources, Instant Results!
-      </h1>
+      <h1 className="text-4xl font-playfair font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 text-transparent bg-clip-text mb-6">Start Your IELTS Journey 
+Free IELTS Resources, Instant Results!</h1>
       
       <div className="mb-8 p-8 bg-white rounded-2xl shadow-xl border border-purple-200">
         <p className="text-xl mb-6 text-gray-700 leading-relaxed">
