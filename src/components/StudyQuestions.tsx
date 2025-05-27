@@ -97,11 +97,11 @@ export function StudyQuestions() {
           </CardHeader>
           <CardContent>
             <p className="mb-4 font-medium">Describe the best way to study for IELTS. 
-You should say: 
-What materials to use
- How to organize your study time
- What strategies to follow during preparation
- and explain why this way is effective.</p>
+ You should say: 
+ What materials to use 
+ How to organize your study time  
+What strategies to follow during preparation
+  and explain why this way is effective.</p>
             
             <div className="space-y-4">
               <AudioUploader onAudioUploaded={handleAudioUploaded} className="mt-4" />
