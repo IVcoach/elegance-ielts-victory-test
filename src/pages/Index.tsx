@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
@@ -261,12 +260,6 @@ const Index = () => {
       {/* Enhanced CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white">
         <div className="container mx-auto max-w-6xl text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Ready to Achieve Your IELTS Goals?
-          </h2>
-          <p className="text-2xl text-gray-300 mb-10 max-w-3xl mx-auto font-medium leading-relaxed">
-            Join thousands of successful students who have achieved their target IELTS scores with our professional coaching program.
-          </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6 mb-12">
             <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold shadow-xl transform hover:scale-105 transition-all px-8 py-4">
               <Link to="/test">Start Your Free Assessment</Link>
