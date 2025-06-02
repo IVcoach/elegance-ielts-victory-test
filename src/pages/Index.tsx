@@ -10,9 +10,10 @@ import { Progress } from "@/components/ui/progress";
 import { Award, TrendingUp, Target, Star, Trophy, Users, Send } from "lucide-react";
 const Index = () => {
   const handleTelegramResources = () => {
-    window.open("https://t.me/ieltsvc", "_blank", "noopener,noreferrer");
+    window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
-  return <div className="min-h-screen flex flex-col">
+  return (
+    <div className="min-h-screen flex flex-col">
       <Navigation />
       
       {/* Hero Section */}
@@ -21,26 +22,47 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="animate-fade-in order-2 lg:order-1">
               <h1 className="text-4xl md:text-6xl font-playfair font-bold text-brand-navy leading-tight mb-6 lg:text-7xl mx-[10px] my-[10px] py-[10px]">
-                Start Your IELTS Journey <br />
-                <span className="text-brand-blue text-3xl md:text-4xl bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Free IELTS Resources
-Instant Results!</span>
+                Master Your IELTS Journey <br />
+                <span className="text-brand-blue text-3xl md:text-4xl bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                  AI-Powered Assessment & Practice
+                </span>
               </h1>
               <p className="text-xl text-gray-700 mb-8 font-medium leading-relaxed">
-                Our CEFR-aligned adaptive placement test provides precise assessment and 
-                personalized guidance for your IELTS preparation journey.
+                Experience personalized IELTS preparation with our advanced AI feedback system, 
+                interactive practice modules, and comprehensive progress tracking designed to maximize your success.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
                 <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold shadow-lg transform hover:scale-105 transition-all">
-                  <Link to="/test">Take the Test</Link>
+                  <Link to="/test">Start Free Assessment</Link>
                 </Button>
                 <Button onClick={handleTelegramResources} size="lg" className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-semibold shadow-lg transform hover:scale-105 transition-all flex items-center gap-2">
                   <Send className="h-5 w-5" />
-                  Free IELTS Resources
+                  Join @ieltstori Community
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-2 border-purple-500 text-purple-700 hover:bg-purple-50 font-semibold shadow-lg transform hover:scale-105 transition-all">
-                  <Link to="/test?practice=true">Speaking & Writing Assessment</Link>
+                  <Link to="/test?practice=true">AI Writing & Speaking Analysis</Link>
                 </Button>
                 <TelegramDialog />
+              </div>
+              
+              {/* New Feature Highlights */}
+              <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="text-center p-3 bg-white/80 rounded-lg shadow-sm">
+                  <div className="text-2xl font-bold text-purple-600">AI</div>
+                  <div className="text-xs text-gray-600">Powered Feedback</div>
+                </div>
+                <div className="text-center p-3 bg-white/80 rounded-lg shadow-sm">
+                  <div className="text-2xl font-bold text-blue-600">20+</div>
+                  <div className="text-xs text-gray-600">Practice Modules</div>
+                </div>
+                <div className="text-center p-3 bg-white/80 rounded-lg shadow-sm">
+                  <div className="text-2xl font-bold text-green-600">24/7</div>
+                  <div className="text-xs text-gray-600">Progress Tracking</div>
+                </div>
+                <div className="text-center p-3 bg-white/80 rounded-lg shadow-sm">
+                  <div className="text-2xl font-bold text-orange-600">∞</div>
+                  <div className="text-xs text-gray-600">Free Resources</div>
+                </div>
               </div>
             </div>
             
@@ -142,27 +164,45 @@ Instant Results!</span>
         </div>
       </section>
       
-      {/* CTA Section */}
+      {/* Enhanced CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-brand-navy via-blue-900 to-purple-900 text-white">
         <div className="container mx-auto max-w-6xl text-center">
           <h2 className="text-4xl md:text-5xl font-playfair font-bold mb-8">
-            Ready to Discover Your English Level?
+            Ready to Transform Your IELTS Preparation?
           </h2>
           <p className="text-2xl text-gray-300 mb-10 max-w-3xl mx-auto font-medium leading-relaxed">
-            Take our free placement test today and receive personalized guidance for your IELTS journey.
+            Join thousands of successful students using our AI-powered platform for personalized IELTS preparation.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <Button asChild size="lg" className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-black font-bold shadow-xl transform hover:scale-105 transition-all">
-              <Link to="/test">Start Your Assessment</Link>
+              <Link to="/test">Start Your Free Assessment</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-brand-navy font-bold shadow-xl transform hover:scale-105 transition-all">
-              
+            <Button onClick={handleTelegramResources} size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-brand-navy font-bold shadow-xl transform hover:scale-105 transition-all">
+              Join @ieltstori Community
             </Button>
+          </div>
+          
+          {/* Social Proof */}
+          <div className="mt-12 flex justify-center items-center gap-8 text-gray-300">
+            <div className="text-center">
+              <div className="text-3xl font-bold">10K+</div>
+              <div className="text-sm">Active Students</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold">95%</div>
+              <div className="text-sm">Success Rate</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold">4.9★</div>
+              <div className="text-sm">Student Rating</div>
+            </div>
           </div>
         </div>
       </section>
       
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;

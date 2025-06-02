@@ -14,12 +14,13 @@ export function TestQuestions() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [userAnswers, setUserAnswers] = useState<{ [key: string]: string }>({});
+  const [startTime] = useState(Date.now());
 
   const handleTelegramResources = () => {
-    window.open("https://t.me/ieltsvc", "_blank", "noopener,noreferrer");
+    window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
 
-  // Handle user's answer
+  // Handle user's answer with enhanced tracking
   const handleAnswer = (answerId: string) => {
     const currentQuestion = testQuestions[currentQuestionIndex];
     const newAnswers = [...answers, answerId];
@@ -28,15 +29,22 @@ export function TestQuestions() {
     setAnswers(newAnswers);
     setUserAnswers(newUserAnswers);
     
+    // Save progress to localStorage for persistence
+    localStorage.setItem('ielts_test_progress', JSON.stringify({
+      currentQuestionIndex: currentQuestionIndex + 1,
+      userAnswers: newUserAnswers,
+      startTime
+    }));
+    
     if (currentQuestionIndex < testQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       toast({
-        title: "Answer recorded",
+        title: "Answer recorded ✓",
         description: `Moving to question ${currentQuestionIndex + 2} of ${testQuestions.length}`,
         duration: 2000
       });
     } else {
-      // Calculate accurate score
+      // Calculate accurate score with time tracking
       let correctCount = 0;
       Object.keys(newUserAnswers).forEach(questionId => {
         if (correctAnswers[questionId] === newUserAnswers[questionId]) {
@@ -44,11 +52,16 @@ export function TestQuestions() {
         }
       });
       
+      const completionTime = Math.round((Date.now() - startTime) / 1000 / 60); // minutes
+      
       toast({
-        title: "Test completed!",
-        description: "Calculating your results...",
-        duration: 2000
+        title: "Test completed! 🎉",
+        description: `Completed in ${completionTime} minutes. Calculating your results...`,
+        duration: 3000
       });
+      
+      // Clear saved progress
+      localStorage.removeItem('ielts_test_progress');
       
       setTimeout(() => {
         navigate('/test', { 
@@ -56,7 +69,8 @@ export function TestQuestions() {
             testCompleted: true, 
             answers: newAnswers,
             correctAnswers: correctCount,
-            totalQuestions: testQuestions.length
+            totalQuestions: testQuestions.length,
+            completionTime
           } 
         });
       }, 1000);
@@ -73,6 +87,13 @@ export function TestQuestions() {
       const newUserAnswers = { ...userAnswers };
       delete newUserAnswers[currentQuestion.id];
       setUserAnswers(newUserAnswers);
+      
+      // Update saved progress
+      localStorage.setItem('ielts_test_progress', JSON.stringify({
+        currentQuestionIndex: currentQuestionIndex - 1,
+        userAnswers: newUserAnswers,
+        startTime
+      }));
     } else {
       navigate('/test');
     }
@@ -101,6 +122,16 @@ export function TestQuestions() {
           onAnswer={handleAnswer} 
           isLast={currentQuestionIndex === testQuestions.length - 1} 
         />
+      </div>
+      
+      {/* Enhanced test tips */}
+      <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg border border-blue-200">
+        <div className="flex items-center gap-2 mb-2">
+          <span className="text-blue-600 font-semibold">💡 Test Tip:</span>
+        </div>
+        <p className="text-sm text-gray-700">
+          Take your time to read each question carefully. You can always go back to previous questions.
+        </p>
       </div>
     </div>
   );
