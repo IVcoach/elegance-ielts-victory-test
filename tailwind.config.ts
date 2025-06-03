@@ -70,12 +70,6 @@ export default {
 					navy: "#0A1D3F",
 					delft: "#1E3A8A",
 					cream: "#FEF9E7"
-				},
-				iceberg: {
-					blue: "#4A90E2",
-					teal: "#5BC0BE",
-					slate: "#64748B",
-					ice: "#F0F9FF"
 				}
 			},
 			borderRadius: {
@@ -108,10 +102,6 @@ export default {
 					'0%': { transform: 'translateX(100%)' },
 					'100%': { transform: 'translateX(0)' }
 				},
-				'gentle-float': {
-					'0%, 100%': { transform: 'translateY(0px)' },
-					'50%': { transform: 'translateY(-5px)' }
-				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.3s ease-out',
@@ -119,13 +109,11 @@ export default {
 				'fade-in': 'fade-in 0.4s ease-out',
 				'fade-out': 'fade-out 0.4s ease-out',
 				'scale-in': 'scale-in 0.3s ease-out',
-				'slide-in-right': 'slide-in-right 0.5s ease-out',
-				'gentle-float': 'gentle-float 3s ease-in-out infinite'
+				'slide-in-right': 'slide-in-right 0.5s ease-out'
 			},
 			fontFamily: {
-				'sans': ['Inter', 'system-ui', 'sans-serif'],
 				'playfair': ['"Playfair Display"', 'serif'],
-				'inter': ['Inter', 'system-ui', 'sans-serif']
+				'roboto': ['Roboto', 'sans-serif']
 			}
 		}
 	},
