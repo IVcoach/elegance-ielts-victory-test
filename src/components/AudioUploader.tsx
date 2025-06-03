@@ -114,7 +114,7 @@ export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps
 
             <Button 
               onClick={handleTelegramShare} 
-              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium flex items-center gap-2"
+              className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-medium flex items-center gap-2"
             >
               <Send className="h-4 w-4" />
               Join @ieltstori
@@ -182,7 +182,7 @@ export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps
               <li>• Speak clearly for 1-2 minutes</li>
               <li>• Use a quiet environment</li>
               <li>• Supported formats: MP3, WAV, M4A</li>
-              <li>• Maximum file size: 25MB</li>
+              <li>• Maximum file size: 5MB</li>
             </ul>
           </div>
         )}

@@ -116,62 +116,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* New Quick Access Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-blue-50 via-white to-gray-50">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Quick Access to IELTS Success
-            </h2>
-            <p className="text-xl text-gray-600 font-medium">Choose your path to IELTS excellence</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="professional-card transform hover:scale-105 transition-all border-2 border-blue-200 hover:border-blue-400">
-              <CardContent className="p-8 text-center">
-                <BookOpen className="h-16 w-16 text-blue-800 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Placement Test</h3>
-                <p className="text-gray-600 mb-6">
-                  Take our comprehensive 20-minute IELTS assessment to discover your current level
-                </p>
-                <Button asChild className="professional-button w-full">
-                  <Link to="/test">Start Assessment</Link>
-                </Button>
-              </CardContent>
-            </Card>
-            
-            <Card className="professional-card transform hover:scale-105 transition-all border-2 border-green-200 hover:border-green-400">
-              <CardContent className="p-8 text-center">
-                <MessageCircle className="h-16 w-16 text-green-700 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Speaking & Writing</h3>
-                <p className="text-gray-600 mb-6">
-                  Get expert evaluation of your speaking and writing skills with personalized feedback
-                </p>
-                <Button asChild className="bg-green-700 hover:bg-green-800 text-white font-bold px-6 py-3 rounded-lg shadow-md w-full">
-                  <Link to="/test?practice=true">Submit for Review</Link>
-                </Button>
-              </CardContent>
-            </Card>
-            
-            <Card className="professional-card transform hover:scale-105 transition-all border-2 border-purple-200 hover:border-purple-400">
-              <CardContent className="p-8 text-center">
-                <Users className="h-16 w-16 text-purple-700 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Free Resources</h3>
-                <p className="text-gray-600 mb-6">
-                  Access thousands of practice questions, tips, and join our active community
-                </p>
-                <Button 
-                  onClick={handleTelegramResources}
-                  className="bg-purple-700 hover:bg-purple-800 text-white font-bold px-6 py-3 rounded-lg shadow-md w-full"
-                >
-                  Join Community
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-      
       {/* Enhanced Student Success Stories */}
       <section className="py-16 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-100">
         <div className="container mx-auto max-w-6xl">
