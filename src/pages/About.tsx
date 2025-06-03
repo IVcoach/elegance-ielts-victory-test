@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
@@ -20,7 +19,7 @@ import {
   Star,
   Zap,
   Book,
-  VrHeadset
+  Headset
 } from "lucide-react";
 
 const About = () => {
@@ -227,7 +226,7 @@ const About = () => {
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-6 mb-6">
                 <Zap className="h-16 w-16 text-yellow-500 animate-bounce-slow" />
-                <VrHeadset className="h-14 w-14 text-pink-600 animate-pulse" />
+                <Headset className="h-14 w-14 text-pink-600 animate-pulse" />
                 <Cpu className="h-12 w-12 text-orange-600" />
               </div>
               <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-800 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">Our Future Vision</h2>
@@ -247,7 +246,7 @@ const About = () => {
               
               <Card className="bg-gradient-to-br from-pink-50 to-rose-50 border-3 border-pink-400 transform hover:scale-110 hover:rotate-2 transition-all duration-300 shadow-2xl">
                 <CardContent className="p-10 text-center">
-                  <VrHeadset className="h-16 w-16 text-pink-600 mx-auto mb-6 animate-pulse" />
+                  <Headset className="h-16 w-16 text-pink-600 mx-auto mb-6 animate-pulse" />
                   <h3 className="text-2xl font-bold bg-gradient-to-r from-pink-700 to-pink-500 bg-clip-text text-transparent mb-6">VR & Metaverse</h3>
                   <p className="text-gray-700 text-lg">
                     Creating <span className="bg-gradient-to-r from-pink-600 to-pink-800 bg-clip-text text-transparent font-black">immersive, game-based learning experiences</span> 
