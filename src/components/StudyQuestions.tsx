@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -7,7 +6,6 @@ import { toast } from "@/components/ui/use-toast";
 import { AudioUploader } from "@/components/AudioUploader";
 import { Progress } from "@/components/ui/progress";
 import { CheckCircle, AlertCircle, MessageCircle, Send, Clock } from "lucide-react";
-
 export function StudyQuestions() {
   const [writingAnswer, setWritingAnswer] = useState("");
   const [speakingAudio, setSpeakingAudio] = useState<File | null>(null);
@@ -20,7 +18,6 @@ export function StudyQuestions() {
   const [writingScore, setWritingScore] = useState<number | null>(null);
   const [overallLevel, setOverallLevel] = useState<string | null>(null);
   const [overallIELTSBand, setOverallIELTSBand] = useState<string | null>(null);
-
   const handleWhatsAppShare = () => {
     if (!speakingAudio && !writingAnswer) {
       toast({
@@ -30,56 +27,41 @@ export function StudyQuestions() {
       });
       return;
     }
-
     let text = "Hello! I'd like to submit my IELTS Speaking & Writing assessment for expert evaluation.\n\n";
-    
     if (speakingAudio) {
       text += "✅ Speaking section completed (audio file ready)\n";
       text += "Question: Describe the best way to study for IELTS\n\n";
     }
-    
     if (writingAnswer) {
       text += "✅ Writing section completed\n";
       text += `Writing Task Response (${writingAnswer.length} words):\n\n${writingAnswer}\n\n`;
     }
-    
     text += "Please provide professional feedback and band score estimation.\n";
     text += "Thank you for your expert assessment! 🎯";
-
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
-    
     toast({
       title: "Assessment submitted! ✅",
       description: "Your responses have been sent for expert review. Results will be delivered within 48 hours.",
       duration: 5000
     });
   };
-
   const handleTelegramJoin = () => {
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
-
   const handleAudioUploaded = (file: File) => {
     setSpeakingAudio(file);
     setSpeakingProgress(100);
     updateProgress("speaking");
   };
-
   const updateProgress = (type: "speaking" | "writing") => {
     if (type === "writing") {
-      setWritingProgress(
-        writingAnswer.length > 200 ? 100 : 
-        writingAnswer.length > 100 ? 60 : 
-        writingAnswer.length > 50 ? 30 : 0
-      );
+      setWritingProgress(writingAnswer.length > 200 ? 100 : writingAnswer.length > 100 ? 60 : writingAnswer.length > 50 ? 30 : 0);
     }
-    
     if (speakingAudio && writingAnswer.length > 100) {
       simulateAssessment();
     }
   };
-
   const simulateAssessment = () => {
     const spScore = Math.min(7 + Math.random() * 1.5, 9);
     const wrScore = Math.min(6.5 + Math.random() * 1.5, 9);
@@ -87,7 +69,6 @@ export function StudyQuestions() {
     setWritingScore(wrScore);
     const overall = (spScore + wrScore) / 2;
     setOverallIELTSBand(overall.toFixed(1));
-    
     if (overall >= 8) {
       setOverallLevel("C2");
     } else if (overall >= 7) {
@@ -101,16 +82,13 @@ export function StudyQuestions() {
     }
     setShowResults(true);
   };
-
   const updateWritingProgress = (text: string) => {
     setWritingAnswer(text);
     const progress = text.length > 200 ? 100 : text.length > 100 ? 60 : text.length > 50 ? 30 : 0;
     setWritingProgress(progress);
     updateProgress("writing");
   };
-
-  return (
-    <div className="max-w-4xl mx-auto my-12">
+  return <div className="max-w-4xl mx-auto my-12">
       {/* Enhanced Header */}
       <div className="text-center mb-8 p-8 bg-gradient-to-r from-blue-50 via-white to-purple-50 rounded-xl border border-gray-200 shadow-lg">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -160,25 +138,21 @@ export function StudyQuestions() {
             <div className="space-y-4">
               <AudioUploader onAudioUploaded={handleAudioUploaded} className="mt-4" />
               
-              {(speakingProgress > 0 || speakingAudio) && (
-                <div className="mt-4">
+              {(speakingProgress > 0 || speakingAudio) && <div className="mt-4">
                   <div className="flex justify-between mb-1 text-sm">
                     <span>Completion Status</span>
                     <span>{speakingAudio ? '100%' : `${speakingProgress}%`}</span>
                   </div>
                   <Progress value={speakingAudio ? 100 : speakingProgress} className="h-3" />
                   
-                  {speakingAudio && (
-                    <div className="mt-3 p-3 bg-green-50 border border-green-200 rounded-lg">
+                  {speakingAudio && <div className="mt-3 p-3 bg-green-50 border border-green-200 rounded-lg">
                       <div className="flex items-center text-green-700">
                         <CheckCircle className="h-5 w-5 mr-2" />
                         <span className="font-medium">Audio recording ready for expert assessment</span>
                       </div>
                       <p className="text-sm text-green-600 mt-1">File: {speakingAudio.name}</p>
-                    </div>
-                  )}
-                </div>
-              )}
+                    </div>}
+                </div>}
             </div>
           </CardContent>
         </Card>
@@ -209,52 +183,40 @@ export function StudyQuestions() {
             </div>
             
             <div className="space-y-4">
-              <Textarea 
-                placeholder="Write your essay here... (aim for 250+ words)"
-                className="min-h-[300px] text-base leading-relaxed"
-                value={writingAnswer}
-                onChange={(e) => updateWritingProgress(e.target.value)}
-              />
+              <Textarea placeholder="Write your essay here... (aim for 250+ words)" className="min-h-[300px] text-base leading-relaxed" value={writingAnswer} onChange={e => updateWritingProgress(e.target.value)} />
               
               <div className="flex justify-between items-center text-sm">
                 <span>Word count: {writingAnswer.split(/\s+/).filter(word => word.length > 0).length} words</span>
                 <span>Target: 250+ words</span>
               </div>
               
-              {writingProgress > 0 && (
-                <div>
+              {writingProgress > 0 && <div>
                   <div className="flex justify-between mb-1 text-sm">
                     <span>Completion Status</span>
                     <span>{writingProgress}%</span>
                   </div>
                   <Progress value={writingProgress} className="h-3" />
                   
-                  {writingProgress < 60 && (
-                    <div className="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+                  {writingProgress < 60 && <div className="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-lg">
                       <div className="flex items-center text-amber-700">
                         <AlertCircle className="h-5 w-5 mr-2" />
                         <span className="font-medium">IELTS essays typically require 250+ words. Consider expanding your response.</span>
                       </div>
-                    </div>
-                  )}
+                    </div>}
                   
-                  {writingProgress >= 100 && (
-                    <div className="mt-3 p-3 bg-green-50 border border-green-200 rounded-lg">
+                  {writingProgress >= 100 && <div className="mt-3 p-3 bg-green-50 border border-green-200 rounded-lg">
                       <div className="flex items-center text-green-700">
                         <CheckCircle className="h-5 w-5 mr-2" />
                         <span className="font-medium">Excellent! Your response meets the word count requirement.</span>
                       </div>
-                    </div>
-                  )}
-                </div>
-              )}
+                    </div>}
+                </div>}
             </div>
           </CardContent>
         </Card>
 
         {/* Preliminary Results */}
-        {showResults && (
-          <Card className="border-2 border-green-200 bg-green-50 shadow-lg">
+        {showResults && <Card className="border-2 border-green-200 bg-green-50 shadow-lg">
             <CardHeader className="bg-gradient-to-r from-green-100 to-blue-100">
               <CardTitle className="text-2xl text-green-900">
                 Preliminary Assessment Results
@@ -307,8 +269,7 @@ export function StudyQuestions() {
                 </div>
               </div>
             </CardContent>
-          </Card>
-        )}
+          </Card>}
 
         {/* Enhanced Submission Section */}
         <div className="text-center space-y-6">
@@ -319,19 +280,12 @@ export function StudyQuestions() {
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button 
-                onClick={handleWhatsAppShare} 
-                className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold px-8 py-4 text-lg shadow-lg transform hover:scale-105 transition-all flex items-center gap-3"
-                disabled={!speakingAudio && !writingAnswer}
-              >
+              <Button onClick={handleWhatsAppShare} className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold px-8 py-4 text-lg shadow-lg transform hover:scale-105 transition-all flex items-center gap-3" disabled={!speakingAudio && !writingAnswer}>
                 <MessageCircle className="h-6 w-6" />
                 Send to WhatsApp for Expert Review
               </Button>
               
-              <Button 
-                onClick={handleTelegramJoin}
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold px-8 py-4 text-lg shadow-lg transform hover:scale-105 transition-all flex items-center gap-3"
-              >
+              <Button onClick={handleTelegramJoin} className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold px-8 py-4 text-lg shadow-lg transform hover:scale-105 transition-all flex items-center gap-3 my-[111px]">
                 <Send className="h-6 w-6" />
                 Join @ieltstori Community
               </Button>
@@ -343,6 +297,5 @@ export function StudyQuestions() {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 }
