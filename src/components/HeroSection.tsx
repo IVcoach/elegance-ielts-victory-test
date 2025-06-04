@@ -1,30 +1,24 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Award, Trophy, Send, CheckCircle, MessageCircle } from "lucide-react";
 import { useStarEffect } from "@/hooks/useStarEffect";
-
 export function HeroSection() {
   const createStarEffect = useStarEffect();
-  
   const handleTelegramResources = (e: React.MouseEvent) => {
     createStarEffect(e);
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
-  
   const handleWhatsAppContact = (e: React.MouseEvent) => {
     createStarEffect(e);
     const text = "Hello! I'm interested in IELTS coaching and would like more information about your programs.";
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
-
-  return (
-    <section className="hero-gradient pt-24 pb-16 px-4 md:pt-32 md:pb-24">
+  return <section className="hero-gradient pt-24 pb-16 px-4 md:pt-32 md:pb-24">
       <div className="container mx-auto max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="animate-fade-in order-2 lg:order-1">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6 lg:text-7xl">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6 lg:text-7xl text-center">
               Professional IELTS Coaching <br />
               <span className="text-3xl md:text-4xl text-blue-800">
                 Achieve Your Target Score
@@ -98,6 +92,5 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
