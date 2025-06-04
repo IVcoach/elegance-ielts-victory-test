@@ -274,13 +274,17 @@ export function StudyQuestions() {
         {/* Enhanced Submission Section */}
         <div className="text-center space-y-6">
           <div className="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-xl border border-gray-200">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Submit for Expert Assessment</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+
+
+
+Submit for Expert Assessment</h3>
             <p className="text-lg text-gray-700 mb-6">
               Get detailed feedback from certified IELTS examiners with band scores and improvement recommendations
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button onClick={handleWhatsAppShare} className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold px-8 py-4 text-lg shadow-lg transform hover:scale-105 transition-all flex items-center gap-3" disabled={!speakingAudio && !writingAnswer}>
+              <Button onClick={handleWhatsAppShare} disabled={!speakingAudio && !writingAnswer} className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold text-lg shadow-lg transform hover:scale-105 transition-all flex items-center gap-7mx-0 my-0 px-[12px] py-[17px] text-center">
                 <MessageCircle className="h-6 w-6" />
                 Send to WhatsApp for Expert Review
               </Button>
