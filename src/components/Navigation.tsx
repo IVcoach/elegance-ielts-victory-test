@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, GraduationCap } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { TelegramDialog } from "./TelegramDialog";
+import { useStarEffect } from "@/hooks/useStarEffect";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const createStarEffect = useStarEffect();
 
   return (
     <nav className="w-full bg-white bg-opacity-95 backdrop-blur-sm fixed top-0 z-50 border-b shadow-lg">
@@ -35,7 +37,10 @@ export function Navigation() {
             About Us
           </Link>
           <Button 
-            onClick={() => window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer")}
+            onClick={(e) => {
+              createStarEffect(e);
+              window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
+            }}
             className="bg-blue-800 hover:bg-blue-900 text-white font-bold px-6 py-2 shadow-md transform hover:scale-105 transition-all"
           >
             Free Resources
@@ -83,7 +88,8 @@ export function Navigation() {
             About Us
           </Link>
           <Button 
-            onClick={() => {
+            onClick={(e) => {
+              createStarEffect(e);
               window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
               setIsOpen(false);
             }}

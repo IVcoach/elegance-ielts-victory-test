@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
@@ -7,13 +8,18 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Progress } from "@/components/ui/progress";
 import { Award, TrendingUp, Target, Star, Trophy, Users, Send, Clock, CheckCircle, BookOpen, Globe, MessageCircle } from "lucide-react";
+import { useStarEffect } from "@/hooks/useStarEffect";
 
 const Index = () => {
-  const handleTelegramResources = () => {
+  const createStarEffect = useStarEffect();
+
+  const handleTelegramResources = (e: React.MouseEvent) => {
+    createStarEffect(e);
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
 
-  const handleWhatsAppContact = () => {
+  const handleWhatsAppContact = (e: React.MouseEvent) => {
+    createStarEffect(e);
     const text = "Hello! I'm interested in IELTS coaching and would like more information about your programs.";
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
@@ -56,7 +62,7 @@ const Index = () => {
               {/* Enhanced Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-6 mb-8">
                 <Button asChild size="lg" className="professional-button text-lg">
-                  <Link to="/test">Start Free Assessment</Link>
+                  <Link to="/test" onClick={createStarEffect}>Start Free Assessment</Link>
                 </Button>
                 <Button 
                   onClick={handleTelegramResources} 
@@ -201,29 +207,11 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Enhanced CTA Section */}
+      {/* Simplified CTA Section - Removed the three buttons */}
       <section className="py-20 px-4 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white">
         <div className="container mx-auto max-w-6xl text-center">
-          <div className="flex flex-col sm:flex-row justify-center gap-6 mb-12">
-            <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold shadow-xl transform hover:scale-105 transition-all px-8 py-4">
-              <Link to="/test">Start Your Free Assessment</Link>
-            </Button>
-            <Button 
-              onClick={handleTelegramResources} 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold shadow-xl transform hover:scale-105 transition-all px-8 py-4"
-            >
-              Join @ieltstori Community
-            </Button>
-            <Button 
-              onClick={handleWhatsAppContact}
-              size="lg" 
-              className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold shadow-xl transform hover:scale-105 transition-all px-8 py-4"
-            >
-              WhatsApp Consultation
-            </Button>
-          </div>
+          <h2 className="text-4xl font-bold text-white mb-8">Ready to Start Your IELTS Journey?</h2>
+          <p className="text-xl text-gray-300 mb-12">Join thousands of successful students who achieved their target scores</p>
           
           {/* Enhanced Professional Credentials */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-gray-300">

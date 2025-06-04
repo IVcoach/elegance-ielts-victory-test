@@ -10,6 +10,7 @@ import { Book, Award, Star } from "lucide-react";
 import { StudyQuestions } from "@/components/StudyQuestions";
 import { TestQuestions } from "@/components/TestQuestions";
 import { AssessmentResults } from "@/components/AssessmentResults";
+import { CheckCircle } from "lucide-react";
 
 // IELTS band descriptions aligned with CEFR levels
 interface IELTSBandDescription {
@@ -153,6 +154,7 @@ const QuizIntro = ({
         Comprehensive 20-minute assessment with CEFR-aligned questions for accurate IELTS band estimation
       </p>
       
+      {/* Officially Verified Assessment Section */}
       <div className="mb-8 p-8 bg-white rounded-2xl shadow-xl border border-gray-200">
         <div className="bg-blue-50 p-6 rounded-lg border border-blue-200 mb-6">
           <div className="flex items-center gap-3 mb-3">
@@ -166,21 +168,37 @@ const QuizIntro = ({
           </p>
         </div>
         
+        {/* Four feature cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div className="professional-card">
-            <h3 className="font-bold text-gray-900 mb-2">✓ Instant Results</h3>
+          <div className="professional-card border-green-200 bg-green-50">
+            <div className="flex items-center gap-3 mb-2">
+              <CheckCircle className="h-5 w-5 text-green-600" />
+              <h3 className="font-bold text-gray-900">Instant Results</h3>
+            </div>
             <p className="text-gray-700">Get your estimated IELTS band score immediately</p>
           </div>
-          <div className="professional-card">
-            <h3 className="font-bold text-gray-900 mb-2">✓ Professional Feedback</h3>
+          
+          <div className="professional-card border-blue-200 bg-blue-50">
+            <div className="flex items-center gap-3 mb-2">
+              <CheckCircle className="h-5 w-5 text-blue-600" />
+              <h3 className="font-bold text-gray-900">Professional Feedback</h3>
+            </div>
             <p className="text-gray-700">Personalized guidance for improvement</p>
           </div>
-          <div className="professional-card">
-            <h3 className="font-bold text-gray-900 mb-2">✓ Expert Assessment</h3>
+          
+          <div className="professional-card border-purple-200 bg-purple-50">
+            <div className="flex items-center gap-3 mb-2">
+              <CheckCircle className="h-5 w-5 text-purple-600" />
+              <h3 className="font-bold text-gray-900">Expert Assessment</h3>
+            </div>
             <p className="text-gray-700">Submit speaking/writing for detailed evaluation</p>
           </div>
-          <div className="professional-card">
-            <h3 className="font-bold text-gray-900 mb-2">✓ Secure & Accurate</h3>
+          
+          <div className="professional-card border-orange-200 bg-orange-50">
+            <div className="flex items-center gap-3 mb-2">
+              <CheckCircle className="h-5 w-5 text-orange-600" />
+              <h3 className="font-bold text-gray-900">Secure & Accurate</h3>
+            </div>
             <p className="text-gray-700">Results delivered within 48 hours</p>
           </div>
         </div>

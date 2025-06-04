@@ -8,15 +8,18 @@ import { toast } from "@/components/ui/use-toast";
 import { TestHeader } from "@/components/test/TestHeader";
 import { TestNavigation } from "@/components/test/TestNavigation";
 import { testQuestions, correctAnswers } from "@/components/test/TestData";
+import { useStarEffect } from "@/hooks/useStarEffect";
 
 export function TestQuestions() {
   const navigate = useNavigate();
+  const createStarEffect = useStarEffect();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [userAnswers, setUserAnswers] = useState<{ [key: string]: string }>({});
   const [startTime] = useState(Date.now());
 
-  const handleTelegramResources = () => {
+  const handleTelegramResources = (e: React.MouseEvent) => {
+    createStarEffect(e);
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
 
