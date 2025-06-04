@@ -280,7 +280,7 @@ export function StudyQuestions() {
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button onClick={handleWhatsAppShare} className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold px-8 py-4 text-lg shadow-lg transform hover:scale-105 transition-all flex items-center gap-3" disabled={!speakingAudio && !writingAnswer}>
+              <Button onClick={handleWhatsAppShare} disabled={!speakingAudio && !writingAnswer} className="<div class=\"bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold text-lg shadow-lg transform hover:scale-105 transition-all flex items-center justify-center gap-3 mx-0 my-[10px] px-[30px] py-[10px]\">\n  <!-- Your content here -->\n</div>">
                 <MessageCircle className="h-6 w-6" />
                 Send to WhatsApp for Expert Review
               </Button>
