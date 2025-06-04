@@ -18,7 +18,7 @@ export function HeroSection() {
       <div className="container mx-auto max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="animate-fade-in order-2 lg:order-1">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6 lg:text-7xl text-center">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6 lg:text-7xl text-center my-[20px]">
               Professional IELTS Coaching <br />
               <span className="text-3xl md:text-4xl text-blue-800">
                 Achieve Your Target Score
