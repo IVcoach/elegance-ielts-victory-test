@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
@@ -18,8 +17,7 @@ export function TestQuestions() {
   const [userAnswers, setUserAnswers] = useState<{ [key: string]: string }>({});
   const [startTime] = useState(Date.now());
 
-  const handleTelegramResources = (e: React.MouseEvent) => {
-    createStarEffect(e);
+  const handleTelegramResources = () => {
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
 
