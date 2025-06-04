@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -95,102 +95,81 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Times New Roman', serif;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 25%, #cbd5e1 50%, #94a3b8 75%, #64748b 100%);
-    background-size: 400% 400%;
-    animation: gradientAnimation 20s ease infinite;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     min-height: 100vh;
+    color: #2d3748;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Times New Roman', serif;
+    font-family: 'Inter', 'Arial Black', sans-serif;
     font-weight: 700;
+    color: #1a202c;
   }
 
-  p, span, div {
+  p, span, div, li {
     font-family: 'Times New Roman', serif;
+    color: #4a5568;
+    line-height: 1.6;
   }
 }
 
 @layer components {
-  .hero-gradient {
-    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 15%, #cbd5e1 30%, #94a3b8 45%, #64748b 60%, #475569 75%, #334155 90%, #1e293b 100%);
-    background-size: 400% 400%;
-    animation: heroGradientShift 25s ease infinite;
-  }
-  
   .professional-card {
-    @apply rounded-lg border border-gray-200 bg-white p-8 shadow-lg transition-all hover:shadow-xl;
+    @apply rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md;
   }
   
   .professional-button {
-    @apply rounded-lg bg-gradient-to-r from-blue-800 to-blue-900 px-8 py-4 font-bold text-white transition-all hover:from-blue-900 hover:to-blue-950 active:scale-95 shadow-md;
+    @apply rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-3 font-semibold text-white transition-all hover:from-blue-700 hover:to-blue-800 active:scale-95 shadow-sm;
   }
   
   .professional-button-secondary {
-    @apply rounded-lg bg-gradient-to-r from-gray-700 to-gray-800 px-8 py-4 font-bold text-white transition-all hover:from-gray-800 hover:to-gray-900 active:scale-95 shadow-md;
+    @apply rounded-lg bg-gradient-to-r from-gray-600 to-gray-700 px-6 py-3 font-semibold text-white transition-all hover:from-gray-700 hover:to-gray-800 active:scale-95 shadow-sm;
   }
-}
 
-@keyframes gradientAnimation {
-  0%, 100% { 
-    background-position: 0% 50%; 
+  .section-container {
+    @apply bg-white rounded-xl p-8 shadow-sm border border-gray-100 mb-8;
   }
-  25% { 
-    background-position: 100% 50%; 
-  }
-  50% { 
-    background-position: 100% 100%; 
-  }
-  75% { 
-    background-position: 0% 100%; 
-  }
-}
 
-@keyframes heroGradientShift {
-  0%, 100% { 
-    background-position: 0% 50%; 
+  .heading-primary {
+    @apply text-4xl md:text-5xl font-bold text-gray-900 mb-6;
+    font-family: 'Inter', 'Arial Black', sans-serif;
   }
-  33% { 
-    background-position: 100% 50%; 
+
+  .heading-secondary {
+    @apply text-2xl md:text-3xl font-bold text-gray-800 mb-4;
+    font-family: 'Inter', 'Arial Black', sans-serif;
   }
-  66% { 
-    background-position: 50% 100%; 
+
+  .heading-tertiary {
+    @apply text-xl font-semibold text-gray-800 mb-3;
+    font-family: 'Inter', 'Arial Black', sans-serif;
+  }
+
+  .text-body {
+    @apply text-base text-gray-600 leading-relaxed;
+    font-family: 'Times New Roman', serif;
+  }
+
+  .text-large {
+    @apply text-lg text-gray-600 leading-relaxed;
+    font-family: 'Times New Roman', serif;
   }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.8s ease-out;
+  animation: fadeIn 0.6s ease-out;
 }
 
 @keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.9); }
+  from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
 
 .animate-scale-in {
-  animation: scaleIn 0.6s ease-out;
-}
-
-@keyframes bounce {
-  0%, 20%, 53%, 80%, 100% {
-    transform: translate3d(0, 0, 0);
-  }
-  40%, 43% {
-    transform: translate3d(0, -15px, 0);
-  }
-  70% {
-    transform: translate3d(0, -7px, 0);
-  }
-  90% {
-    transform: translate3d(0, -2px, 0);
-  }
-}
-
-.animate-bounce-slow {
-  animation: bounce 3s infinite;
+  animation: scaleIn 0.5s ease-out;
 }
