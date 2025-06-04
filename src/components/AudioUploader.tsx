@@ -79,12 +79,9 @@ export function AudioUploader({
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <input type="file" ref={fileInputRef} onChange={handleFileChange} accept="audio/*" className="hidden" />
             
-            <Button onClick={triggerFileUpload} variant="outline" className="border-2 border-blue-500 text-blue-700 hover:bg-blue-50 font-medium flex items-center gap-2">
-              <Upload className="h-4 w-4" />
-              Upload Audio File
-            </Button>
             
-            <Button onClick={handleWhatsAppShare} className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-medium flex items-center gap-2">
+            
+            <Button onClick={handleWhatsAppShare} className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-medium flex items-center gap-2 text-right py-0 my-0 mx-0 px-0">
               <MessageCircle className="h-4 w-4" />
               Send via WhatsApp
             </Button>
