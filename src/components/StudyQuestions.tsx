@@ -285,7 +285,7 @@ export function StudyQuestions() {
                 Send to WhatsApp for Expert Review
               </Button>
               
-              <Button onClick={handleTelegramJoin} className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold px-8 py-4 text-lg shadow-lg transform hover:scale-105 transition-all flex items-center gap-3 my-[111px]">
+              <Button onClick={handleTelegramJoin} className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold text-lg shadow-lg transform hover:scale-105 transition-all flex items-center gap-3 text-left py-[16px] px-[24px] my-[110px] mx-0">
                 <Send className="h-6 w-6" />
                 Join @ieltstori Community
               </Button>
