@@ -8,6 +8,7 @@ import { Separator } from "@/components/ui/separator";
 import { Progress } from "@/components/ui/progress";
 import { Award, TrendingUp, Target, Star, Trophy, Users, Send, Clock, CheckCircle, BookOpen, Globe, MessageCircle } from "lucide-react";
 import { useStarEffect } from "@/hooks/useStarEffect";
+
 const Index = () => {
   const createStarEffect = useStarEffect();
   const handleTelegramResources = (e: React.MouseEvent) => {
@@ -20,6 +21,7 @@ const Index = () => {
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
+
   return <div className="min-h-screen flex flex-col">
       <Navigation />
       
@@ -193,7 +195,7 @@ const Index = () => {
       <section className="py-20 px-4 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white">
         <div className="container mx-auto max-w-6xl text-center">
           <h2 className="text-4xl font-bold text-white mb-8">Ready to Start Your IELTS Journey?</h2>
-          <p className="text-xl text-gray-300 mb-12">Join thousands of successful students who achieved their target scores</p>
+          <p className="text-xl text-gray-300 mb-12">Join hundreds of successful students who achieved their target scores</p>
           
           {/* Enhanced Professional Credentials */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-gray-300">
@@ -220,4 +222,5 @@ const Index = () => {
       <Footer />
     </div>;
 };
+
 export default Index;
