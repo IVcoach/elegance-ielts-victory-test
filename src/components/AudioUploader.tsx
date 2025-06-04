@@ -1,20 +1,19 @@
-
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Upload, MessageCircle, Send, Mic } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 import { Progress } from "@/components/ui/progress";
-
 interface AudioUploaderProps {
   onAudioUploaded: (audioFile: File) => void;
   className?: string;
 }
-
-export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps) {
+export function AudioUploader({
+  onAudioUploaded,
+  className
+}: AudioUploaderProps) {
   const [audioFile, setAudioFile] = useState<File | null>(null);
   const [uploadProgress, setUploadProgress] = useState(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
-
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (files && files.length > 0) {
@@ -46,85 +45,55 @@ export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps
       }
     }
   };
-
   const triggerFileUpload = () => {
     fileInputRef.current?.click();
   };
-
   const handleWhatsAppShare = () => {
     const text = "Hello! I'd like to submit my IELTS speaking recording for professional assessment. I'll send the audio file next.";
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
-    
     toast({
       title: "WhatsApp opened! 📱",
       description: "Send your audio recording there for expert evaluation.",
       duration: 4000
     });
   };
-
   const handleTelegramShare = () => {
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
-    
     toast({
       title: "Telegram community opened! 🚀",
       description: "Join for free IELTS resources and daily practice.",
       duration: 3000
     });
   };
-
-  return (
-    <div className={className}>
+  return <div className={className}>
       <div className="space-y-6">
         {/* Upload Options */}
         <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-          <h4 className="font-bold text-blue-900 mb-3 flex items-center gap-2">
+          <h4 className="font-bold text-blue-900 mb-3 flex items-center gap-2 text-center">
             <Mic className="h-5 w-5" />
             Recording Submission Options
           </h4>
-          <p className="text-blue-800 text-sm mb-4">
+          <p className="text-blue-800 text-sm mb-4 text-center">
             Choose your preferred method to submit your speaking response:
           </p>
           
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <input 
-              type="file" 
-              ref={fileInputRef} 
-              onChange={handleFileChange} 
-              accept="audio/*" 
-              className="hidden" 
-            />
+            <input type="file" ref={fileInputRef} onChange={handleFileChange} accept="audio/*" className="hidden" />
             
-            <Button 
-              onClick={triggerFileUpload} 
-              variant="outline" 
-              className="border-2 border-blue-500 text-blue-700 hover:bg-blue-50 font-medium flex items-center gap-2"
-            >
-              <Upload className="h-4 w-4" />
-              Upload Audio File
-            </Button>
             
-            <Button 
-              onClick={handleWhatsAppShare} 
-              className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-medium flex items-center gap-2"
-            >
+            
+            <Button onClick={handleWhatsAppShare} className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-medium flex items-center gap-2 text-center">
               <MessageCircle className="h-4 w-4" />
               Send via WhatsApp
             </Button>
 
-            <Button 
-              onClick={handleTelegramShare} 
-              className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-medium flex items-center gap-2"
-            >
-              <Send className="h-4 w-4" />
-              Join @ieltstori
-            </Button>
+            
           </div>
         </div>
         
         {/* Progress Indicator */}
-        {uploadProgress > 0 && uploadProgress < 100 && (
-          <div className="space-y-3">
+        {uploadProgress > 0 && uploadProgress < 100 && <div className="space-y-3">
             <div className="flex justify-between text-sm font-medium">
               <span className="text-blue-700">Processing audio file...</span>
               <span className="text-blue-700">{uploadProgress}%</span>
@@ -133,12 +102,10 @@ export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps
             <p className="text-sm text-blue-600 text-center">
               Please wait while we prepare your audio for assessment
             </p>
-          </div>
-        )}
+          </div>}
         
         {/* Success Message */}
-        {audioFile && uploadProgress >= 100 && (
-          <div className="p-4 bg-green-50 border-2 border-green-200 rounded-lg">
+        {audioFile && uploadProgress >= 100 && <div className="p-4 bg-green-50 border-2 border-green-200 rounded-lg">
             <div className="flex items-center justify-between">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
@@ -169,12 +136,10 @@ export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps
                 <li>• Receive detailed feedback within 48 hours</li>
               </ul>
             </div>
-          </div>
-        )}
+          </div>}
         
         {/* Help Text */}
-        {!audioFile && (
-          <div className="text-center p-4 bg-gray-50 rounded-lg border border-gray-200">
+        {!audioFile && <div className="text-center p-4 bg-gray-50 rounded-lg border border-gray-200">
             <p className="text-sm text-gray-600 mb-2">
               💡 <strong>Recording Tips:</strong>
             </p>
@@ -184,9 +149,7 @@ export function AudioUploader({ onAudioUploaded, className }: AudioUploaderProps
               <li>• Supported formats: MP3, WAV, M4A</li>
               <li>• Maximum file size: 5MB</li>
             </ul>
-          </div>
-        )}
+          </div>}
       </div>
-    </div>
-  );
+    </div>;
 }
