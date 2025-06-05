@@ -8,7 +8,6 @@ import { StudyQuestions } from "@/components/StudyQuestions";
 import { TestQuestions } from "@/components/TestQuestions";
 import { AssessmentResults } from "@/components/AssessmentResults";
 import { QuizIntro } from "@/components/test/QuizIntro";
-import { TelegramBotInfo } from "@/components/TelegramBotInfo";
 import { calculateResults, getMockSectionScores } from "@/utils/ieltsCalculations";
 import { MessageSquare } from "lucide-react";
 
@@ -107,8 +106,7 @@ const Test = () => {
       
       <main className="flex-grow py-32 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-100 min-h-screen">
         <div className="container mx-auto max-w-6xl">
-          <div className="flex justify-between items-center mb-6">
-            <TelegramBotInfo />
+          <div className="flex justify-end mb-6">
             <Button 
               onClick={() => setShowQuestions(!showQuestions)} 
               variant="outline" 

@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { TelegramBotInfo } from "@/components/TelegramBotInfo";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
   Award, 
   Users, 
   Clock, 
+  CheckCircle, 
   Target, 
   Trophy, 
   BookOpen, 
@@ -22,257 +22,309 @@ import {
   MessageCircle,
   Video,
   FileText,
-  Headphones,
-  Heart,
-  Lightbulb,
-  Rocket,
-  Shield,
-  TrendingUp
+  Headphones
 } from "lucide-react";
 
 const About = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-50 via-white to-blue-50">
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <Navigation />
       
-      {/* Hero Section with enhanced visual appeal */}
-      <section className="pt-32 pb-16 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10"></div>
-        <div className="container mx-auto max-w-6xl text-center relative z-10">
-          <div className="section-container border-2 border-blue-100 bg-gradient-to-br from-white to-blue-50/50">
+      {/* Hero Section */}
+      <section className="pt-32 pb-16 px-4">
+        <div className="container mx-auto max-w-6xl text-center">
+          <div className="section-container">
             <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="relative">
-                <GraduationCap className="h-16 w-16 text-blue-600" />
-                <div className="absolute -top-2 -right-2 h-6 w-6 bg-yellow-400 rounded-full flex items-center justify-center">
-                  <Star className="h-3 w-3 text-yellow-700" />
-                </div>
-              </div>
+              <GraduationCap className="h-12 w-12 text-blue-600" />
               <div>
-                <h1 className="heading-primary bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  V&C Elegance
-                </h1>
-                <p className="text-xl text-blue-600 font-semibold flex items-center gap-2">
-                  <Globe className="h-5 w-5" />
-                  The Netherlands
-                </p>
+                <h1 className="heading-primary">V&C Elegance</h1>
+                <p className="text-xl text-blue-600 font-semibold">The Netherlands</p>
               </div>
             </div>
             
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-2xl border-2 border-blue-100 mb-6 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-200/20 rounded-full -translate-y-16 translate-x-16"></div>
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-purple-200/20 rounded-full translate-y-12 -translate-x-12"></div>
-              <div className="flex items-center justify-center gap-3 mb-4 relative z-10">
-                <Award className="h-8 w-8 text-blue-600" />
-                <span className="heading-secondary text-blue-800">Leading Educational Innovation</span>
+            <div className="bg-blue-50 p-6 rounded-lg border border-blue-100 mb-6">
+              <div className="flex items-center justify-center gap-3 mb-3">
+                <Award className="h-6 w-6 text-blue-600" />
+                <span className="heading-tertiary">Leading Educational Company</span>
               </div>
-              <p className="text-xl leading-relaxed relative z-10">
-                Pioneering the future of <span className="font-bold text-blue-600 bg-blue-100 px-2 py-1 rounded">language learning</span> through 
-                <span className="font-bold text-green-600 bg-green-100 px-2 py-1 rounded mx-2">AI-powered education</span> and 
-                <span className="font-bold text-purple-600 bg-purple-100 px-2 py-1 rounded">personalized coaching</span>
+              <p className="text-large">
+                Dedicated to <span className="font-semibold text-blue-600">innovative language learning</span> and <span className="font-semibold text-green-600">exam success</span>
               </p>
             </div>
-            
-            <TelegramBotInfo />
           </div>
         </div>
       </section>
 
-      {/* Enhanced Achievements Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-yellow-50 to-orange-50">
+      {/* Achievements Section */}
+      <section className="py-12 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-3 bg-white p-4 rounded-full shadow-lg mb-6">
-              <Trophy className="h-10 w-10 text-yellow-600" />
-              <h2 className="heading-secondary text-yellow-800">Our Impact & Achievements</h2>
+          <div className="section-container">
+            <div className="text-center mb-8">
+              <Trophy className="h-10 w-10 text-yellow-600 mx-auto mb-4" />
+              <h2 className="heading-secondary">Our Achievements</h2>
             </div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <Card className="professional-card border-yellow-200 bg-gradient-to-br from-yellow-50 to-yellow-100 transform hover:scale-105 transition-all">
-              <CardContent className="p-6 text-center">
-                <Clock className="h-12 w-12 text-yellow-600 mx-auto mb-4" />
-                <div className="text-3xl font-bold text-yellow-700 mb-2">50,000+</div>
-                <div className="text-body font-semibold">Expert Coaching Hours</div>
-              </CardContent>
-            </Card>
             
-            <Card className="professional-card border-green-200 bg-gradient-to-br from-green-50 to-green-100 transform hover:scale-105 transition-all">
-              <CardContent className="p-6 text-center">
-                <TrendingUp className="h-12 w-12 text-green-600 mx-auto mb-4" />
-                <div className="text-3xl font-bold text-green-700 mb-2">95%</div>
-                <div className="text-body font-semibold">Success Rate</div>
-              </CardContent>
-            </Card>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              <Card className="professional-card border-yellow-200 bg-yellow-50">
+                <CardContent className="p-6 text-center">
+                  <Clock className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+                  <div className="text-2xl font-bold text-blue-600 mb-2">50,000+</div>
+                  <div className="text-body">Hours of Expert Coaching</div>
+                </CardContent>
+              </Card>
+              
+              <Card className="professional-card border-green-200 bg-green-50">
+                <CardContent className="p-6 text-center">
+                  <Star className="h-8 w-8 text-green-600 mx-auto mb-3" />
+                  <div className="text-2xl font-bold text-green-600 mb-2">90%</div>
+                  <div className="text-body">Proven Success Rate</div>
+                </CardContent>
+              </Card>
+              
+              <Card className="professional-card border-purple-200 bg-purple-50">
+                <CardContent className="p-6 text-center">
+                  <BookOpen className="h-8 w-8 text-purple-600 mx-auto mb-3" />
+                  <div className="text-lg font-bold text-purple-600 mb-2">IELTS, TOEFL</div>
+                  <div className="text-body">PTE & FCE Specialist</div>
+                </CardContent>
+              </Card>
+            </div>
             
-            <Card className="professional-card border-purple-200 bg-gradient-to-br from-purple-50 to-purple-100 transform hover:scale-105 transition-all">
-              <CardContent className="p-6 text-center">
-                <BookOpen className="h-12 w-12 text-purple-600 mx-auto mb-4" />
-                <div className="text-lg font-bold text-purple-700 mb-2">Multi-Exam</div>
-                <div className="text-body font-semibold">IELTS, TOEFL, PTE, FCE</div>
-              </CardContent>
-            </Card>
-            
-            <Card className="professional-card border-blue-200 bg-gradient-to-br from-blue-50 to-blue-100 transform hover:scale-105 transition-all">
-              <CardContent className="p-6 text-center">
-                <Heart className="h-12 w-12 text-red-500 mx-auto mb-4" />
-                <div className="text-3xl font-bold text-red-600 mb-2">10K+</div>
-                <div className="text-body font-semibold">Happy Students</div>
-              </CardContent>
-            </Card>
+            <div className="bg-blue-50 p-6 rounded-lg border border-blue-100">
+              <div className="flex items-center gap-3 mb-3">
+                <Users className="h-6 w-6 text-blue-600" />
+                <span className="heading-tertiary">Expert Focus</span>
+              </div>
+              <p className="text-large">
+                Specializing in <span className="font-semibold text-blue-600">speaking and writing skills</span> development through 
+                experienced IELTS mentors with <span className="font-semibold text-green-600">over 10 years of expertise</span>
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Innovation & Vision Section */}
-      <section className="py-16 px-4">
+      {/* Our Services Section */}
+      <section className="py-12 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-full shadow-lg mb-6">
-              <Rocket className="h-10 w-10" />
-              <h2 className="heading-secondary text-white">Innovation & Future Vision</h2>
+          <div className="section-container">
+            <div className="text-center mb-8">
+              <Globe className="h-10 w-10 text-blue-600 mx-auto mb-4" />
+              <h2 className="heading-secondary">Our Services</h2>
             </div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <Card className="professional-card border-orange-200 bg-gradient-to-br from-orange-50 to-red-50 hover:shadow-xl transition-all">
-              <CardContent className="p-8 text-center">
-                <div className="bg-orange-100 p-4 rounded-full w-fit mx-auto mb-6">
-                  <Cpu className="h-12 w-12 text-orange-600" />
-                </div>
-                <h3 className="heading-tertiary text-orange-700">AI-Powered Coaching</h3>
-                <p className="text-body">
-                  Revolutionary AI technology that adapts to your learning style, providing 
-                  <span className="font-semibold text-orange-600"> personalized feedback</span> 
-                  and guidance 24/7.
-                </p>
-              </CardContent>
-            </Card>
             
-            <Card className="professional-card border-pink-200 bg-gradient-to-br from-pink-50 to-purple-50 hover:shadow-xl transition-all">
-              <CardContent className="p-8 text-center">
-                <div className="bg-pink-100 p-4 rounded-full w-fit mx-auto mb-6">
-                  <Gamepad2 className="h-12 w-12 text-pink-600" />
-                </div>
-                <h3 className="heading-tertiary text-pink-700">VR Learning Experience</h3>
-                <p className="text-body">
-                  Immersive virtual reality environments that make learning 
-                  <span className="font-semibold text-pink-600"> engaging and natural</span>, 
-                  transforming how adults acquire language skills.
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="professional-card border-teal-200 bg-gradient-to-br from-teal-50 to-green-50 hover:shadow-xl transition-all">
-              <CardContent className="p-8 text-center">
-                <div className="bg-teal-100 p-4 rounded-full w-fit mx-auto mb-6">
-                  <Brain className="h-12 w-12 text-teal-600" />
-                </div>
-                <h3 className="heading-tertiary text-teal-700">Adaptive Learning</h3>
-                <p className="text-body">
-                  Smart algorithms that understand your progress and adjust difficulty, 
-                  ensuring <span className="font-semibold text-teal-600">optimal learning pace</span> 
-                  for every student.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Grid - Enhanced */}
-      <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-3 bg-white p-4 rounded-full shadow-lg mb-6">
-              <Shield className="h-10 w-10 text-blue-600" />
-              <h2 className="heading-secondary text-blue-800">Comprehensive Services</h2>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: MessageCircle,
-                title: "Speaking Excellence",
-                description: "Master pronunciation, fluency, and confidence through expert coaching and AI feedback.",
-                color: "blue",
-                features: ["Accent reduction", "Fluency training", "Confidence building", "Mock interviews"]
-              },
-              {
-                icon: FileText,
-                title: "Writing Mastery",
-                description: "Develop compelling writing skills with structured feedback and improvement strategies.",
-                color: "green",
-                features: ["Essay structuring", "Grammar perfection", "Vocabulary expansion", "Style development"]
-              },
-              {
-                icon: Headphones,
-                title: "Listening & Reading",
-                description: "Enhance comprehension skills through innovative training methodologies.",
-                color: "purple",
-                features: ["Strategy training", "Speed improvement", "Accuracy enhancement", "Test techniques"]
-              },
-              {
-                icon: Video,
-                title: "Interactive Learning",
-                description: "Engage with multimedia content designed for maximum retention and understanding.",
-                color: "orange",
-                features: ["Live sessions", "Recorded content", "Interactive exercises", "Progress tracking"]
-              },
-              {
-                icon: Target,
-                title: "Exam Mastery",
-                description: "Comprehensive preparation for IELTS, TOEFL, PTE, and FCE with proven strategies.",
-                color: "red",
-                features: ["Test strategies", "Time management", "Score optimization", "Mock exams"]
-              },
-              {
-                icon: Lightbulb,
-                title: "Career Guidance",
-                description: "Professional consultation for academic and career advancement through language proficiency.",
-                color: "indigo",
-                features: ["University applications", "Career counseling", "Immigration support", "Professional development"]
-              }
-            ].map((service, index) => (
-              <Card key={index} className={`professional-card border-${service.color}-200 bg-gradient-to-br from-${service.color}-50 to-${service.color}-100 hover:shadow-xl transition-all transform hover:-translate-y-2`}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Card className="professional-card">
                 <CardContent className="p-6">
-                  <div className={`bg-${service.color}-100 p-3 rounded-full w-fit mb-4`}>
-                    <service.icon className={`h-8 w-8 text-${service.color}-600`} />
-                  </div>
-                  <h3 className={`heading-tertiary text-${service.color}-700 mb-3`}>{service.title}</h3>
-                  <p className="text-body mb-4">{service.description}</p>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-sm">
-                        <div className={`h-2 w-2 bg-${service.color}-500 rounded-full`}></div>
-                        <span className="text-gray-600">{feature}</span>
-                      </li>
-                    ))}
+                  <MessageCircle className="h-8 w-8 text-blue-600 mb-4" />
+                  <h3 className="heading-tertiary">Speaking Assessment</h3>
+                  <ul className="text-body space-y-2">
+                    <li>• One-on-one speaking evaluations</li>
+                    <li>• Pronunciation and fluency coaching</li>
+                    <li>• Mock IELTS speaking tests</li>
+                    <li>• Personalized feedback and improvement plans</li>
                   </ul>
                 </CardContent>
               </Card>
-            ))}
+              
+              <Card className="professional-card">
+                <CardContent className="p-6">
+                  <FileText className="h-8 w-8 text-green-600 mb-4" />
+                  <h3 className="heading-tertiary">Writing Assessment</h3>
+                  <ul className="text-body space-y-2">
+                    <li>• Task 1 and Task 2 evaluation</li>
+                    <li>• Grammar and vocabulary enhancement</li>
+                    <li>• Structure and coherence improvement</li>
+                    <li>• Band score prediction and guidance</li>
+                  </ul>
+                </CardContent>
+              </Card>
+              
+              <Card className="professional-card">
+                <CardContent className="p-6">
+                  <Headphones className="h-8 w-8 text-purple-600 mb-4" />
+                  <h3 className="heading-tertiary">Listening & Reading</h3>
+                  <ul className="text-body space-y-2">
+                    <li>• Comprehensive skill development</li>
+                    <li>• Strategy training and tips</li>
+                    <li>• Practice tests and mock exams</li>
+                    <li>• Time management techniques</li>
+                  </ul>
+                </CardContent>
+              </Card>
+              
+              <Card className="professional-card">
+                <CardContent className="p-6">
+                  <Video className="h-8 w-8 text-orange-600 mb-4" />
+                  <h3 className="heading-tertiary">Online Coaching</h3>
+                  <ul className="text-body space-y-2">
+                    <li>• Live interactive sessions</li>
+                    <li>• Flexible scheduling options</li>
+                    <li>• Recorded lessons for review</li>
+                    <li>• 24/7 support and guidance</li>
+                  </ul>
+                </CardContent>
+              </Card>
+              
+              <Card className="professional-card">
+                <CardContent className="p-6">
+                  <Target className="h-8 w-8 text-red-600 mb-4" />
+                  <h3 className="heading-tertiary">Exam Preparation</h3>
+                  <ul className="text-body space-y-2">
+                    <li>• IELTS, TOEFL, PTE, FCE preparation</li>
+                    <li>• Test-taking strategies</li>
+                    <li>• Score improvement techniques</li>
+                    <li>• Registration and exam guidance</li>
+                  </ul>
+                </CardContent>
+              </Card>
+              
+              <Card className="professional-card">
+                <CardContent className="p-6">
+                  <Award className="h-8 w-8 text-indigo-600 mb-4" />
+                  <h3 className="heading-tertiary">Professional Consultation</h3>
+                  <ul className="text-body space-y-2">
+                    <li>• Career guidance and counseling</li>
+                    <li>• University application support</li>
+                    <li>• Immigration language requirements</li>
+                    <li>• Professional development coaching</li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Mission & Call to Action */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800">
+      {/* Our Approach Section */}
+      <section className="py-12 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="section-container">
+            <div className="text-center mb-8">
+              <Target className="h-10 w-10 text-blue-600 mx-auto mb-4" />
+              <h2 className="heading-secondary">Our Approach</h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              <Card className="professional-card border-blue-200 bg-blue-50">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Users className="h-8 w-8 text-blue-600" />
+                    <h3 className="heading-tertiary">Personalized Learning</h3>
+                  </div>
+                  <p className="text-body">
+                    Committed to recognizing that <span className="font-semibold text-blue-600">each student has unique learning styles</span>, 
+                    continuously refining our teaching methods for maximum effectiveness.
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="professional-card border-purple-200 bg-purple-50">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Brain className="h-8 w-8 text-purple-600" />
+                    <h3 className="heading-tertiary">AI Integration</h3>
+                  </div>
+                  <p className="text-body">
+                    Actively integrating <span className="font-semibold text-purple-600">cutting-edge AI technology</span> to make 
+                    training programs more adaptive and effective.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+            
+            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+              <div className="flex items-center gap-3 mb-4">
+                <Globe className="h-8 w-8 text-green-600" />
+                <h3 className="heading-tertiary">Comprehensive Platforms</h3>
+              </div>
+              <p className="text-large mb-4">
+                Offering comprehensive courses tailored to diverse learning needs on:
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {['Coursera', 'YouTube', 'Udemy', 'edX'].map((platform, index) => (
+                  <div key={index} className="bg-white p-3 rounded-lg shadow-sm text-center border border-green-100">
+                    <span className="font-semibold text-green-600">{platform}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Future Vision Section */}
+      <section className="py-12 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="section-container">
+            <div className="text-center mb-8">
+              <Zap className="h-10 w-10 text-yellow-500 mx-auto mb-4" />
+              <h2 className="heading-secondary">Our Future Vision</h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <Card className="professional-card border-orange-200 bg-orange-50">
+                <CardContent className="p-6 text-center">
+                  <Cpu className="h-10 w-10 text-orange-600 mx-auto mb-4" />
+                  <h3 className="heading-tertiary">AI IELTS Coach</h3>
+                  <p className="text-body">
+                    Training AI to serve as an <span className="font-semibold text-orange-600">expert IELTS coach</span> 
+                    for personalized guidance
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="professional-card border-pink-200 bg-pink-50">
+                <CardContent className="p-6 text-center">
+                  <Gamepad2 className="h-10 w-10 text-pink-600 mx-auto mb-4" />
+                  <h3 className="heading-tertiary">VR & Metaverse</h3>
+                  <p className="text-body">
+                    Creating <span className="font-semibold text-pink-600">immersive, game-based learning experiences</span> 
+                    using VR and the metaverse
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="professional-card border-teal-200 bg-teal-50">
+                <CardContent className="p-6 text-center">
+                  <Brain className="h-10 w-10 text-teal-600 mx-auto mb-4" />
+                  <h3 className="heading-tertiary">Natural Learning</h3>
+                  <p className="text-body">
+                    Developing environments for <span className="font-semibold text-teal-600">natural, engaging, and effortless</span> 
+                    adult learning experiences
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission Statement */}
+      <section className="py-16 px-4">
         <div className="container mx-auto max-w-6xl text-center">
-          <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-12 border border-white/20">
-            <GraduationCap className="h-16 w-16 text-white mx-auto mb-8" />
-            <h2 className="text-4xl font-bold text-white mb-6">Our Mission</h2>
-            <p className="text-xl text-white/90 font-medium leading-relaxed mb-8 max-w-4xl mx-auto">
-              "To revolutionize language education by seamlessly blending personalized teaching with cutting-edge technology, 
-              making learning effortless, interactive, and enjoyable for every student on their journey to success."
+          <div className="section-container">
+            <GraduationCap className="h-12 w-12 text-blue-600 mx-auto mb-6" />
+            <h2 className="heading-secondary">Our Mission</h2>
+            <p className="text-xl text-gray-700 font-medium leading-relaxed mb-8">
+              "Our mission is to <span className="font-semibold text-blue-600">revolutionize language education</span> by blending 
+              <span className="font-semibold text-green-600"> personalized teaching</span> with 
+              <span className="font-semibold text-purple-600"> innovative technology</span>, making learning 
+              <span className="font-semibold text-orange-600">effortless, interactive, and enjoyable</span>."
             </p>
             
-            <div className="flex flex-col sm:flex-row justify-center gap-6 mt-12">
-              <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100 font-bold px-8 py-4 text-lg shadow-lg transform hover:scale-105 transition-all">
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-xl text-white mb-8">
+              <p className="text-lg font-semibold">
+                Join us on this exciting journey—what you see today is just the tip of the iceberg.
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
+              <Button asChild size="lg" className="professional-button">
                 <Link to="/test">Start Your Journey</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold px-8 py-4 text-lg shadow-lg transform hover:scale-105 transition-all">
-                <Link to="/">Explore More</Link>
+              <Button asChild size="lg" variant="outline" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold shadow-sm px-6 py-3">
+                <Link to="/">Back to Home</Link>
               </Button>
             </div>
           </div>
