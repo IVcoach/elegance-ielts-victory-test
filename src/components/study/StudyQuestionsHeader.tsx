@@ -19,9 +19,6 @@ export function StudyQuestionsHeader() {
           Professional assessment results delivered within 48 hours via WhatsApp
         </p>
       </div>
-      <p className="text-blue-800 font-bold text-lg">
-        ✨ This comprehensive assessment is FREE for first-time users ✨
-      </p>
       <div className="mt-4 text-center">
         <p className="text-sm text-gray-600">
           Contact our Telegram bot: <span className="font-bold text-blue-600">@ieltstori_bot</span>
