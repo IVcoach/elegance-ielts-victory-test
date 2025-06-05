@@ -1,12 +1,15 @@
+
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Upload, MessageCircle, Send, Mic } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 import { Progress } from "@/components/ui/progress";
+
 interface AudioUploaderProps {
   onAudioUploaded: (audioFile: File) => void;
   className?: string;
 }
+
 export function AudioUploader({
   onAudioUploaded,
   className
@@ -14,6 +17,7 @@ export function AudioUploader({
   const [audioFile, setAudioFile] = useState<File | null>(null);
   const [uploadProgress, setUploadProgress] = useState(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (files && files.length > 0) {
@@ -45,9 +49,11 @@ export function AudioUploader({
       }
     }
   };
+
   const triggerFileUpload = () => {
     fileInputRef.current?.click();
   };
+
   const handleWhatsAppShare = () => {
     const text = "Hello! I'd like to submit my IELTS speaking recording for professional assessment. I'll send the audio file next.";
     const encodedText = encodeURIComponent(text);
@@ -58,6 +64,7 @@ export function AudioUploader({
       duration: 4000
     });
   };
+
   const handleTelegramShare = () => {
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
     toast({
@@ -66,32 +73,38 @@ export function AudioUploader({
       duration: 3000
     });
   };
-  return <div className={className}>
-      <div className="space-y-6">
-        {/* Upload Options */}
-        <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-          <h4 className="font-bold text-blue-900 mb-3 flex items-center gap-2">
-            <Mic className="h-5 w-5" />
-            Recording Submission Options
-          </h4>
-          <p className="text-blue-800 text-sm mb-4">Send your recorded file and Record it via What app </p>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <input type="file" ref={fileInputRef} onChange={handleFileChange} accept="audio/*" className="hidden" />
-            
-            
-            
-            <Button onClick={handleWhatsAppShare} className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-medium flex items-center gap-2 text-right py-0 my-0 mx-0 px-0">
-              <MessageCircle className="h-4 w-4" />
-              Send via WhatsApp
-            </Button>
 
+  return (
+    <div className={className}>
+      <div className="space-y-6">
+        {/* Centered Upload Options */}
+        <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+          <div className="text-center">
+            <p className="text-blue-800 text-sm mb-4">Send your recorded file and Record it via WhatsApp</p>
             
+            <div className="flex justify-center">
+              <input 
+                type="file" 
+                ref={fileInputRef} 
+                onChange={handleFileChange} 
+                accept="audio/*" 
+                className="hidden" 
+              />
+              
+              <Button 
+                onClick={handleWhatsAppShare} 
+                className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-medium flex items-center gap-2"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Send via WhatsApp
+              </Button>
+            </div>
           </div>
         </div>
         
         {/* Progress Indicator */}
-        {uploadProgress > 0 && uploadProgress < 100 && <div className="space-y-3">
+        {uploadProgress > 0 && uploadProgress < 100 && (
+          <div className="space-y-3">
             <div className="flex justify-between text-sm font-medium">
               <span className="text-blue-700">Processing audio file...</span>
               <span className="text-blue-700">{uploadProgress}%</span>
@@ -100,10 +113,12 @@ export function AudioUploader({
             <p className="text-sm text-blue-600 text-center">
               Please wait while we prepare your audio for assessment
             </p>
-          </div>}
+          </div>
+        )}
         
         {/* Success Message */}
-        {audioFile && uploadProgress >= 100 && <div className="p-4 bg-green-50 border-2 border-green-200 rounded-lg">
+        {audioFile && uploadProgress >= 100 && (
+          <div className="p-4 bg-green-50 border-2 border-green-200 rounded-lg">
             <div className="flex items-center justify-between">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
@@ -134,10 +149,12 @@ export function AudioUploader({
                 <li>• Receive detailed feedback within 48 hours</li>
               </ul>
             </div>
-          </div>}
+          </div>
+        )}
         
         {/* Help Text */}
-        {!audioFile && <div className="text-center p-4 bg-gray-50 rounded-lg border border-gray-200">
+        {!audioFile && (
+          <div className="text-center p-4 bg-gray-50 rounded-lg border border-gray-200">
             <p className="text-sm text-gray-600 mb-2">
               💡 <strong>Recording Tips:</strong>
             </p>
@@ -147,7 +164,9 @@ export function AudioUploader({
               <li>• Supported formats: MP3, WAV, M4A</li>
               <li>• Maximum file size: 5MB</li>
             </ul>
-          </div>}
+          </div>
+        )}
       </div>
-    </div>;
+    </div>
+  );
 }

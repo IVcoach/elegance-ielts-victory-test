@@ -6,6 +6,7 @@ import { toast } from "@/components/ui/use-toast";
 import { AudioUploader } from "@/components/AudioUploader";
 import { Progress } from "@/components/ui/progress";
 import { CheckCircle, AlertCircle, MessageCircle, Send, Clock } from "lucide-react";
+
 export function StudyQuestions() {
   const [writingAnswer, setWritingAnswer] = useState("");
   const [speakingAudio, setSpeakingAudio] = useState<File | null>(null);
@@ -18,6 +19,7 @@ export function StudyQuestions() {
   const [writingScore, setWritingScore] = useState<number | null>(null);
   const [overallLevel, setOverallLevel] = useState<string | null>(null);
   const [overallIELTSBand, setOverallIELTSBand] = useState<string | null>(null);
+
   const handleWhatsAppShare = () => {
     if (!speakingAudio && !writingAnswer) {
       toast({
@@ -46,14 +48,17 @@ export function StudyQuestions() {
       duration: 5000
     });
   };
+
   const handleTelegramJoin = () => {
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
+
   const handleAudioUploaded = (file: File) => {
     setSpeakingAudio(file);
     setSpeakingProgress(100);
     updateProgress("speaking");
   };
+
   const updateProgress = (type: "speaking" | "writing") => {
     if (type === "writing") {
       setWritingProgress(writingAnswer.length > 200 ? 100 : writingAnswer.length > 100 ? 60 : writingAnswer.length > 50 ? 30 : 0);
@@ -62,6 +67,7 @@ export function StudyQuestions() {
       simulateAssessment();
     }
   };
+
   const simulateAssessment = () => {
     const spScore = Math.min(7 + Math.random() * 1.5, 9);
     const wrScore = Math.min(6.5 + Math.random() * 1.5, 9);
@@ -82,13 +88,16 @@ export function StudyQuestions() {
     }
     setShowResults(true);
   };
+
   const updateWritingProgress = (text: string) => {
     setWritingAnswer(text);
     const progress = text.length > 200 ? 100 : text.length > 100 ? 60 : text.length > 50 ? 30 : 0;
     setWritingProgress(progress);
     updateProgress("writing");
   };
-  return <div className="max-w-4xl mx-auto my-12">
+
+  return (
+    <div className="max-w-4xl mx-auto my-12">
       {/* Enhanced Header */}
       <div className="text-center mb-8 p-8 bg-gradient-to-r from-blue-50 via-white to-purple-50 rounded-xl border border-gray-200 shadow-lg">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -109,6 +118,11 @@ export function StudyQuestions() {
         <p className="text-blue-800 font-bold text-lg">
           ✨ This comprehensive assessment is FREE for first-time users ✨
         </p>
+        <div className="mt-4 text-center">
+          <p className="text-sm text-gray-600">
+            Contact our Telegram bot: <span className="font-bold text-blue-600">@ieltstori_bot</span>
+          </p>
+        </div>
       </div>
 
       <div className="space-y-8">
@@ -215,8 +229,21 @@ export function StudyQuestions() {
           </CardContent>
         </Card>
 
+        {/* Centered WhatsApp Submit Button - Directly after Writing Assessment */}
+        <div className="flex justify-center">
+          <Button 
+            onClick={handleWhatsAppShare} 
+            className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold px-8 py-4 text-lg shadow-lg transform hover:scale-105 transition-all flex items-center gap-3" 
+            disabled={!speakingAudio && !writingAnswer}
+          >
+            <MessageCircle className="h-6 w-6" />
+            Send to WhatsApp for Expert Review
+          </Button>
+        </div>
+
         {/* Preliminary Results */}
-        {showResults && <Card className="border-2 border-green-200 bg-green-50 shadow-lg">
+        {showResults && (
+          <Card className="border-2 border-green-200 bg-green-50 shadow-lg">
             <CardHeader className="bg-gradient-to-r from-green-100 to-blue-100">
               <CardTitle className="text-2xl text-green-900">
                 Preliminary Assessment Results
@@ -269,23 +296,22 @@ export function StudyQuestions() {
                 </div>
               </div>
             </CardContent>
-          </Card>}
+          </Card>
+        )}
 
         {/* Enhanced Submission Section */}
         <div className="text-center space-y-6">
           <div className="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-xl border border-gray-200">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Submit for Expert Assessment</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Join Our Community</h3>
             <p className="text-lg text-gray-700 mb-6">
-              Get detailed feedback from certified IELTS examiners with band scores and improvement recommendations
+              Connect with fellow IELTS students and get daily practice tips
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button onClick={handleWhatsAppShare} className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold px-8 py-4 text-lg shadow-lg transform hover:scale-105 transition-all flex items-center gap-3" disabled={!speakingAudio && !writingAnswer}>
-                <MessageCircle className="h-6 w-6" />
-                Send to WhatsApp for Expert Review
-              </Button>
-              
-              <Button onClick={handleTelegramJoin} className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold text-lg shadow-lg transform hover:scale-105 transition-all flex items-center gap-3 text-left py-[16px] px-[24px] my-[110px] mx-0">
+              <Button 
+                onClick={handleTelegramJoin} 
+                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold text-lg shadow-lg transform hover:scale-105 transition-all flex items-center gap-3"
+              >
                 <Send className="h-6 w-6" />
                 Join @ieltstori Community
               </Button>
@@ -297,5 +323,6 @@ export function StudyQuestions() {
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 }
