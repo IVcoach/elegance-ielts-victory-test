@@ -27,10 +27,6 @@ export function WelcomeDialog() {
           <DialogTitle className="text-center text-brand-navy font-bold text-xl">Evans & Sammy IELTS Victory Chief Mentors بهترین ارزیابی‌ و مشاوره رایگان در آزمون آیلتس</DialogTitle>
           <DialogDescription className="text-right mt-4 space-y-3 text-base">
             <p>می‌خوای نمره آیلتس رو سریع و رایگان بسنجی؟ فقط چند ثانیه — چند جمله کوتاه بفرست و درباره خودت صحبت کن، و در کمتر از ۲۴ ساعت جواب کامل و مشاوره تخصصی بگیر! روی دکمه واتساپ کلیک کن، سوالاتت رو بپرس، صحبت و نوشتارت رو ارسال کن، و راهکارهای حرفه‌ای و اختصاصی‌مون رو دریافت کن</p>
-            <p>
-          </p>
-            <p>
-          </p>
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="mt-4">
