@@ -50,13 +50,6 @@ export function TestHeader({
         <span className="bg-indigo-100 px-3 py-1 rounded-full font-medium">A1-C2 Level</span>
       </div>
       
-      {/* Telegram Bot Info */}
-      <div className="mb-4 text-center">
-        <p className="text-sm text-gray-600">
-          Contact our Telegram bot: <span className="font-bold text-blue-600">@ieltstori_bot</span>
-        </p>
-      </div>
-      
       {/* Free IELTS Resources Button */}
       <Button 
         onClick={onTelegramResources} 

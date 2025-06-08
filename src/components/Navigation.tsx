@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, GraduationCap } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { TelegramDialog } from "./TelegramDialog";
 import { useStarEffect } from "@/hooks/useStarEffect";
 
 export function Navigation() {
@@ -39,7 +38,7 @@ export function Navigation() {
           <Button 
             onClick={(e) => {
               createStarEffect(e);
-              window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
+              // Remove Telegram redirect functionality
             }}
             className="bg-blue-800 hover:bg-blue-900 text-white font-bold px-6 py-2 shadow-md transform hover:scale-105 transition-all"
           >
@@ -90,7 +89,7 @@ export function Navigation() {
           <Button 
             onClick={(e) => {
               createStarEffect(e);
-              window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
+              // Remove Telegram redirect functionality
               setIsOpen(false);
             }}
             className="bg-blue-800 hover:bg-blue-900 text-white font-bold px-6 py-2 shadow-md"

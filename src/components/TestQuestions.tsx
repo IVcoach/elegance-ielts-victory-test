@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,8 +18,12 @@ export function TestQuestions() {
   const [userAnswers, setUserAnswers] = useState<{ [key: string]: string }>({});
   const [startTime] = useState(Date.now());
 
-  const handleTelegramResources = () => {
-    window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
+  const handleResourcesClick = () => {
+    toast({
+      title: "Resources coming soon!",
+      description: "We're working on bringing you the best IELTS study materials.",
+      duration: 3000
+    });
   };
 
   // Handle user's answer with enhanced tracking
@@ -102,7 +107,7 @@ export function TestQuestions() {
 
   return (
     <div className="space-y-8 max-w-4xl mx-auto bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 p-8 rounded-2xl shadow-xl">
-      <TestHeader onTelegramResources={handleTelegramResources} />
+      <TestHeader onTelegramResources={handleResourcesClick} />
       
       <TestNavigation
         currentQuestion={currentQuestionIndex + 1}

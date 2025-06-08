@@ -50,8 +50,13 @@ export function StudyQuestions() {
     });
   };
 
-  const handleTelegramJoin = () => {
-    window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
+  const handleCommunityJoin = () => {
+    // Remove Telegram functionality
+    toast({
+      title: "Community resources coming soon!",
+      description: "We're working on bringing you the best study resources.",
+      duration: 3000
+    });
   };
 
   const handleAudioUploaded = (file: File) => {
@@ -128,7 +133,7 @@ export function StudyQuestions() {
           />
         )}
 
-        <CommunitySection onTelegramJoin={handleTelegramJoin} />
+        <CommunitySection onTelegramJoin={handleCommunityJoin} />
       </div>
     </div>
   );
