@@ -40,7 +40,7 @@ export function Footer() {
               </div>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20 py-[16px] px-[16px] mx-[10px] my-0">
               <p className="font-medium text-gray-100 mb-2">🏢 Business Registration</p>
               <p className="text-sm text-gray-300">Number: 000061974544</p>
               <p className="text-sm text-gray-300">Registered in The Netherlands</p>
