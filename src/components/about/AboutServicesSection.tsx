@@ -1,8 +1,11 @@
-
 import React, { useState } from 'react';
-import { Sparkles, MessageSquare, FileText, Headphones, Video, Target, Users, ChevronRight } from "lucide-react";
+import { Sparkles, MessageSquare, FileText, Headphones, Video, Target, Users, ChevronRight, Bot, MessageCircle } from "lucide-react";
 
-export const AboutServicesSection = () => {
+interface AboutServicesSectionProps {
+  showBotModal: (show: boolean) => void;
+}
+
+export const AboutServicesSection = ({ showBotModal }: AboutServicesSectionProps) => {
   const [hoveredService, setHoveredService] = useState<number | null>(null);
 
   const services = [
@@ -12,7 +15,8 @@ export const AboutServicesSection = () => {
       title: 'Speaking Assessment',
       description: 'One-on-one speaking evaluations with expert feedback',
       features: ['Pronunciation coaching', 'Fluency development', 'Mock IELTS tests', 'Personalized improvement plans'],
-      color: 'from-blue-500 to-cyan-500'
+      color: 'from-blue-500 to-cyan-500',
+      botFeature: 'Try our AI Speaking Practice Bot for instant feedback!'
     },
     {
       id: 2,
@@ -20,7 +24,8 @@ export const AboutServicesSection = () => {
       title: 'Writing Assessment',
       description: 'Comprehensive writing evaluation and enhancement',
       features: ['Task 1 & 2 evaluation', 'Grammar enhancement', 'Structure improvement', 'Band score prediction'],
-      color: 'from-green-500 to-emerald-500'
+      color: 'from-green-500 to-emerald-500',
+      botFeature: 'Get writing tips and practice prompts via our Telegram bot!'
     },
     {
       id: 3,
@@ -28,7 +33,8 @@ export const AboutServicesSection = () => {
       title: 'Listening & Reading',
       description: 'Comprehensive skill development programs',
       features: ['Strategy training', 'Practice tests', 'Time management', 'Skill development'],
-      color: 'from-purple-500 to-pink-500'
+      color: 'from-purple-500 to-pink-500',
+      botFeature: 'Access daily listening exercises through @ieltstori_bot!'
     },
     {
       id: 4,
@@ -36,7 +42,8 @@ export const AboutServicesSection = () => {
       title: 'Online Coaching',
       description: 'Live interactive sessions with flexible scheduling',
       features: ['Live sessions', 'Flexible scheduling', 'Recorded lessons', '24/7 support'],
-      color: 'from-orange-500 to-red-500'
+      color: 'from-orange-500 to-red-500',
+      botFeature: 'Schedule sessions directly through our Telegram bot!'
     },
     {
       id: 5,
@@ -44,7 +51,8 @@ export const AboutServicesSection = () => {
       title: 'Exam Preparation',
       description: 'Specialized preparation for IELTS, TOEFL, PTE, FCE',
       features: ['Test strategies', 'Score improvement', 'Registration guidance', 'Expert coaching'],
-      color: 'from-indigo-500 to-blue-500'
+      color: 'from-indigo-500 to-blue-500',
+      botFeature: 'Take our comprehensive placement test via @ieltstori_bot!'
     },
     {
       id: 6,
@@ -52,7 +60,8 @@ export const AboutServicesSection = () => {
       title: 'Professional Consultation',
       description: 'Career guidance and university application support',
       features: ['Career guidance', 'University support', 'Immigration requirements', 'Professional development'],
-      color: 'from-teal-500 to-cyan-500'
+      color: 'from-teal-500 to-cyan-500',
+      botFeature: 'Get personalized consultation booking through our bot!'
     }
   ];
 
@@ -125,14 +134,58 @@ export const AboutServicesSection = () => {
                     ))}
                   </ul>
 
-                  <button className="flex items-center space-x-2 text-cyan-300 hover:text-white font-semibold transition-colors duration-300 group-hover:translate-x-2">
-                    <span>Learn More</span>
+                  {/* Bot Feature */}
+                  <div className="bg-blue-600/20 border border-blue-400/30 rounded-xl p-3 mb-4">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Bot className="w-4 h-4 text-cyan-300" />
+                      <span className="text-cyan-300 text-sm font-semibold">Bot Feature</span>
+                    </div>
+                    <p className="text-cyan-100 text-sm">{service.botFeature}</p>
+                  </div>
+
+                  <button 
+                    onClick={() => showBotModal(true)}
+                    className="flex items-center space-x-2 text-cyan-300 hover:text-white font-semibold transition-colors duration-300 group-hover:translate-x-2"
+                  >
+                    <span>Try via Bot</span>
                     <ChevronRight className="w-4 h-4" />
                   </button>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Bot Promotion Section */}
+        <div className="mt-16 text-center">
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 max-w-4xl mx-auto">
+            <div className="flex items-center justify-center space-x-3 mb-4">
+              <Bot className="w-8 h-8 text-cyan-300" />
+              <h3 className="text-2xl font-bold text-white">Experience All Services via Telegram</h3>
+            </div>
+            <p className="text-cyan-100 mb-6">
+              Access our comprehensive IELTS services, take placement tests, and get expert guidance through our intelligent Telegram bot
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() => showBotModal(true)}
+                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
+              >
+                <MessageCircle className="w-5 h-5" />
+                <span>Chat with @ieltstori_bot</span>
+              </button>
+              
+              <a
+                href="https://t.me/ieltstori"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
+              >
+                <Users className="w-5 h-5" />
+                <span>Join @ieltstori Channel</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

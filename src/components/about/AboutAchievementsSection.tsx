@@ -1,8 +1,11 @@
-
 import React, { useState, useEffect } from 'react';
-import { Award, Clock, Star, Users, BookOpen } from "lucide-react";
+import { Award, Clock, Star, Users, BookOpen, Bot } from "lucide-react";
 
-export const AboutAchievementsSection = () => {
+interface AboutAchievementsSectionProps {
+  showBotModal: (show: boolean) => void;
+}
+
+export const AboutAchievementsSection = ({ showBotModal }: AboutAchievementsSectionProps) => {
   const [animatedStats, setAnimatedStats] = useState({
     hours: 0,
     successRate: 0,
@@ -96,16 +99,33 @@ export const AboutAchievementsSection = () => {
           </div>
         </div>
 
-        {/* Expert Focus */}
+        {/* Expert Focus with Bot Integration */}
         <div className="bg-white/60 backdrop-blur-md border border-white/60 rounded-3xl p-8 text-center">
           <div className="flex items-center justify-center space-x-3 mb-6">
             <BookOpen className="w-8 h-8 text-blue-600" />
             <h3 className="text-2xl font-bold text-gray-900">IELTS, TOEFL, PTE & FCE Specialist</h3>
           </div>
-          <p className="text-lg text-gray-700 max-w-4xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-4xl mx-auto mb-6">
             Specializing in <span className="text-blue-600 font-semibold">speaking and writing skills</span> development through experienced IELTS mentors with 
             <span className="text-green-600 font-semibold"> over 10 years of expertise</span>
           </p>
+          
+          {/* Bot CTA */}
+          <div className="bg-gradient-to-r from-blue-100 to-cyan-100 border border-blue-200 rounded-2xl p-6">
+            <div className="flex items-center justify-center space-x-3 mb-3">
+              <Bot className="w-6 h-6 text-blue-600" />
+              <span className="font-semibold text-blue-800">Get Expert Assessment via Bot</span>
+            </div>
+            <p className="text-blue-700 mb-4">
+              Try our AI-powered placement test and connect with our expert mentors through @ieltstori_bot
+            </p>
+            <button
+              onClick={() => showBotModal(true)}
+              className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105"
+            >
+              Start Assessment
+            </button>
+          </div>
         </div>
       </div>
     </section>
