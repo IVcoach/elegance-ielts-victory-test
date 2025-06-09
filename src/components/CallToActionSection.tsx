@@ -1,25 +1,19 @@
-
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Send, CheckCircle, Clock, Users, Award } from "lucide-react";
 import { useStarEffect } from "@/hooks/useStarEffect";
-
 export function CallToActionSection() {
   const createStarEffect = useStarEffect();
-
   const handleWhatsAppContact = (e: React.MouseEvent) => {
     createStarEffect(e);
     const text = "Hello! I'm ready to start my IELTS journey and would like to learn more about your coaching programs.";
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
-
   const handleTelegramJoin = (e: React.MouseEvent) => {
     createStarEffect(e);
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
-
-  return (
-    <section className="py-24 px-4 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white relative overflow-hidden">
+  return <section className="py-24 px-4 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-20 animate-pulse">
@@ -50,23 +44,9 @@ export function CallToActionSection() {
 
         {/* Enhanced CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-          <Button 
-            onClick={handleWhatsAppContact}
-            size="lg" 
-            className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold text-xl py-6 px-8 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-green-400"
-          >
-            <MessageCircle className="h-6 w-6 mr-3" />
-            🚀 Start Free Consultation
-          </Button>
           
-          <Button 
-            onClick={handleTelegramJoin}
-            size="lg" 
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold text-xl py-6 px-8 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-400"
-          >
-            <Send className="h-6 w-6 mr-3" />
-            📚 Join Study Community
-          </Button>
+          
+          
         </div>
 
         {/* Enhanced Benefits Grid */}
@@ -121,6 +101,5 @@ export function CallToActionSection() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }

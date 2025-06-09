@@ -1,13 +1,10 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Progress } from "@/components/ui/progress";
 import { Award, TrendingUp, Target, Users, CheckCircle, MapPin, GraduationCap, Briefcase } from "lucide-react";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
-
 export function SuccessStoriesSection() {
-  return (
-    <section className="py-20 px-4 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+  return <section className="py-20 px-4 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-20 animate-pulse">
@@ -54,21 +51,9 @@ export function SuccessStoriesSection() {
             
             {/* Key benefits */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <div className="text-center p-4 bg-white rounded-lg shadow-sm border border-blue-100">
-                <GraduationCap className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-                <h4 className="font-bold text-gray-900">Academic Success</h4>
-                <p className="text-sm text-gray-600">University admissions & scholarships</p>
-              </div>
-              <div className="text-center p-4 bg-white rounded-lg shadow-sm border border-green-100">
-                <Briefcase className="h-8 w-8 text-green-600 mx-auto mb-2" />
-                <h4 className="font-bold text-gray-900">Career Growth</h4>
-                <p className="text-sm text-gray-600">Professional opportunities abroad</p>
-              </div>
-              <div className="text-center p-4 bg-white rounded-lg shadow-sm border border-purple-100">
-                <MapPin className="h-8 w-8 text-purple-600 mx-auto mb-2" />
-                <h4 className="font-bold text-gray-900">Immigration Success</h4>
-                <p className="text-sm text-gray-600">Visa approvals & permanent residency</p>
-              </div>
+              
+              
+              
             </div>
             
             <TestimonialCarousel />
@@ -148,6 +133,5 @@ export function SuccessStoriesSection() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
