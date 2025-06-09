@@ -51,23 +51,11 @@ export function CallToActionSection() {
 
         {/* Enhanced Benefits Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 transform hover:scale-105 transition-all">
-            <CheckCircle className="h-8 w-8 text-green-400 mx-auto mb-3" />
-            <h3 className="text-xl font-bold mb-2">✅ Free Assessment</h3>
-            <p className="text-gray-300">Get your current level evaluated</p>
-          </div>
           
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 transform hover:scale-105 transition-all">
-            <Users className="h-8 w-8 text-blue-400 mx-auto mb-3" />
-            <h3 className="text-xl font-bold mb-2">👥 Expert Mentoring</h3>
-            <p className="text-gray-300">Personalized 1-on-1 coaching</p>
-          </div>
           
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 transform hover:scale-105 transition-all">
-            <Award className="h-8 w-8 text-yellow-400 mx-auto mb-3" />
-            <h3 className="text-xl font-bold mb-2">🏆 Proven Results</h3>
-            <p className="text-gray-300">90% success rate guarantee</p>
-          </div>
+          
+          
+          
         </div>
         
         {/* Enhanced Professional Statistics */}

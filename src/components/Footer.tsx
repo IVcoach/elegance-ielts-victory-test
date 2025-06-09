@@ -77,38 +77,17 @@ export function Footer() {
                 <p className="text-xs text-gray-400 mt-1">Response within 24 hours</p>
               </div>
               
-              <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20 transform hover:scale-105 transition-all">
-                <div className="flex items-center gap-3 mb-2">
-                  <MapPin className="h-5 w-5 text-purple-400" />
-                  <span className="text-white font-bold">Location</span>
-                </div>
-                <p className="text-lg text-purple-300 font-medium">Amsterdam, The Netherlands</p>
-                <p className="text-xs text-gray-400 mt-1">European Union Certified</p>
-              </div>
+              
             </div>
           </div>
           
           {/* Enhanced Connect Section */}
           <div>
-            <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-2">
-              <Users className="h-6 w-6 text-green-400" />
-              Connect With Us
-            </h2>
+            
             
             <div className="space-y-6">
               {/* WhatsApp Connection */}
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/20">
-                <h3 className="text-lg font-bold text-white mb-3">🚀 Start Your Journey</h3>
-                <p className="text-gray-300 mb-4 text-sm">
-                  Get instant access to expert IELTS coaching and free consultation
-                </p>
-                <a href="https://wa.me/+31631267353" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-700 p-3 rounded-lg hover:from-green-700 hover:to-green-800 transition-all transform hover:scale-105 shadow-lg w-full justify-center font-bold">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                  </svg>
-                  WhatsApp Consultation
-                </a>
-              </div>
+              
 
               {/* Success Stats */}
               
