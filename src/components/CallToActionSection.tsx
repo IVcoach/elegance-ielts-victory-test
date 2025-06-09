@@ -1,25 +1,19 @@
-
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Send, CheckCircle, Clock, Users, Award } from "lucide-react";
 import { useStarEffect } from "@/hooks/useStarEffect";
-
 export function CallToActionSection() {
   const createStarEffect = useStarEffect();
-
   const handleWhatsAppContact = (e: React.MouseEvent) => {
     createStarEffect(e);
     const text = "Hello! I'm ready to start my IELTS journey and would like to learn more about your coaching programs.";
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
-
   const handleTelegramJoin = (e: React.MouseEvent) => {
     createStarEffect(e);
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
-
-  return (
-    <section className="py-16 px-6 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white relative overflow-hidden">
+  return <section className="py-16 px-6 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-16 left-16 animate-pulse">
@@ -33,31 +27,15 @@ export function CallToActionSection() {
       <div className="container max-w-4xl mx-auto text-center relative z-10">
         {/* Main Heading */}
         <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Achieve Your IELTS Goals?
-          </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Join thousands of successful students who achieved their target scores with our proven coaching methods.
-          </p>
+          
+          
         </div>
 
         {/* CTA Buttons - Centered */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 max-w-xl mx-auto">
-          <Button 
-            onClick={handleWhatsAppContact}
-            className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-xl transform hover:scale-105 transition-all flex items-center gap-3"
-          >
-            <MessageCircle className="h-5 w-5" />
-            Start Your Journey
-          </Button>
           
-          <Button 
-            onClick={handleTelegramJoin}
-            className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-xl transform hover:scale-105 transition-all flex items-center gap-3"
-          >
-            <Send className="h-5 w-5" />
-            Join Study Community
-          </Button>
+          
+          
         </div>
 
         {/* Benefits Grid - Improved Layout */}
@@ -124,6 +102,5 @@ export function CallToActionSection() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
