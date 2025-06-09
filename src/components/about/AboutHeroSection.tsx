@@ -1,11 +1,8 @@
+
 import React, { useState, useEffect } from 'react';
-import { GraduationCap, ArrowDown, Bot, MessageCircle } from "lucide-react";
+import { GraduationCap, ArrowDown } from "lucide-react";
 
-interface AboutHeroSectionProps {
-  showBotModal: (show: boolean) => void;
-}
-
-export const AboutHeroSection = ({ showBotModal }: AboutHeroSectionProps) => {
+export const AboutHeroSection = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -119,22 +116,6 @@ export const AboutHeroSection = ({ showBotModal }: AboutHeroSectionProps) => {
               Join us on this exciting journey—what you see today is just the 
               <span className="text-cyan-300 font-bold"> tip of the iceberg</span>.
             </p>
-          </div>
-
-          {/* Telegram Bot CTA */}
-          <div className={`bg-gradient-to-r from-blue-600/30 to-purple-600/30 backdrop-blur-md border border-white/20 rounded-2xl p-6 mb-8 transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="flex items-center justify-center space-x-3 mb-4">
-              <Bot className="w-8 h-8 text-cyan-300" />
-              <span className="text-xl font-bold text-white">Try Our IELTS Bot!</span>
-            </div>
-            <p className="text-cyan-100 mb-4">Get instant IELTS placement test and personalized guidance</p>
-            <button
-              onClick={() => showBotModal(true)}
-              className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center space-x-2 mx-auto"
-            >
-              <MessageCircle className="w-5 h-5" />
-              <span>Chat with @ieltstori_bot</span>
-            </button>
           </div>
 
           {/* Scroll Indicator */}

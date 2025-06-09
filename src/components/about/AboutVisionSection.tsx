@@ -1,13 +1,10 @@
+
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Zap, Brain, Gamepad2, Leaf, Eye, Sparkles, ArrowRight, Bot } from "lucide-react";
+import { Zap, Brain, Gamepad2, Leaf, Eye, Sparkles, ArrowRight } from "lucide-react";
 
-interface AboutVisionSectionProps {
-  showBotModal: (show: boolean) => void;
-}
-
-export const AboutVisionSection = ({ showBotModal }: AboutVisionSectionProps) => {
+export const AboutVisionSection = () => {
   const [activeVision, setActiveVision] = useState(0);
 
   const visions = [
@@ -111,7 +108,7 @@ export const AboutVisionSection = ({ showBotModal }: AboutVisionSectionProps) =>
           ))}
         </div>
 
-        {/* Bottom CTA with Bot Integration */}
+        {/* Bottom CTA */}
         <div className="text-center">
           <div className="relative bg-white/5 backdrop-blur-md border border-cyan-400/30 rounded-3xl p-8 max-w-4xl mx-auto">
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl"></div>
@@ -128,15 +125,7 @@ export const AboutVisionSection = ({ showBotModal }: AboutVisionSectionProps) =>
               <p className="text-purple-200 text-lg mb-6">
                 Join us as we shape the future of language education through cutting-edge technology and innovative teaching methodologies.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  onClick={() => showBotModal(true)}
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
-                >
-                  <Bot className="w-5 h-5" />
-                  <span>Experience the Future</span>
-                </button>
-                
+              <div className="flex justify-center">
                 <Button asChild size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105">
                   <Link to="/">Back to Home</Link>
                 </Button>

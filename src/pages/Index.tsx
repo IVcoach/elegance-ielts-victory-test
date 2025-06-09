@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { HeroSection } from "@/components/HeroSection";
 import { SuccessStoriesSection } from "@/components/SuccessStoriesSection";
 import { CallToActionSection } from "@/components/CallToActionSection";
+import { SharedFloatingTelegramBot } from "@/components/SharedFloatingTelegramBot";
 
 const Index = () => {
   return (
@@ -13,6 +14,7 @@ const Index = () => {
       <SuccessStoriesSection />
       <CallToActionSection />
       <Footer />
+      <SharedFloatingTelegramBot />
     </div>
   );
 };
