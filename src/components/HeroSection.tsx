@@ -1,26 +1,20 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Award, Trophy, Send, CheckCircle, MessageCircle, Star, Users, Globe } from "lucide-react";
 import { useStarEffect } from "@/hooks/useStarEffect";
-
 export function HeroSection() {
   const createStarEffect = useStarEffect();
-
   const handleTelegramResources = (e: React.MouseEvent) => {
     createStarEffect(e);
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
-
   const handleWhatsAppContact = (e: React.MouseEvent) => {
     createStarEffect(e);
     const text = "Hello! I'm interested in IELTS coaching and would like more information about your programs.";
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
-
-  return (
-    <section className="hero-gradient pt-24 pb-16 px-6 md:pt-32 md:pb-24 relative overflow-hidden">
+  return <section className="hero-gradient pt-24 pb-16 px-6 md:pt-32 md:pb-24 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 animate-pulse">
@@ -49,9 +43,7 @@ export function HeroSection() {
               
               {/* Trust indicators - Centered */}
               <div className="flex justify-center lg:justify-start items-center gap-2 mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-500 fill-current" />
-                ))}
+                {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 text-yellow-500 fill-current" />)}
                 <span className="ml-2 text-sm text-gray-600 font-medium">
                   4.9/5 from 2,000+ students
                 </span>
@@ -89,7 +81,7 @@ export function HeroSection() {
             {/* Action Buttons - Better Layout */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
               <Button asChild size="lg" className="professional-button text-lg py-4 px-8 shadow-xl transform hover:scale-105 transition-all duration-300">
-                <Link to="/test" onClick={createStarEffect}>
+                <Link to="/test" onClick={createStarEffect} className="mx-[10px] px-[110px]">
                   🎯 Start Free Assessment
                 </Link>
               </Button>
@@ -154,6 +146,5 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
