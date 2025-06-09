@@ -27,18 +27,14 @@ export function CallToActionSection() {
         </div>
       </div>
 
-      <div className="container mx-auto max-w-6xl text-center relative z-10">
+      <div className="container max-w-6xl text-center relative z-10 py-0 my-0 mx-0 px-0">
         {/* Enhanced heading */}
         <div className="mb-12">
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-            Ready to Start Your IELTS Journey?
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-300 mb-4 font-medium">
-            Join hundreds of successful students who achieved their target scores
-          </p>
+          
+          
           <div className="flex justify-center items-center gap-2 mb-8">
-            <Clock className="h-5 w-5 text-green-400" />
-            <span className="text-green-400 font-bold">Free consultation available now!</span>
+            
+            
           </div>
         </div>
 
