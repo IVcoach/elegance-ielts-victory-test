@@ -14,21 +14,21 @@ export function Footer() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mx-[10px]">
           {/* Enhanced Company Info */}
           <div>
-            <h2 className="text-3xl font-bold mb-6 text-white bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+            <h2 className="text-3xl font-bold mb-6 text-white bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent text-center">
               V&C Elegance
             </h2>
-            <p className="mb-4 text-lg font-medium text-gray-100">
+            <p className="mb-4 text-lg font-medium text-gray-100 text-center">
               Your professional coach for IELTS excellence
             </p>
             
             {/* Trust badges */}
-            <div className="space-y-3 mb-6">
+            <div className="space-y-3 mb-6 px-[240px] mx-[240px]">
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-5 w-5 text-green-400" />
-                <span className="text-green-400 font-medium">Cambridge University CERF Certified</span>
+                <span className="text-green-400 font-medium text-center">Cambridge University CERF Certified</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-5 w-5 text-green-400" />
@@ -40,7 +40,7 @@ export function Footer() {
               </div>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20 py-[16px] px-[16px] mx-[10px] my-0">
+            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20 py-[16px] my-0 px-[240px] mx-[240px]">
               <p className="font-medium text-gray-100 mb-2">🏢 Business Registration</p>
               <p className="text-sm text-gray-300">Number: 000061974544</p>
               <p className="text-sm text-gray-300">Registered in The Netherlands</p>
@@ -82,17 +82,7 @@ export function Footer() {
           </div>
           
           {/* Enhanced Connect Section */}
-          <div>
-            
-            
-            <div className="space-y-6">
-              {/* WhatsApp Connection */}
-              
-
-              {/* Success Stats */}
-              
-            </div>
-          </div>
+          
         </div>
         
         {/* Enhanced Footer Bottom */}
