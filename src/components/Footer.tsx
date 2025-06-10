@@ -1,11 +1,8 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Award, Users, CheckCircle } from "lucide-react";
-
 export function Footer() {
-  return (
-    <footer className="bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white py-12 relative overflow-hidden">
+  return <footer className="bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white py-12 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-8 left-8 animate-pulse">
@@ -16,7 +13,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 relative z-10 bg-zinc-300">
         {/* Main Content */}
         <div className="max-w-4xl mx-auto text-center">
           {/* Company Header */}
@@ -102,6 +99,5 @@ export function Footer() {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 }
