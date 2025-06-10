@@ -1,10 +1,7 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Trophy, Users, Clock, Target, Award, Star } from "lucide-react";
-
 export function AboutAchievementsSection() {
-  return (
-    <section className="py-12 px-6 bg-gray-100 relative overflow-hidden">
+  return <section className="py-12 px-6 relative overflow-hidden bg-gray-200">
       <div className="container mx-auto max-w-5xl relative z-10">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -65,6 +62,5 @@ export function AboutAchievementsSection() {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
