@@ -21,9 +21,8 @@ export function Footer() {
             <h2 className="text-3xl font-bold mb-3 text-white bg-gradient-to-r from-white to-orange-200 bg-clip-text text-transparent">
               V&C Elegance
             </h2>
-            <p className="text-lg font-medium text-gray-100 mb-4">
-              Your professional partner for IELTS excellence
-            </p>
+            <p className="text-lg font-medium text-gray-100 mb-4">Your professional partner for IELTS excellence
+© 2025 V&C Elegance IELTS Coaching. All rights reserved.</p>
             
             {/* Trust badges */}
             <div className="flex flex-col items-center space-y-2 mb-6">
@@ -37,7 +36,8 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Award className="h-4 w-4 text-amber-400" />
-                <span className="text-amber-400 font-medium text-sm">5+ Years Excellence Record</span>
+                <span className="text-amber-400 font-medium text-sm">5+ Years Excellence Record
+🇳🇱 Proudly serving from Amsterdam, The Netherlands</span>
               </div>
             </div>
           </div>
@@ -68,36 +68,11 @@ export function Footer() {
           </div>
 
           {/* Business Registration */}
-          <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20 max-w-xs mx-auto mb-8">
-            <p className="font-medium text-gray-100 mb-1 flex items-center justify-center gap-2 text-sm">
-              <MapPin className="h-4 w-4 text-orange-400" />
-              Company Registration
-            </p>
-            <p className="text-xs text-gray-300">License Number: 000061974544</p>
-            <p className="text-xs text-gray-300">Registered in The Netherlands</p>
-          </div>
+          
         </div>
         
         {/* Footer Bottom */}
-        <div className="border-t border-gray-600 pt-6">
-          <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10 max-w-3xl mx-auto">
-            <div className="text-center">
-              <p className="font-bold text-white mb-2">
-                © 2025 V&C Elegance IELTS Coaching. All rights reserved.
-              </p>
-              <p className="text-gray-300 font-medium mb-2 text-sm">
-                🇳🇱 Proudly serving from Amsterdam, The Netherlands
-              </p>
-              <div className="flex justify-center items-center gap-3 text-xs text-gray-400 flex-wrap">
-                <span>✅ Cambridge Certified</span>
-                <span className="hidden sm:inline">•</span>
-                <span>✅ IDP Verified</span>
-                <span className="hidden sm:inline">•</span>
-                <span>✅ EU Registered</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </footer>;
 }
