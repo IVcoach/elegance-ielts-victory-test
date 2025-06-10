@@ -1,27 +1,21 @@
-
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Send, CheckCircle, Clock, Users, Award } from "lucide-react";
 import { useStarEffect } from "@/hooks/useStarEffect";
-
 export function CallToActionSection() {
   const createStarEffect = useStarEffect();
-  
   const handleWhatsAppContact = (e: React.MouseEvent) => {
     createStarEffect(e);
     const text = "Hello! I'm ready to start my IELTS journey and would like to learn more about your coaching programs.";
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
-  
   const handleTelegramJoin = (e: React.MouseEvent) => {
     createStarEffect(e);
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
-
-  return (
-    <section className="py-16 px-6 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white relative overflow-hidden">
+  return <section className="py-16 px-6 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 bg-slate-50">
         <div className="absolute top-16 left-16 animate-pulse">
           <Award className="h-12 w-12 text-amber-400" />
         </div>
@@ -44,20 +38,12 @@ export function CallToActionSection() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 max-w-xl mx-auto">
-          <Button 
-            onClick={handleWhatsAppContact} 
-            size="lg" 
-            className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white font-bold px-8 py-4 rounded-lg shadow-xl transform hover:scale-105 transition-all flex items-center gap-2"
-          >
+          <Button onClick={handleWhatsAppContact} size="lg" className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white font-bold px-8 py-4 rounded-lg shadow-xl transform hover:scale-105 transition-all flex items-center gap-2">
             <MessageCircle className="h-5 w-5" />
             Start Your Journey
           </Button>
           
-          <Button 
-            onClick={handleTelegramJoin} 
-            size="lg" 
-            className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold px-8 py-4 rounded-lg shadow-xl transform hover:scale-105 transition-all flex items-center gap-2"
-          >
+          <Button onClick={handleTelegramJoin} size="lg" className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold px-8 py-4 rounded-lg shadow-xl transform hover:scale-105 transition-all flex items-center gap-2">
             <Send className="h-5 w-5" />
             Join Study Group
           </Button>
@@ -127,6 +113,5 @@ export function CallToActionSection() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
