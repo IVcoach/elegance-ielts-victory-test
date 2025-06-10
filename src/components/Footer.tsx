@@ -13,7 +13,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 bg-zinc-300">
+      <div className="container mx-auto px-6 relative z-10 bg-gray-700">
         {/* Main Content */}
         <div className="max-w-4xl mx-auto text-center">
           {/* Company Header */}
