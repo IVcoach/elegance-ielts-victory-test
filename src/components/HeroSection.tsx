@@ -78,7 +78,7 @@ export function HeroSection() {
                 </Link>
               </Button>
               
-              <Button onClick={handleTelegramResources} size="lg" className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold shadow-xl transform hover:scale-105 transition-all flex items-center gap-2 py-4 px-6">
+              <Button onClick={handleTelegramResources} size="lg" className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold shadow-xl transform hover:scale-105 transition-all flex items-center gap-2 px-[54px] py-0 text-left">
                 <Send className="h-5 w-5" />
                 📚 Study Community
               </Button>
