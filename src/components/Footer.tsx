@@ -4,7 +4,7 @@ import { MapPin, Phone, Mail, Award, Users, CheckCircle } from "lucide-react";
 export function Footer() {
   return <footer className="bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white py-12 relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-5 bg-gray-50">
         <div className="absolute top-8 left-8 animate-pulse">
           <Award className="h-10 w-10 text-amber-400" />
         </div>
