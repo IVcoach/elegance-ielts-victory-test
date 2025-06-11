@@ -100,7 +100,7 @@ export const AboutHeroSection = () => {
           <div className={`relative bg-gradient-to-r from-blue-600/30 to-purple-600/30 backdrop-blur-md border border-white/20 rounded-2xl p-6 mb-8 transition-all duration-1000 delay-900 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <p className="text-xl text-white font-medium">
               Join us on this exciting journey—what you see today is just the 
-              <span className="text-cyan-300 font-bold"> tip of the iceberg</span>.
+              <span className="font-bold text-amber-500"> tip of the iceberg</span>.
             </p>
           </div>
 
