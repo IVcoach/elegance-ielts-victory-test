@@ -46,12 +46,12 @@ export const AboutVisionSection = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-cyan-400/30 px-6 py-3 rounded-full mb-6">
             <Zap className="w-5 h-5 text-cyan-300" />
-            <span className="text-cyan-200 font-semibold">Our Future Vision</span>
+            <span className="font-semibold text-zinc-950">Our Future Vision</span>
           </div>
           
-          <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
+          <h2 className="text-4xl font-bold mb-6 text-zinc-950 lg:text-7xl">
             The Future of
-            <span className="bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text text-transparent block">
+            <span className="bg-gradient-to-r from-cyan-300 via-purple-300 to-pink-300 bg-clip-text block text-zinc-950 text-7xl font-bold">
               Language Learning
             </span>
           </h2>
