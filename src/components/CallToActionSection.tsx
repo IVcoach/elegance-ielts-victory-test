@@ -15,7 +15,7 @@ export function CallToActionSection() {
   };
   return <section className="py-16 px-6 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-10 -bottom-0 bg-amber-400">
+      <div className="absolute inset-0 opacity-10 -bottom-0 bg-white">
         <div className="absolute top-16 left-16 animate-pulse">
           <Award className="h-12 w-12 text-amber-400" />
         </div>
@@ -24,7 +24,7 @@ export function CallToActionSection() {
         </div>
       </div>
 
-      <div className="container max-w-4xl mx-auto text-center relative z-10">
+      <div className="container max-w-4xl mx-auto text-center relative z-10 bg-yellow-800">
         {/* Main Heading */}
         <div className="mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -53,20 +53,20 @@ export function CallToActionSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-3xl mx-auto">
           <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 transform hover:scale-105 transition-all">
             <CheckCircle className="h-10 w-10 text-orange-400 mx-auto mb-3" />
-            <h3 className="text-lg font-bold text-white mb-2">Proven Results</h3>
-            <p className="text-gray-300 text-sm">90% of our students achieve their target score within 2 attempts</p>
+            <h3 className="text-lg font-bold mb-2 text-slate-950">Proven Results</h3>
+            <p className="text-sm text-slate-950">90% of our students achieve their target score within 2 attempts</p>
           </div>
           
           <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 transform hover:scale-105 transition-all">
             <Clock className="h-10 w-10 text-amber-400 mx-auto mb-3" />
-            <h3 className="text-lg font-bold text-white mb-2">24/7 Support</h3>
-            <p className="text-gray-300 text-sm">Get help whenever you need it with our round-the-clock assistance</p>
+            <h3 className="text-lg font-bold mb-2 text-slate-950">24/7 Support</h3>
+            <p className="text-sm text-slate-950">Get help whenever you need it with our round-the-clock assistance</p>
           </div>
           
           <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 transform hover:scale-105 transition-all">
             <Award className="h-10 w-10 text-orange-400 mx-auto mb-3" />
-            <h3 className="text-lg font-bold text-white mb-2">Expert Coaching</h3>
-            <p className="text-gray-300 text-sm">Cambridge certified instructors with 5+ years of experience</p>
+            <h3 className="text-lg font-bold mb-2 text-slate-950">Expert Coaching</h3>
+            <p className="text-sm text-slate-950">Cambridge certified instructors with 5+ years of experience</p>
           </div>
         </div>
         
@@ -74,7 +74,7 @@ export function CallToActionSection() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-gray-300 max-w-3xl mx-auto mb-10">
           <div className="text-center transform hover:scale-105 transition-all p-3">
             <div className="text-2xl md:text-3xl font-bold text-orange-400 mb-1">50K+</div>
-            <div className="text-xs md:text-sm font-medium">Hours Coaching</div>
+            <div className="text-xs md:text-sm font-medium bg-transparent">Hours Coaching</div>
           </div>
           <div className="text-center transform hover:scale-105 transition-all p-3">
             <div className="text-2xl md:text-3xl font-bold text-amber-400 mb-1">90%</div>
@@ -86,7 +86,7 @@ export function CallToActionSection() {
           </div>
           <div className="text-center transform hover:scale-105 transition-all p-3">
             <div className="text-2xl md:text-3xl font-bold text-amber-400 mb-1">2000+</div>
-            <div className="text-xs md:text-sm font-medium">Successful Students</div>
+            <div className="text-xs md:text-sm font-medium bg-transparent">Successful Students</div>
           </div>
         </div>
 
@@ -94,19 +94,19 @@ export function CallToActionSection() {
         <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 max-w-2xl mx-auto">
           <p className="text-lg font-bold text-white mb-3">🎯 Why Choose V&C Elegance?</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-300">
-            <p className="flex items-center justify-center gap-2">
+            <p className="flex items-center justify-center gap-2 text-slate-950">
               <CheckCircle className="h-4 w-4 text-orange-400" />
               Cambridge University CERF Certified
             </p>
-            <p className="flex items-center justify-center gap-2">
+            <p className="flex items-center justify-center gap-2 text-slate-950">
               <CheckCircle className="h-4 w-4 text-orange-400" />
               IDP Education Protocols Verified
             </p>
-            <p className="flex items-center justify-center gap-2">
+            <p className="flex items-center justify-center gap-2 text-slate-950">
               <CheckCircle className="h-4 w-4 text-amber-400" />
               Company License: 000061974544
             </p>
-            <p className="flex items-center justify-center gap-2">
+            <p className="flex items-center justify-center gap-2 text-slate-950">
               <CheckCircle className="h-4 w-4 text-orange-400" />
               5+ Years Proven Track Record
             </p>

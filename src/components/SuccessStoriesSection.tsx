@@ -1,15 +1,12 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Progress } from "@/components/ui/progress";
 import { Award, TrendingUp, Target, Users, CheckCircle, MapPin, GraduationCap, Briefcase } from "lucide-react";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
-
 export function SuccessStoriesSection() {
-  return (
-    <section className="py-16 px-6 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+  return <section className="py-16 px-6 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-5 bg-transparent">
         <div className="absolute top-16 left-16 animate-pulse">
           <GraduationCap className="h-12 w-12 text-blue-600" />
         </div>
@@ -129,6 +126,5 @@ export function SuccessStoriesSection() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
