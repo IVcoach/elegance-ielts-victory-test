@@ -16,7 +16,7 @@ export function AboutAchievementsSection() {
           <Card className="professional-card transform hover:scale-105 transition-all">
             <CardContent className="p-6 text-center">
               <Trophy className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">2000+</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">200+</h3>
               <p className="text-gray-600">Successful Students</p>
             </CardContent>
           </Card>
@@ -40,7 +40,7 @@ export function AboutAchievementsSection() {
           <Card className="professional-card transform hover:scale-105 transition-all">
             <CardContent className="p-6 text-center">
               <Target className="h-12 w-12 text-purple-500 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">5+</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">20+</h3>
               <p className="text-gray-600">Years Experience</p>
             </CardContent>
           </Card>
