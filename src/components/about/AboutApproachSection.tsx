@@ -1,13 +1,10 @@
-
 import React from 'react';
 import { Target, Users, Sparkles, Globe } from "lucide-react";
-
 export const AboutApproachSection = () => {
-  return (
-    <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50">
+  return <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50 bg-zinc-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-white/60 backdrop-blur-md border border-white/40 px-6 py-3 rounded-full mb-6">
+          <div className="inline-flex items-center space-x-2 backdrop-blur-md border border-white/40 px-6 py-3 rounded-full mb-6 bg-zinc-50">
             <Target className="w-5 h-5 text-blue-600" />
             <span className="text-blue-800 font-semibold">Our Approach</span>
           </div>
@@ -53,14 +50,11 @@ export const AboutApproachSection = () => {
             Offering comprehensive courses tailored to diverse learning needs on:
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {['Coursera', 'YouTube', 'Udemy', 'edX'].map((platform, index) => (
-              <div key={index} className="bg-green-100 text-green-800 px-4 py-2 rounded-lg text-center font-semibold">
+            {['Coursera', 'YouTube', 'Udemy', 'edX'].map((platform, index) => <div key={index} className="bg-green-100 text-green-800 px-4 py-2 rounded-lg text-center font-semibold">
                 {platform}
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };

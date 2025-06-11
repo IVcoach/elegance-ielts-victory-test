@@ -1,59 +1,44 @@
-
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Zap, Brain, Gamepad2, Leaf, Eye, Sparkles, ArrowRight } from "lucide-react";
-
 export const AboutVisionSection = () => {
   const [activeVision, setActiveVision] = useState(0);
-
-  const visions = [
-    {
-      icon: Brain,
-      title: 'AI IELTS Coach',
-      description: 'Training AI to serve as an expert IELTS coach for personalized guidance',
-      color: 'from-orange-400 to-red-500'
-    },
-    {
-      icon: Gamepad2,
-      title: 'VR & Metaverse',
-      description: 'Creating immersive, game-based learning experiences using VR and the metaverse',
-      color: 'from-pink-400 to-purple-500'
-    },
-    {
-      icon: Leaf,
-      title: 'Natural Learning',
-      description: 'Developing environments for natural, engaging, and effortless adult learning experiences',
-      color: 'from-green-400 to-emerald-500'
-    }
-  ];
-
-  return (
-    <section className="py-20 px-4 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 relative overflow-hidden">
+  const visions = [{
+    icon: Brain,
+    title: 'AI IELTS Coach',
+    description: 'Training AI to serve as an expert IELTS coach for personalized guidance',
+    color: 'from-orange-400 to-red-500'
+  }, {
+    icon: Gamepad2,
+    title: 'VR & Metaverse',
+    description: 'Creating immersive, game-based learning experiences using VR and the metaverse',
+    color: 'from-pink-400 to-purple-500'
+  }, {
+    icon: Leaf,
+    title: 'Natural Learning',
+    description: 'Developing environments for natural, engaging, and effortless adult learning experiences',
+    color: 'from-green-400 to-emerald-500'
+  }];
+  return <section className="py-20 px-4 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 relative overflow-hidden">
       {/* Holographic Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/5 to-transparent">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `
+          <div style={{
+          backgroundImage: `
               linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
               linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px)
             `,
-            backgroundSize: '50px 50px'
-          }}></div>
+          backgroundSize: '50px 50px'
+        }} className="absolute inset-0 bg-slate-600"></div>
         </div>
         
-        {[...Array(12)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-4 h-4 border border-cyan-400/30 rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
-            }}
-          />
-        ))}
+        {[...Array(12)].map((_, i) => <div key={i} className="absolute w-4 h-4 border border-cyan-400/30 rounded-full animate-pulse" style={{
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        animationDelay: `${Math.random() * 3}s`,
+        animationDuration: `${2 + Math.random() * 2}s`
+      }} />)}
       </div>
 
       <div className="max-w-7xl mx-auto relative">
@@ -74,12 +59,7 @@ export const AboutVisionSection = () => {
 
         {/* Vision Cards */}
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {visions.map((vision, index) => (
-            <div
-              key={index}
-              className="group relative cursor-pointer transition-all duration-700 hover:scale-105"
-              onClick={() => setActiveVision(index)}
-            >
+          {visions.map((vision, index) => <div key={index} className="group relative cursor-pointer transition-all duration-700 hover:scale-105" onClick={() => setActiveVision(index)}>
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 via-purple-400/20 to-pink-400/20 rounded-3xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className={`relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 h-full transition-all duration-500 ${activeVision === index ? 'bg-white/10 border-cyan-400/30' : 'hover:bg-white/10'}`}>
@@ -104,8 +84,7 @@ export const AboutVisionSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            </div>)}
         </div>
 
         {/* Bottom CTA */}
@@ -134,6 +113,5 @@ export const AboutVisionSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
