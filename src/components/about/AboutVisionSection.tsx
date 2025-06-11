@@ -89,28 +89,7 @@ export const AboutVisionSection = () => {
 
         {/* Bottom CTA */}
         <div className="text-center">
-          <div className="relative bg-white/5 backdrop-blur-md border border-cyan-400/30 rounded-3xl p-8 max-w-4xl mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl"></div>
-            
-            <div className="relative z-10">
-              <div className="flex items-center justify-center space-x-3 mb-4">
-                <Eye className="w-6 h-6 text-cyan-300" />
-                <span className="text-lg font-semibold text-slate-950">Vision 2030</span>
-                <Sparkles className="w-6 h-6 text-purple-300" />
-              </div>
-              <h3 className="text-3xl font-bold mb-4 text-slate-950">
-                The Future is <span className="text-cyan-300">Now</span>
-              </h3>
-              <p className="text-lg mb-6 text-slate-950">
-                Join us as we shape the future of language education through cutting-edge technology and innovative teaching methodologies.
-              </p>
-              <div className="flex justify-center">
-                <Button asChild size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105">
-                  <Link to="/">Back to Home</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>;

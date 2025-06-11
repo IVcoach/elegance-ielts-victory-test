@@ -41,20 +41,7 @@ export const AboutApproachSection = () => {
           </div>
         </div>
 
-        <div className="bg-white/60 backdrop-blur-md border border-white/60 rounded-3xl p-8">
-          <div className="flex items-center space-x-4 mb-6">
-            <Globe className="w-8 h-8 text-green-600" />
-            <h3 className="text-2xl font-bold text-gray-900">Comprehensive Platforms</h3>
-          </div>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Offering comprehensive courses tailored to diverse learning needs on:
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {['Coursera', 'YouTube', 'Udemy', 'edX'].map((platform, index) => <div key={index} className="bg-green-100 text-green-800 px-4 py-2 rounded-lg text-center font-semibold">
-                {platform}
-              </div>)}
-          </div>
-        </div>
+        
       </div>
     </section>;
 };
