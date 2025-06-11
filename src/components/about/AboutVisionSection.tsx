@@ -30,7 +30,7 @@ export const AboutVisionSection = () => {
               linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px)
             `,
           backgroundSize: '50px 50px'
-        }} className="absolute inset-0 bg-gray-400"></div>
+        }} className="absolute inset-0 bg-slate-50"></div>
         </div>
         
         {[...Array(12)].map((_, i) => <div key={i} className="absolute w-4 h-4 border border-cyan-400/30 rounded-full animate-pulse" style={{
