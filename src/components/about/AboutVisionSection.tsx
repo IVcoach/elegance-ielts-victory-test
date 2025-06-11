@@ -30,7 +30,7 @@ export const AboutVisionSection = () => {
               linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px)
             `,
           backgroundSize: '50px 50px'
-        }} className="absolute inset-0 bg-slate-600"></div>
+        }} className="absolute inset-0 bg-gray-400"></div>
         </div>
         
         {[...Array(12)].map((_, i) => <div key={i} className="absolute w-4 h-4 border border-cyan-400/30 rounded-full animate-pulse" style={{
@@ -70,17 +70,17 @@ export const AboutVisionSection = () => {
                     <div className="absolute inset-0 border-2 border-cyan-400/30 rounded-2xl animate-pulse"></div>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-cyan-200 transition-colors duration-300">
+                  <h3 className="text-2xl font-bold mb-4 transition-colors duration-300 text-slate-950">
                     {vision.title}
                   </h3>
 
-                  <p className="text-purple-200 mb-6 leading-relaxed group-hover:text-white transition-colors duration-300">
+                  <p className="mb-6 leading-relaxed transition-colors duration-300 text-slate-950">
                     {vision.description}
                   </p>
 
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-                    <span className="text-cyan-300 text-sm font-medium">In Development</span>
+                    <span className="text-sm font-medium text-slate-950">In Development</span>
                   </div>
                 </div>
               </div>
@@ -95,13 +95,13 @@ export const AboutVisionSection = () => {
             <div className="relative z-10">
               <div className="flex items-center justify-center space-x-3 mb-4">
                 <Eye className="w-6 h-6 text-cyan-300" />
-                <span className="text-lg font-semibold text-white">Vision 2030</span>
+                <span className="text-lg font-semibold text-slate-950">Vision 2030</span>
                 <Sparkles className="w-6 h-6 text-purple-300" />
               </div>
-              <h3 className="text-3xl font-bold text-white mb-4">
+              <h3 className="text-3xl font-bold mb-4 text-slate-950">
                 The Future is <span className="text-cyan-300">Now</span>
               </h3>
-              <p className="text-purple-200 text-lg mb-6">
+              <p className="text-lg mb-6 text-slate-950">
                 Join us as we shape the future of language education through cutting-edge technology and innovative teaching methodologies.
               </p>
               <div className="flex justify-center">
