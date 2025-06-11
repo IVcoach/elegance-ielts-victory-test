@@ -73,7 +73,7 @@ export function HeroSection() {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
               <Button asChild size="lg" className="professional-button text-lg py-4 px-8 shadow-xl transform hover:scale-105 transition-all duration-300">
-                <Link to="/test" onClick={createStarEffect} className="whitespace-nowrap my-0 py-0 mx-[90px] px-[130px]">
+                <Link to="/test" onClick={createStarEffect} className="whitespace-nowrap my-0 py-0 px-[130px] mx-0">
                   🎯 Start Free Assessment
                 </Link>
               </Button>
