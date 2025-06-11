@@ -81,7 +81,7 @@ export const AboutHeroSection = () => {
           <div className={`bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 mb-8 transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <h2 className="text-2xl font-bold mb-2 text-gray-950">Leading Educational Company</h2>
             <p className="text-xl text-slate-950">
-              Dedicated to <span className="font-semibold text-gray-950">innovative language learning</span> and <span className="text-green-300 font-semibold">exam success</span>
+              Dedicated to <span className="font-semibold text-amber-500">Exam success</span> and <span className="text-green-300 font-semibold">exam success</span>
             </p>
           </div>
 
@@ -91,7 +91,7 @@ export const AboutHeroSection = () => {
             <p className="text-lg leading-relaxed text-slate-950">
               "Our mission is to <span className="font-semibold text-slate-950">revolutionize language education</span> by blending 
               <span className="font-semibold text-slate-950"> personalized teaching</span> with 
-              <span className="text-purple-300 font-semibold"> innovative technology</span>, making learning 
+              <span className="font-semibold text-orange-500"> innovative technology</span>, making learning 
               <span className="font-semibold text-slate-950">effortless, interactive, and enjoyable</span>."
             </p>
           </div>
