@@ -78,15 +78,21 @@ export function CallToActionSection() {
           </div>
           <div className="text-center transform hover:scale-105 transition-all p-3">
             <div className="text-2xl md:text-3xl font-bold text-amber-400 mb-1">90%</div>
-            <div className="text-xs md:text-sm font-medium">Success Rate</div>
+            <div className="text-xs md:text-sm font-medium">Cambridge University CERF Certified
+
+
+          </div>
           </div>
           <div className="text-center transform hover:scale-105 transition-all p-3">
             <div className="text-2xl md:text-3xl font-bold text-orange-400 mb-1">24/7</div>
             <div className="text-xs md:text-sm font-medium">Support</div>
           </div>
           <div className="text-center transform hover:scale-105 transition-all p-3">
-            <div className="text-2xl md:text-3xl font-bold text-amber-400 mb-1">2000+</div>
-            <div className="text-xs md:text-sm font-medium bg-transparent">Successful Students</div>
+            <div className="text-2xl md:text-3xl font-bold text-amber-400 mb-1">200+</div>
+            <div className="text-xs md:text-sm font-medium bg-transparent">Cambridge University CERF Certified
+
+
+          </div>
           </div>
         </div>
 
@@ -94,7 +100,7 @@ export function CallToActionSection() {
         <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 max-w-2xl mx-auto">
           <p className="text-lg font-bold text-white mb-3">🎯 Why Choose V&C Elegance?</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-300">
-            <p className="flex items-center justify-center gap-2 text-slate-950">
+            <p className="flex items-center justify-center gap-2 text-slate-950 font-normal">
               <CheckCircle className="h-4 w-4 text-orange-400" />
               Cambridge University CERF Certified
             </p>
