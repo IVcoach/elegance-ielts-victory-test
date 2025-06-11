@@ -15,7 +15,7 @@ export function CallToActionSection() {
   };
   return <section className="py-16 px-6 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-10 -bottom-0 bg-slate-50">
+      <div className="absolute inset-0 opacity-10 -bottom-0 bg-amber-400">
         <div className="absolute top-16 left-16 animate-pulse">
           <Award className="h-12 w-12 text-amber-400" />
         </div>
