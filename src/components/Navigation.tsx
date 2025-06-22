@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   return <nav className="w-full bg-white bg-opacity-95 backdrop-blur-sm fixed top-0 z-50 border-b shadow-lg">
-      <div className="container mx-auto py-3 flex items-center justify-between px-6 md:px-12 bg-white">
+      <div className="container py-3 flex items-center justify-between px-6 md:px-12 bg-white mx-0 my-[10px]">
         <Link to="/" className="flex items-center gap-4">
           <img alt="IELTS Victory Logo" className="h-20 md:h-24 w-auto transform hover:scale-105 transition-transform object-contain" src="/lovable-uploads/1fe98a0e-4992-4f28-8c3b-2e5312053128.png" />
         </Link>
