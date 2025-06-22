@@ -33,7 +33,7 @@ export function HeroSection() {
           <div className="animate-fade-in order-2 lg:order-1 text-center lg:text-left">
             {/* Main Heading */}
             <div className="mb-8">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight mb-6 mx-0 my-[60px]">
                 Professional IELTS Coaching
                 <br />
                 <span className="text-3xl md:text-4xl lg:text-5xl text-orange-700 bg-gradient-to-r from-orange-600 to-amber-700 bg-clip-text text-transparent">
