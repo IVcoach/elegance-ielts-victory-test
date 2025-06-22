@@ -6,7 +6,7 @@ import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 export function SuccessStoriesSection() {
   return <section className="py-16 px-6 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-5 bg-zinc-50">
+      <div className="absolute inset-0 opacity-5 bg-transparent">
         <div className="absolute top-16 left-16 animate-pulse">
           <GraduationCap className="h-12 w-12 text-blue-600" />
         </div>
