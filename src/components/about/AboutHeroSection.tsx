@@ -68,7 +68,7 @@ export const AboutHeroSection = () => {
 
           {/* Main Heading */}
           <h1 className={`text-6xl lg:text-8xl font-bold text-white mb-6 transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <span className="bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-gray-950">
+            <span className="bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-gray-950 text-7xl">
               V&C Elegance
             </span>
             <br />
