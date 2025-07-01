@@ -27,7 +27,7 @@ export function Navigation() {
   }];
   return <nav className="w-full bg-white backdrop-blur-sm fixed top-0 z-50 border-b border-gray-200 shadow-sm">
       <div className="container mx-auto py-3 flex items-center justify-between px-6 md:px-12">
-        <Link to="/" className="flex items-center gap-4 py-0 my-[30px]">
+        <Link to="/" className="flex items-center gap-4">
           <img alt="IELTS Victory Logo" src="/lovable-uploads/071dc905-9d2a-40df-876b-01819844c04f.png" className="h-16 md:h-20 w-auto transform hover:scale-105 transition-transform object-contain" />
         </Link>
         
