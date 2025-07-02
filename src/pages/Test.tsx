@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
@@ -10,6 +9,7 @@ import { AssessmentResults } from "@/components/AssessmentResults";
 import { QuizIntro } from "@/components/test/QuizIntro";
 import { calculateResults, getMockSectionScores } from "@/utils/ieltsCalculations";
 import { MessageSquare } from "lucide-react";
+import { EnhancedBreadcrumb } from "@/components/navigation/EnhancedBreadcrumb";
 
 const Test = () => {
   const navigate = useNavigate();
@@ -103,6 +103,7 @@ const Test = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
+      <EnhancedBreadcrumb />
       
       <main className="flex-grow py-32 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-100 min-h-screen">
         <div className="container mx-auto max-w-6xl">

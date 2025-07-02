@@ -2,6 +2,7 @@
 import React from 'react';
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { EnhancedBreadcrumb } from "@/components/navigation/EnhancedBreadcrumb";
 import { AboutHeroSection } from "@/components/about/AboutHeroSection";
 import { AboutAchievementsSection } from "@/components/about/AboutAchievementsSection";
 import { AboutServicesSection } from "@/components/about/AboutServicesSection";
@@ -13,6 +14,7 @@ const About = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Navigation />
+      <EnhancedBreadcrumb />
       <AboutHeroSection />
       <AboutAchievementsSection />
       <AboutServicesSection />
