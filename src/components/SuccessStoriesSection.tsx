@@ -51,9 +51,7 @@ export function SuccessStoriesSection() {
             
             <TestimonialCarousel />
             
-            <p className="text-center text-sm text-gray-500 mt-6 font-medium italic">
-              "Join 2,000+ students who transformed their futures with our proven IELTS coaching system"
-            </p>
+            <p className="text-center text-sm text-gray-500 mt-6 font-medium italic">"Join 300+ students who transformed their futures with our proven IELTS coaching system"</p>
           </CardContent>
         </Card>
         
