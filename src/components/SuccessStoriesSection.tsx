@@ -62,9 +62,7 @@ export function SuccessStoriesSection() {
           <h3 className="text-center text-2xl md:text-3xl font-bold text-gray-900 mb-3">
             🏆 Our Professional Success Rate
           </h3>
-          <p className="text-center text-base text-gray-600 mb-8 font-medium max-w-2xl mx-auto">
-            Based on 2,000+ students over 5 years of dedicated coaching
-          </p>
+          <p className="text-center text-base text-gray-600 mb-8 font-medium max-w-2xl mx-auto">Based on 300+ students over 5 years of dedicated coaching</p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <div className="professional-card flex items-center gap-3 transform hover:scale-105 transition-all border-2 border-yellow-200 bg-gradient-to-br from-yellow-50 to-yellow-100 relative overflow-hidden">
