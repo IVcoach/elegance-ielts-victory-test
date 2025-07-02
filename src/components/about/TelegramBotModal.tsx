@@ -37,13 +37,13 @@ export const TelegramBotModal = ({
               </div>
               <div>
                 <div className="font-semibold text-gray-900">@ieltstori_bot</div>
-                <div className="text-sm text-gray-600">Off linenow</div>
+                <div className="text-sm text-gray-600">Offline now</div>
               </div>
             </div>
             
             <div className="space-y-3">
               <div className="bg-white rounded-lg p-3 shadow-sm">
-                <p className="text-gray-800">🎯 Welcome to IELTS Story! I'm here to help you achieve your target score.</p>
+                <p className="text-gray-800">🎯 Welcome to IELTS Story! I will be available soon!</p>
               </div>
               <div className="bg-blue-500 text-white rounded-lg p-3 ml-8">
                 <p>/start</p>
