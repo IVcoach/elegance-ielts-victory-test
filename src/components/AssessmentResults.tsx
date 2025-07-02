@@ -1,11 +1,14 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
+
 interface ScoreSection {
   name: string;
   score: number;
 }
+
 interface AssessmentResultsProps {
   correctAnswers: number;
   totalQuestions: number;
@@ -17,6 +20,7 @@ interface AssessmentResultsProps {
   onRestart: () => void;
   onPractice: () => void;
 }
+
 export function AssessmentResults({
   correctAnswers,
   totalQuestions,
@@ -28,7 +32,8 @@ export function AssessmentResults({
   onRestart,
   onPractice
 }: AssessmentResultsProps) {
-  const overallScore = Math.round(correctAnswers / totalQuestions * 100);
+  const overallScore = Math.round((correctAnswers / totalQuestions) * 100);
+  
   const handleWhatsAppShare = () => {
     const text = `
 I've just completed the IELTS placement test!
@@ -41,10 +46,13 @@ My results:
 
 I'm interested in improving my score. Can you help with personalized guidance?
     `;
+    
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
-  return <div className="space-y-8 animate-fade-in bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 p-8 rounded-2xl">
+  
+  return (
+    <div className="space-y-8 animate-fade-in bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 p-8 rounded-2xl">
       <div className="text-center mb-8">
         <h1 className="text-3xl font-playfair font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 text-transparent bg-clip-text mb-2">
           Your IELTS Results
@@ -54,8 +62,8 @@ I'm interested in improving my score. Can you help with personalized guidance?
         </p>
       </div>
       
-      <Card className="w-full max-w-2xl mx-auto bg-white shadow-xl border border-purple-300 ">
-        <CardContent className="pt-6 space-y-6 px-[10px] mx-0 py-[55px] my-[44px]">
+      <Card className="w-full max-w-2xl mx-auto bg-white shadow-xl border border-purple-200">
+        <CardContent className="pt-6 space-y-6">
           <div className="text-center">
             <div className="inline-block px-5 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-bold text-2xl mb-3 shadow-lg">
               IELTS Band {ieltsBand}
@@ -103,15 +111,18 @@ I'm interested in improving my score. Can you help with personalized guidance?
           <div className="space-y-3">
             <h4 className="font-semibold text-center">Section Breakdown</h4>
             <div className="grid grid-cols-2 gap-3">
-              {sectionScores.map(section => <div key={section.name} className="p-3 border rounded-md bg-gradient-to-br from-gray-50 to-purple-50">
+              {sectionScores.map(section => (
+                <div key={section.name} className="p-3 border rounded-md bg-gradient-to-br from-gray-50 to-purple-50">
                   <div className="text-sm text-muted-foreground">{section.name}</div>
                   <div className="font-semibold">{Math.round(section.score)}%</div>
                   <div className="w-full h-1.5 bg-gray-200 rounded-full mt-1">
-                    <div className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" style={{
-                  width: `${section.score}%`
-                }} />
+                    <div 
+                      className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full" 
+                      style={{ width: `${section.score}%` }} 
+                    />
                   </div>
-                </div>)}
+                </div>
+              ))}
             </div>
           </div>
 
@@ -123,11 +134,18 @@ I'm interested in improving my score. Can you help with personalized guidance?
           </div>
           
           <div className="flex flex-col sm:flex-row gap-3 pt-4">
-            <Button variant="outline" onClick={onPractice} className="flex-1 border-purple-600 text-purple-600 hover:bg-purple-600/10 px-[10px]">
+            <Button 
+              variant="outline" 
+              className="flex-1 border-purple-600 text-purple-600 hover:bg-purple-600/10" 
+              onClick={onPractice}
+            >
               Speaking & Writing Assessment
             </Button>
             
-            <Button onClick={handleWhatsAppShare} className="flex-1 bg-green-500 hover:bg-green-600 gap-2 shadow-lg px-[10px]">
+            <Button 
+              className="flex-1 bg-green-500 hover:bg-green-600 gap-2 shadow-lg" 
+              onClick={handleWhatsAppShare}
+            >
               <span>Send your result via WhatsApp</span>
               <MessageCircle className="h-5 w-5" />
             </Button>
@@ -149,11 +167,15 @@ I'm interested in improving my score. Can you help with personalized guidance?
         </p>
         
         <div className="space-y-3">
-          <Button className="w-full bg-green-500 hover:bg-green-600 gap-2 shadow-lg" onClick={handleWhatsAppShare}>
+          <Button 
+            className="w-full bg-green-500 hover:bg-green-600 gap-2 shadow-lg" 
+            onClick={handleWhatsAppShare}
+          >
             <span>Get Free Consultation</span>
             <MessageCircle className="h-5 w-5" />
           </Button>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 }
