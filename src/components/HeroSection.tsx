@@ -118,7 +118,7 @@ export function HeroSection() {
                 {/* Overlay with credentials */}
                 <div className="absolute bottom-4 left-4 right-4 bg-black/70 backdrop-blur-sm rounded-lg p-3">
                   <p className="text-white font-bold text-sm">✨ Cambridge Certified Coach</p>
-                  <p className="text-white/90 text-xs">Over 2,000 successful students</p>
+                  <p className="text-white/90 text-xs">Over 300+  successful students</p>
                 </div>
               </div>
               
