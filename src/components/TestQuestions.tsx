@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,6 +10,9 @@ import { SessionManager } from "@/components/test/SessionManager";
 import { testQuestions, correctAnswers } from "@/components/test/TestData";
 import { useTestProgress } from "@/hooks/useTestProgress";
 import { useStarEffect } from "@/hooks/useStarEffect";
+import { LiveRegion } from "@/components/accessibility/LiveRegion";
+import { useKeyboardNavigation } from "@/hooks/useKeyboardNavigation";
+import { generateSessionId, validateSessionData } from "@/utils/security";
 
 export function TestQuestions() {
   const navigate = useNavigate();
@@ -21,6 +23,13 @@ export function TestQuestions() {
   const [startTime] = useState(Date.now());
   const [showSessionManager, setShowSessionManager] = useState(false);
   const [sessionId, setSessionId] = useState<string>('');
+  const [announceMessage, setAnnounceMessage] = useState('');
+  
+  const { containerRef } = useKeyboardNavigation({
+    enableArrowKeys: true,
+    enableEscapeKey: true,
+    onEscape: () => navigate('/test')
+  });
   
   const { 
     autoSave, 
@@ -42,7 +51,7 @@ export function TestQuestions() {
           isCompleted: false
         });
       }
-    }, 30000); // 30 seconds
+    }, 30000);
 
     return () => clearInterval(interval);
   }, [currentQuestionIndex, userAnswers, autoSave]);
@@ -52,7 +61,7 @@ export function TestQuestions() {
     const latestSessionId = localStorage.getItem('ielts_latest_session');
     if (latestSessionId) {
       const session = getSession(latestSessionId);
-      if (session && !session.isCompleted) {
+      if (session && !session.isCompleted && validateSessionData(session)) {
         setSessionId(latestSessionId);
         setCurrentQuestionIndex(session.currentQuestionIndex);
         setUserAnswers(session.userAnswers);
@@ -65,6 +74,7 @@ export function TestQuestions() {
           }
         }
         setAnswers(reconstructedAnswers);
+        setAnnounceMessage(`Resumed test at question ${session.currentQuestionIndex + 1} of ${testQuestions.length}`);
       }
     }
   }, [getSession]);
@@ -96,6 +106,7 @@ export function TestQuestions() {
     
     if (currentQuestionIndex < testQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setAnnounceMessage(`Answer recorded. Moving to question ${currentQuestionIndex + 2} of ${testQuestions.length}`);
       toast({
         title: "Answer recorded ✓",
         description: `Moving to question ${currentQuestionIndex + 2} of ${testQuestions.length}`,
@@ -120,6 +131,7 @@ export function TestQuestions() {
         isCompleted: true
       });
       
+      setAnnounceMessage(`Test completed! You answered ${correctCount} out of ${testQuestions.length} questions correctly.`);
       toast({
         title: "Test completed! 🎉",
         description: `Completed in ${completionTime} minutes. Calculating your results...`,
@@ -145,7 +157,6 @@ export function TestQuestions() {
       const newIndex = currentQuestionIndex - 1;
       setCurrentQuestionIndex(newIndex);
       
-      // Remove the last answer and update userAnswers
       const newAnswers = answers.slice(0, -1);
       const currentQuestion = testQuestions[currentQuestionIndex];
       const newUserAnswers = { ...userAnswers };
@@ -153,8 +164,8 @@ export function TestQuestions() {
       
       setAnswers(newAnswers);
       setUserAnswers(newUserAnswers);
+      setAnnounceMessage(`Moved to previous question ${newIndex + 1} of ${testQuestions.length}`);
       
-      // Save the updated state
       autoSave({
         currentQuestionIndex: newIndex,
         userAnswers: newUserAnswers,
@@ -167,6 +178,7 @@ export function TestQuestions() {
   const handleNext = () => {
     if (currentQuestionIndex < testQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setAnnounceMessage(`Moved to next question ${currentQuestionIndex + 2} of ${testQuestions.length}`);
     }
   };
 
@@ -181,25 +193,29 @@ export function TestQuestions() {
       totalQuestions: testQuestions.length,
       isCompleted: false
     });
+    setAnnounceMessage('Progress saved successfully');
   };
 
   const handleResumeSession = (resumeSessionId: string) => {
     const session = getSession(resumeSessionId);
-    if (session) {
+    if (session && validateSessionData(session)) {
       setSessionId(resumeSessionId);
       setCurrentQuestionIndex(session.currentQuestionIndex);
       setUserAnswers(session.userAnswers);
       setAnswers(Object.values(session.userAnswers));
       setShowSessionManager(false);
+      setAnnounceMessage(`Session resumed at question ${session.currentQuestionIndex + 1}`);
     }
   };
 
   const handleStartNewSession = () => {
-    setSessionId('');
+    const newSessionId = generateSessionId();
+    setSessionId(newSessionId);
     setCurrentQuestionIndex(0);
     setUserAnswers({});
     setAnswers([]);
     setShowSessionManager(false);
+    setAnnounceMessage('New test session started');
   };
 
   // Show session manager if no active session
@@ -211,12 +227,20 @@ export function TestQuestions() {
           onResumeSession={handleResumeSession}
           onStartNewSession={handleStartNewSession}
         />
+        <LiveRegion message={announceMessage} />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50">
+    <div 
+      ref={containerRef}
+      className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50"
+      role="main"
+      aria-label="IELTS Test Interface"
+    >
+      <LiveRegion message={announceMessage} priority="polite" />
+      
       {/* Mobile Progress Bar - Sticky */}
       <MobileProgressBar
         currentQuestion={currentQuestionIndex + 1}
@@ -227,11 +251,15 @@ export function TestQuestions() {
       />
       
       {/* Main Content with bottom padding for mobile navigation */}
-      <div className="pt-4 pb-24 px-4 space-y-6 max-w-4xl mx-auto">
+      <div id="main-content" className="pt-4 pb-24 px-4 space-y-6 max-w-4xl mx-auto">
         <TestHeader onTelegramResources={handleResourcesClick} />
         
         {/* Question Card - Mobile Optimized */}
-        <div className="bg-white rounded-xl shadow-lg border border-purple-100 min-h-[400px]">
+        <div 
+          className="bg-white rounded-xl shadow-lg border border-purple-100 min-h-[400px]"
+          role="region"
+          aria-label={`Question ${currentQuestionIndex + 1} of ${testQuestions.length}`}
+        >
           <QuestionCard 
             question={testQuestions[currentQuestionIndex]} 
             onAnswer={handleAnswer} 
@@ -243,10 +271,11 @@ export function TestQuestions() {
         {/* Enhanced test tips for mobile */}
         <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg border border-blue-200">
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-blue-600 font-semibold">💡 Mobile Tip:</span>
+            <span className="text-blue-600 font-semibold" role="img" aria-label="tip">💡</span>
+            <span className="text-blue-600 font-semibold">Mobile Tip:</span>
           </div>
           <p className="text-sm text-gray-700">
-            Swipe left/right to navigate, or use the navigation buttons below. Your progress is auto-saved every 30 seconds.
+            Use arrow keys or swipe to navigate between questions. Your progress is auto-saved every 30 seconds.
           </p>
         </div>
       </div>
