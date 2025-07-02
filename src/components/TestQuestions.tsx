@@ -1,13 +1,15 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
-import { TestProgressBar } from "@/components/TestProgressBar";
 import { QuestionCard } from "@/components/QuestionCard";
-import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/hooks/use-toast";
 import { TestHeader } from "@/components/test/TestHeader";
-import { TestNavigation } from "@/components/test/TestNavigation";
+import { MobileProgressBar } from "@/components/test/MobileProgressBar";
+import { MobileTestNavigation } from "@/components/test/MobileTestNavigation";
+import { SessionManager } from "@/components/test/SessionManager";
 import { testQuestions, correctAnswers } from "@/components/test/TestData";
+import { useTestProgress } from "@/hooks/useTestProgress";
 import { useStarEffect } from "@/hooks/useStarEffect";
 
 export function TestQuestions() {
@@ -17,6 +19,55 @@ export function TestQuestions() {
   const [answers, setAnswers] = useState<string[]>([]);
   const [userAnswers, setUserAnswers] = useState<{ [key: string]: string }>({});
   const [startTime] = useState(Date.now());
+  const [showSessionManager, setShowSessionManager] = useState(false);
+  const [sessionId, setSessionId] = useState<string>('');
+  
+  const { 
+    autoSave, 
+    manualSave, 
+    getSession, 
+    isAutoSaving, 
+    lastSaveTime,
+    currentSessionId 
+  } = useTestProgress(sessionId);
+
+  // Auto-save every 30 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (userAnswers && Object.keys(userAnswers).length > 0) {
+        autoSave({
+          currentQuestionIndex,
+          userAnswers,
+          totalQuestions: testQuestions.length,
+          isCompleted: false
+        });
+      }
+    }, 30000); // 30 seconds
+
+    return () => clearInterval(interval);
+  }, [currentQuestionIndex, userAnswers, autoSave]);
+
+  // Load existing session on component mount
+  useEffect(() => {
+    const latestSessionId = localStorage.getItem('ielts_latest_session');
+    if (latestSessionId) {
+      const session = getSession(latestSessionId);
+      if (session && !session.isCompleted) {
+        setSessionId(latestSessionId);
+        setCurrentQuestionIndex(session.currentQuestionIndex);
+        setUserAnswers(session.userAnswers);
+        // Reconstruct answers array from userAnswers
+        const reconstructedAnswers: string[] = [];
+        for (let i = 0; i < session.currentQuestionIndex; i++) {
+          const questionId = testQuestions[i]?.id;
+          if (questionId && session.userAnswers[questionId]) {
+            reconstructedAnswers.push(session.userAnswers[questionId]);
+          }
+        }
+        setAnswers(reconstructedAnswers);
+      }
+    }
+  }, [getSession]);
 
   const handleResourcesClick = () => {
     toast({
@@ -26,7 +77,7 @@ export function TestQuestions() {
     });
   };
 
-  // Handle user's answer with enhanced tracking
+  // Handle user's answer with enhanced saving
   const handleAnswer = (answerId: string) => {
     const currentQuestion = testQuestions[currentQuestionIndex];
     const newAnswers = [...answers, answerId];
@@ -35,12 +86,13 @@ export function TestQuestions() {
     setAnswers(newAnswers);
     setUserAnswers(newUserAnswers);
     
-    // Save progress to localStorage for persistence
-    localStorage.setItem('ielts_test_progress', JSON.stringify({
+    // Auto-save immediately after answer
+    autoSave({
       currentQuestionIndex: currentQuestionIndex + 1,
       userAnswers: newUserAnswers,
-      startTime
-    }));
+      totalQuestions: testQuestions.length,
+      isCompleted: currentQuestionIndex >= testQuestions.length - 1
+    });
     
     if (currentQuestionIndex < testQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -50,7 +102,7 @@ export function TestQuestions() {
         duration: 2000
       });
     } else {
-      // Calculate accurate score with time tracking
+      // Calculate final score and complete test
       let correctCount = 0;
       Object.keys(newUserAnswers).forEach(questionId => {
         if (correctAnswers[questionId] === newUserAnswers[questionId]) {
@@ -58,16 +110,21 @@ export function TestQuestions() {
         }
       });
       
-      const completionTime = Math.round((Date.now() - startTime) / 1000 / 60); // minutes
+      const completionTime = Math.round((Date.now() - startTime) / 1000 / 60);
+      
+      // Mark session as completed
+      autoSave({
+        currentQuestionIndex: currentQuestionIndex + 1,
+        userAnswers: newUserAnswers,
+        totalQuestions: testQuestions.length,
+        isCompleted: true
+      });
       
       toast({
         title: "Test completed! 🎉",
         description: `Completed in ${completionTime} minutes. Calculating your results...`,
         duration: 3000
       });
-      
-      // Clear saved progress
-      localStorage.removeItem('ielts_test_progress');
       
       setTimeout(() => {
         navigate('/test', { 
@@ -83,62 +140,127 @@ export function TestQuestions() {
     }
   };
 
-  const goBack = () => {
+  const handlePrevious = () => {
     if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex(currentQuestionIndex - 1);
-      // Remove the last answer
-      setAnswers(answers.slice(0, -1));
-      // Remove the last user answer
+      const newIndex = currentQuestionIndex - 1;
+      setCurrentQuestionIndex(newIndex);
+      
+      // Remove the last answer and update userAnswers
+      const newAnswers = answers.slice(0, -1);
       const currentQuestion = testQuestions[currentQuestionIndex];
       const newUserAnswers = { ...userAnswers };
       delete newUserAnswers[currentQuestion.id];
+      
+      setAnswers(newAnswers);
       setUserAnswers(newUserAnswers);
       
-      // Update saved progress
-      localStorage.setItem('ielts_test_progress', JSON.stringify({
-        currentQuestionIndex: currentQuestionIndex - 1,
+      // Save the updated state
+      autoSave({
+        currentQuestionIndex: newIndex,
         userAnswers: newUserAnswers,
-        startTime
-      }));
-    } else {
-      navigate('/test');
+        totalQuestions: testQuestions.length,
+        isCompleted: false
+      });
     }
   };
 
-  return (
-    <div className="space-y-8 max-w-4xl mx-auto bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 p-8 rounded-2xl shadow-xl">
-      <TestHeader onTelegramResources={handleResourcesClick} />
-      
-      <TestNavigation
-        currentQuestion={currentQuestionIndex + 1}
-        totalQuestions={testQuestions.length}
-        onBack={goBack}
-      />
-      
-      <TestProgressBar 
-        currentQuestion={currentQuestionIndex + 1} 
-        totalQuestions={testQuestions.length} 
-        className="mb-8" 
-        variant="fancy" 
-      />
-      
-      <div className="bg-white p-2 rounded-xl shadow-lg border border-purple-100">
-        <QuestionCard 
-          question={testQuestions[currentQuestionIndex]} 
-          onAnswer={handleAnswer} 
-          isLast={currentQuestionIndex === testQuestions.length - 1} 
+  const handleNext = () => {
+    if (currentQuestionIndex < testQuestions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    }
+  };
+
+  const handleHome = () => {
+    navigate('/test');
+  };
+
+  const handleManualSave = () => {
+    manualSave({
+      currentQuestionIndex,
+      userAnswers,
+      totalQuestions: testQuestions.length,
+      isCompleted: false
+    });
+  };
+
+  const handleResumeSession = (resumeSessionId: string) => {
+    const session = getSession(resumeSessionId);
+    if (session) {
+      setSessionId(resumeSessionId);
+      setCurrentQuestionIndex(session.currentQuestionIndex);
+      setUserAnswers(session.userAnswers);
+      setAnswers(Object.values(session.userAnswers));
+      setShowSessionManager(false);
+    }
+  };
+
+  const handleStartNewSession = () => {
+    setSessionId('');
+    setCurrentQuestionIndex(0);
+    setUserAnswers({});
+    setAnswers([]);
+    setShowSessionManager(false);
+  };
+
+  // Show session manager if no active session
+  if (showSessionManager || (!sessionId && currentQuestionIndex === 0 && Object.keys(userAnswers).length === 0)) {
+    return (
+      <div className="space-y-8 max-w-4xl mx-auto bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 p-8 rounded-2xl shadow-xl min-h-screen">
+        <TestHeader onTelegramResources={handleResourcesClick} />
+        <SessionManager 
+          onResumeSession={handleResumeSession}
+          onStartNewSession={handleStartNewSession}
         />
       </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50">
+      {/* Mobile Progress Bar - Sticky */}
+      <MobileProgressBar
+        currentQuestion={currentQuestionIndex + 1}
+        totalQuestions={testQuestions.length}
+        onSave={handleManualSave}
+        isAutoSaving={isAutoSaving}
+        lastSaveTime={lastSaveTime}
+      />
       
-      {/* Enhanced test tips */}
-      <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg border border-blue-200">
-        <div className="flex items-center gap-2 mb-2">
-          <span className="text-blue-600 font-semibold">💡 Test Tip:</span>
+      {/* Main Content with bottom padding for mobile navigation */}
+      <div className="pt-4 pb-24 px-4 space-y-6 max-w-4xl mx-auto">
+        <TestHeader onTelegramResources={handleResourcesClick} />
+        
+        {/* Question Card - Mobile Optimized */}
+        <div className="bg-white rounded-xl shadow-lg border border-purple-100 min-h-[400px]">
+          <QuestionCard 
+            question={testQuestions[currentQuestionIndex]} 
+            onAnswer={handleAnswer} 
+            isLast={currentQuestionIndex === testQuestions.length - 1}
+            className="border-0 shadow-none"
+          />
         </div>
-        <p className="text-sm text-gray-700">
-          Take your time to read each question carefully. You can always go back to previous questions.
-        </p>
+        
+        {/* Enhanced test tips for mobile */}
+        <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg border border-blue-200">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-blue-600 font-semibold">💡 Mobile Tip:</span>
+          </div>
+          <p className="text-sm text-gray-700">
+            Swipe left/right to navigate, or use the navigation buttons below. Your progress is auto-saved every 30 seconds.
+          </p>
+        </div>
       </div>
+      
+      {/* Mobile Navigation - Fixed Bottom */}
+      <MobileTestNavigation
+        currentQuestion={currentQuestionIndex + 1}
+        totalQuestions={testQuestions.length}
+        onPrevious={handlePrevious}
+        onNext={handleNext}
+        onHome={handleHome}
+        canGoBack={currentQuestionIndex > 0}
+        canGoForward={currentQuestionIndex < testQuestions.length - 1}
+      />
     </div>
   );
 }

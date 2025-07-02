@@ -16,6 +16,13 @@
     overflow-x: hidden;
     /* Smooth scrolling */
     scroll-behavior: smooth;
+    /* Mobile-specific improvements */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Disable text size adjustment on mobile */
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -122,6 +129,15 @@
     touch-action: manipulation;
   }
 
+  /* Safe area support for iOS devices */
+  .safe-area-padding-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-area-padding-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
   /* Mobile-specific improvements */
   @media (max-width: 768px) {
     /* Larger touch targets on mobile */
@@ -144,6 +160,22 @@
     textarea {
       font-size: 16px;
     }
+
+    /* Mobile keyboard handling */
+    input:focus,
+    textarea:focus,
+    select:focus {
+      /* Prevent viewport jumping on keyboard open */
+      transform: translateZ(0);
+    }
+  }
+
+  /* Landscape orientation handling */
+  @media (orientation: landscape) and (max-height: 500px) {
+    .mobile-landscape-adjust {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
   }
 
   /* Performance optimizations */
@@ -154,6 +186,11 @@
     transform: translateZ(0);
   }
 
+  /* Enhanced touch interactions */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
   /* Smooth animations with reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     * {
@@ -161,5 +198,19 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
+  }
+
+  /* Better mobile scrolling */
+  .mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+  }
+
+  /* Prevent text selection on UI elements */
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 }
