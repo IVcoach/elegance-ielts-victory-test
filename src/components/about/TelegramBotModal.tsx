@@ -1,22 +1,18 @@
-
 import React from 'react';
 import { Bot, X, Send } from "lucide-react";
-
 interface TelegramBotModalProps {
   showBotModal: boolean;
   setShowBotModal: (show: boolean) => void;
 }
-
-export const TelegramBotModal = ({ showBotModal, setShowBotModal }: TelegramBotModalProps) => {
-  return (
-    <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-all duration-300 ${showBotModal ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+export const TelegramBotModal = ({
+  showBotModal,
+  setShowBotModal
+}: TelegramBotModalProps) => {
+  return <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-all duration-300 ${showBotModal ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
       <div className={`bg-white rounded-3xl max-w-lg w-full transition-all duration-300 ${showBotModal ? 'scale-100 translate-y-0' : 'scale-95 translate-y-10'}`}>
         {/* Header */}
         <div className="relative bg-gradient-to-r from-blue-600 to-cyan-600 text-white p-6 rounded-t-3xl">
-          <button
-            onClick={() => setShowBotModal(false)}
-            className="absolute top-4 right-4 p-2 hover:bg-white/20 rounded-full transition-colors duration-200"
-          >
+          <button onClick={() => setShowBotModal(false)} className="absolute top-4 right-4 p-2 hover:bg-white/20 rounded-full transition-colors duration-200">
             <X className="w-6 h-6" />
           </button>
           
@@ -41,13 +37,13 @@ export const TelegramBotModal = ({ showBotModal, setShowBotModal }: TelegramBotM
               </div>
               <div>
                 <div className="font-semibold text-gray-900">@ieltstori_bot</div>
-                <div className="text-sm text-gray-600">Online now</div>
+                <div className="text-sm text-gray-600">Off linenow</div>
               </div>
             </div>
             
             <div className="space-y-3">
               <div className="bg-white rounded-lg p-3 shadow-sm">
-                <p className="text-gray-800">🎯 Welcome to IELTS Victory! I'm here to help you achieve your target score.</p>
+                <p className="text-gray-800">🎯 Welcome to IELTS Story! I'm here to help you achieve your target score.</p>
               </div>
               <div className="bg-blue-500 text-white rounded-lg p-3 ml-8">
                 <p>/start</p>
@@ -57,18 +53,12 @@ export const TelegramBotModal = ({ showBotModal, setShowBotModal }: TelegramBotM
 
           {/* CTA Button */}
           <div className="text-center">
-            <a
-              href="https://t.me/ieltstori_bot"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white py-4 px-6 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
-            >
+            <a href="https://t.me/ieltstori_bot" target="_blank" rel="noopener noreferrer" className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white py-4 px-6 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
               <Send className="w-5 h-5" />
               <span>Start Chat with @ieltstori_bot</span>
             </a>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
