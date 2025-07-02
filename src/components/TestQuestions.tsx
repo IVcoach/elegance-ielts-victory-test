@@ -234,7 +234,7 @@ export function TestQuestions() {
 
   return (
     <div 
-      ref={containerRef}
+      ref={containerRef as React.RefObject<HTMLDivElement>}
       className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50"
       role="main"
       aria-label="IELTS Test Interface"

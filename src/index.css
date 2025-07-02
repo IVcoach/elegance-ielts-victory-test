@@ -8,3 +8,36 @@
 @import "./styles/utilities.css";
 @import "./styles/variables.css";
 @import "./styles/accessibility.css";
+@import "./styles/mobile-design-system.css";
+
+/* Performance Optimizations for Mobile */
+@layer base {
+  html {
+    /* Improve font rendering on mobile */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    /* Prevent bouncing on iOS */
+    overscroll-behavior: none;
+    /* Improve scrolling performance */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Optimize images for mobile */
+  img {
+    /* Prevent layout shifts */
+    height: auto;
+    /* Improve loading performance */
+    loading: lazy;
+    /* Sharper images on high-DPI displays */
+    image-rendering: -webkit-optimize-contrast;
+  }
+
+  /* Optimize videos for mobile */
+  video {
+    /* Prevent autoplay on mobile to save battery */
+    preload: metadata;
+  }
+}
