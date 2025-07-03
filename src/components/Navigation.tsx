@@ -4,7 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { UserAccountMenu } from "./navigation/UserAccountMenu";
 import { ThemeToggle } from "./theme/ThemeToggle";
 import { AccessibilityMenu } from "./accessibility/AccessibilityMenu";
 import { SkipLink } from "./accessibility/SkipLink";
@@ -75,10 +74,10 @@ export function Navigation() {
             <img 
               alt="V&C Elegance Logo" 
               src="/lovable-uploads/071dc905-9d2a-40df-876b-01819844c04f.png" 
-              className="h-16 md:h-20 lg:h-24 xl:h-28 w-auto transform hover:scale-105 transition-transform object-contain" 
+              className="h-20 md:h-24 lg:h-28 xl:h-32 w-auto transform hover:scale-105 transition-transform object-contain" 
               loading="eager"
-              width="112"
-              height="112"
+              width="128"
+              height="128"
             />
           </Link>
           
@@ -108,7 +107,6 @@ export function Navigation() {
           <div className="hidden md:flex items-center gap-4">
             <AccessibilityMenu />
             <ThemeToggle />
-            <UserAccountMenu />
           </div>
           
           {/* Mobile Menu Button */}
@@ -168,7 +166,6 @@ export function Navigation() {
             <div className="flex items-center justify-between pt-4 border-t border-gray-200">
               <AccessibilityMenu />
               <ThemeToggle />
-              <UserAccountMenu />
             </div>
           </div>
         </div>

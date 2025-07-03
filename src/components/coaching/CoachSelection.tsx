@@ -72,6 +72,10 @@ export function CoachSelection({ sessionType, onSelect, onBack }: CoachSelection
     }
   };
 
+  const handleCoachSelect = (coach: Coach) => {
+    onSelect(coach);
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -81,7 +85,7 @@ export function CoachSelection({ sessionType, onSelect, onBack }: CoachSelection
           className="flex items-center gap-2"
         >
           <ArrowLeft size={16} />
-          Back
+          Back to Session Types
         </Button>
         
         <div className="text-center">
@@ -93,7 +97,7 @@ export function CoachSelection({ sessionType, onSelect, onBack }: CoachSelection
           </p>
         </div>
         
-        <div className="w-20" /> {/* Spacer for centering */}
+        <div className="w-40" /> {/* Spacer for centering */}
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -159,7 +163,7 @@ export function CoachSelection({ sessionType, onSelect, onBack }: CoachSelection
                 
                 <Button 
                   className="w-full bg-gradient-to-r from-[#0A3D62] to-[#0A3D62]/80 hover:from-[#0A3D62]/90 hover:to-[#0A3D62] transition-all duration-200 group-hover:scale-105"
-                  onClick={() => onSelect(coach)}
+                  onClick={() => handleCoachSelect(coach)}
                 >
                   Select Coach
                   <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -175,6 +179,13 @@ export function CoachSelection({ sessionType, onSelect, onBack }: CoachSelection
           <p className="text-gray-500">
             No coaches available for {sessionType} sessions at the moment.
           </p>
+          <Button
+            variant="outline"
+            onClick={onBack}
+            className="mt-4"
+          >
+            Try Different Session Type
+          </Button>
         </div>
       )}
     </div>

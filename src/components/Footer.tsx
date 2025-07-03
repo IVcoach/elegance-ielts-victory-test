@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Award, Users, CheckCircle, Globe, Heart, Star, Trophy } from "lucide-react";
+import { MapPin, Phone, Mail, Award, Users, CheckCircle, Star, Trophy } from "lucide-react";
 
 export function Footer() {
   return (
@@ -92,106 +92,6 @@ export function Footer() {
                   Confidence Building
                 </li>
               </ul>
-            </div>
-          </div>
-
-          {/* Partnership Section */}
-          <div className="bg-white rounded-3xl shadow-2xl p-10 mb-16 border-2 border-pink-100">
-            <div className="text-center mb-10">
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <Heart className="h-8 w-8 text-pink-600" />
-                <h3 className="text-4xl font-bold text-gray-900">Our Trusted Partners</h3>
-                <Heart className="h-8 w-8 text-pink-600" />
-              </div>
-              <p className="text-xl text-gray-700 font-semibold">
-                V&C Elegance proudly collaborates with leading institutions and certified mentors
-              </p>
-            </div>
-
-            {/* Partner Institutions */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-2xl border border-blue-200">
-                <h4 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                  <Globe className="h-6 w-6 text-blue-600" />
-                  International Partnerships
-                </h4>
-                <ul className="space-y-3 text-lg text-gray-700">
-                  <li className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-green-600" />
-                    British Council Netherlands
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-green-600" />
-                    International English Language Centre (IELC), Amsterdam
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-green-600" />
-                    Amsterdam Language Institute (ALI)
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-8 rounded-2xl border border-purple-200">
-                <h4 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-                  <Award className="h-6 w-6 text-purple-600" />
-                  Certifications & Standards
-                </h4>
-                <ul className="space-y-3 text-lg text-gray-700">
-                  <li className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-green-600" />
-                    Cambridge University CERF Certified
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-green-600" />
-                    IDP Education Protocols Verified
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <CheckCircle className="h-5 w-5 text-green-600" />
-                    5+ Years Excellence Record
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Partner Logos */}
-            <div className="text-center">
-              <p className="text-lg text-gray-700 mb-6 font-semibold">
-                Trusted by leading educational institutions worldwide
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div className="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-xl shadow-lg border-2 border-red-200 transform hover:scale-105 transition-all">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-red-600 rounded-full mx-auto mb-3 flex items-center justify-center">
-                      <span className="text-white font-bold text-xl">BC</span>
-                    </div>
-                    <span className="text-lg font-bold text-gray-800">British Council</span>
-                  </div>
-                </div>
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl shadow-lg border-2 border-blue-200 transform hover:scale-105 transition-all">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-3 flex items-center justify-center">
-                      <span className="text-white font-bold text-xl">IDP</span>
-                    </div>
-                    <span className="text-lg font-bold text-gray-800">IDP Education</span>
-                  </div>
-                </div>
-                <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl shadow-lg border-2 border-green-200 transform hover:scale-105 transition-all">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-green-600 rounded-full mx-auto mb-3 flex items-center justify-center">
-                      <span className="text-white font-bold text-lg">IELC</span>
-                    </div>
-                    <span className="text-lg font-bold text-gray-800">IELC Amsterdam</span>
-                  </div>
-                </div>
-                <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl shadow-lg border-2 border-purple-200 transform hover:scale-105 transition-all">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-purple-600 rounded-full mx-auto mb-3 flex items-center justify-center">
-                      <span className="text-white font-bold text-xl">ALI</span>
-                    </div>
-                    <span className="text-lg font-bold text-gray-800">ALI</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
           
