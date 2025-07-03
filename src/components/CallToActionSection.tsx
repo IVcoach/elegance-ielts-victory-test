@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Send, CheckCircle, Clock, Users, Award } from "lucide-react";
+import { MessageCircle, Send, Users, Award } from "lucide-react";
 import { useStarEffect } from "@/hooks/useStarEffect";
 
 export function CallToActionSection() {
@@ -31,57 +31,30 @@ export function CallToActionSection() {
       </div>
 
       <div className="container mx-auto max-w-4xl relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 bg-gradient-to-r from-orange-600 to-amber-700 bg-clip-text text-transparent">
-            Ready to Achieve Your IELTS Goals?
-          </h2>
-          <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-            Join hundreds of successful students who achieved their target scores with our expert coaching
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div className="text-center p-6 bg-white rounded-xl shadow-lg border-2 border-orange-200 transform hover:scale-105 transition-all">
-            <CheckCircle className="h-12 w-12 text-orange-600 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Personalized Coaching</h3>
-            <p className="text-gray-600">Tailored learning plans based on your current level and goals</p>
-          </div>
-          
-          <div className="text-center p-6 bg-white rounded-xl shadow-lg border-2 border-amber-200 transform hover:scale-105 transition-all">
-            <Clock className="h-12 w-12 text-amber-600 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Flexible Schedule</h3>
-            <p className="text-gray-600">Learn at your own pace with 24/7 support available</p>
-          </div>
-          
-          <div className="text-center p-6 bg-white rounded-xl shadow-lg border-2 border-orange-200 transform hover:scale-105 transition-all">
-            <Award className="h-12 w-12 text-orange-600 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Proven Results</h3>
-            <p className="text-gray-600">90% of our students achieve their target score</p>
-          </div>
-        </div>
-
-        <div className="text-center space-y-6">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="text-center space-y-8">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button 
               onClick={handleWhatsAppContact}
               size="lg" 
-              className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold text-lg shadow-xl transform hover:scale-105 transition-all flex items-center gap-3 px-8 py-4"
+              className="group relative overflow-hidden bg-gradient-to-r from-emerald-500 via-green-600 to-teal-600 hover:from-emerald-600 hover:via-green-700 hover:to-teal-700 text-white font-bold text-xl shadow-2xl transform hover:scale-110 transition-all duration-300 flex items-center gap-4 px-10 py-6 rounded-2xl border-4 border-white/20 backdrop-blur-sm min-h-[70px]"
             >
-              <MessageCircle className="h-6 w-6" />
-              Get Expert Consultation
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+              <MessageCircle className="h-8 w-8 drop-shadow-lg" />
+              <span className="relative z-10 drop-shadow-lg">💬 Expert Consultation</span>
             </Button>
             
             <Button 
               onClick={handleTelegramJoin}
               size="lg" 
-              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold text-lg shadow-xl transform hover:scale-105 transition-all flex items-center gap-3 px-8 py-4"
+              className="group relative overflow-hidden bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 hover:from-blue-600 hover:via-indigo-700 hover:to-purple-700 text-white font-bold text-xl shadow-2xl transform hover:scale-110 transition-all duration-300 flex items-center gap-4 px-10 py-6 rounded-2xl border-4 border-white/20 backdrop-blur-sm min-h-[70px]"
             >
-              <Send className="h-6 w-6" />
-              Join Study Community
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+              <Send className="h-8 w-8 drop-shadow-lg" />
+              <span className="relative z-10 drop-shadow-lg">📚 Study Community</span>
             </Button>
           </div>
           
-          <p className="text-sm text-gray-600 italic">
+          <p className="text-lg text-gray-700 font-semibold italic bg-white/80 backdrop-blur-sm px-6 py-3 rounded-xl shadow-lg border border-orange-200 max-w-2xl mx-auto">
             Start your IELTS success journey today with V&C Elegance
           </p>
         </div>

@@ -23,7 +23,7 @@ export function UserAccountMenu({
 
   // Mock user data if none provided
   const currentUser = user || {
-    name: "IELTS Student",
+    name: "Student",
     email: "student@example.com",
     level: "Intermediate B2"
   };

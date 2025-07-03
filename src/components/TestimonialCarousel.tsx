@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
-// Enhanced student success stories with more from Turkey, Germany, and Canada
+// Enhanced student success stories with more diverse backgrounds
 const studentTestimonials = [
   {
     name: "Diana",
@@ -67,6 +67,54 @@ const studentTestimonials = [
     achievement: "University transfer successful",
     photo: "/placeholder.svg",
     quote: "The coaching methodology at V&C Elegance is exceptional. I achieved Band 7 and successfully transferred to my dream university program."
+  },
+  {
+    name: "Ahmed",
+    country: "Egypt",
+    score: "Band 7.5",
+    achievement: "Medical residency in UK",
+    photo: "/placeholder.svg",
+    quote: "The intensive preparation program helped me achieve Band 7.5 for my medical residency application in the UK. Excellent coaching!"
+  },
+  {
+    name: "Priya",
+    country: "India",
+    score: "Band 8",
+    achievement: "Engineering Master's in Germany",
+    photo: "/placeholder.svg",
+    quote: "V&C Elegance's systematic approach and mock tests helped me achieve Band 8. Now pursuing my Master's in Engineering in Munich!"
+  },
+  {
+    name: "Carlos",
+    country: "Brazil",
+    score: "Band 7",
+    achievement: "Business degree in Netherlands",
+    photo: "/placeholder.svg",
+    quote: "The personalized feedback and speaking practice sessions were invaluable. Achieved Band 7 and got admitted to my business program!"
+  },
+  {
+    name: "Yuki",
+    country: "Japan",
+    score: "Band 7.5",
+    achievement: "Research position in UK",
+    photo: "/placeholder.svg",
+    quote: "The writing workshops and individual coaching helped me overcome my challenges. Now working as a researcher in London!"
+  },
+  {
+    name: "Maria",
+    country: "Spain",
+    score: "Band 7",
+    achievement: "Teaching position in Ireland",
+    photo: "/placeholder.svg",
+    quote: "V&C Elegance's comprehensive approach to all four skills helped me achieve my target score and secure my teaching position."
+  },
+  {
+    name: "Ali",
+    country: "Pakistan",
+    score: "Band 7.5",
+    achievement: "Immigration to Australia",
+    photo: "/placeholder.svg",
+    quote: "The expert guidance and structured learning plan helped me achieve Band 7.5. Successfully immigrated to Australia with my family!"
   },
   {
     name: "Liam",
