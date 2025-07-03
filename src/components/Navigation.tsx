@@ -4,7 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { SearchBar } from "./navigation/SearchBar";
 import { UserAccountMenu } from "./navigation/UserAccountMenu";
 import { ThemeToggle } from "./theme/ThemeToggle";
 import { AccessibilityMenu } from "./accessibility/AccessibilityMenu";
@@ -71,15 +70,15 @@ export function Navigation() {
           <Link 
             to="/" 
             className="flex items-center gap-2 md:gap-4 focus:outline-none focus:ring-2 focus:ring-[#0A3D62] focus:ring-offset-2 rounded-md"
-            aria-label="IELTS Victory - Go to homepage"
+            aria-label="V&C Elegance - Go to homepage"
           >
             <img 
-              alt="IELTS Victory Logo" 
+              alt="V&C Elegance Logo" 
               src="/lovable-uploads/071dc905-9d2a-40df-876b-01819844c04f.png" 
-              className="h-12 md:h-16 lg:h-20 w-auto transform hover:scale-105 transition-transform object-contain" 
+              className="h-16 md:h-20 lg:h-24 xl:h-28 w-auto transform hover:scale-105 transition-transform object-contain" 
               loading="eager"
-              width="80"
-              height="80"
+              width="112"
+              height="112"
             />
           </Link>
           
@@ -107,7 +106,6 @@ export function Navigation() {
 
           {/* Desktop Controls */}
           <div className="hidden md:flex items-center gap-4">
-            <SearchBar className="w-64 lg:w-80" />
             <AccessibilityMenu />
             <ThemeToggle />
             <UserAccountMenu />
@@ -142,12 +140,6 @@ export function Navigation() {
           aria-label="Mobile navigation menu"
         >
           <div className="container mx-auto px-4 py-6 space-y-4">
-            {/* Mobile Search */}
-            <SearchBar 
-              className="w-full"
-              onResultSelect={handleMenuClose}
-            />
-            
             {/* Mobile Navigation Links */}
             <div className="flex flex-col gap-2" role="none">
               {navItems.map(item => (

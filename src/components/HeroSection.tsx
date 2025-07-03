@@ -1,20 +1,26 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Award, Trophy, Send, CheckCircle, MessageCircle, Users, Globe } from "lucide-react";
 import { useStarEffect } from "@/hooks/useStarEffect";
+
 export function HeroSection() {
   const createStarEffect = useStarEffect();
+
   const handleTelegramResources = (e: React.MouseEvent) => {
     createStarEffect(e);
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
+
   const handleWhatsAppContact = (e: React.MouseEvent) => {
     createStarEffect(e);
     const text = "Hello! I'm interested in IELTS coaching and would like more information about your programs.";
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
-  return <section className="hero-gradient pt-24 pb-16 px-6 md:pt-32 md:pb-24 relative overflow-hidden">
+
+  return (
+    <section className="hero-gradient pt-24 pb-16 px-6 md:pt-32 md:pb-24 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 animate-pulse">
@@ -33,7 +39,7 @@ export function HeroSection() {
           <div className="animate-fade-in order-2 lg:order-1 text-center lg:text-left">
             {/* Main Heading */}
             <div className="mb-8">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight mb-6 mx-0 my-[60px]">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight mb-6">
                 Professional IELTS Coaching
                 <br />
                 <span className="text-3xl md:text-4xl lg:text-5xl text-orange-700 bg-gradient-to-r from-orange-600 to-amber-700 bg-clip-text text-transparent">
@@ -70,22 +76,38 @@ export function HeroSection() {
               </div>
             </div>
             
-            {/* Action Buttons */}
+            {/* Action Buttons - Enhanced for mobile and desktop */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
-              <Button asChild size="lg" className="professional-button text-lg py-4 px-8 shadow-xl transform hover:scale-105 transition-all duration-300">
-                <Link to="/test" onClick={createStarEffect} className="whitespace-nowrap my-0 py-0 px-[130px] mx-0">
-                  🎯 Start Free Assessment
+              <Button 
+                asChild 
+                size="lg" 
+                className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white font-bold text-lg py-6 px-8 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-orange-400 min-h-[60px] w-full sm:w-auto"
+              >
+                <Link 
+                  to="/test" 
+                  onClick={createStarEffect} 
+                  className="flex items-center justify-center gap-3 whitespace-nowrap"
+                >
+                  🎯 <span className="font-black">Start Free Assessment</span>
                 </Link>
               </Button>
               
-              <Button onClick={handleTelegramResources} size="lg" className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold shadow-xl transform hover:scale-105 transition-all flex items-center gap-2 py-0 text-left px-[94px]">
-                <Send className="h-5 w-5" />
-                📚 Study Community
+              <Button 
+                onClick={handleTelegramResources} 
+                size="lg" 
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-lg py-6 px-8 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-400 min-h-[60px] w-full sm:w-auto"
+              >
+                <Send className="h-6 w-6 mr-2" />
+                📚 <span className="font-black">Study Community</span>
               </Button>
               
-              <Button onClick={handleWhatsAppContact} size="lg" className="bg-gradient-to-r from-amber-600 to-orange-700 hover:from-amber-700 hover:to-orange-800 text-white font-bold shadow-xl transform hover:scale-105 transition-all flex items-center gap-2 py-[16px] px-[84px]">
-                <MessageCircle className="h-5 w-5" />
-                💬 Expert Advice
+              <Button 
+                onClick={handleWhatsAppContact} 
+                size="lg" 
+                className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-bold text-lg py-6 px-8 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-green-400 min-h-[60px] w-full sm:w-auto"
+              >
+                <MessageCircle className="h-6 w-6 mr-2" />
+                💬 <span className="font-black">Expert Advice</span>
               </Button>
             </div>
             
@@ -118,7 +140,7 @@ export function HeroSection() {
                 {/* Overlay with credentials */}
                 <div className="absolute bottom-4 left-4 right-4 bg-black/70 backdrop-blur-sm rounded-lg p-3">
                   <p className="text-white font-bold text-sm">✨ Cambridge Certified Coach</p>
-                  <p className="text-white/90 text-xs">Over 300+  successful students</p>
+                  <p className="text-white/90 text-xs">Over 300+ successful students</p>
                 </div>
               </div>
               
@@ -138,5 +160,6 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }

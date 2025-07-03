@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
-// Student success stories with diverse coaching satisfaction quotes
+// Enhanced student success stories with more from Turkey, Germany, and Canada
 const studentTestimonials = [
   {
     name: "Diana",
@@ -18,7 +18,55 @@ const studentTestimonials = [
     score: "Band 7",
     achievement: "Successfully admitted to graduate program",
     photo: "/placeholder.svg",
-    quote: "The innovative teaching methods and regular feedback from IELTS Victory coaches made all the difference in my preparation."
+    quote: "V&C Elegance's innovative teaching methods and regular feedback made all the difference in my preparation. I achieved Band 7 in just 8 weeks!"
+  },
+  {
+    name: "Fatih",
+    country: "Turkey",
+    score: "Band 7.5",
+    achievement: "Now residing in Germany",
+    photo: "/placeholder.svg",
+    quote: "The comprehensive coaching approach helped me achieve Band 7.5 and secure my dream job in Berlin. The speaking practice sessions were incredibly effective."
+  },
+  {
+    name: "Elif",
+    country: "Turkey",
+    score: "Band 7",
+    achievement: "Immigration to Canada successful",
+    photo: "/placeholder.svg",
+    quote: "Thanks to V&C Elegance's expert guidance, I achieved Band 7 and successfully immigrated to Canada. The writing improvement techniques were game-changing."
+  },
+  {
+    name: "Klaus",
+    country: "Germany",
+    score: "Band 7.5",
+    achievement: "PhD program acceptance",
+    photo: "/placeholder.svg",
+    quote: "As a German speaker, I struggled with IELTS initially. V&C Elegance's personalized approach helped me achieve Band 7.5 for my PhD application."
+  },
+  {
+    name: "Anna",
+    country: "Germany",
+    score: "Band 7",
+    achievement: "Master's program in Australia",
+    photo: "/placeholder.svg",
+    quote: "The structured learning path and dedicated mentors helped me achieve Band 7. I'm now pursuing my Master's degree in Melbourne!"
+  },
+  {
+    name: "David",
+    country: "Canada",
+    score: "Band 7.5",
+    achievement: "Career advancement opportunity",
+    photo: "/placeholder.svg",
+    quote: "Living in Canada, I needed IELTS for career advancement. V&C Elegance's flexible scheduling and expert coaching helped me achieve Band 7.5."
+  },
+  {
+    name: "Sarah",
+    country: "Canada",
+    score: "Band 7",
+    achievement: "University transfer successful",
+    photo: "/placeholder.svg",
+    quote: "The coaching methodology at V&C Elegance is exceptional. I achieved Band 7 and successfully transferred to my dream university program."
   },
   {
     name: "Liam",
@@ -34,47 +82,15 @@ const studentTestimonials = [
     score: "Band 7",
     achievement: "IELTS General for immigration",
     photo: "/placeholder.svg",
-    quote: "The structured learning path and dedicated mentors at IELTS Victory addressed my specific needs perfectly."
+    quote: "The structured learning path and dedicated mentors at V&C Elegance addressed my specific needs perfectly."
   },
   {
-    name: "Shahin",
+    name: "Nasrin",
     country: "Iran",
-    score: "Band 6.5",
-    achievement: "Pursuing further education",
+    score: "Band 8",
+    achievement: "Got scholarship and now living in Scotland",
     photo: "/placeholder.svg",
-    quote: "I was amazed by the customized coaching methodology. The mentoring sessions were focused and incredibly effective."
-  },
-  {
-    name: "Bahar",
-    country: "Iran",
-    score: "Band 7",
-    achievement: "Now residing in London",
-    photo: "/placeholder.svg",
-    quote: "The unique teaching strategies and constant support from IELTS Victory coaches helped me fix my weaknesses quickly."
-  },
-  {
-    name: "Maral",
-    country: "Iran",
-    score: "Band 7",
-    achievement: "Academic advancement",
-    photo: "/placeholder.svg",
-    quote: "The personalized attention and proven techniques were game-changers. I felt confident and well-prepared for the exam."
-  },
-  {
-    name: "Parham",
-    country: "Iran",
-    score: "Band 6.5",
-    achievement: "Now residing in Germany",
-    photo: "/placeholder.svg",
-    quote: "The mentoring approach is exceptional. The coaches helped me understand exactly what I needed to improve."
-  },
-  {
-    name: "Mohammad",
-    country: "Iran",
-    score: "Band 7",
-    achievement: "Now residing in the US",
-    photo: "/placeholder.svg",
-    quote: "The specialized coaching techniques and regular practice sessions made my preparation so much more efficient and targeted."
+    quote: "The expert guidance and personalized coaching at V&C Elegance helped me achieve Band 8 and secure my scholarship to Scotland."
   },
   {
     name: "Artin",
@@ -83,22 +99,6 @@ const studentTestimonials = [
     achievement: "Now residing in Canada",
     photo: "/placeholder.svg",
     quote: "I'm grateful for the unique teaching methodology and expert guidance. The coaches exceeded my expectations."
-  },
-  {
-    name: "Fatih",
-    country: "Turkey",
-    score: "Band 7",
-    achievement: "Now residing in Germany",
-    photo: "/placeholder.svg",
-    quote: "The combination of proven strategies and personalized coaching is brilliant. I achieved my target score with confidence!"
-  },
-  {
-    name: "Nasrin",
-    country: "Iran",
-    score: "Band 8",
-    achievement: "Got scholarship and now living in Scotland",
-    photo: "/placeholder.svg",
-    quote: "The expert guidance and personalized coaching at IELTS Victory helped me achieve Band 8 and secure my scholarship to Scotland."
   }
 ];
 
