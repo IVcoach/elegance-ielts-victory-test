@@ -78,12 +78,12 @@ export function HeroSection() {
                 </Link>
               </Button>
               
-              <Button onClick={handleTelegramResources} size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-lg py-6 px-8 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-400 min-h-[60px] w-full sm:w-auto">
+              <Button onClick={handleTelegramResources} size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-lg py-6 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-400 min-h-[60px] w-full sm:w-auto px-[72px]">
                 <Send className="h-6 w-6 mr-2" />
-                📚 <span className="font-black">Study Community</span>
+                📚 <span className="font-black text-left">Study Community</span>
               </Button>
               
-              <Button onClick={handleWhatsAppContact} size="lg" className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-bold text-lg py-6 px-8 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-green-400 min-h-[60px] w-full sm:w-auto">
+              <Button onClick={handleWhatsAppContact} size="lg" className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-bold text-lg py-6 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-green-400 min-h-[60px] w-full sm:w-auto px-[82px]">
                 <MessageCircle className="h-6 w-6 mr-2" />
                 💬 <span className="font-black">Expert Advice</span>
               </Button>
