@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Award, Users, CheckCircle, Star, Trophy } from "lucide-react";
+import { Phone, Mail, Award, Users, CheckCircle, Star, Trophy } from "lucide-react";
 
 export function Footer() {
   return (
@@ -32,81 +32,65 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl border-2 border-blue-200 transform hover:scale-105 transition-all">
-              <Trophy className="h-12 w-12 text-blue-600 mb-4" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">IELTS Coaching</h3>
-              <p className="text-lg text-gray-700 mb-4">Comprehensive preparation for all four skills</p>
-              <ul className="space-y-2 text-gray-700">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  Academic & General Training
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  Speaking & Writing Focus
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  Mock Tests & Feedback
-                </li>
-              </ul>
+          {/* Services Summary */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-2xl border-2 border-blue-200 transform hover:scale-105 transition-all text-center">
+              <Trophy className="h-12 w-12 text-blue-600 mb-4 mx-auto" />
+              <h3 className="text-xl font-bold text-gray-900 mb-3">IELTS Coaching</h3>
+              <p className="text-gray-700">Comprehensive preparation for Academic & General Training with expert guidance and mock tests.</p>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl border-2 border-green-200 transform hover:scale-105 transition-all">
-              <Users className="h-12 w-12 text-green-600 mb-4" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Live Coaching</h3>
-              <p className="text-lg text-gray-700 mb-4">One-on-one sessions with expert instructors</p>
-              <ul className="space-y-2 text-gray-700">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  Personalized Learning Plans
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  Flexible Scheduling
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  Progress Tracking
-                </li>
-              </ul>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl border-2 border-green-200 transform hover:scale-105 transition-all text-center">
+              <Users className="h-12 w-12 text-green-600 mb-4 mx-auto" />
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Live Coaching</h3>
+              <p className="text-gray-700">Personalized one-on-one sessions with flexible scheduling and progress tracking.</p>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl border-2 border-purple-200 transform hover:scale-105 transition-all">
-              <Star className="h-12 w-12 text-purple-600 mb-4" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Job Interview Prep</h3>
-              <p className="text-lg text-gray-700 mb-4">Professional interview coaching</p>
-              <ul className="space-y-2 text-gray-700">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  Mock Interviews
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  Communication Skills
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-green-600" />
-                  Confidence Building
-                </li>
-              </ul>
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-2xl border-2 border-purple-200 transform hover:scale-105 transition-all text-center">
+              <Star className="h-12 w-12 text-purple-600 mb-4 mx-auto" />
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Job Interview Prep</h3>
+              <p className="text-gray-700">Professional interview coaching with mock interviews and confidence building.</p>
+            </div>
+          </div>
+
+          {/* Partnership Information */}
+          <div className="text-center bg-gradient-to-r from-blue-50 to-indigo-50 p-10 rounded-2xl border-2 border-blue-200 mb-16">
+            <h3 className="text-3xl font-bold text-gray-900 mb-6">Our Partnerships</h3>
+            <p className="text-xl text-gray-700 mb-8 font-medium">
+              V&C Elegance proudly cooperates with experienced mentors and IELTS coaches from leading institutions
+            </p>
+            
+            {/* Partner Logos */}
+            <div className="flex flex-wrap justify-center items-center gap-8 mb-8">
+              <div className="bg-white p-4 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
+                <div className="text-center">
+                  <div className="text-blue-600 font-bold text-lg mb-2">🇬🇧 British Council</div>
+                  <div className="text-sm text-gray-600">Netherlands</div>
+                </div>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
+                <div className="text-center">
+                  <div className="text-green-600 font-bold text-lg mb-2">🌍 IELC</div>
+                  <div className="text-sm text-gray-600">Amsterdam</div>
+                </div>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
+                <div className="text-center">
+                  <div className="text-purple-600 font-bold text-lg mb-2">🎓 ALI</div>
+                  <div className="text-sm text-gray-600">Amsterdam</div>
+                </div>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
+                <div className="text-center">
+                  <div className="text-red-600 font-bold text-lg mb-2">🏆 IDP</div>
+                  <div className="text-sm text-gray-600">Education</div>
+                </div>
+              </div>
             </div>
           </div>
           
           {/* Contact Information Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-16">
-            {/* Location */}
-            <div className="text-center bg-white p-8 rounded-2xl shadow-xl border-2 border-gray-200 transform hover:scale-105 transition-all">
-              <div className="flex items-center gap-3 mb-4 justify-center">
-                <MapPin className="h-8 w-8 text-pink-600" />
-                <span className="text-gray-900 font-bold text-2xl">Our Location</span>
-              </div>
-              <p className="text-gray-700 font-semibold mb-3 text-xl">🇳🇱 Amsterdam, The Netherlands</p>
-              <p className="text-lg text-gray-600">Serving students globally from our European headquarters</p>
-            </div>
-
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
             {/* WhatsApp Support */}
             <div className="text-center bg-white p-8 rounded-2xl shadow-xl border-2 border-gray-200 transform hover:scale-105 transition-all">
               <div className="flex items-center gap-3 mb-4 justify-center">
@@ -125,7 +109,7 @@ export function Footer() {
             </div>
             
             {/* Email Support */}
-            <div className="text-center bg-white p-8 rounded-2xl shadow-xl border-2 border-gray-200 transform hover:scale-105 transition-all md:col-span-2 lg:col-span-1">
+            <div className="text-center bg-white p-8 rounded-2xl shadow-xl border-2 border-gray-200 transform hover:scale-105 transition-all">
               <div className="flex items-center gap-3 mb-4 justify-center">
                 <Mail className="h-8 w-8 text-blue-600" />
                 <span className="text-gray-900 font-bold text-2xl">Email Support</span>

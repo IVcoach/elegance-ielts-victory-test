@@ -1,20 +1,26 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Award, Trophy, Send, CheckCircle, MessageCircle, Users, Globe } from "lucide-react";
 import { useStarEffect } from "@/hooks/useStarEffect";
+
 export function HeroSection() {
   const createStarEffect = useStarEffect();
+
   const handleTelegramResources = (e: React.MouseEvent) => {
     createStarEffect(e);
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
+
   const handleWhatsAppContact = (e: React.MouseEvent) => {
     createStarEffect(e);
     const text = "Hello! I'm interested in IELTS coaching and would like more information about your programs.";
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
-  return <section className="hero-gradient pt-24 pb-16 px-6 md:pt-32 md:pb-24 relative overflow-hidden">
+
+  return (
+    <section className="hero-gradient pt-24 pb-16 px-6 md:pt-32 md:pb-24 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 animate-pulse">
@@ -70,22 +76,23 @@ export function HeroSection() {
               </div>
             </div>
             
-            {/* Action Buttons - Enhanced for mobile and desktop */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
-              <Button asChild size="lg" className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white font-bold text-lg py-6 px-8 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-orange-400 min-h-[60px] w-full sm:w-auto">
-                <Link to="/test" onClick={createStarEffect} className="flex items-center justify-center gap-3 whitespace-nowrap">
-                  🎯 <span className="font-black">Start Free Assessment</span>
+            {/* Redesigned Action Buttons */}
+            <div className="flex flex-col gap-4 mb-8 max-w-md mx-auto lg:mx-0">
+              <Button asChild size="lg" className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white font-bold text-lg py-6 px-8 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-orange-400 min-h-[60px] w-full">
+                <Link to="/test" onClick={createStarEffect} className="flex items-center justify-center gap-3">
+                  <span className="text-2xl">🎯</span>
+                  <span className="font-black text-center">Start Free Assessment</span>
                 </Link>
               </Button>
               
-              <Button onClick={handleTelegramResources} size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-lg py-6 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-400 min-h-[60px] w-full sm:w-auto px-[72px]">
-                <Send className="h-6 w-6 mr-2" />
-                📚 <span className="font-black text-left">Study Community</span>
+              <Button onClick={handleTelegramResources} size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-lg py-6 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-400 min-h-[60px] w-full">
+                <span className="text-2xl mr-2">📚</span>
+                <span className="font-black text-center">Study Community</span>
               </Button>
               
-              <Button onClick={handleWhatsAppContact} size="lg" className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-bold text-lg py-6 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-green-400 min-h-[60px] w-full sm:w-auto px-[82px]">
-                <MessageCircle className="h-6 w-6 mr-2" />
-                💬 <span className="font-black">Expert Advice</span>
+              <Button onClick={handleWhatsAppContact} size="lg" className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-bold text-lg py-6 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-green-400 min-h-[60px] w-full">
+                <span className="text-2xl mr-2">💬</span>
+                <span className="font-black text-center">Expert Advice</span>
               </Button>
             </div>
             
@@ -138,5 +145,6 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
