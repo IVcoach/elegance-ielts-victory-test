@@ -1,26 +1,20 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Award, Trophy, Send, CheckCircle, MessageCircle, Users, Globe } from "lucide-react";
 import { useStarEffect } from "@/hooks/useStarEffect";
-
 export function HeroSection() {
   const createStarEffect = useStarEffect();
-
   const handleTelegramResources = (e: React.MouseEvent) => {
     createStarEffect(e);
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
-
   const handleWhatsAppContact = (e: React.MouseEvent) => {
     createStarEffect(e);
     const text = "Hello! I'm interested in IELTS coaching and would like more information about your programs.";
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
-
-  return (
-    <section className="hero-gradient pt-24 pb-16 px-6 md:pt-32 md:pb-24 relative overflow-hidden">
+  return <section className="hero-gradient pt-24 pb-16 px-6 md:pt-32 md:pb-24 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 animate-pulse">
@@ -34,12 +28,12 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="container mx-auto max-w-7xl relative z-10">
+      <div className="container mx-auto max-w-7xl relative z-10 rounded-lg">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="animate-fade-in order-2 lg:order-1 text-center lg:text-left">
             {/* Main Heading */}
             <div className="mb-8">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6 py-0 my-[50px] xl:text-5xl text-center">
                 Professional IELTS Coaching
                 <br />
                 <span className="text-3xl md:text-4xl lg:text-5xl text-orange-700 bg-gradient-to-r from-orange-600 to-amber-700 bg-clip-text text-transparent">
@@ -78,34 +72,18 @@ export function HeroSection() {
             
             {/* Action Buttons - Enhanced for mobile and desktop */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
-              <Button 
-                asChild 
-                size="lg" 
-                className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white font-bold text-lg py-6 px-8 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-orange-400 min-h-[60px] w-full sm:w-auto"
-              >
-                <Link 
-                  to="/test" 
-                  onClick={createStarEffect} 
-                  className="flex items-center justify-center gap-3 whitespace-nowrap"
-                >
+              <Button asChild size="lg" className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white font-bold text-lg py-6 px-8 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-orange-400 min-h-[60px] w-full sm:w-auto">
+                <Link to="/test" onClick={createStarEffect} className="flex items-center justify-center gap-3 whitespace-nowrap">
                   🎯 <span className="font-black">Start Free Assessment</span>
                 </Link>
               </Button>
               
-              <Button 
-                onClick={handleTelegramResources} 
-                size="lg" 
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-lg py-6 px-8 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-400 min-h-[60px] w-full sm:w-auto"
-              >
+              <Button onClick={handleTelegramResources} size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-lg py-6 px-8 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-400 min-h-[60px] w-full sm:w-auto">
                 <Send className="h-6 w-6 mr-2" />
                 📚 <span className="font-black">Study Community</span>
               </Button>
               
-              <Button 
-                onClick={handleWhatsAppContact} 
-                size="lg" 
-                className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-bold text-lg py-6 px-8 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-green-400 min-h-[60px] w-full sm:w-auto"
-              >
+              <Button onClick={handleWhatsAppContact} size="lg" className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-bold text-lg py-6 px-8 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-green-400 min-h-[60px] w-full sm:w-auto">
                 <MessageCircle className="h-6 w-6 mr-2" />
                 💬 <span className="font-black">Expert Advice</span>
               </Button>
@@ -160,6 +138,5 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
