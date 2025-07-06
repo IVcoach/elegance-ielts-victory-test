@@ -1,10 +1,7 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Trophy, Users, Clock, Target, Award, Star } from "lucide-react";
-
 export function AboutAchievementsSection() {
-  return (
-    <section className="py-16 px-6 bg-white">
+  return <section className="py-16 px-6 bg-white">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <div className="inline-flex items-center space-x-2 bg-blue-50 border border-blue-200 px-6 py-3 rounded-full mb-6">
@@ -26,7 +23,7 @@ export function AboutAchievementsSection() {
               <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-full p-4 w-20 h-20 mx-auto mb-6 shadow-md group-hover:scale-110 transition-transform">
                 <Trophy className="h-12 w-12 text-white mx-auto" />
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">200+</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">300+</h3>
               <p className="text-gray-600 font-medium">Successful Students</p>
             </CardContent>
           </Card>
@@ -82,6 +79,5 @@ export function AboutAchievementsSection() {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
