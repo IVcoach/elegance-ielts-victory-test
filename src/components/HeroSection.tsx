@@ -1,26 +1,20 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Award, Trophy, Send, CheckCircle, MessageCircle, Users, Globe } from "lucide-react";
 import { useStarEffect } from "@/hooks/useStarEffect";
-
 export function HeroSection() {
   const createStarEffect = useStarEffect();
-
   const handleTelegramResources = (e: React.MouseEvent) => {
     createStarEffect(e);
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
-
   const handleWhatsAppContact = (e: React.MouseEvent) => {
     createStarEffect(e);
     const text = "Hello! I'm interested in IELTS coaching and would like more information about your programs.";
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
-
-  return (
-    <section className="hero-gradient pt-20 pb-16 px-6 md:pt-28 md:pb-24 relative overflow-hidden">
+  return <section className="hero-gradient pt-20 pb-16 px-6 md:pt-28 md:pb-24 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 animate-pulse">
@@ -39,7 +33,7 @@ export function HeroSection() {
           <div className="animate-fade-in order-2 lg:order-1 text-center lg:text-left">
             {/* Main Heading */}
             <div className="mb-6">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4 text-center">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4 text-center px-0 mx-0 my-[30px]">
                 Professional IELTS Coaching
                 <br />
                 <span className="text-2xl md:text-3xl lg:text-4xl text-orange-700 bg-gradient-to-r from-orange-600 to-amber-700 bg-clip-text text-transparent">
@@ -145,6 +139,5 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
