@@ -60,28 +60,28 @@ export const AboutHeroSection = () => {
             <div className="w-3 h-3 bg-green-500 rounded-full shadow-sm" />
           </div>
 
-          {/* Main Heading - Increased font size */}
-          <h1 className={`text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          {/* Main Heading - Reduced font size for mobile */}
+          <h1 className={`text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <span className="text-gray-900 block mb-2">
               V&C Elegance
             </span>
-            <span className="text-blue-600 text-4xl md:text-5xl lg:text-6xl">
+            <span className="text-blue-600 text-3xl md:text-4xl lg:text-5xl">
               The Netherlands
             </span>
           </h1>
 
           {/* Professional Subtitle */}
-          <div className={`bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-8 mb-10 shadow-lg transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <h2 className="font-bold mb-4 text-gray-900 text-2xl md:text-3xl lg:text-4xl">Leading Educational Company</h2>
-            <p className="text-lg md:text-xl text-gray-700">
+          <div className={`bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 mb-8 shadow-lg transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <h2 className="font-bold mb-3 text-gray-900 text-xl md:text-2xl lg:text-3xl">Leading Educational Company</h2>
+            <p className="text-base md:text-lg text-gray-700">
               Dedicated to <span className="font-bold text-blue-600">Exam Success</span> and <span className="text-green-600 font-bold">Professional Growth</span>
             </p>
           </div>
 
           {/* Mission Statement */}
-          <div className={`bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-8 mb-10 shadow-lg transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">Our Mission</h2>
-            <p className="text-base md:text-lg leading-relaxed text-gray-700">
+          <div className={`bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 mb-8 shadow-lg transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <h2 className="text-xl md:text-2xl font-bold mb-4 text-gray-900">Our Mission</h2>
+            <p className="text-sm md:text-base leading-relaxed text-gray-700">
               "Our mission is to <span className="font-bold text-blue-600">revolutionize language education</span> by blending 
               <span className="font-bold text-indigo-600"> personalized teaching</span> with 
               <span className="font-bold text-purple-600"> innovative technology</span>, making learning 
@@ -90,47 +90,47 @@ export const AboutHeroSection = () => {
           </div>
 
           {/* Partnerships Information - Moved from Footer */}
-          <div className={`bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-2xl border-2 border-blue-200 mb-10 shadow-lg transition-all duration-1000 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Our Partnerships</h3>
-            <p className="text-lg md:text-xl text-gray-700 mb-8 font-medium">
+          <div className={`bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-2xl border-2 border-blue-200 mb-8 shadow-lg transition-all duration-1000 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Our Partnerships</h3>
+            <p className="text-base md:text-lg text-gray-700 mb-6 font-medium">
               V&C Elegance proudly cooperates with experienced mentors and IELTS coaches from leading institutions
             </p>
             
             {/* Partner Logos */}
-            <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
-              <div className="bg-white p-4 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
+            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
+              <div className="bg-white p-3 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
                 <div className="text-center">
-                  <div className="text-blue-600 font-bold text-base md:text-lg mb-2">🇬🇧 British Council</div>
-                  <div className="text-sm text-gray-600">Netherlands</div>
+                  <div className="text-blue-600 font-bold text-sm md:text-base mb-1">🇬🇧 British Council</div>
+                  <div className="text-xs text-gray-600">Netherlands</div>
                 </div>
               </div>
-              <div className="bg-white p-4 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
+              <div className="bg-white p-3 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
                 <div className="text-center">
-                  <div className="text-green-600 font-bold text-base md:text-lg mb-2">🌍 IELC</div>
-                  <div className="text-sm text-gray-600">Amsterdam</div>
+                  <div className="text-green-600 font-bold text-sm md:text-base mb-1">🌍 IELC</div>
+                  <div className="text-xs text-gray-600">Amsterdam</div>
                 </div>
               </div>
-              <div className="bg-white p-4 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
+              <div className="bg-white p-3 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
                 <div className="text-center">
-                  <div className="text-purple-600 font-bold text-base md:text-lg mb-2">🎓 ALI</div>
-                  <div className="text-sm text-gray-600">Amsterdam</div>
+                  <div className="text-purple-600 font-bold text-sm md:text-base mb-1">🎓 ALI</div>
+                  <div className="text-xs text-gray-600">Amsterdam</div>
                 </div>
               </div>
-              <div className="bg-white p-4 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
+              <div className="bg-white p-3 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
                 <div className="text-center">
-                  <div className="text-red-600 font-bold text-base md:text-lg mb-2">🏆 IDP</div>
-                  <div className="text-sm text-gray-600">Education</div>
+                  <div className="text-red-600 font-bold text-sm md:text-base mb-1">🏆 IDP</div>
+                  <div className="text-xs text-gray-600">Education</div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Vision Quote */}
-          <div className={`relative bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-8 mb-12 shadow-lg transition-all duration-1000 delay-900 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <div className={`relative bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 mb-12 shadow-lg transition-all duration-1000 delay-900 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <Sparkles className="absolute top-4 right-4 w-6 h-6 text-blue-500" />
-            <p className="text-gray-900 font-bold text-lg md:text-2xl lg:text-3xl">
+            <p className="text-gray-900 font-bold text-base md:text-xl lg:text-2xl">
               Join us on this exciting journey—what you see today is just the 
-              <span className="font-black text-blue-600 text-xl md:text-3xl lg:text-4xl"> tip of the iceberg</span>.
+              <span className="font-black text-blue-600 text-lg md:text-2xl lg:text-3xl"> tip of the iceberg</span>.
             </p>
           </div>
 

@@ -102,15 +102,22 @@ export const QuizIntro = ({ onStartTest, onShowPractice }: QuizIntroProps) => {
           </div>
         </div>
         
-        {/* Action buttons with enhanced styling */}
-        <div className="relative z-10 flex flex-col sm:flex-row justify-center gap-6 mt-8">
-          <Button className="professional-button text-lg px-8 py-4 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all" onClick={onStartTest}>
+        {/* Action buttons with enhanced styling and mobile optimization */}
+        <div className="relative z-10 flex flex-col sm:flex-row justify-center gap-4 mt-8">
+          <Button 
+            className="professional-button text-base md:text-lg px-6 py-4 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all min-h-[60px] w-full sm:w-auto" 
+            onClick={onStartTest}
+          >
             <CheckCircle className="h-5 w-5 mr-2" />
-            Start Professional Assessment
+            <span className="font-bold">Start Professional Assessment</span>
           </Button>
-          <Button variant="outline" className="border-2 border-blue-800 text-blue-800 hover:bg-blue-50 px-8 py-4 h-auto text-lg font-bold shadow-md transform hover:scale-105 transition-all" onClick={onShowPractice}>
+          <Button 
+            variant="outline" 
+            className="border-2 border-blue-800 text-blue-800 hover:bg-blue-50 px-6 py-4 h-auto text-base md:text-lg font-bold shadow-md transform hover:scale-105 transition-all min-h-[60px] w-full sm:w-auto" 
+            onClick={onShowPractice}
+          >
             <MessageSquare className="h-5 w-5 mr-2" />
-            Speaking & Writing Assessment
+            <span className="whitespace-nowrap">Speaking & Writing Assessment</span>
           </Button>
         </div>
         

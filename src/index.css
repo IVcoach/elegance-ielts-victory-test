@@ -25,6 +25,13 @@
     -webkit-overflow-scrolling: touch;
   }
 
+  /* Mobile header spacing fix */
+  @media (max-width: 768px) {
+    .hero-gradient {
+      padding-top: 5rem !important; /* Reduced from default to show more of hero image */
+    }
+  }
+
   /* Optimize images for mobile */
   img {
     /* Prevent layout shifts */
@@ -39,5 +46,13 @@
   video {
     /* Prevent autoplay on mobile to save battery */
     preload: metadata;
+  }
+
+  /* Fix text overflow on mobile buttons */
+  @media (max-width: 640px) {
+    .whitespace-nowrap {
+      white-space: normal !important;
+      word-break: break-word;
+    }
   }
 }
