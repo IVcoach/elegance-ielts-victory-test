@@ -13,9 +13,10 @@ const mockCoaches: Coach[] = [
     specializations: ["speaking", "general"],
     rating: 4.9,
     experience: "8 years",
-    price: 45,
-    currency: "USD",
-    bio: "IELTS expert with 8+ years of experience helping students achieve their target scores. Specialized in speaking confidence and test strategies."
+    price: 28,
+    currency: "EUR",
+    bio: "IELTS expert with 8+ years of experience helping students achieve their target scores. Specialized in speaking confidence and test strategies.",
+    country: "Netherlands"
   },
   {
     id: "2", 
@@ -23,9 +24,11 @@ const mockCoaches: Coach[] = [
     specializations: ["writing", "general"],
     rating: 4.8,
     experience: "6 years",
-    price: 50,
-    currency: "USD",
-    bio: "Former IELTS examiner with expertise in writing assessment. Helps students improve their writing band scores significantly."
+    price: 25,
+    currency: "EUR",
+    bio: "Former IELTS examiner with expertise in writing assessment. Helps students improve their writing band scores significantly.",
+    country: "Netherlands",
+    isFormerExaminer: true
   },
   {
     id: "3",
@@ -33,9 +36,76 @@ const mockCoaches: Coach[] = [
     specializations: ["speaking", "writing", "general"],
     rating: 4.9,
     experience: "10 years",
-    price: 60,
-    currency: "USD",
-    bio: "Comprehensive IELTS trainer with decade of experience. Specializes in all four skills and exam strategies."
+    price: 32,
+    currency: "EUR",
+    bio: "Comprehensive IELTS trainer with decade of experience. Specializes in all four skills and exam strategies.",
+    country: "Netherlands"
+  },
+  {
+    id: "4",
+    name: "Marco Rossi",
+    specializations: ["speaking", "general"],
+    rating: 4.7,
+    experience: "5 years",
+    price: 23,
+    currency: "EUR",
+    bio: "Passionate IELTS coach from Italy with 5 years of experience. Specializes in building speaking confidence and fluency.",
+    country: "Italy"
+  },
+  {
+    id: "5",
+    name: "Giulia Bianchi",
+    specializations: ["writing", "speaking", "general"],
+    rating: 4.8,
+    experience: "7 years",
+    price: 27,
+    currency: "EUR",
+    bio: "Italian IELTS expert with strong focus on writing techniques and speaking strategies. Helps students achieve band 7+ scores.",
+    country: "Italy"
+  },
+  {
+    id: "6",
+    name: "Alessandro Ferrari",
+    specializations: ["general", "writing"],
+    rating: 4.6,
+    experience: "4 years",
+    price: 22,
+    currency: "EUR",
+    bio: "Dedicated IELTS tutor from Italy with 4 years of experience. Known for clear explanations and patient teaching approach.",
+    country: "Italy"
+  },
+  {
+    id: "7",
+    name: "Reza Ahmadi",
+    specializations: ["speaking", "writing", "general"],
+    rating: 4.9,
+    experience: "9 years",
+    price: 30,
+    currency: "EUR",
+    bio: "Experienced Iranian IELTS trainer with 9 years of expertise. Bilingual coach who understands Persian speakers' challenges.",
+    country: "Iran"
+  },
+  {
+    id: "8",
+    name: "Maryam Hosseini",
+    specializations: ["writing", "general"],
+    rating: 4.8,
+    experience: "6 years",
+    price: 25,
+    currency: "EUR",
+    bio: "Iranian IELTS specialist with 6 years of experience. Expert in academic writing and task achievement strategies.",
+    country: "Iran"
+  },
+  {
+    id: "9",
+    name: "Ali Karimi",
+    specializations: ["speaking", "general"],
+    rating: 4.7,
+    experience: "5 years",
+    price: 24,
+    currency: "EUR",
+    bio: "Iranian IELTS coach with 5 years of experience. Focuses on pronunciation improvement and speaking fluency for Persian speakers.",
+    country: "Iran"
   }
 ];
 
@@ -69,6 +139,19 @@ export function CoachSelection({ sessionType, onSelect, onBack }: CoachSelection
         return "bg-green-100 text-green-700";
       case "general":
         return "bg-purple-100 text-purple-700";
+    }
+  };
+
+  const getCountryFlag = (country: string) => {
+    switch (country) {
+      case "Netherlands":
+        return "🇳🇱";
+      case "Italy":
+        return "🇮🇹";
+      case "Iran":
+        return "🇮🇷";
+      default:
+        return "🌍";
     }
   };
 
@@ -116,6 +199,15 @@ export function CoachSelection({ sessionType, onSelect, onBack }: CoachSelection
                   {coach.name}
                 </h3>
                 <div className="flex items-center justify-center gap-2 mb-2">
+                  <span className="text-lg">{getCountryFlag(coach.country!)}</span>
+                  <span className="text-gray-600 text-sm">{coach.country}</span>
+                  {coach.isFormerExaminer && (
+                    <Badge className="bg-red-100 text-red-700 text-xs">
+                      Ex-Examiner
+                    </Badge>
+                  )}
+                </div>
+                <div className="flex items-center justify-center gap-2 mb-2">
                   <div className="flex items-center gap-1">
                     <Star size={14} className="text-[#D4AF37] fill-current" />
                     <span className="font-semibold text-gray-700">
@@ -156,7 +248,7 @@ export function CoachSelection({ sessionType, onSelect, onBack }: CoachSelection
               <div className="border-t pt-4">
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-2xl font-bold text-[#D4AF37]">
-                    ${coach.price}
+                    €{coach.price}
                   </span>
                   <span className="text-gray-500 text-sm">per session</span>
                 </div>

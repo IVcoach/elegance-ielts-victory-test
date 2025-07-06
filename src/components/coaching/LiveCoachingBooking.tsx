@@ -22,6 +22,8 @@ export interface Coach {
   price: number;
   currency: string;
   bio: string;
+  country?: string;
+  isFormerExaminer?: boolean;
 }
 
 export interface BookingData {
