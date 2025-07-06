@@ -19,40 +19,6 @@ export function Footer() {
       <div className="container mx-auto px-6 relative z-10">
         {/* Main Content */}
         <div className="max-w-7xl mx-auto">
-          {/* Company Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
-              V&C Elegance
-            </h2>
-            <p className="text-lg md:text-xl font-bold text-gray-800 mb-3">
-              Your Professional Partner for IELTS Excellence
-            </p>
-            <p className="text-base md:text-lg text-gray-700 mb-6 font-medium">
-              Empowering students worldwide to achieve their dreams through expert IELTS coaching
-            </p>
-          </div>
-
-          {/* Services Summary */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-2xl border-2 border-blue-200 transform hover:scale-105 transition-all text-center">
-              <Trophy className="h-8 w-8 text-blue-600 mb-3 mx-auto" />
-              <h3 className="text-base font-bold text-gray-900 mb-2">IELTS Coaching</h3>
-              <p className="text-sm text-gray-700">Comprehensive preparation for Academic & General Training with expert guidance and mock tests.</p>
-            </div>
-
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-2xl border-2 border-green-200 transform hover:scale-105 transition-all text-center">
-              <Users className="h-8 w-8 text-green-600 mb-3 mx-auto" />
-              <h3 className="text-base font-bold text-gray-900 mb-2">Live Coaching</h3>
-              <p className="text-sm text-gray-700">Personalized one-on-one sessions with flexible scheduling and progress tracking.</p>
-            </div>
-
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-4 rounded-2xl border-2 border-purple-200 transform hover:scale-105 transition-all text-center">
-              <Star className="h-8 w-8 text-purple-600 mb-3 mx-auto" />
-              <h3 className="text-base font-bold text-gray-900 mb-2">Job Interview Prep</h3>
-              <p className="text-sm text-gray-700">Professional interview coaching with mock interviews and confidence building.</p>
-            </div>
-          </div>
-
           {/* Support Links and Company Information */}
           <div className="text-center bg-gradient-to-r from-pink-50 to-purple-50 p-6 rounded-2xl border-2 border-pink-200">
             {/* Support Links */}
@@ -84,13 +50,13 @@ export function Footer() {
             </div>
 
             <p className="text-lg font-bold text-gray-800 mb-4">
-              © 2025 V&C Elegance IELTS Coaching. All rights reserved.
+              © 2025 Educational Consultancy. All rights reserved.
             </p>
             <p className="text-sm text-gray-700 mb-4 font-semibold">
               Licensed Educational Consultancy • Registration: 000061974544 (Netherlands)
             </p>
             <p className="text-base text-gray-700 italic font-medium">
-              "Transforming dreams into achievements through excellence in IELTS education"
+              "Transforming dreams into achievements through excellence in education"
             </p>
           </div>
         </div>

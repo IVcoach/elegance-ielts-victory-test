@@ -17,7 +17,7 @@ export function CallToActionSection() {
       <div className="container mx-auto max-w-4xl relative z-10">
         <div className="text-center space-y-8">
           <p className="text-lg text-gray-800 font-semibold italic bg-white/90 backdrop-blur-sm px-6 py-3 rounded-xl shadow-lg border border-orange-200 max-w-2xl mx-auto">
-            Transform your future with professional IELTS coaching
+            Transform your future with professional language coaching
           </p>
         </div>
       </div>
