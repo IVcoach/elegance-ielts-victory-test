@@ -24,16 +24,12 @@ export function Footer() {
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-green-600" />
                   <span className="text-gray-700 font-medium text-sm">WhatsApp Support:</span>
-                  <a href="https://wa.me/+31631267353" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 transition-colors font-bold text-sm whitespace-nowrap px-[10px]">
-                    +31 631 267 353
-                  </a>
+                  <a href="https://wa.me/+31631267353" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 transition-colors font-bold text-sm whitespace-nowrap px-[10px]">          +31 631 267 353</a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="h-4 w-4 text-blue-600" />
                   <span className="text-gray-700 font-medium text-sm">Email Support:</span>
-                  <a href="mailto:vcelegance@consultant.com" className="text-blue-600 hover:text-blue-700 transition-colors font-bold text-sm break-all py-[10px] px-[10px]">
-                    vcelegance@consultant.com
-                  </a>
+                  <a href="mailto:vcelegance@consultant.com" className="text-blue-600 hover:text-blue-700 transition-colors font-bold text-sm break-all py-[10px] px-[10px]">      vcelegance@consultant.com</a>
                 </div>
               </div>
             </div>
