@@ -1,11 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { GraduationCap, ArrowDown, Sparkles } from "lucide-react";
-
 export const AboutHeroSection = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
@@ -14,39 +11,28 @@ export const AboutHeroSection = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  return (
-    <section className="relative min-h-screen bg-white pt-20 md:pt-0 overflow-hidden">
+  return <section className="relative min-h-screen bg-white pt-20 md:pt-0 overflow-hidden">
       {/* Professional Background Pattern */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/50" />
         
         {/* Subtle Grid Pattern */}
-        <div 
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `
+        <div className="absolute inset-0 opacity-5" style={{
+        backgroundImage: `
               linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
               linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
             `,
-            backgroundSize: '40px 40px'
-          }}
-        />
+        backgroundSize: '40px 40px'
+      }} />
         
         {/* Minimal Floating Elements */}
         <div className="absolute inset-0">
-          {[...Array(8)].map((_, i) => (
-            <div 
-              key={i} 
-              className="absolute w-2 h-2 bg-blue-200/40 rounded-full animate-pulse" 
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${3 + Math.random() * 2}s`
-              }} 
-            />
-          ))}
+          {[...Array(8)].map((_, i) => <div key={i} className="absolute w-2 h-2 bg-blue-200/40 rounded-full animate-pulse" style={{
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          animationDelay: `${Math.random() * 3}s`,
+          animationDuration: `${3 + Math.random() * 2}s`
+        }} />)}
         </div>
       </div>
 
@@ -62,9 +48,7 @@ export const AboutHeroSection = () => {
 
           {/* Main Heading - Reduced font size for mobile */}
           <h1 className={`text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <span className="text-gray-900 block mb-2">
-              V&C Elegance
-            </span>
+            
             <span className="text-blue-600 text-3xl md:text-4xl lg:text-5xl">
               The Netherlands
             </span>
@@ -130,7 +114,7 @@ export const AboutHeroSection = () => {
             <Sparkles className="absolute top-4 right-4 w-6 h-6 text-blue-500" />
             <p className="text-gray-900 font-bold text-base md:text-xl lg:text-2xl">
               Join us on this exciting journey—what you see today is just the 
-              <span className="font-black text-blue-600 text-lg md:text-2xl lg:text-3xl"> tip of the iceberg</span>.
+              <span className="font-black text-blue-600 text-lg md:text-2xl lg:text-3xl"> Tip of the Iceberg</span>.
             </p>
           </div>
 
@@ -142,6 +126,5 @@ export const AboutHeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
