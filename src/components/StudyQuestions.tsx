@@ -26,6 +26,24 @@ export function StudyQuestions() {
   const [audioFile, setAudioFile] = useState<File | null>(null);
   const [activeSection, setActiveSection] = useState<'speaking' | 'writing'>('speaking');
 
+  const handleWhatsAppShare = () => {
+    // Create WhatsApp message with the responses
+    const speakingText = audioFile ? `Speaking recording: ${audioFile.name}` : '';
+    const writingText = writingResponse ? `Writing response: ${writingResponse}` : '';
+    const message = `IELTS Assessment Submission:\n\n${speakingText}\n\n${writingText}`;
+    const whatsappUrl = `https://wa.me/+31631267353?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const handleAudioUploaded = (file: File) => {
+    setAudioFile(file);
+  };
+
+  const calculateWritingProgress = () => {
+    const wordCount = writingResponse.split(/\s+/).filter(word => word.length > 0).length;
+    return Math.min((wordCount / 250) * 100, 100);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-8">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -56,15 +74,17 @@ export function StudyQuestions() {
         {/* Assessment Sections */}
         {activeSection === 'speaking' && (
           <SpeakingAssessment 
-            audioFile={audioFile}
-            onAudioFileChange={setAudioFile}
+            speakingAudio={audioFile}
+            speakingProgress={audioFile ? 100 : 0}
+            onAudioUploaded={handleAudioUploaded}
           />
         )}
         
         {activeSection === 'writing' && (
           <WritingAssessment 
-            writingResponse={writingResponse}
-            onWritingResponseChange={setWritingResponse}
+            writingAnswer={writingResponse}
+            writingProgress={calculateWritingProgress()}
+            onWritingChange={setWritingResponse}
           />
         )}
 
@@ -80,8 +100,7 @@ export function StudyQuestions() {
           </CardHeader>
           <CardContent className="text-center">
             <WhatsAppSubmitButton 
-              audioFile={audioFile || undefined}
-              writingText={writingResponse}
+              onWhatsAppShare={handleWhatsAppShare}
               disabled={!audioFile && !writingResponse}
             />
             <p className="text-sm text-gray-600 mt-4 font-medium">
