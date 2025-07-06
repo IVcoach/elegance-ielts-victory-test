@@ -52,42 +52,6 @@ export function Footer() {
               <p className="text-gray-700">Professional interview coaching with mock interviews and confidence building.</p>
             </div>
           </div>
-
-          {/* Partnership Information */}
-          <div className="text-center bg-gradient-to-r from-blue-50 to-indigo-50 p-10 rounded-2xl border-2 border-blue-200 mb-16">
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">Our Partnerships</h3>
-            <p className="text-xl text-gray-700 mb-8 font-medium">
-              V&C Elegance proudly cooperates with experienced mentors and IELTS coaches from leading institutions
-            </p>
-            
-            {/* Partner Logos */}
-            <div className="flex flex-wrap justify-center items-center gap-8 mb-8">
-              <div className="bg-white p-4 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
-                <div className="text-center">
-                  <div className="text-blue-600 font-bold text-lg mb-2">🇬🇧 British Council</div>
-                  <div className="text-sm text-gray-600">Netherlands</div>
-                </div>
-              </div>
-              <div className="bg-white p-4 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
-                <div className="text-center">
-                  <div className="text-green-600 font-bold text-lg mb-2">🌍 IELC</div>
-                  <div className="text-sm text-gray-600">Amsterdam</div>
-                </div>
-              </div>
-              <div className="bg-white p-4 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
-                <div className="text-center">
-                  <div className="text-purple-600 font-bold text-lg mb-2">🎓 ALI</div>
-                  <div className="text-sm text-gray-600">Amsterdam</div>
-                </div>
-              </div>
-              <div className="bg-white p-4 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
-                <div className="text-center">
-                  <div className="text-red-600 font-bold text-lg mb-2">🏆 IDP</div>
-                  <div className="text-sm text-gray-600">Education</div>
-                </div>
-              </div>
-            </div>
-          </div>
           
           {/* Contact Information Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
@@ -124,8 +88,36 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Company Information */}
+          {/* Support Links and Company Information */}
           <div className="text-center bg-gradient-to-r from-pink-50 to-purple-50 p-10 rounded-2xl border-2 border-pink-200">
+            {/* Support Links */}
+            <div className="mb-8">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-6">
+                <div className="flex items-center gap-2">
+                  <Phone className="h-5 w-5 text-green-600" />
+                  <span className="text-gray-700 font-medium">WhatsApp Support:</span>
+                  <a 
+                    href="https://wa.me/+31631267353" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-green-600 hover:text-green-700 transition-colors font-bold"
+                  >
+                    +31 631 267 353
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="h-5 w-5 text-blue-600" />
+                  <span className="text-gray-700 font-medium">Email Support:</span>
+                  <a 
+                    href="mailto:vcelegance@consultant.com" 
+                    className="text-blue-600 hover:text-blue-700 transition-colors font-bold"
+                  >
+                    vcelegance@consultant.com
+                  </a>
+                </div>
+              </div>
+            </div>
+
             <p className="text-2xl font-bold text-gray-800 mb-6">
               © 2025 V&C Elegance IELTS Coaching. All rights reserved.
             </p>

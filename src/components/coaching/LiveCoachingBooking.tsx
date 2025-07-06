@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Calendar, Clock, User, CheckCircle, ArrowLeft } from "lucide-react";
+import { Calendar, Clock, User, CheckCircle, ArrowLeft, Info, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -119,6 +119,48 @@ export function LiveCoachingBooking() {
 
   return (
     <div className="max-w-4xl mx-auto p-4 space-y-6">
+      {/* Important Notice */}
+      <Card className="border-orange-200 bg-gradient-to-r from-orange-50 to-amber-50">
+        <CardContent className="p-6">
+          <div className="flex items-start gap-4">
+            <Info className="h-6 w-6 text-orange-600 mt-1 flex-shrink-0" />
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Important Information</h3>
+              <p className="text-gray-700 mb-3">
+                <strong>Test Requirement:</strong> To reserve a session, you must first pass our assessment test and contact us via WhatsApp to confirm your score. Your reservation will then be processed based on your plan.
+              </p>
+              <div className="flex items-center gap-2 text-green-700 font-semibold">
+                <MessageCircle className="h-4 w-4" />
+                <span>Contact us on WhatsApp: </span>
+                <a 
+                  href="https://wa.me/+31631267353" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="underline hover:no-underline"
+                >
+                  +31 631 267 353
+                </a>
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Coach Availability Notice */}
+      <Card className="border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <CardContent className="p-6">
+          <div className="flex items-start gap-4">
+            <User className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Additional Coaches Available</h3>
+              <p className="text-gray-700">
+                More experienced coaches are available for advanced sessions. These require special arrangement via WhatsApp and are not available for online booking. Contact us to discuss your specific needs and coach preferences.
+              </p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
       {/* Progress Steps */}
       <Card className="border-[#0A3D62]/20">
         <CardHeader className="pb-4">

@@ -60,12 +60,12 @@ export const AboutHeroSection = () => {
             <div className="w-3 h-3 bg-green-500 rounded-full shadow-sm" />
           </div>
 
-          {/* Main Heading */}
-          <h1 className={`text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          {/* Main Heading - Increased font size */}
+          <h1 className={`text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-8 transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <span className="text-gray-900 block mb-2">
               V&C Elegance
             </span>
-            <span className="text-blue-600 text-3xl md:text-4xl lg:text-5xl">
+            <span className="text-blue-600 text-4xl md:text-5xl lg:text-6xl">
               The Netherlands
             </span>
           </h1>
@@ -87,6 +87,42 @@ export const AboutHeroSection = () => {
               <span className="font-bold text-purple-600"> innovative technology</span>, making learning 
               <span className="font-bold text-green-600">effortless, interactive, and enjoyable</span>."
             </p>
+          </div>
+
+          {/* Partnerships Information - Moved from Footer */}
+          <div className={`bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-2xl border-2 border-blue-200 mb-10 shadow-lg transition-all duration-1000 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Our Partnerships</h3>
+            <p className="text-lg md:text-xl text-gray-700 mb-8 font-medium">
+              V&C Elegance proudly cooperates with experienced mentors and IELTS coaches from leading institutions
+            </p>
+            
+            {/* Partner Logos */}
+            <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
+              <div className="bg-white p-4 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
+                <div className="text-center">
+                  <div className="text-blue-600 font-bold text-base md:text-lg mb-2">🇬🇧 British Council</div>
+                  <div className="text-sm text-gray-600">Netherlands</div>
+                </div>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
+                <div className="text-center">
+                  <div className="text-green-600 font-bold text-base md:text-lg mb-2">🌍 IELC</div>
+                  <div className="text-sm text-gray-600">Amsterdam</div>
+                </div>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
+                <div className="text-center">
+                  <div className="text-purple-600 font-bold text-base md:text-lg mb-2">🎓 ALI</div>
+                  <div className="text-sm text-gray-600">Amsterdam</div>
+                </div>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-md border-2 border-gray-200 transform hover:scale-105 transition-all">
+                <div className="text-center">
+                  <div className="text-red-600 font-bold text-base md:text-lg mb-2">🏆 IDP</div>
+                  <div className="text-sm text-gray-600">Education</div>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Vision Quote */}

@@ -48,7 +48,7 @@ export function HeroSection() {
               </h1>
             </div>
 
-            <p className="text-lg md:text-xl text-gray-700 mb-8 font-medium leading-relaxed max-w-2xl">
+            <p className="text-lg md:text-xl text-gray-800 mb-8 font-medium leading-relaxed max-w-2xl">
               With over 50,000 hours of dedicated coaching experience and a proven 90% success rate, 
               V&C Elegance provides comprehensive IELTS preparation that delivers exceptional results.
             </p>
@@ -61,15 +61,15 @@ export function HeroSection() {
                 <span className="text-xl font-bold text-gray-900">Officially Verified Coach</span>
               </div>
               <div className="space-y-2 text-center lg:text-left">
-                <p className="text-base text-gray-700 font-medium flex items-center gap-2 justify-center lg:justify-start">
+                <p className="text-base text-gray-800 font-medium flex items-center gap-2 justify-center lg:justify-start">
                   <CheckCircle className="h-4 w-4 text-orange-600" />
                   Cambridge University CERF Standards Certified
                 </p>
-                <p className="text-base text-gray-700 font-medium flex items-center gap-2 justify-center lg:justify-start">
+                <p className="text-base text-gray-800 font-medium flex items-center gap-2 justify-center lg:justify-start">
                   <CheckCircle className="h-4 w-4 text-orange-600" />
                   IDP Education Protocols Verified
                 </p>
-                <p className="text-sm text-gray-600 font-medium flex items-center gap-2 justify-center lg:justify-start">
+                <p className="text-sm text-gray-700 font-medium flex items-center gap-2 justify-center lg:justify-start">
                   <Award className="h-4 w-4 text-amber-600" />
                   Company License: 000061974544 (Netherlands)
                 </p>
@@ -100,19 +100,19 @@ export function HeroSection() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl">
               <div className="text-center p-4 bg-white/90 rounded-lg shadow-md border-2 border-orange-100 transform hover:scale-105 transition-all">
                 <div className="text-2xl font-bold text-orange-700">50K+</div>
-                <div className="text-sm text-gray-600 font-medium">Hours Coaching</div>
+                <div className="text-sm text-gray-700 font-medium">Hours Coaching</div>
               </div>
               <div className="text-center p-4 bg-white/90 rounded-lg shadow-md border-2 border-amber-100 transform hover:scale-105 transition-all">
                 <div className="text-2xl font-bold text-amber-700">90%</div>
-                <div className="text-sm text-gray-600 font-medium">Success Rate</div>
+                <div className="text-sm text-gray-700 font-medium">Success Rate</div>
               </div>
               <div className="text-center p-4 bg-white/90 rounded-lg shadow-md border-2 border-orange-100 transform hover:scale-105 transition-all">
                 <div className="text-2xl font-bold text-orange-600">24/7</div>
-                <div className="text-sm text-gray-600 font-medium">Support</div>
+                <div className="text-sm text-gray-700 font-medium">Support</div>
               </div>
               <div className="text-center p-4 bg-white/90 rounded-lg shadow-md border-2 border-amber-100 transform hover:scale-105 transition-all">
                 <div className="text-2xl font-bold text-amber-600">Expert</div>
-                <div className="text-sm text-gray-600 font-medium">Guidance</div>
+                <div className="text-sm text-gray-700 font-medium">Guidance</div>
               </div>
             </div>
           </div>
