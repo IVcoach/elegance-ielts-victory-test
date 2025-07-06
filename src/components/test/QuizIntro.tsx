@@ -1,16 +1,15 @@
-
 import { Button } from "@/components/ui/button";
 import { Shield, Award, Zap, MessageSquare, UserCheck, Clock, CheckCircle } from "lucide-react";
 import { ServiceIcons } from "./ServiceIcons";
-
 interface QuizIntroProps {
   onStartTest: () => void;
   onShowPractice: () => void;
 }
-
-export const QuizIntro = ({ onStartTest, onShowPractice }: QuizIntroProps) => {
-  return (
-    <div className="max-w-4xl mx-auto text-center">
+export const QuizIntro = ({
+  onStartTest,
+  onShowPractice
+}: QuizIntroProps) => {
+  return <div className="max-w-4xl mx-auto text-center">
       <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
         Professional IELTS Placement Test
       </h1>
@@ -104,18 +103,11 @@ export const QuizIntro = ({ onStartTest, onShowPractice }: QuizIntroProps) => {
         
         {/* Action buttons with enhanced styling and mobile optimization */}
         <div className="relative z-10 flex flex-col sm:flex-row justify-center gap-4 mt-8">
-          <Button 
-            className="professional-button text-base md:text-lg px-6 py-4 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all min-h-[60px] w-full sm:w-auto" 
-            onClick={onStartTest}
-          >
+          <Button className="professional-button text-base md:text-lg px-6 py-4 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all min-h-[60px] w-full sm:w-auto" onClick={onStartTest}>
             <CheckCircle className="h-5 w-5 mr-2" />
-            <span className="font-bold">Start Professional Assessment</span>
+            <span className="font-bold text-gray-950">Start Professional Assessment</span>
           </Button>
-          <Button 
-            variant="outline" 
-            className="border-2 border-blue-800 text-blue-800 hover:bg-blue-50 px-6 py-4 h-auto text-base md:text-lg font-bold shadow-md transform hover:scale-105 transition-all min-h-[60px] w-full sm:w-auto" 
-            onClick={onShowPractice}
-          >
+          <Button variant="outline" className="border-2 border-blue-800 text-blue-800 hover:bg-blue-50 px-6 py-4 h-auto text-base md:text-lg font-bold shadow-md transform hover:scale-105 transition-all min-h-[60px] w-full sm:w-auto" onClick={onShowPractice}>
             <MessageSquare className="h-5 w-5 mr-2" />
             <span className="whitespace-nowrap">Speaking & Writing Assessment</span>
           </Button>
@@ -151,6 +143,5 @@ export const QuizIntro = ({ onStartTest, onShowPractice }: QuizIntroProps) => {
           </span>
         </p>
       </div>
-    </div>
-  );
+    </div>;
 };
