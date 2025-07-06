@@ -1,11 +1,8 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, Award, Users, CheckCircle, Star, Trophy } from "lucide-react";
-
 export function Footer() {
-  return (
-    <footer className="bg-gradient-to-br from-gray-50 to-white text-gray-900 py-16 border-t border-gray-200 relative overflow-hidden">
+  return <footer className="bg-gradient-to-br from-gray-50 to-white text-gray-900 py-16 border-t border-gray-200 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-8 left-8 animate-pulse">
@@ -27,22 +24,14 @@ export function Footer() {
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4 text-green-600" />
                   <span className="text-gray-700 font-medium text-sm">WhatsApp Support:</span>
-                  <a 
-                    href="https://wa.me/+31631267353" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-green-600 hover:text-green-700 transition-colors font-bold text-sm whitespace-nowrap"
-                  >
+                  <a href="https://wa.me/+31631267353" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 transition-colors font-bold text-sm whitespace-nowrap px-[10px]">
                     +31 631 267 353
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="h-4 w-4 text-blue-600" />
                   <span className="text-gray-700 font-medium text-sm">Email Support:</span>
-                  <a 
-                    href="mailto:vcelegance@consultant.com" 
-                    className="text-blue-600 hover:text-blue-700 transition-colors font-bold text-sm break-all"
-                  >
+                  <a href="mailto:vcelegance@consultant.com" className="text-blue-600 hover:text-blue-700 transition-colors font-bold text-sm break-all py-[10px] px-[10px]">
                     vcelegance@consultant.com
                   </a>
                 </div>
@@ -61,6 +50,5 @@ export function Footer() {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 }
