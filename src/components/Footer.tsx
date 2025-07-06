@@ -52,41 +52,6 @@ export function Footer() {
               <p className="text-gray-700">Professional interview coaching with mock interviews and confidence building.</p>
             </div>
           </div>
-          
-          {/* Contact Information Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
-            {/* WhatsApp Support */}
-            <div className="text-center bg-white p-8 rounded-2xl shadow-xl border-2 border-gray-200 transform hover:scale-105 transition-all">
-              <div className="flex items-center gap-3 mb-4 justify-center">
-                <Phone className="h-8 w-8 text-green-600" />
-                <span className="text-gray-900 font-bold text-2xl">WhatsApp Support</span>
-              </div>
-              <a 
-                href="https://wa.me/+31631267353" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-2xl text-green-600 hover:text-green-700 transition-colors font-bold block mb-3"
-              >
-                +31 631 267 353
-              </a>
-              <p className="text-lg text-gray-600">Available 24/7 for consultations</p>
-            </div>
-            
-            {/* Email Support */}
-            <div className="text-center bg-white p-8 rounded-2xl shadow-xl border-2 border-gray-200 transform hover:scale-105 transition-all">
-              <div className="flex items-center gap-3 mb-4 justify-center">
-                <Mail className="h-8 w-8 text-blue-600" />
-                <span className="text-gray-900 font-bold text-2xl">Email Support</span>
-              </div>
-              <a 
-                href="mailto:vcelegance@consultant.com" 
-                className="text-2xl text-blue-600 hover:text-blue-700 transition-colors font-bold block mb-3"
-              >
-                vcelegance@consultant.com
-              </a>
-              <p className="text-lg text-gray-600">Response within 24 hours</p>
-            </div>
-          </div>
 
           {/* Support Links and Company Information */}
           <div className="text-center bg-gradient-to-r from-pink-50 to-purple-50 p-10 rounded-2xl border-2 border-pink-200">
