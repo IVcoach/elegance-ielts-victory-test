@@ -63,7 +63,7 @@ export function Footer() {
                 </a>
                 
                 <a 
-                  href="https://instagram.com/ieltstori" 
+                  href="https://www.instagram.com/ielts.tory" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-pink-500 hover:text-pink-600 transition-colors"

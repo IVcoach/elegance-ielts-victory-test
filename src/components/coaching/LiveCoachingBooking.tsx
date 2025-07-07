@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Calendar, Clock, User, CheckCircle, ArrowLeft, Info, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -24,6 +23,8 @@ export interface Coach {
   bio: string;
   country?: string;
   isFormerExaminer?: boolean;
+  isHeadCoach?: boolean;
+  priceDiscussion?: boolean;
 }
 
 export interface BookingData {
