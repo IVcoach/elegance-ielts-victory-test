@@ -16,7 +16,7 @@ export function SpeakingAssessment({
   onAudioUploaded 
 }: SpeakingAssessmentProps) {
   return (
-    <Card className="border-2 border-blue-200 shadow-lg">
+    <Card className="border-2 border-blue-200 shadow-lg" id="speaking-assessment">
       <CardHeader className="bg-gradient-to-r from-blue-50 to-blue-100">
         <CardTitle className="text-2xl text-blue-900 flex items-center gap-3">
           <MessageCircle className="h-6 w-6" />
@@ -60,6 +60,17 @@ export function SpeakingAssessment({
               )}
             </div>
           )}
+        </div>
+
+        {/* Mobile Navigation Helper */}
+        <div className="mt-6 p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border border-green-200 md:hidden">
+          <div className="flex items-center gap-2 mb-2">
+            <MessageCircle className="h-4 w-4 text-green-600" />
+            <span className="text-green-700 font-semibold text-sm">Mobile Tip:</span>
+          </div>
+          <p className="text-sm text-gray-700">
+            Complete your audio recording above, then use the WhatsApp button below to submit for assessment.
+          </p>
         </div>
       </CardContent>
     </Card>

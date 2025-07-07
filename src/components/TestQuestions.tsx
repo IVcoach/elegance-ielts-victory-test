@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
@@ -81,13 +82,13 @@ export function TestQuestions() {
 
   const handleResourcesClick = () => {
     toast({
-      title: "Resources coming soon!",
-      description: "We're working on bringing you the best IELTS study materials.",
+      title: "Focus on your assessment! 🎯",
+      description: "Complete your test first, then explore our comprehensive resources.",
       duration: 3000
     });
   };
 
-  // Handle user's answer with enhanced saving
+  // Handle user's answer with enhanced saving and effects
   const handleAnswer = (answerId: string) => {
     const currentQuestion = testQuestions[currentQuestionIndex];
     const newAnswers = [...answers, answerId];
@@ -95,6 +96,9 @@ export function TestQuestions() {
     
     setAnswers(newAnswers);
     setUserAnswers(newUserAnswers);
+    
+    // Create star effect for correct answers
+    createStarEffect();
     
     // Auto-save immediately after answer
     autoSave({
@@ -106,10 +110,10 @@ export function TestQuestions() {
     
     if (currentQuestionIndex < testQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-      setAnnounceMessage(`Answer recorded. Moving to question ${currentQuestionIndex + 2} of ${testQuestions.length}`);
+      setAnnounceMessage(`Great! Moving to question ${currentQuestionIndex + 2} of ${testQuestions.length}`);
       toast({
-        title: "Answer recorded ✓",
-        description: `Moving to question ${currentQuestionIndex + 2} of ${testQuestions.length}`,
+        title: "Excellent! ✨",
+        description: `Question ${currentQuestionIndex + 1} completed. Moving to question ${currentQuestionIndex + 2}`,
         duration: 2000
       });
     } else {
@@ -131,11 +135,11 @@ export function TestQuestions() {
         isCompleted: true
       });
       
-      setAnnounceMessage(`Test completed! You answered ${correctCount} out of ${testQuestions.length} questions correctly.`);
+      setAnnounceMessage(`Congratulations! Test completed with ${correctCount} correct answers out of ${testQuestions.length}!`);
       toast({
-        title: "Test completed! 🎉",
-        description: `Completed in ${completionTime} minutes. Calculating your results...`,
-        duration: 3000
+        title: "🎉 Assessment Completed!",
+        description: `Amazing work! Completed in ${completionTime} minutes. Calculating your IELTS band score...`,
+        duration: 4000
       });
       
       setTimeout(() => {
@@ -235,13 +239,21 @@ export function TestQuestions() {
   return (
     <div 
       ref={containerRef as React.RefObject<HTMLDivElement>}
-      className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50"
+      className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 relative overflow-hidden"
       role="main"
       aria-label="IELTS Test Interface"
     >
+      {/* Floating motivational elements */}
+      <div className="absolute top-10 left-10 animate-pulse opacity-20">
+        <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full"></div>
+      </div>
+      <div className="absolute bottom-20 right-10 animate-pulse opacity-20 delay-1000">
+        <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full"></div>
+      </div>
+      
       <LiveRegion message={announceMessage} priority="polite" />
       
-      {/* Mobile Progress Bar - Sticky */}
+      {/* Mobile Progress Bar - Enhanced */}
       <MobileProgressBar
         currentQuestion={currentQuestionIndex + 1}
         totalQuestions={testQuestions.length}
@@ -250,13 +262,13 @@ export function TestQuestions() {
         lastSaveTime={lastSaveTime}
       />
       
-      {/* Main Content with bottom padding for mobile navigation */}
+      {/* Main Content with enhanced styling */}
       <div id="main-content" className="pt-4 pb-24 px-4 space-y-6 max-w-4xl mx-auto">
         <TestHeader onTelegramResources={handleResourcesClick} />
         
-        {/* Question Card - Mobile Optimized */}
+        {/* Enhanced Question Card */}
         <div 
-          className="bg-white rounded-xl shadow-lg border border-purple-100 min-h-[400px]"
+          className="bg-white rounded-xl shadow-xl border-2 border-purple-200 min-h-[500px] transform hover:scale-[1.02] transition-all duration-300"
           role="region"
           aria-label={`Question ${currentQuestionIndex + 1} of ${testQuestions.length}`}
         >
@@ -268,19 +280,21 @@ export function TestQuestions() {
           />
         </div>
         
-        {/* Enhanced test tips for mobile */}
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg border border-blue-200">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-blue-600 font-semibold" role="img" aria-label="tip">💡</span>
-            <span className="text-blue-600 font-semibold">Mobile Tip:</span>
+        {/* Enhanced motivational tips */}
+        <div className="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-xl border-2 border-green-200 shadow-lg">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="text-2xl" role="img" aria-label="success">🎯</span>
+            <span className="text-green-700 font-bold text-lg">You're doing great!</span>
           </div>
-          <p className="text-sm text-gray-700">
-            Use arrow keys or swipe to navigate between questions. Your progress is auto-saved every 30 seconds.
+          <p className="text-gray-700 font-medium">
+            Question {currentQuestionIndex + 1} of {testQuestions.length} • 
+            Keep going - each question brings you closer to your IELTS success! 
+            Your progress is automatically saved.
           </p>
         </div>
       </div>
       
-      {/* Mobile Navigation - Fixed Bottom */}
+      {/* Enhanced Mobile Navigation */}
       <MobileTestNavigation
         currentQuestion={currentQuestionIndex + 1}
         totalQuestions={testQuestions.length}

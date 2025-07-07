@@ -1,7 +1,6 @@
 
-import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { BookOpen, Send } from "lucide-react";
+import { BookOpen } from "lucide-react";
 import { assessmentImages } from "./TestData";
 
 interface TestHeaderProps {
@@ -19,8 +18,8 @@ export function TestHeader({
           IELTS Assessment Test
         </h1>
       </div>
-      <p className="text-gray-600 text-lg mb-6">
-        Complete this comprehensive IELTS practice test to assess your English proficiency level.
+      <p className="text-gray-600 text-lg mb-6 font-semibold">
+        Your Gateway to IELTS Success - Take Our Comprehensive Assessment Now!
       </p>
       
       {/* Image Carousel with Text Overlay */}
@@ -50,14 +49,12 @@ export function TestHeader({
         <span className="bg-indigo-100 px-3 py-1 rounded-full font-medium">A1-C2 Level</span>
       </div>
       
-      {/* Free IELTS Resources Button */}
-      <Button 
-        onClick={onTelegramResources} 
-        className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-bold px-6 py-3 rounded-lg shadow-lg transform hover:scale-105 transition-all flex items-center gap-2"
-      >
-        <Send className="h-5 w-5" />
-        Free IELTS Resources
-      </Button>
+      {/* Motivational message instead of button */}
+      <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-lg border border-blue-200">
+        <p className="text-blue-800 font-bold text-lg">
+          🎯 Ready to discover your IELTS potential? Let's begin your journey to success!
+        </p>
+      </div>
     </div>
   );
 }

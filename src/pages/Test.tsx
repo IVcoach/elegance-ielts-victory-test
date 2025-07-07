@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
@@ -64,6 +65,8 @@ const Test = () => {
 
   const showPractice = () => {
     setShowQuestions(true);
+    setTestStarted(false);
+    setTestCompleted(false);
   };
 
   // Get results for display
@@ -107,16 +110,18 @@ const Test = () => {
       
       <main className="flex-grow py-32 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-100 min-h-screen">
         <div className="container mx-auto max-w-6xl">
-          <div className="flex justify-end mb-6">
-            <Button 
-              onClick={() => setShowQuestions(!showQuestions)} 
-              variant="outline" 
-              className="border-2 border-blue-800 text-blue-800 hover:bg-blue-50 font-bold shadow-md transform hover:scale-105 transition-all"
-            >
-              <MessageSquare className="h-5 w-5 mr-2" />
-              {showQuestions ? "Take Placement Test" : "Speaking & Writing Assessment"}
-            </Button>
-          </div>
+          {!showQuestions && (
+            <div className="flex justify-end mb-6">
+              <Button 
+                onClick={() => setShowQuestions(true)} 
+                variant="outline" 
+                className="border-2 border-blue-800 text-blue-800 hover:bg-blue-50 font-bold shadow-md transform hover:scale-105 transition-all"
+              >
+                <MessageSquare className="h-5 w-5 mr-2" />
+                Speaking & Writing Assessment
+              </Button>
+            </div>
+          )}
           {content}
         </div>
       </main>
