@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Calendar, Clock, User, CheckCircle, ArrowLeft, Info, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,7 +10,7 @@ import { SessionTypeSelection } from "./SessionTypeSelection";
 import { BookingConfirmation } from "./BookingConfirmation";
 import { cn } from "@/lib/utils";
 
-export type SessionType = "speaking" | "writing" | "general";
+export type SessionType = "speaking" | "writing" | "reading" | "listening" | "grammar" | "general-language" | "general";
 
 export interface Coach {
   id: string;
@@ -155,9 +156,9 @@ export function LiveCoachingBooking() {
           <div className="flex items-start gap-4">
             <User className="h-6 w-6 text-blue-600 mt-1 flex-shrink-0" />
             <div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Additional Coaches Available</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">VIP Mentors & Flexible Pricing</h3>
               <p className="text-gray-700">
-                More experienced coaches are available for advanced sessions. These require special arrangement via WhatsApp and are not available for online booking. Contact us to discuss your specific needs and coach preferences.
+                Our VIP mentors specialize in all IELTS skills with advanced services including score improvement strategies, comprehensive mock exams, job interview preparation, and personalized study plans. All coaching sessions feature negotiable pricing based on your package level and session requirements.
               </p>
             </div>
           </div>

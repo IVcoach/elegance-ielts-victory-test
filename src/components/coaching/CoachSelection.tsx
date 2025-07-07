@@ -1,163 +1,166 @@
 
-import { Star, Clock, ArrowLeft, ArrowRight, MessageSquare, PenTool, Users, Crown, MessageCircle, CreditCard, Landmark } from "lucide-react";
+import { Star, Clock, ArrowLeft, ArrowRight, MessageSquare, PenTool, Users, Crown, MessageCircle, BookOpen, Headphones, FileText, Languages } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { Coach, SessionType } from "./LiveCoachingBooking";
 
+// Updated session types to include all skills
+export type ExtendedSessionType = "speaking" | "writing" | "reading" | "listening" | "grammar" | "general-language";
+
 const mockCoaches: Coach[] = [
-  // Head Coaches
+  // VIP Head Coaches - All with comprehensive specialized services
   {
-    id: "head-1",
+    id: "vip-1",
     name: "Sammy",
-    specializations: ["speaking", "writing", "general"],
+    specializations: ["speaking", "writing", "reading", "listening", "grammar", "general-language"] as SessionType[],
     rating: 5.0,
     experience: "12+ years",
-    price: 0, // Price to be discussed
+    price: 0, // Negotiable
     currency: "EUR",
-    bio: "Head Coach with 12+ years of experience. Expert in all IELTS skills with proven track record of helping students achieve band 8+.",
+    bio: "Premium VIP Head Coach specializing in rapid score improvement strategies, comprehensive mock exam analysis, and personalized study plans. Expert in all IELTS skills with proven track record of helping students jump from Band 5 to Band 8+. Offers exclusive job interview preparation sessions.",
     country: "Netherlands",
     isHeadCoach: true
   },
   {
-    id: "head-2",
+    id: "vip-2", 
     name: "Evans",
-    specializations: ["speaking", "writing", "general"],
+    specializations: ["speaking", "writing", "reading", "listening", "grammar", "general-language"] as SessionType[],
     rating: 5.0,
     experience: "15+ years",
-    price: 0, // Price to be discussed
+    price: 0, // Negotiable
     currency: "EUR",
-    bio: "Senior Head Coach with 15+ years of expertise. Specializes in advanced IELTS strategies and exam psychology.",
+    bio: "Senior VIP Head Coach with 15+ years of expertise in advanced IELTS strategies and exam psychology. Specializes in finding innovative solutions to overcome score plateaus, comprehensive mock exam sessions with detailed analysis, and career-focused English coaching including job interview mastery.",
     country: "Netherlands",
     isHeadCoach: true
   },
   {
-    id: "head-3",
-    name: "Brian",
-    specializations: ["speaking", "writing", "general"],
+    id: "vip-3",
+    name: "Brian", 
+    specializations: ["speaking", "writing", "reading", "listening", "grammar", "general-language"] as SessionType[],
     rating: 5.0,
     experience: "10+ years",
-    price: 0, // Price to be discussed
+    price: 0, // Negotiable
     currency: "EUR",
-    bio: "Head Coach with 10+ years of experience. Known for innovative teaching methods and exceptional student success rates.",
+    bio: "VIP Head Coach renowned for innovative score-jumping techniques and breakthrough teaching methods. Expert in identifying and solving specific improvement barriers, conducting intensive mock exams with comprehensive feedback, and specialized job interview coaching for international professionals.",
     country: "Netherlands",
     isHeadCoach: true
   },
   {
-    id: "head-4",
+    id: "vip-4",
     name: "Lisa",
-    specializations: ["speaking", "writing", "general"],
+    specializations: ["speaking", "writing", "reading", "listening", "grammar", "general-language"] as SessionType[],
     rating: 5.0,
-    experience: "11+ years",
-    price: 0, // Price to be discussed
+    experience: "11+ years", 
+    price: 0, // Negotiable
     currency: "EUR",
-    bio: "Head Coach with 11+ years of expertise. Specializes in personalized learning plans and confidence building.",
+    bio: "VIP Head Coach specializing in personalized score improvement strategies and confidence building across all IELTS skills. Expert in rapid band score enhancement, detailed mock exam analysis, strategic study planning, and professional job interview preparation for career advancement.",
     country: "Netherlands",
     isHeadCoach: true
   },
-  // Regular Coaches - Europe/Americas (varied pricing around 15 EUR)
+  // Regular Coaches - Europe/Americas with varied skill combinations
   {
     id: "1",
     name: "Sarah Johnson",
-    specializations: ["speaking", "general"],
+    specializations: ["speaking", "listening"] as SessionType[],
     rating: 4.9,
     experience: "8 years",
-    price: 14,
-    currency: "EUR",
-    bio: "IELTS expert with 8+ years of experience helping students achieve their target scores. Specialized in speaking confidence and test strategies.",
+    price: 0, // Negotiable
+    currency: "EUR", 
+    bio: "IELTS expert with 8+ years of experience specializing in speaking confidence and listening comprehension strategies. Helps students achieve fluency and accurate understanding.",
     country: "Netherlands"
   },
   {
-    id: "2", 
+    id: "2",
     name: "Michael Chen",
-    specializations: ["writing", "general"],
+    specializations: ["writing", "grammar"] as SessionType[],
     rating: 4.8,
     experience: "6 years",
-    price: 17,
+    price: 0, // Negotiable
     currency: "EUR",
-    bio: "Former IELTS examiner with expertise in writing assessment. Helps students improve their writing band scores significantly.",
+    bio: "Former IELTS examiner with expertise in writing assessment and advanced grammar structures. Specializes in improving writing band scores and grammatical accuracy.",
     country: "Netherlands",
     isFormerExaminer: true
   },
   {
-    id: "3",
-    name: "Emma Thompson", 
-    specializations: ["speaking", "writing", "general"],
+    id: "3", 
+    name: "Emma Thompson",
+    specializations: ["reading", "general-language"] as SessionType[],
     rating: 4.9,
     experience: "10 years",
-    price: 15,
+    price: 0, // Negotiable
     currency: "EUR",
-    bio: "Comprehensive IELTS trainer with decade of experience. Specializes in all four skills and exam strategies.",
+    bio: "Comprehensive IELTS trainer with expertise in reading strategies and general language development. Focuses on comprehension techniques and overall language proficiency.",
     country: "Netherlands"
   },
   {
     id: "4",
-    name: "Marco Rossi",
-    specializations: ["speaking", "general"],
+    name: "Marco Rossi", 
+    specializations: ["speaking", "grammar"] as SessionType[],
     rating: 4.7,
     experience: "5 years",
-    price: 12,
+    price: 0, // Negotiable
     currency: "EUR",
-    bio: "Passionate IELTS coach from Italy with 5 years of experience. Specializes in building speaking confidence and fluency.",
+    bio: "Passionate coach specializing in speaking fluency and grammatical accuracy. Helps students build confidence while mastering complex grammar structures.",
     country: "Italy"
   },
   {
     id: "5",
     name: "Giulia Bianchi",
-    specializations: ["writing", "speaking", "general"],
+    specializations: ["writing", "reading"] as SessionType[],
     rating: 4.8,
-    experience: "7 years",
-    price: 16,
+    experience: "7 years", 
+    price: 0, // Negotiable
     currency: "EUR",
-    bio: "Italian IELTS expert with strong focus on writing techniques and speaking strategies. Helps students achieve band 7+ scores.",
+    bio: "Italian expert focusing on writing techniques and reading comprehension strategies. Helps students achieve Band 7+ in academic skills.",
     country: "Italy"
   },
   {
     id: "6",
     name: "Antonio Martinez",
-    specializations: ["general", "writing"],
+    specializations: ["listening", "general-language"] as SessionType[],
     rating: 4.6,
     experience: "4 years",
-    price: 13,
-    currency: "EUR",
-    bio: "Dedicated IELTS tutor from Italy with 4 years of experience. Known for clear explanations and patient teaching approach.",
+    price: 0, // Negotiable
+    currency: "EUR", 
+    bio: "Dedicated tutor specializing in listening skills and general language development. Known for patient teaching approach and clear explanations.",
     country: "Italy"
   },
-  // Asia/Middle East Coaches - Price to be discussed
+  // Asia/Middle East Coaches - All negotiable pricing
   {
     id: "7",
     name: "Reza Ahmadi",
-    specializations: ["speaking", "writing", "general"],
+    specializations: ["speaking", "writing", "grammar"] as SessionType[],
     rating: 4.9,
     experience: "9 years",
-    price: 0, // Price to be discussed
+    price: 0, // Negotiable
     currency: "EUR",
-    bio: "Experienced Iranian IELTS trainer with 9 years of expertise. Bilingual coach who understands Persian speakers' challenges.",
+    bio: "Experienced Iranian trainer with 9 years of expertise in speaking, writing, and grammar. Bilingual coach who understands Persian speakers' specific challenges.",
     country: "Iran",
     priceDiscussion: true
   },
   {
-    id: "8",
+    id: "8", 
     name: "Maryam Hosseini",
-    specializations: ["writing", "general"],
+    specializations: ["writing", "reading"] as SessionType[],
     rating: 4.8,
     experience: "6 years",
-    price: 0, // Price to be discussed
+    price: 0, // Negotiable
     currency: "EUR",
-    bio: "Iranian IELTS specialist with 6 years of experience. Expert in academic writing and task achievement strategies.",
+    bio: "Iranian specialist in academic writing and reading comprehension strategies. Expert in task achievement and comprehension techniques.",
     country: "Iran",
     priceDiscussion: true
   },
   {
     id: "9",
-    name: "Ali Karimi",
-    specializations: ["speaking", "general"],
+    name: "Ali Karimi", 
+    specializations: ["speaking", "listening"] as SessionType[],
     rating: 4.7,
     experience: "5 years",
-    price: 0, // Price to be discussed
+    price: 0, // Negotiable
     currency: "EUR",
-    bio: "Iranian IELTS coach with 5 years of experience. Focuses on pronunciation improvement and speaking fluency for Persian speakers.",
+    bio: "Iranian coach focusing on pronunciation improvement and listening skills development for Persian speakers seeking fluency enhancement.",
     country: "Iran",
     priceDiscussion: true
   }
@@ -180,7 +183,15 @@ export function CoachSelection({ sessionType, onSelect, onBack }: CoachSelection
         return <MessageSquare size={14} />;
       case "writing":
         return <PenTool size={14} />;
-      case "general":
+      case "reading":
+        return <BookOpen size={14} />;
+      case "listening":
+        return <Headphones size={14} />;
+      case "grammar":
+        return <FileText size={14} />;
+      case "general-language":
+        return <Languages size={14} />;
+      default:
         return <Users size={14} />;
     }
   };
@@ -191,8 +202,25 @@ export function CoachSelection({ sessionType, onSelect, onBack }: CoachSelection
         return "bg-blue-100 text-blue-700";
       case "writing":
         return "bg-green-100 text-green-700";
-      case "general":
+      case "reading":
         return "bg-purple-100 text-purple-700";
+      case "listening":
+        return "bg-orange-100 text-orange-700";
+      case "grammar":
+        return "bg-red-100 text-red-700";
+      case "general-language":
+        return "bg-indigo-100 text-indigo-700";
+      default:
+        return "bg-gray-100 text-gray-700";
+    }
+  };
+
+  const getSessionLabel = (type: SessionType) => {
+    switch (type) {
+      case "general-language":
+        return "General Language";
+      default:
+        return type.charAt(0).toUpperCase() + type.slice(1);
     }
   };
 
@@ -213,7 +241,7 @@ export function CoachSelection({ sessionType, onSelect, onBack }: CoachSelection
     onSelect(coach);
   };
 
-  // Sort coaches to show head coaches first
+  // Sort coaches to show VIP coaches first
   const sortedCoaches = [...filteredCoaches].sort((a, b) => {
     if (a.isHeadCoach && !b.isHeadCoach) return -1;
     if (!a.isHeadCoach && b.isHeadCoach) return 1;
@@ -244,26 +272,15 @@ export function CoachSelection({ sessionType, onSelect, onBack }: CoachSelection
         <div className="w-40" /> {/* Spacer for centering */}
       </div>
 
-      {/* Payment Methods Notice */}
-      <div className="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-xl border-2 border-green-200">
+      {/* Pricing Notice */}
+      <div className="bg-gradient-to-r from-amber-50 to-yellow-50 p-6 rounded-xl border-2 border-amber-200">
         <div className="flex items-center justify-center gap-4 mb-3">
-          <CreditCard className="h-6 w-6 text-green-600" />
-          <h3 className="text-lg font-bold text-gray-900">Payment Methods</h3>
-          <Landmark className="h-6 w-6 text-blue-600" />
+          <MessageCircle className="h-6 w-6 text-amber-600" />
+          <h3 className="text-lg font-bold text-gray-900">Flexible Pricing</h3>
         </div>
-        <div className="flex items-center justify-center gap-6 text-sm font-semibold text-gray-700">
-          <div className="flex items-center gap-2">
-            <span>💳</span>
-            <span>Credit Card</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span>💎</span>
-            <span>Mastercard</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span>🏦</span>
-            <span>Bank Transfer</span>
-          </div>
+        <div className="text-center text-gray-700">
+          <p className="font-semibold mb-2">All coaching sessions feature negotiable pricing</p>
+          <p className="text-sm">Rates are customized based on your package level, number of sessions, and specific requirements. Contact us via WhatsApp to discuss your personalized pricing plan.</p>
         </div>
       </div>
 
@@ -276,7 +293,7 @@ export function CoachSelection({ sessionType, onSelect, onBack }: CoachSelection
               coach.isHeadCoach && "border-[#D4AF37] bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 shadow-xl transform hover:scale-105"
             )}
           >
-            {/* Enhanced Head Coach Effects */}
+            {/* Enhanced VIP Coach Effects */}
             {coach.isHeadCoach && (
               <>
                 {/* Glowing border effect */}
@@ -293,12 +310,12 @@ export function CoachSelection({ sessionType, onSelect, onBack }: CoachSelection
             )}
 
             <CardContent className={cn("p-6 relative", coach.isHeadCoach && "z-10")}>
-              {/* Head Coach Crown */}
+              {/* VIP Coach Crown */}
               {coach.isHeadCoach && (
                 <div className="flex justify-center mb-3">
                   <div className="bg-gradient-to-r from-[#D4AF37] to-yellow-600 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg">
                     <Crown size={14} />
-                    PREMIUM HEAD COACH
+                    VIP PREMIUM MENTOR
                     <Crown size={14} />
                   </div>
                 </div>
@@ -357,38 +374,31 @@ export function CoachSelection({ sessionType, onSelect, onBack }: CoachSelection
                     )}
                   >
                     {getSessionIcon(spec)}
-                    {spec.charAt(0).toUpperCase() + spec.slice(1)}
+                    {getSessionLabel(spec)}
                   </Badge>
                 ))}
               </div>
 
               {/* Bio */}
-              <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+              <p className="text-gray-600 text-sm mb-4 line-clamp-4">
                 {coach.bio}
               </p>
 
-              {/* Price & Book Button */}
+              {/* Negotiable Pricing & Book Button */}
               <div className="border-t pt-4">
-                {coach.isHeadCoach || coach.priceDiscussion ? (
-                  <div className="mb-3">
-                    <div className="flex items-center justify-center gap-2 text-center mb-2">
-                      <MessageCircle className="h-4 w-4 text-green-600" />
-                      <span className="text-sm font-semibold text-gray-700">
-                        Premium pricing via WhatsApp
-                      </span>
-                    </div>
-                    <p className="text-xs text-gray-500 text-center">
-                      {coach.isHeadCoach ? "Exclusive premium coaching rates" : "Based on experience and session requirements"}
-                    </p>
-                  </div>
-                ) : (
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-2xl font-bold text-[#D4AF37]">
-                      €{coach.price}
+                <div className="mb-3">
+                  <div className="flex items-center justify-center gap-2 text-center mb-2">
+                    <MessageCircle className="h-4 w-4 text-green-600" />
+                    <span className="text-sm font-semibold text-gray-700">
+                      {coach.isHeadCoach ? "VIP Premium Pricing" : "Flexible Pricing"}
                     </span>
-                    <span className="text-gray-500 text-sm">per session</span>
                   </div>
-                )}
+                  <p className="text-xs text-gray-500 text-center">
+                    {coach.isHeadCoach 
+                      ? "Customized rates based on package and sessions via WhatsApp" 
+                      : "Negotiable based on package level and session count"}
+                  </p>
+                </div>
                 
                 <Button 
                   className={cn(
@@ -399,7 +409,7 @@ export function CoachSelection({ sessionType, onSelect, onBack }: CoachSelection
                   )}
                   onClick={() => handleCoachSelect(coach)}
                 >
-                  {coach.isHeadCoach ? "Select Premium Coach" : "Select Coach"}
+                  {coach.isHeadCoach ? "Select VIP Mentor" : "Select Coach"}
                   <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
