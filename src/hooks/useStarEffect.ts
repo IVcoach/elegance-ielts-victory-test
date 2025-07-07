@@ -2,7 +2,7 @@
 import { useCallback } from 'react';
 
 export const useStarEffect = () => {
-  const createStarEffect = useCallback((event: React.MouseEvent) => {
+  const createStarEffect = useCallback((event?: React.MouseEvent) => {
     const stars = ['⭐', '✨', '💫', '🌟'];
     const numberOfStars = 6;
     
@@ -11,11 +11,19 @@ export const useStarEffect = () => {
       star.innerHTML = stars[Math.floor(Math.random() * stars.length)];
       star.className = 'star-effect';
       
-      const rect = event.currentTarget.getBoundingClientRect();
-      const x = event.clientX;
-      const y = event.clientY;
+      let x, y;
       
-      // Random offset around the click point
+      if (event) {
+        // Use mouse position if event is provided
+        x = event.clientX;
+        y = event.clientY;
+      } else {
+        // Use center of viewport if no event is provided
+        x = window.innerWidth / 2;
+        y = window.innerHeight / 2;
+      }
+      
+      // Random offset around the position
       const offsetX = (Math.random() - 0.5) * 60;
       const offsetY = (Math.random() - 0.5) * 60;
       
