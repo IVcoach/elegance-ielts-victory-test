@@ -116,9 +116,7 @@ export function SpecialCoaches() {
                 </div>
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                  Sammy Rodriguez
-                </h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-1">Sammy </h3>
                 <div className="flex flex-wrap gap-2 mb-2">
                   <Badge className="bg-emerald-600 text-white">Writing Virtuoso</Badge>
                   <Badge className="bg-green-600 text-white">VIP Mentor</Badge>
