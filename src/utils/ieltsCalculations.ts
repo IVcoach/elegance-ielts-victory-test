@@ -101,14 +101,34 @@ export const calculateResults = (correctAnswers: number, totalQuestions: number)
   };
 };
 
-// Calculate mock section scores for result display
-export const getMockSectionScores = (correctAnswers: number, totalQuestions: number): ScoreSection[] => {
-  const baseScore = correctAnswers / totalQuestions * 100;
+// Helper function to get level description based on score
+const getLevelFromScore = (score: number): string => {
+  if (score >= 85) return "Advanced";
+  if (score >= 70) return "Upper-Intermediate"; 
+  if (score >= 55) return "Intermediate";
+  if (score >= 40) return "Pre-Intermediate";
+  return "Elementary";
+};
+
+// Calculate mock section scores for result display - updated to match SectionScore interface
+export const getMockSectionScores = (correctAnswers: number, totalQuestions: number) => {
+  const baseScore = Math.round((correctAnswers / totalQuestions) * 100);
+  
   return [{
-    name: "Grammar",
-    score: Math.max(0, Math.min(100, baseScore + Math.random() * 10 - 5))
+    section: "Grammar",
+    score: Math.max(0, Math.min(100, baseScore + Math.round(Math.random() * 10 - 5))),
+    level: getLevelFromScore(baseScore)
   }, {
-    name: "Vocabulary",
-    score: Math.max(0, Math.min(100, baseScore + Math.random() * 10 - 5))
+    section: "Vocabulary", 
+    score: Math.max(0, Math.min(100, baseScore + Math.round(Math.random() * 10 - 5))),
+    level: getLevelFromScore(baseScore)
+  }, {
+    section: "Reading Comprehension",
+    score: Math.max(0, Math.min(100, baseScore + Math.round(Math.random() * 10 - 5))),
+    level: getLevelFromScore(baseScore)
+  }, {
+    section: "Listening",
+    score: Math.max(0, Math.min(100, baseScore + Math.round(Math.random() * 10 - 5))),
+    level: getLevelFromScore(baseScore)
   }];
 };
