@@ -1,20 +1,26 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Award, Trophy, Send, CheckCircle, MessageCircle, Users, Globe } from "lucide-react";
 import { useStarEffect } from "@/hooks/useStarEffect";
+
 export function HeroSection() {
   const createStarEffect = useStarEffect();
+
   const handleTelegramResources = (e: React.MouseEvent) => {
     createStarEffect(e);
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
+
   const handleWhatsAppContact = (e: React.MouseEvent) => {
     createStarEffect(e);
     const text = "Hello! I'm interested in IELTS coaching and would like more information about your programs.";
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
-  return <section className="hero-gradient pt-20 pb-16 px-6 md:pt-28 md:pb-24 relative overflow-hidden">
+
+  return (
+    <section className="hero-gradient pt-20 pb-16 px-6 md:pt-28 md:pb-24 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 animate-pulse">
@@ -30,7 +36,8 @@ export function HeroSection() {
 
       <div className="container mx-auto max-w-7xl relative z-10 rounded-lg">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="animate-fade-in order-2 lg:order-1 text-center lg:text-left">
+          {/* Content - Order 2 on mobile (below image) */}
+          <div className="animate-fade-in order-2 text-center lg:text-left">
             {/* Main Heading */}
             <div className="mb-6">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4 text-center px-0 mx-0 my-[30px]">
@@ -44,7 +51,7 @@ export function HeroSection() {
 
             <p className="text-base md:text-lg text-gray-800 mb-6 font-medium leading-relaxed max-w-2xl">
               With over 50,000 hours of dedicated coaching experience and a proven 90% success rate, 
-              V&C Elegance provides comprehensive IELTS preparation that delivers exceptional results.
+              IELTStory (powered by V&C Elegance) provides comprehensive IELTS preparation that delivers exceptional results.
             </p>
             
             {/* Verification Badge */}
@@ -111,7 +118,8 @@ export function HeroSection() {
             </div>
           </div>
           
-          <div className="relative animate-fade-in order-1 lg:order-2">
+          {/* Image - Order 1 on mobile (above content) */}
+          <div className="relative animate-fade-in order-1">
             {/* Enhanced Image Container */}
             <div className="relative max-w-lg mx-auto">
               <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white/70 backdrop-blur-sm transform hover:scale-105 transition-transform duration-300 relative">
@@ -139,5 +147,6 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }

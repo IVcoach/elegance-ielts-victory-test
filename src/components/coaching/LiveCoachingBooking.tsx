@@ -8,6 +8,7 @@ import { BookingCalendar } from "./BookingCalendar";
 import { CoachSelection } from "./CoachSelection";
 import { SessionTypeSelection } from "./SessionTypeSelection";
 import { BookingConfirmation } from "./BookingConfirmation";
+import { SpecialCoaches } from "./SpecialCoaches";
 import { cn } from "@/lib/utils";
 
 export type SessionType = "speaking" | "writing" | "reading" | "listening" | "grammar" | "general-language" | "general";
@@ -123,6 +124,9 @@ export function LiveCoachingBooking() {
 
   return (
     <div className="max-w-4xl mx-auto p-4 space-y-6">
+      {/* Special Coaches Section - Show at the beginning */}
+      <SpecialCoaches />
+
       {/* Important Notice */}
       <Card className="border-orange-200 bg-gradient-to-r from-orange-50 to-amber-50">
         <CardContent className="p-6">

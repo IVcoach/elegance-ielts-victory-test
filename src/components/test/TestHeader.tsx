@@ -31,7 +31,7 @@ export function TestHeader({
                 <div className="aspect-video rounded-lg overflow-hidden shadow-lg relative">
                   <img src={image} alt={`IELTS Assessment ${index + 1}`} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center">
-                    <h3 className="text-white text-xl font-bold mb-1">IELTS Victory</h3>
+                    <h3 className="text-white text-xl font-bold mb-1">IELTStory</h3>
                     <p className="text-white text-sm italic">Your Success, Our Goal</p>
                   </div>
                 </div>
