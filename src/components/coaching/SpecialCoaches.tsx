@@ -1,12 +1,9 @@
-
 import { MessageSquare, PenTool, Users, ArrowRight, Briefcase, GraduationCap, Star, Award } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-
 export function SpecialCoaches() {
-  return (
-    <div className="space-y-8 mb-12">
+  return <div className="space-y-8 mb-12">
       <div className="text-center">
         <h2 className="text-3xl font-bold text-gray-900 mb-2">
           🌟 Premium VIP Mentors
@@ -32,17 +29,13 @@ export function SpecialCoaches() {
                 </div>
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                  Evans Johnson
-                </h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-1">Evans</h3>
                 <div className="flex flex-wrap gap-2 mb-2">
                   <Badge className="bg-blue-600 text-white">International Job Coach</Badge>
                   <Badge className="bg-indigo-600 text-white">VIP Mentor</Badge>
                 </div>
                 <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
-                  ))}
+                  {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />)}
                   <span className="text-sm text-gray-600 ml-2">15+ Years Experience</span>
                 </div>
               </div>
@@ -96,15 +89,11 @@ export function SpecialCoaches() {
               </div>
             </div>
 
-            <Button
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 transform hover:scale-105 shadow-lg"
-              size="lg"
-              onClick={() => {
-                const message = "Hello! I'm interested in Evans' International Job Interview Coaching program. Could you provide more details about the course structure and pricing?";
-                const encodedMessage = encodeURIComponent(message);
-                window.open(`https://wa.me/+31631267353?text=${encodedMessage}`, '_blank');
-              }}
-            >
+            <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 transform hover:scale-105 shadow-lg" size="lg" onClick={() => {
+            const message = "Hello! I'm interested in Evans' International Job Interview Coaching program. Could you provide more details about the course structure and pricing?";
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/+31631267353?text=${encodedMessage}`, '_blank');
+          }}>
               <Briefcase className="h-5 w-5 mr-2" />
               Book Evans for Interview Mastery
               <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -135,9 +124,7 @@ export function SpecialCoaches() {
                   <Badge className="bg-green-600 text-white">VIP Mentor</Badge>
                 </div>
                 <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
-                  ))}
+                  {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />)}
                   <span className="text-sm text-gray-600 ml-2">12+ Years Experience</span>
                 </div>
               </div>
@@ -197,15 +184,11 @@ export function SpecialCoaches() {
               </div>
             </div>
 
-            <Button
-              className="w-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 transition-all duration-200 transform hover:scale-105 shadow-lg"
-              size="lg"
-              onClick={() => {
-                const message = "Hello! I'm interested in Sammy's VIP Writing Skills Transformation program (Band 5 to 6.5+). Could you provide details about the 15-20 session course and pricing?";
-                const encodedMessage = encodeURIComponent(message);
-                window.open(`https://wa.me/+31631267353?text=${encodedMessage}`, '_blank');
-              }}
-            >
+            <Button className="w-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 transition-all duration-200 transform hover:scale-105 shadow-lg" size="lg" onClick={() => {
+            const message = "Hello! I'm interested in Sammy's VIP Writing Skills Transformation program (Band 5 to 6.5+). Could you provide details about the 15-20 session course and pricing?";
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/+31631267353?text=${encodedMessage}`, '_blank');
+          }}>
               <PenTool className="h-5 w-5 mr-2" />
               Experience Sammy's Writing Magic
               <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -221,6 +204,5 @@ export function SpecialCoaches() {
           All pricing is negotiable based on your specific needs and commitment level.
         </p>
       </div>
-    </div>
-  );
+    </div>;
 }
