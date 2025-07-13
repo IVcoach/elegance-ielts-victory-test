@@ -1,33 +1,24 @@
-
 import { ArrowDown, ArrowRight, MessageCircle, PenTool, FileText, Award, CheckCircle, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
-
 export function AssessmentFlowchart() {
   const navigate = useNavigate();
-  
   const handleWhatsAppContact = (message: string) => {
     const encodedText = encodeURIComponent(message);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
-
   const handlePlacementTest = () => {
     navigate('/test');
   };
-
   const handleSpeakingWritingAssessment = () => {
     navigate('/test?practice=true');
   };
-
-  return (
-    <section className="py-16 px-6 bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50">
+  return <section className="py-16 px-6 bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Complete IELTS Assessment Process
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Complete IELTS Assessment Process For Free</h2>
           <p className="text-lg text-gray-700 font-medium max-w-3xl mx-auto">
             Follow our comprehensive 4-step assessment process to get accurate IELTS band prediction 
             with AI analysis and expert mentor feedback
@@ -51,10 +42,7 @@ export function AssessmentFlowchart() {
               <Badge className="bg-blue-100 text-blue-700 mb-4">
                 ⏱️ 20 minutes
               </Badge>
-              <Button 
-                onClick={handlePlacementTest}
-                className="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-2 mb-2 w-full"
-              >
+              <Button onClick={handlePlacementTest} className="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-2 mb-2 w-full">
                 🎯 Start Test
               </Button>
               <div className="mt-4">
@@ -76,10 +64,7 @@ export function AssessmentFlowchart() {
               <p className="text-gray-700 text-sm mb-4">
                 Share your placement test results with our experts via WhatsApp for initial assessment
               </p>
-              <Button 
-                onClick={() => handleWhatsAppContact("Hello! I've completed the placement test and would like to share my results for assessment.")}
-                className="bg-green-600 hover:bg-green-700 text-white text-xs px-3 py-2 mb-2 w-full"
-              >
+              <Button onClick={() => handleWhatsAppContact("Hello! I've completed the placement test and would like to share my results for assessment.")} className="bg-green-600 hover:bg-green-700 text-white text-xs px-3 py-2 mb-2 w-full">
                 📱 Send Results
               </Button>
               <div className="mt-4">
@@ -101,10 +86,7 @@ export function AssessmentFlowchart() {
               <p className="text-gray-700 text-sm mb-4">
                 Record your speaking response and send the audio file for expert evaluation
               </p>
-              <Button 
-                onClick={handleSpeakingWritingAssessment}
-                className="bg-purple-600 hover:bg-purple-700 text-white text-xs px-3 py-2 mb-2 w-full"
-              >
+              <Button onClick={handleSpeakingWritingAssessment} className="bg-purple-600 hover:bg-purple-700 text-white text-xs px-3 py-2 mb-2 w-full">
                 🎤 Start Speaking
               </Button>
               <div className="mt-4">
@@ -126,10 +108,7 @@ export function AssessmentFlowchart() {
               <p className="text-gray-700 text-sm mb-4">
                 Complete and submit your IELTS Writing Task 2 essay for comprehensive evaluation
               </p>
-              <Button 
-                onClick={handleSpeakingWritingAssessment}
-                className="bg-orange-600 hover:bg-orange-700 text-white text-xs px-3 py-2 mb-2 w-full"
-              >
+              <Button onClick={handleSpeakingWritingAssessment} className="bg-orange-600 hover:bg-orange-700 text-white text-xs px-3 py-2 mb-2 w-full">
                 📝 Start Writing
               </Button>
             </CardContent>
@@ -145,16 +124,12 @@ export function AssessmentFlowchart() {
                 <h4 className="text-lg font-bold text-gray-900">WhatsApp Contact</h4>
               </div>
               <p className="text-gray-700 mb-3">Send all assessments and receive results via:</p>
-              <Button 
-                onClick={() => handleWhatsAppContact("Hello! I'm interested in the complete IELTS assessment process. Please guide me through the steps.")}
-                className="bg-green-600 hover:bg-green-700 text-white font-bold"
-              >
+              <Button onClick={() => handleWhatsAppContact("Hello! I'm interested in the complete IELTS assessment process. Please guide me through the steps.")} className="bg-green-600 hover:bg-green-700 text-white font-bold">
                 📱 +31 631 267 353
               </Button>
             </CardContent>
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }

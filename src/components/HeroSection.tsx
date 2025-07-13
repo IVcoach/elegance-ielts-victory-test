@@ -1,26 +1,20 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Award, Trophy, Send, CheckCircle, MessageCircle, Users, Globe } from "lucide-react";
 import { useStarEffect } from "@/hooks/useStarEffect";
-
 export function HeroSection() {
   const createStarEffect = useStarEffect();
-
   const handleTelegramResources = (e: React.MouseEvent) => {
     createStarEffect(e);
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
-
   const handleWhatsAppContact = (e: React.MouseEvent) => {
     createStarEffect(e);
     const text = "Hello! I'm interested in IELTS coaching and would like more information about your programs.";
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/+31631267353?text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
-
-  return (
-    <section className="hero-gradient pt-20 pb-16 px-6 md:pt-28 md:pb-24 relative overflow-hidden">
+  return <section className="hero-gradient pt-20 pb-16 px-6 md:pt-28 md:pb-24 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 animate-pulse">
@@ -88,7 +82,7 @@ export function HeroSection() {
               
               <Button onClick={handleTelegramResources} size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-base py-5 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-400 min-h-[50px] w-full">
                 <span className="text-lg mr-2">📚</span>
-                <span className="font-black text-center text-gray-950">Study Community</span>
+                <span className="font-black text-center text-gray-950">Study Community with Free Resources</span>
               </Button>
               
               <Button onClick={handleWhatsAppContact} size="lg" className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-bold text-base py-5 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-green-400 min-h-[50px] w-full">
@@ -147,6 +141,5 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
