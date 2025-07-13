@@ -1,25 +1,23 @@
 
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Trophy, Target, BookOpen, MessageSquare, RefreshCw, CheckCircle, Star, Award } from "lucide-react";
-import { WhatsAppResultButton } from "./test/WhatsAppResultButton";
-
-interface SectionScore {
-  section: string;
-  score: number;
-  level: string;
-}
+import { Trophy, Target, BarChart3, BookOpen, MessageCircle, RefreshCw, GraduationCap, Star, Sparkles, Award } from "lucide-react";
+import { CEFRScore } from "./CEFRScore";
 
 interface AssessmentResultsProps {
   correctAnswers: number;
   totalQuestions: number;
   cefrLevel: string;
-  ieltsBand: string;
+  ieltsBand: number;
   toeflScore: number;
   pteScore: number;
-  sectionScores: SectionScore[];
+  sectionScores?: {
+    listening: number;
+    reading: number;
+    writing: number;
+    speaking: number;
+  };
   onRestart: () => void;
   onPractice: () => void;
 }
@@ -31,182 +29,184 @@ export function AssessmentResults({
   ieltsBand,
   toeflScore,
   pteScore,
-  sectionScores,
   onRestart,
-  onPractice
+  onPractice,
 }: AssessmentResultsProps) {
   const percentage = Math.round((correctAnswers / totalQuestions) * 100);
   
-  const getScoreColor = (percentage: number) => {
-    if (percentage >= 80) return "text-green-600";
-    if (percentage >= 60) return "text-blue-600";
-    if (percentage >= 40) return "text-yellow-600";
-    return "text-red-600";
+  const getPerformanceLevel = (percentage: number) => {
+    if (percentage >= 90) return { level: "Excellent", color: "text-green-600", bgColor: "bg-green-50 border-green-200" };
+    if (percentage >= 80) return { level: "Very Good", color: "text-blue-600", bgColor: "bg-blue-50 border-blue-200" };
+    if (percentage >= 70) return { level: "Good", color: "text-yellow-600", bgColor: "bg-yellow-50 border-yellow-200" };
+    if (percentage >= 60) return { level: "Fair", color: "text-orange-600", bgColor: "bg-orange-50 border-orange-200" };
+    return { level: "Needs Improvement", color: "text-red-600", bgColor: "bg-red-50 border-red-200" };
   };
 
-  const getBandColor = (band: string) => {
-    const bandNum = parseFloat(band);
-    if (bandNum >= 7) return "bg-green-100 text-green-800 border-green-200";
-    if (bandNum >= 6) return "bg-blue-100 text-blue-800 border-blue-200";
-    if (bandNum >= 5) return "bg-yellow-100 text-yellow-800 border-yellow-200";
-    return "bg-red-100 text-red-800 border-red-200";
+  const performance = getPerformanceLevel(percentage);
+
+  const getMotivationalMessage = () => {
+    if (percentage >= 90) return "Outstanding performance! You're ready for advanced level preparation.";
+    if (percentage >= 80) return "Great job! You have a strong foundation to build upon.";
+    if (percentage >= 70) return "Good work! With focused practice, you can achieve your target score.";
+    if (percentage >= 60) return "You're on the right track! Consistent practice will help you improve.";
+    return "Every expert was once a beginner. Let's start your journey to success!";
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6">
-      {/* Header */}
-      <div className="text-center space-y-4">
-        <div className="flex items-center justify-center gap-3">
-          <Trophy className="h-8 w-8 text-yellow-500" />
-          <h1 className="text-3xl font-bold text-gray-900">Assessment Complete!</h1>
-          <Trophy className="h-8 w-8 text-yellow-500" />
+    <div className="max-w-4xl mx-auto space-y-8">
+      {/* Header with Trophy Animation */}
+      <div className="text-center relative">
+        <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full mb-6 animate-bounce shadow-2xl">
+          <Trophy className="h-10 w-10 text-white" />
         </div>
-        <p className="text-lg text-gray-600">Here are your detailed results and next steps</p>
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Assessment Complete!
+        </h1>
+        <p className="text-xl text-gray-700 font-medium">
+          {getMotivationalMessage()}
+        </p>
       </div>
 
       {/* Main Results Card */}
-      <Card className="border-2 border-blue-200 shadow-xl">
-        <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50">
-          <CardTitle className="text-2xl font-bold text-center text-gray-900 flex items-center justify-center gap-2">
-            <Target className="h-6 w-6 text-blue-600" />
-            Your IELTS Assessment Results
-          </CardTitle>
+      <Card className={`${performance.bgColor} border-2 shadow-xl`}>
+        <CardHeader className="text-center pb-4">
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <Star className={`h-6 w-6 ${performance.color}`} />
+            <CardTitle className={`text-2xl ${performance.color}`}>
+              {performance.level}
+            </CardTitle>
+            <Star className={`h-6 w-6 ${performance.color}`} />
+          </div>
+          <div className="text-5xl font-bold text-gray-900 mb-2">
+            {correctAnswers}/{totalQuestions}
+          </div>
+          <Badge variant="secondary" className="text-lg px-4 py-2 font-bold">
+            {percentage}% Correct
+          </Badge>
         </CardHeader>
-        <CardContent className="p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {/* Score */}
-            <div className="text-center p-4 bg-gray-50 rounded-lg">
-              <div className={`text-3xl font-bold ${getScoreColor(percentage)}`}>
-                {correctAnswers}/{totalQuestions}
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* CEFR Level */}
+            <div className="text-center p-6 bg-white/80 rounded-xl shadow-lg border-2 border-blue-200 transform hover:scale-105 transition-all">
+              <div className="flex items-center justify-center mb-3">
+                <GraduationCap className="h-8 w-8 text-blue-600" />
               </div>
-              <div className="text-sm text-gray-600 mt-1">Correct Answers</div>
-              <div className={`text-lg font-semibold ${getScoreColor(percentage)}`}>
-                {percentage}%
-              </div>
+              <h3 className="font-bold text-gray-900 text-lg mb-2">CEFR Level</h3>
+              <CEFRScore level={cefrLevel} />
             </div>
 
             {/* IELTS Band */}
-            <div className="text-center p-4 bg-gray-50 rounded-lg">
-              <Badge className={`text-lg px-3 py-1 ${getBandColor(ieltsBand)}`}>
-                Band {ieltsBand}
-              </Badge>
-              <div className="text-sm text-gray-600 mt-2">IELTS Equivalent</div>
+            <div className="text-center p-6 bg-white/80 rounded-xl shadow-lg border-2 border-green-200 transform hover:scale-105 transition-all">
+              <div className="flex items-center justify-center mb-3">
+                <Target className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="font-bold text-gray-900 text-lg mb-2">Estimated IELTS</h3>
+              <div className="text-3xl font-bold text-green-600 mb-1">
+                {ieltsBand.toFixed(1)}
+              </div>
+              <div className="text-sm text-gray-600">Band Score</div>
             </div>
 
-            {/* CEFR Level */}
-            <div className="text-center p-4 bg-gray-50 rounded-lg">
-              <Badge className="text-lg px-3 py-1 bg-purple-100 text-purple-800 border-purple-200">
-                {cefrLevel}
-              </Badge>
-              <div className="text-sm text-gray-600 mt-2">CEFR Level</div>
-            </div>
-
-            {/* Progress Bar */}
-            <div className="flex flex-col justify-center p-4 bg-gray-50 rounded-lg">
-              <Progress value={percentage} className="mb-2" />
-              <div className="text-sm text-gray-600 text-center">Overall Progress</div>
-            </div>
-          </div>
-
-          {/* Additional Scores */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            <div className="text-center p-4 bg-orange-50 rounded-lg border border-orange-200">
-              <div className="text-2xl font-bold text-orange-700">{toeflScore}</div>
-              <div className="text-sm text-gray-600">TOEFL Equivalent</div>
-            </div>
-            <div className="text-center p-4 bg-green-50 rounded-lg border border-green-200">
-              <div className="text-2xl font-bold text-green-700">{pteScore}</div>
-              <div className="text-sm text-gray-600">PTE Equivalent</div>
-            </div>
-          </div>
-
-          {/* Section Breakdown */}
-          <div className="mb-6">
-            <h3 className="text-lg font-semibold mb-4 text-center">Estimated Section Scores</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {sectionScores.map((section, index) => (
-                <div key={index} className="text-center p-3 bg-blue-50 rounded-lg border border-blue-200">
-                  <div className="font-semibold text-blue-800">{section.section}</div>
-                  <div className="text-lg font-bold text-blue-600">{section.score}</div>
-                  <div className="text-xs text-gray-600">{section.level}</div>
+            {/* Additional Scores */}
+            <div className="text-center p-6 bg-white/80 rounded-xl shadow-lg border-2 border-purple-200 transform hover:scale-105 transition-all">
+              <div className="flex items-center justify-center mb-3">
+                <BarChart3 className="h-8 w-8 text-purple-600" />
+              </div>
+              <h3 className="font-bold text-gray-900 text-lg mb-2">Other Scores</h3>
+              <div className="space-y-1 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-600">TOEFL:</span>
+                  <span className="font-bold text-purple-600">{toeflScore}</span>
                 </div>
-              ))}
+                <div className="flex justify-between">
+                  <span className="text-gray-600">PTE:</span>
+                  <span className="font-bold text-purple-600">{pteScore}</span>
+                </div>
+              </div>
             </div>
           </div>
         </CardContent>
       </Card>
 
-      {/* WhatsApp Results Button */}
-      <WhatsAppResultButton 
-        correctAnswers={correctAnswers}
-        totalQuestions={totalQuestions}
-        cefrLevel={cefrLevel}
-        ieltsBand={ieltsBand}
-      />
-
-      {/* Next Steps */}
-      <Card className="border-2 border-green-200 shadow-lg">
-        <CardHeader className="bg-gradient-to-r from-green-50 to-emerald-50">
-          <CardTitle className="text-xl font-bold text-center text-gray-900 flex items-center justify-center gap-2">
-            <CheckCircle className="h-6 w-6 text-green-600" />
-            Next Steps for Complete Assessment
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="p-6">
-          <div className="space-y-4">
-            <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-600">
-              <h4 className="font-semibold text-blue-800 mb-2">Step 2: Speaking & Writing Assessment</h4>
-              <p className="text-blue-700 text-sm">
-                Complete your evaluation with personalized speaking and writing assessment for a comprehensive IELTS preparation plan.
-              </p>
+      {/* Professional Feedback Card */}
+      <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 shadow-xl">
+        <CardHeader>
+          <div className="flex items-center gap-3">
+            <div className="bg-blue-600 p-2 rounded-full">
+              <MessageCircle className="h-6 w-6 text-white" />
             </div>
-            
-            <Button 
-              onClick={onPractice} 
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-4 px-6 shadow-xl transform hover:scale-105 transition-all duration-300"
-              size="lg"
-            >
-              <MessageSquare className="h-5 w-5 mr-2" />
-              Continue to Speaking & Writing Assessment
-            </Button>
+            <CardTitle className="text-xl text-blue-900">Professional Feedback</CardTitle>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <div className="bg-white/90 p-6 rounded-xl shadow-md border border-blue-200">
+            <div className="flex items-start gap-4">
+              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-3 rounded-full flex-shrink-0">
+                <Sparkles className="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <h4 className="font-bold text-gray-900 text-lg mb-2">Personalized Assessment Report</h4>
+                <p className="text-gray-700 leading-relaxed">
+                  Based on your performance, we recommend focusing on areas that will help you achieve your target IELTS band score. 
+                  Our expert coaches can provide detailed feedback on your strengths and areas for improvement.
+                </p>
+                <div className="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+                  <p className="text-yellow-800 font-medium">
+                    💡 <strong>Pro Tip:</strong> Submit your speaking and writing samples for detailed evaluation by our Cambridge-certified coaches!
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </CardContent>
       </Card>
 
       {/* Action Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4">
-        <Button 
-          onClick={onRestart} 
-          variant="outline" 
-          className="flex-1 py-3 border-2 border-gray-300 hover:bg-gray-50 transition-all duration-300"
+      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button
+          onClick={onRestart}
+          size="lg"
+          variant="outline"
+          className="flex items-center gap-2 px-8 py-6 text-lg font-bold border-2 hover:scale-105 transition-all"
         >
-          <RefreshCw className="h-4 w-4 mr-2" />
+          <RefreshCw className="h-5 w-5" />
           Retake Assessment
         </Button>
         
-        <Button 
-          onClick={onPractice} 
-          className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 shadow-lg transform hover:scale-105 transition-all duration-300"
+        <Button
+          onClick={onPractice}
+          size="lg"
+          className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white px-8 py-6 text-lg font-bold shadow-xl hover:scale-105 transition-all flex items-center gap-2"
         >
-          <BookOpen className="h-4 w-4 mr-2" />
+          <BookOpen className="h-5 w-5" />
           Practice Questions
         </Button>
       </div>
 
-      {/* Motivational Footer */}
-      <div className="text-center bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-xl border-2 border-amber-200">
-        <div className="flex items-center justify-center gap-2 mb-3">
-          <Star className="h-5 w-5 text-amber-500" />
-          <Award className="h-5 w-5 text-amber-600" />
-          <Star className="h-5 w-5 text-amber-500" />
-        </div>
-        <p className="text-lg font-bold text-gray-900 mb-2">
-          Great job completing the assessment! 🎉
-        </p>
-        <p className="text-gray-700">
-          Your journey to IELTS success starts here. Remember to send your results via WhatsApp for personalized guidance!
-        </p>
-      </div>
+      {/* Call to Action */}
+      <Card className="bg-gradient-to-r from-orange-50 to-red-50 border-2 border-orange-200 shadow-xl">
+        <CardContent className="text-center p-8">
+          <div className="flex items-center justify-center mb-4">
+            <Award className="h-12 w-12 text-orange-600" />
+          </div>
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Achieve Your Target Score?</h3>
+          <p className="text-gray-700 text-lg mb-6">
+            Join thousands of successful students who have achieved their IELTS goals with our personalized coaching program.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild size="lg" className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white px-8 py-4 text-lg font-bold shadow-xl hover:scale-105 transition-all">
+              <a href="https://wa.me/+31631267353?text=Hello! I just completed the IELTS assessment and would like to know more about your coaching programs." target="_blank" rel="noopener noreferrer">
+                Get Personal Coaching
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="border-2 border-orange-600 text-orange-600 hover:bg-orange-50 px-8 py-4 text-lg font-bold hover:scale-105 transition-all">
+              <a href="https://t.me/ieltstori" target="_blank" rel="noopener noreferrer">
+                Join Study Community
+              </a>
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

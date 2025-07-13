@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Award, Trophy, Send, CheckCircle, MessageCircle, Users, Globe } from "lucide-react";
@@ -106,7 +107,7 @@ export function HeroSection() {
                 <div className="text-xs text-gray-700 font-medium">Support</div>
               </div>
               <div className="text-center p-3 bg-white/90 rounded-lg shadow-md border-2 border-amber-100 transform hover:scale-105 transition-all">
-                <div className="text-xl font-bold text-amber-600">300+</div>
+                <div className="text-xl font-bold text-amber-600">1400+</div>
                 <div className="text-xs text-gray-700 font-medium">Students</div>
               </div>
             </div>
@@ -121,7 +122,7 @@ export function HeroSection() {
                 {/* Overlay with credentials */}
                 <div className="absolute bottom-4 left-4 right-4 bg-black/70 backdrop-blur-sm rounded-lg p-3">
                   <p className="text-white font-bold text-sm">✨ Cambridge Certified Coach</p>
-                  <p className="text-white/90 text-xs">Over 300+ successful students</p>
+                  <p className="text-white/90 text-xs">Over 1400+ successful students</p>
                 </div>
               </div>
               

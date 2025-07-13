@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, Award, Users, CheckCircle, Star, Trophy, Globe, Heart, Sparkles } from "lucide-react";
@@ -47,7 +48,7 @@ export function Footer() {
 
           {/* Main Content with Enhanced Design */}
           <div className="text-center bg-gradient-to-r from-pink-50 via-blue-50 to-purple-50 p-10 rounded-3xl border-3 border-gradient shadow-2xl">
-            {/* Support Links */}
+            {/* Consolidated Get In Touch Section */}
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center justify-center gap-2">
                 <Star className="h-6 w-6 text-amber-500" />
@@ -55,34 +56,36 @@ export function Footer() {
                 <Star className="h-6 w-6 text-amber-500" />
               </h3>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border-2 border-green-200 transform hover:scale-105 transition-all">
-                  <div className="flex items-center justify-center gap-3 mb-3">
+              <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border-2 border-blue-200 transform hover:scale-105 transition-all max-w-md mx-auto">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-center gap-3">
                     <div className="bg-green-600 p-2 rounded-full">
-                      <Phone className="h-5 w-5 text-white" />
+                      <Phone className="h-4 w-4 text-white" />
                     </div>
-                    <span className="text-gray-800 font-bold text-lg">WhatsApp Support</span>
+                    <div className="text-left">
+                      <div className="text-gray-800 font-bold text-sm">WhatsApp Support</div>
+                      <a href="https://wa.me/+31631267353" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 transition-colors font-bold text-lg hover:underline">
+                        +31 631 267 353
+                      </a>
+                    </div>
                   </div>
-                  <a href="https://wa.me/+31631267353" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 transition-colors font-bold text-xl hover:underline">
-                    +31 631 267 353
-                  </a>
-                </div>
-                
-                <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border-2 border-blue-200 transform hover:scale-105 transition-all">
-                  <div className="flex items-center justify-center gap-3 mb-3">
+                  
+                  <div className="flex items-center justify-center gap-3">
                     <div className="bg-blue-600 p-2 rounded-full">
-                      <Mail className="h-5 w-5 text-white" />
+                      <Mail className="h-4 w-4 text-white" />
                     </div>
-                    <span className="text-gray-800 font-bold text-lg">Email Support</span>
+                    <div className="text-left">
+                      <div className="text-gray-800 font-bold text-sm">Email Support</div>
+                      <a href="mailto:vcelegance@consultant.com" className="text-blue-600 hover:text-blue-700 transition-colors font-bold text-lg hover:underline">
+                        vcelegance@consultant.com
+                      </a>
+                    </div>
                   </div>
-                  <a href="mailto:vcelegance@consultant.com" className="text-blue-600 hover:text-blue-700 transition-colors font-bold text-xl hover:underline">
-                    vcelegance@consultant.com
-                  </a>
                 </div>
               </div>
               
               {/* Enhanced Social Media Links */}
-              <div className="flex items-center justify-center gap-8 mb-6">
+              <div className="flex items-center justify-center gap-8 mb-6 mt-6">
                 <a href="https://t.me/ieltstori" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-lg border-2 border-blue-200 hover:border-blue-400 transition-all transform hover:scale-110">
                   <div className="bg-blue-500 p-2 rounded-full group-hover:bg-blue-600 transition-colors">
                     <svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="currentColor">
@@ -110,7 +113,7 @@ export function Footer() {
                 © 2025 IELTStory Educational Consultancy
                 <Trophy className="h-6 w-6 text-amber-600" />
               </p>
-              <p className="text-lg text-gray-700 mb-4 font-semibold">1200+</p>
+              <p className="text-lg text-gray-700 mb-4 font-semibold">1400+</p>
               <p className="text-xl text-gray-800 italic font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Your Success, Our Goal</p>
             </div>
 
@@ -129,7 +132,7 @@ export function Footer() {
                 <div className="text-sm text-gray-700 font-medium">Support</div>
               </div>
               <div className="bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-lg border-2 border-purple-200 transform hover:scale-105 transition-all">
-                <div className="text-2xl font-bold text-purple-700">300+</div>
+                <div className="text-2xl font-bold text-purple-700">1400+</div>
                 <div className="text-sm text-gray-700 font-medium">Students</div>
               </div>
             </div>

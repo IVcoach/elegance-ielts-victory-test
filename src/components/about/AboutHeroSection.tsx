@@ -24,15 +24,15 @@ export const AboutHeroSection = () => {
       color: "blue-600"
     },
     {
-      name: "🌍 IELC",
-      location: "Amsterdam",
-      url: "https://www.ielc.nl",
+      name: "🌍 Check your level Today",
+      location: "Level Assessment",
+      url: "https://checkyourlevel.today",
       color: "green-600"
     },
     {
-      name: "🎓 ALI",
-      location: "Amsterdam",
-      url: "https://www.ali.nl",
+      name: "🎓 bltc",
+      location: "IELTS Testing",
+      url: "https://www.bltc.nl/ielts/apply-for-an-ielts-test/ielts-computer-or-paper",
       color: "purple-600"
     },
     {
