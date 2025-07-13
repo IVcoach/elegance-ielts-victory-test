@@ -75,7 +75,7 @@ export function HeroSection() {
             <div className="flex flex-col gap-3 mb-6 max-w-md mx-auto lg:mx-0">
               <Button asChild size="lg" className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white font-bold text-base py-5 px-6 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-orange-400 min-h-[50px] w-full">
                 <Link to="/test" onClick={createStarEffect} className="flex items-center justify-center gap-2">
-                  <span className="text-lg">🎯</span>
+                  
                   <span className="font-black text-center text-slate-950">Start Free Assessment</span>
                 </Link>
               </Button>
