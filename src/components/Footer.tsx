@@ -110,9 +110,7 @@ export function Footer() {
                 © 2025 IELTStory Educational Consultancy
                 <Trophy className="h-6 w-6 text-amber-600" />
               </p>
-              <p className="text-lg text-gray-700 mb-4 font-semibold">
-                Licensed Educational Consultancy • Registration: 000061974544 (Netherlands)
-              </p>
+              <p className="text-lg text-gray-700 mb-4 font-semibold">1200+</p>
               <p className="text-xl text-gray-800 italic font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Your Success, Our Goal</p>
             </div>
 
