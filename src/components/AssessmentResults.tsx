@@ -3,13 +3,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Trophy, Target, BarChart3, BookOpen, MessageCircle, RefreshCw, GraduationCap, Star, Sparkles, Award } from "lucide-react";
-import { CEFRScore } from "./CEFRScore";
+import { CEFRScore, CEFRLevel } from "./CEFRScore";
 
 interface AssessmentResultsProps {
   correctAnswers: number;
   totalQuestions: number;
-  cefrLevel: string;
-  ieltsBand: number;
+  cefrLevel: CEFRLevel;
+  ieltsBand: string;
   toeflScore: number;
   pteScore: number;
   sectionScores?: {
@@ -92,7 +92,10 @@ export function AssessmentResults({
                 <GraduationCap className="h-8 w-8 text-blue-600" />
               </div>
               <h3 className="font-bold text-gray-900 text-lg mb-2">CEFR Level</h3>
-              <CEFRScore level={cefrLevel} />
+              <div className="text-2xl font-bold text-blue-600 mb-1">
+                {cefrLevel}
+              </div>
+              <div className="text-sm text-gray-600">Level</div>
             </div>
 
             {/* IELTS Band */}
@@ -102,7 +105,7 @@ export function AssessmentResults({
               </div>
               <h3 className="font-bold text-gray-900 text-lg mb-2">Estimated IELTS</h3>
               <div className="text-3xl font-bold text-green-600 mb-1">
-                {ieltsBand.toFixed(1)}
+                {ieltsBand}
               </div>
               <div className="text-sm text-gray-600">Band Score</div>
             </div>

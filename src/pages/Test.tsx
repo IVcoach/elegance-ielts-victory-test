@@ -70,10 +70,8 @@ const Test = () => {
   // Get results for display
   const getResults = () => {
     const results = calculateResults(correctAnswers, totalQuestions);
-    return {
-      ...results,
-      sectionScores: getMockSectionScores(correctAnswers, totalQuestions)
-    };
+    // Don't include section scores since we removed them from the UI
+    return results;
   };
 
   // Determine which content to show based on test state
@@ -92,7 +90,6 @@ const Test = () => {
         ieltsBand={results.ieltsBand} 
         toeflScore={results.toeflScore} 
         pteScore={results.pteScore} 
-        sectionScores={results.sectionScores} 
         onRestart={restartTest} 
         onPractice={showPractice} 
       />

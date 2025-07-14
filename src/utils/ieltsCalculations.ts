@@ -96,8 +96,8 @@ export const calculateResults = (correctAnswers: number, totalQuestions: number)
     cefrLevel,
     ieltsBand,
     overallScore: Math.round(score),
-    toeflScore,
-    pteScore
+    toeflScore: parseFloat(toeflScore.toString()),
+    pteScore: parseFloat(pteScore.toString())
   };
 };
 
