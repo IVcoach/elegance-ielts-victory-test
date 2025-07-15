@@ -4,11 +4,17 @@ import { Award, Trophy, Send, CheckCircle, MessageCircle, Users, Globe } from "l
 import { useStarEffect } from "@/hooks/useStarEffect";
 export function HeroSection() {
   const createStarEffect = useStarEffect();
-  const handleTelegramResources = (e: React.MouseEvent) => {
+  const handleFreeResources = (e: React.MouseEvent) => {
     createStarEffect(e);
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
-  const handleWhatsAppContact = (e: React.MouseEvent) => {
+  
+  const handleFreeAssessment = (e: React.MouseEvent) => {
+    createStarEffect(e);
+    window.location.href = "/test";
+  };
+  
+  const handleConnectMentor = (e: React.MouseEvent) => {
     createStarEffect(e);
     const text = "Hello! I'm interested in IELTS coaching and would like more information about your programs.";
     const encodedText = encodeURIComponent(text);
@@ -73,16 +79,16 @@ export function HeroSection() {
             
             {/* Three Required Action Buttons */}
             <div className="flex flex-col gap-3 mb-6 max-w-md mx-auto lg:mx-0">
-              <Button onClick={handleTelegramResources} size="lg" className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold text-base py-5 px-6 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-orange-400 min-h-[50px] w-full">
-                <span className="font-bold text-white text-center w-full">@ieltstori</span>
+              <Button onClick={handleFreeResources} size="lg" className="bg-gradient-to-r from-blue-900 to-blue-950 hover:from-blue-950 hover:to-slate-900 text-white font-bold py-5 px-4 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-800 min-h-[50px] w-full">
+                <span className="font-bold text-white text-center w-full text-sm md:text-base">Free Resources</span>
               </Button>
               
-              <Button onClick={handleTelegramResources} size="lg" className="bg-gradient-to-r from-blue-800 to-blue-900 hover:from-blue-900 hover:to-blue-950 text-white font-bold text-base py-5 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-700 min-h-[50px] w-full">
-                <span className="font-bold text-white text-center w-full">Instagram</span>
+              <Button onClick={handleFreeAssessment} size="lg" className="bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-800 hover:to-blue-900 text-white font-bold py-5 px-4 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-600 min-h-[50px] w-full">
+                <span className="font-bold text-white text-center w-full text-sm md:text-base">Free Assessment</span>
               </Button>
               
-              <Button onClick={handleWhatsAppContact} size="lg" className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold text-sm md:text-base py-5 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-green-500 min-h-[50px] w-full">
-                <span className="font-bold text-white text-center w-full text-xs md:text-sm">Email support vcelegance@consultant.com</span>
+              <Button onClick={handleConnectMentor} size="lg" className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold py-5 px-4 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-green-500 min-h-[50px] w-full">
+                <span className="font-bold text-white text-center w-full text-xs md:text-sm lg:text-base">Connect to your IELTS Mentor</span>
               </Button>
             </div>
             
