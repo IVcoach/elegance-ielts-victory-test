@@ -31,7 +31,7 @@ export function HeroSection() {
       <div className="container mx-auto max-w-7xl relative z-10 rounded-lg">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content - Order 2 on mobile (below image) */}
-          <div className="animate-fade-in order-2 text-center lg:text-left">
+          <div className="animate-fade-in order-2 lg:order-1 text-center lg:text-left">
             {/* Main Heading */}
             <div className="mb-6">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4 text-center px-0 mx-0 my-[30px]">
@@ -55,39 +55,34 @@ export function HeroSection() {
                 <CheckCircle className="h-6 w-6 text-orange-600" />
                 <span className="text-lg font-bold text-gray-900">Officially Verified Coach</span>
               </div>
-              <div className="space-y-1 text-center lg:text-left">
+              <div className="space-y-2 text-center lg:text-left">
                 <p className="text-sm text-gray-800 font-medium flex items-center gap-2 justify-center lg:justify-start">
-                  <CheckCircle className="h-3 w-3 text-orange-600" />
+                  <span className="text-green-600 text-lg">✓</span>
                   Cambridge University CERF Standards Certified
                 </p>
                 <p className="text-sm text-gray-800 font-medium flex items-center gap-2 justify-center lg:justify-start">
-                  <CheckCircle className="h-3 w-3 text-orange-600" />
+                  <span className="text-green-600 text-lg">✓</span>
                   IDP Education Protocols Verified
                 </p>
-                <p className="text-xs text-gray-700 font-medium flex items-center gap-2 justify-center lg:justify-start">
-                  <Award className="h-3 w-3 text-amber-600" />
+                <p className="text-sm text-gray-700 font-medium flex items-center gap-2 justify-center lg:justify-start">
+                  <span className="text-green-600 text-lg">✓</span>
                   Company License: 000061974544 (Netherlands)
                 </p>
               </div>
             </div>
             
-            {/* Redesigned Action Buttons */}
+            {/* Three Required Action Buttons */}
             <div className="flex flex-col gap-3 mb-6 max-w-md mx-auto lg:mx-0">
-              <Button asChild size="lg" className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white font-bold text-base py-5 px-6 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-orange-400 min-h-[50px] w-full">
-                <Link to="/test" onClick={createStarEffect} className="flex items-center justify-center gap-2">
-                  
-                  <span className="font-black text-center text-slate-950">Start Free Assessment</span>
-                </Link>
+              <Button onClick={handleTelegramResources} size="lg" className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold text-base py-5 px-6 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-orange-400 min-h-[50px] w-full">
+                <span className="font-bold text-white text-center w-full">@ieltstori</span>
               </Button>
               
-              <Button onClick={handleTelegramResources} size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-base py-5 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-400 min-h-[50px] w-full">
-                <span className="text-lg mr-2 text-slate-950">Free Expert Advice</span>
-                
+              <Button onClick={handleTelegramResources} size="lg" className="bg-gradient-to-r from-blue-800 to-blue-900 hover:from-blue-900 hover:to-blue-950 text-white font-bold text-base py-5 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-700 min-h-[50px] w-full">
+                <span className="font-bold text-white text-center w-full">Instagram</span>
               </Button>
               
-              <Button onClick={handleWhatsAppContact} size="lg" className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-bold text-base py-5 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-green-400 min-h-[50px] w-full">
-                <span className="text-lg mr-2">💬</span>
-                <span className="font-black text-center text-gray-950">Expert Advice</span>
+              <Button onClick={handleWhatsAppContact} size="lg" className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold text-sm md:text-base py-5 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-green-500 min-h-[50px] w-full">
+                <span className="font-bold text-white text-center w-full text-xs md:text-sm">Email support vcelegance@consultant.com</span>
               </Button>
             </div>
             
@@ -112,8 +107,8 @@ export function HeroSection() {
             </div>
           </div>
           
-          {/* Image - Order 1 on mobile (above content) */}
-          <div className="relative animate-fade-in order-1">
+          {/* Image - Order 1 on mobile (below header, above content) */}
+          <div className="relative animate-fade-in order-1 lg:order-2">
             {/* Enhanced Image Container */}
             <div className="relative max-w-lg mx-auto">
               <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white/70 backdrop-blur-sm transform hover:scale-105 transition-transform duration-300 relative">

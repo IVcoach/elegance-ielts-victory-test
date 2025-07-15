@@ -1,6 +1,8 @@
 
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 // Enhanced student success stories with more diverse backgrounds
 const studentTestimonials = [
@@ -178,12 +180,39 @@ export function TestimonialCarousel() {
     return items;
   };
   
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + studentTestimonials.length) % studentTestimonials.length);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % studentTestimonials.length);
+  };
+
   return (
     <div 
       className="relative h-80 overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
+      {/* Navigation Arrows */}
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={goToPrevious}
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 bg-white/90 hover:bg-white shadow-lg border-gray-300"
+      >
+        <ChevronLeft className="h-4 w-4" />
+      </Button>
+      
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={goToNext}
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 bg-white/90 hover:bg-white shadow-lg border-gray-300"
+      >
+        <ChevronRight className="h-4 w-4" />
+      </Button>
+
       <div className="absolute inset-0 flex justify-center items-center">
         {displayItems().map((item, idx) => (
           <div
@@ -220,13 +249,14 @@ export function TestimonialCarousel() {
         ))}
       </div>
       
+      {/* Dot Navigation */}
       <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
         {studentTestimonials.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentIndex(idx)}
             className={cn(
-              "w-2 h-2 rounded-full transition-all",
+              "w-2 h-2 rounded-full transition-all hover:w-4",
               idx === currentIndex ? "bg-purple-600 w-4" : "bg-gray-300"
             )}
           />

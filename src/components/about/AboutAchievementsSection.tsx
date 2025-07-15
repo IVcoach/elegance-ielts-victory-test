@@ -23,7 +23,7 @@ export function AboutAchievementsSection() {
               <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-full p-4 w-20 h-20 mx-auto mb-6 shadow-md group-hover:scale-110 transition-transform">
                 <Trophy className="h-12 w-12 text-white mx-auto" />
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">300+</h3>
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">1400+</h3>
               <p className="text-gray-600 font-medium">Successful Students</p>
             </CardContent>
           </Card>

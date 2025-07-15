@@ -3,12 +3,14 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+/* Import mobile design system */
+@import "./styles/mobile-design-system.css";
 @import "./styles/base.css";
 @import "./styles/components.css";
 @import "./styles/utilities.css";
 @import "./styles/variables.css";
 @import "./styles/accessibility.css";
-@import "./styles/mobile-design-system.css";
 
 /* Performance Optimizations for Mobile */
 @layer base {
@@ -53,6 +55,42 @@
     .whitespace-nowrap {
       white-space: normal !important;
       word-break: break-word;
+    }
+    
+    /* Ensure button text is visible and properly aligned */
+    button span {
+      display: block;
+      text-align: center;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+    
+    /* Mobile-specific button adjustments */
+    .btn-mobile {
+      font-size: 0.875rem !important;
+      padding: 0.75rem 1rem !important;
+      line-height: 1.25 !important;
+    }
+  }
+  
+  /* Ensure all text in homepage is contained properly */
+  @media (max-width: 768px) {
+    .hero-gradient * {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    
+    /* Prevent text spillover from buttons */
+    button {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    button span {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 0.25rem;
     }
   }
 }

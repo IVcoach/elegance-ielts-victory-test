@@ -111,8 +111,7 @@ export const QuizIntro = ({
             className="professional-button text-base md:text-lg px-8 py-6 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all min-h-[60px]" 
             onClick={onStartTest}
           >
-            <CheckCircle className="h-5 w-5 mr-2" />
-            <span className="font-bold text-gray-950">Start Professional Assessment</span>
+            <span className="font-bold text-white">Start Professional Assessment</span>
           </Button>
         </div>
         
