@@ -85,7 +85,7 @@ export function HeroSection() {
                 
               </Button>
               
-              <Button onClick={handleWhatsAppContact} size="lg" className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-bold text-base py-5 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-green-400 min-h-[50px] w-full">
+              <Button onClick={handleWhatsAppContact} size="lg" className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-bold text-base py-5 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-green-400 min-h-[50px] w-full bg-amber-400 hover:bg-amber-300">
                 <span className="text-lg mr-2">💬</span>
                 <span className="font-black text-center text-slate-50 bg-amber-400 hover:bg-amber-300">Expert Advice</span>
               </Button>
