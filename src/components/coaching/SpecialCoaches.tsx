@@ -105,7 +105,7 @@ export function SpecialCoaches() {
         <Card className="relative overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-3 border-emerald-200 bg-gradient-to-br from-emerald-50 to-green-50">
           <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-600 to-green-600" />
           
-          <CardContent className="p-8">
+          <CardContent className="p-8 px-[42px] py-[42px] mx-[10px] my-[10px]">
             <div className="flex items-center gap-4 mb-6">
               <div className="relative">
                 <div className="w-20 h-20 bg-gradient-to-r from-emerald-600 to-green-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg">
@@ -182,11 +182,11 @@ export function SpecialCoaches() {
               </div>
             </div>
 
-            <Button className="w-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 transition-all duration-200 transform hover:scale-105 shadow-lg" size="lg" onClick={() => {
+            <Button size="lg" onClick={() => {
             const message = "Hello! I'm interested in Sammy's VIP Writing Skills Transformation program (Band 5 to 6.5+). Could you provide details about the 15-20 session course and pricing?";
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/+31631267353?text=${encodedMessage}`, '_blank');
-          }}>
+          }} className="w-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 transition-all duration-200 transform hover:scale-105 shadow-lg text-sm">
               <PenTool className="h-5 w-5 mr-2" />
               Experience Sammy's Writing Magic
               <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
