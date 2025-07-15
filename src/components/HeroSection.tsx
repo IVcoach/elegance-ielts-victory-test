@@ -4,17 +4,11 @@ import { Award, Trophy, Send, CheckCircle, MessageCircle, Users, Globe } from "l
 import { useStarEffect } from "@/hooks/useStarEffect";
 export function HeroSection() {
   const createStarEffect = useStarEffect();
-  const handleFreeResources = (e: React.MouseEvent) => {
+  const handleTelegramResources = (e: React.MouseEvent) => {
     createStarEffect(e);
     window.open("https://t.me/ieltstori", "_blank", "noopener,noreferrer");
   };
-  
-  const handleFreeAssessment = (e: React.MouseEvent) => {
-    createStarEffect(e);
-    window.location.href = "/test";
-  };
-  
-  const handleConnectMentor = (e: React.MouseEvent) => {
+  const handleWhatsAppContact = (e: React.MouseEvent) => {
     createStarEffect(e);
     const text = "Hello! I'm interested in IELTS coaching and would like more information about your programs.";
     const encodedText = encodeURIComponent(text);
@@ -37,7 +31,7 @@ export function HeroSection() {
       <div className="container mx-auto max-w-7xl relative z-10 rounded-lg">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content - Order 2 on mobile (below image) */}
-          <div className="animate-fade-in order-2 lg:order-1 text-center lg:text-left">
+          <div className="animate-fade-in order-2 text-center lg:text-left">
             {/* Main Heading */}
             <div className="mb-6">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4 text-center px-0 mx-0 my-[30px]">
@@ -61,34 +55,39 @@ export function HeroSection() {
                 <CheckCircle className="h-6 w-6 text-orange-600" />
                 <span className="text-lg font-bold text-gray-900">Officially Verified Coach</span>
               </div>
-              <div className="space-y-2 text-center lg:text-left">
+              <div className="space-y-1 text-center lg:text-left">
                 <p className="text-sm text-gray-800 font-medium flex items-center gap-2 justify-center lg:justify-start">
-                  <span className="text-green-600 text-lg">✓</span>
+                  <CheckCircle className="h-3 w-3 text-orange-600" />
                   Cambridge University CERF Standards Certified
                 </p>
                 <p className="text-sm text-gray-800 font-medium flex items-center gap-2 justify-center lg:justify-start">
-                  <span className="text-green-600 text-lg">✓</span>
+                  <CheckCircle className="h-3 w-3 text-orange-600" />
                   IDP Education Protocols Verified
                 </p>
-                <p className="text-sm text-gray-700 font-medium flex items-center gap-2 justify-center lg:justify-start">
-                  <span className="text-green-600 text-lg">✓</span>
+                <p className="text-xs text-gray-700 font-medium flex items-center gap-2 justify-center lg:justify-start">
+                  <Award className="h-3 w-3 text-amber-600" />
                   Company License: 000061974544 (Netherlands)
                 </p>
               </div>
             </div>
             
-            {/* Three Required Action Buttons */}
+            {/* Redesigned Action Buttons */}
             <div className="flex flex-col gap-3 mb-6 max-w-md mx-auto lg:mx-0">
-              <Button onClick={handleFreeResources} size="lg" className="bg-gradient-to-r from-blue-900 to-blue-950 hover:from-blue-950 hover:to-slate-900 text-white font-bold py-5 px-4 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-800 min-h-[50px] w-full">
-                <span className="font-bold text-white text-center w-full text-sm md:text-base">Free Resources</span>
+              <Button asChild size="lg" className="bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white font-bold text-base py-5 px-6 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-orange-400 min-h-[50px] w-full">
+                <Link to="/test" onClick={createStarEffect} className="flex items-center justify-center gap-2">
+                  
+                  <span className="font-black text-center text-slate-950">Start Free Assessment</span>
+                </Link>
               </Button>
               
-              <Button onClick={handleFreeAssessment} size="lg" className="bg-gradient-to-r from-blue-700 to-blue-800 hover:from-blue-800 hover:to-blue-900 text-white font-bold py-5 px-4 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-600 min-h-[50px] w-full">
-                <span className="font-bold text-white text-center w-full text-sm md:text-base">Free Assessment</span>
+              <Button onClick={handleTelegramResources} size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-base py-5 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-blue-400 min-h-[50px] w-full">
+                <span className="text-lg mr-2 text-slate-950">Free Expert Advice</span>
+                
               </Button>
               
-              <Button onClick={handleConnectMentor} size="lg" className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold py-5 px-4 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-green-500 min-h-[50px] w-full">
-                <span className="font-bold text-white text-center w-full text-xs md:text-sm lg:text-base">Connect to your IELTS Mentor</span>
+              <Button onClick={handleWhatsAppContact} size="lg" className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-bold text-base py-5 shadow-2xl transform hover:scale-105 transition-all duration-300 border-2 border-green-400 min-h-[50px] w-full">
+                <span className="text-lg mr-2">💬</span>
+                <span className="font-black text-center text-slate-50 bg-amber-400 hover:bg-amber-300">Expert Advice</span>
               </Button>
             </div>
             
@@ -113,8 +112,8 @@ export function HeroSection() {
             </div>
           </div>
           
-          {/* Image - Order 1 on mobile (below header, above content) */}
-          <div className="relative animate-fade-in order-1 lg:order-2">
+          {/* Image - Order 1 on mobile (above content) */}
+          <div className="relative animate-fade-in order-1">
             {/* Enhanced Image Container */}
             <div className="relative max-w-lg mx-auto">
               <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white/70 backdrop-blur-sm transform hover:scale-105 transition-transform duration-300 relative">
