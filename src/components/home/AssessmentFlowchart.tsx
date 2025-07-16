@@ -118,16 +118,7 @@ export function AssessmentFlowchart() {
         {/* WhatsApp Contact Information */}
         <div className="text-center">
           <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 inline-block">
-            <CardContent className="p-6">
-              <div className="flex items-center gap-3 justify-center mb-3">
-                <MessageCircle className="h-6 w-6 text-green-600" />
-                <h4 className="text-lg font-bold text-gray-900">WhatsApp Contact</h4>
-              </div>
-              <p className="text-gray-700 mb-3">Send all assessments and receive results via:</p>
-              <Button onClick={() => handleWhatsAppContact("Hello! I'm interested in the complete IELTS assessment process. Please guide me through the steps.")} className="bg-green-600 hover:bg-green-700 text-white font-bold">
-                📱 +31 631 267 353
-              </Button>
-            </CardContent>
+            
           </Card>
         </div>
       </div>
