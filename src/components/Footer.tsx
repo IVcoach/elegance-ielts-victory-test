@@ -48,7 +48,7 @@ export function Footer() {
           {/* Main Content with Enhanced Design */}
           <div className="text-center bg-gradient-to-r from-pink-50 via-blue-50 to-purple-50 p-10 rounded-3xl border-3 border-gradient shadow-2xl">
             {/* Consolidated Get In Touch Section */}
-            <div className="mb-8">
+            <div className="mb-8 py-[10px] my-[10px] mx-0 px-0 rounded">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center justify-center gap-2">
                 <Star className="h-6 w-6 text-amber-500" />
                 Get In Touch
