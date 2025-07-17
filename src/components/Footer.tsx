@@ -70,14 +70,10 @@ export function Footer() {
                   </div>
                   
                   <div className="flex items-center justify-center gap-3">
-                    <div className="bg-blue-600 p-2 rounded-full">
-                      <Mail className="h-4 w-4 text-white" />
-                    </div>
+                    
                     <div className="text-left">
-                      <div className="text-gray-800 font-bold text-sm">Email Support</div>
-                      <a href="mailto:vcelegance@consultant.com" className="text-blue-600 hover:text-blue-700 transition-colors font-bold text-lg hover:underline px-0 py-[10px]">
-                        vcelegance@consultant.com
-                      </a>
+                      
+                      
                     </div>
                   </div>
                 </div>
