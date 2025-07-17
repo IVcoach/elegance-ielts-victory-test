@@ -55,7 +55,7 @@ export function Footer() {
                 <Star className="h-6 w-6 text-amber-500" />
               </h3>
               
-              <div className="bg-white/80 backdrop-blur-sm p-6 shadow-lg border-2 border-blue-200 transform hover:scale-105 transition-all max-w-md my-0 px-[46px] rounded-xl py-[76px] mx-[220px]">
+              <div className="bg-white/80 backdrop-blur-sm p-6 shadow-lg border-2 border-blue-200 transform hover:scale-105 transition-all max-w-md my-0 px-[46px] rounded-xl py-[76px] mx-0">
                 <div className="space-y-4">
                   <div className="flex items-center justify-center gap-3">
                     <div className="bg-green-600 p-2 rounded-full">
