@@ -55,29 +55,7 @@ export function Footer() {
                 <Star className="h-6 w-6 text-amber-500" />
               </h3>
               
-              <div className="bg-white/80 backdrop-blur-sm p-6 shadow-lg border-2 border-blue-200 transform hover:scale-105 transition-all max-w-md my-0 px-[46px] rounded-xl py-[76px] mx-0">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-center gap-3">
-                    <div className="bg-green-600 p-2 rounded-full">
-                      <Phone className="h-4 w-4 text-white" />
-                    </div>
-                    <div className="text-left">
-                      <div className="text-gray-800 font-bold text-sm">WhatsApp Support</div>
-                      <a href="https://wa.me/+31631267353" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 transition-colors font-bold text-lg hover:underline">
-                        +31 631 267 353
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center justify-center gap-3">
-                    
-                    <div className="text-left">
-                      
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
               
               {/* Enhanced Social Media Links */}
               <div className="flex items-center justify-center gap-8 mb-6 mt-6">
