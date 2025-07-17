@@ -61,12 +61,12 @@ export function Footer() {
               <div className="flex items-center justify-center gap-8 mb-6 mt-6">
                 <a href="https://t.me/ieltstori" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-lg border-2 border-blue-200 hover:border-blue-400 transition-all transform hover:scale-110 px-[46px] py-[6px]">
                   
-                  <span className="font-bold text-gray-800 group-hover:text-blue-600 transition-colors">@ieltstori</span>
+                  <span className="font-bold text-gray-800 group-hover:text-blue-600 transition-colors my-[10px] mx-[10px] py-[10px]">@ieltstori</span>
                 </a>
                 
-                <a href="https://www.instagram.com/ielts.tory" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-lg border-2 border-pink-200 hover:border-pink-400 transition-all transform hover:scale-110 px-[46px] py-[6px]">
+                <a href="https://www.instagram.com/ielts.tory" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 bg-white/80 backdrop-blur-sm p-4 rounded-2xl shadow-lg border-2 border-pink-200 hover:border-pink-400 transition-all transform hover:scale-110 my-[10px] mx-0 px-[30px] py-[20px]">
                   
-                  <span className="font-bold text-gray-800 group-hover:text-pink-600 transition-colors">Instagram</span>
+                  <span className="font-bold text-gray-800 group-hover:text-pink-600 transition-colors my-[10px] text-left">Instagram</span>
                 </a>
               </div>
             </div>
